@@ -2,20 +2,21 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from 'firebase/database';
+
+import { getAuth } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC4uqcO99dlkSNHqi0HQZr2Adh3NFxOYR8",
-  authDomain: "uiux-courseenquiryform.firebaseapp.com",
-  databaseURL: "https://uiux-courseenquiryform-default-rtdb.firebaseio.com",
-  projectId: "uiux-courseenquiryform",
-  storageBucket: "uiux-courseenquiryform.appspot.com",
-  messagingSenderId: "332629674053",
-  appId: "1:332629674053:web:002d0f769df1deb8373b2c",
-  measurementId: "G-B17EZ6MNRD"
+  apiKey: "AIzaSyCqL7lnooyjmNGAOB5nc4yZcb6FKu8e-2A",
+  authDomain: "trafyai-loginsignup.firebaseapp.com",
+  projectId: "trafyai-loginsignup",
+  storageBucket: "trafyai-loginsignup.appspot.com",
+  messagingSenderId: "344792634329",
+  appId: "1:344792634329:web:d343ac2461dd2a731dffc8"
 };
 
 // Initialize Firebase
@@ -24,3 +25,6 @@ const database = getDatabase(app);
 const analytics = getAnalytics(app);
 
 export { database };
+
+
+export const auth = getAuth(app);

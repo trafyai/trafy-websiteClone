@@ -12,7 +12,7 @@ const Course = () => {
       </Head>
         <UiuxCourse/>
         <DigitalMarketingCourse/>
-        <ArtificialIntelligenceCourse/>
+        {/* <ArtificialIntelligenceCourse/> */}
     </div>
   )
 }
