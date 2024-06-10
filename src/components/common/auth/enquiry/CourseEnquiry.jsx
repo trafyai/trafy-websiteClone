@@ -4,9 +4,6 @@ import { useState } from 'react';
 import '@styles/common/auth/Enquiry.css';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
-import { database } from '@firebase';
-// Adjust the import path as necessary
-import { ref, set } from 'firebase/database';
 import axios from 'axios';
 
 const EnquiryForm = (props) => {
@@ -25,9 +22,6 @@ const EnquiryForm = (props) => {
         phone: "",
         message: "",
     });
-
-
-    console.log('Form Type:', props.formType);
 
     const [isPopupVisible, setIsPopupVisible] = useState(true);
     const router = useRouter();
@@ -96,14 +90,8 @@ const EnquiryForm = (props) => {
             }
         });
 
-        // Store form data in Firebase Realtime Database
+        // Store form data in the backend
         try {
-            const formType = props.formType || 'defaultFormType'; // Fallback to a default form type
-            const formPath = `${formType}/${Date.now()}`;
-            const formRef = ref(database, formPath);
-            await set(formRef, formData);
-
-            // Proceed with additional form submission actions asynchronously
             const res = await fetch(`${props.link}`, {
                 method: 'POST',
                 headers: {
@@ -117,7 +105,7 @@ const EnquiryForm = (props) => {
                     email: formData.email,
                     fname: formData.fname,
                     course: props.name
-                }, { timeout: 10000 });
+                }, { timeout: 15000 });
 
                 setFormData({
                     fname: "",

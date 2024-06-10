@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '@styles/common/auth/Enquiry.css';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
-const DemoEnquiry = (props) => {
+const EnquiryForm = (props) => {
     const [formData, setFormData] = useState({
         fname: "",
         lname: "",
@@ -24,7 +24,6 @@ const DemoEnquiry = (props) => {
     });
 
     const [isPopupVisible, setIsPopupVisible] = useState(true);
-
     const router = useRouter();
 
     const handleChange = (e) => {
@@ -91,9 +90,9 @@ const DemoEnquiry = (props) => {
             }
         });
 
-        // Proceed with form submission and additional actions asynchronously
+        // Store form data in the backend
         try {
-            const res = await fetch('https://uiux-courseenquiryform-default-rtdb.firebaseio.com/UIUX-CourseDemoEnquiryData.json', {
+            const res = await fetch(`${props.link}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -102,11 +101,11 @@ const DemoEnquiry = (props) => {
             });
 
             if (res.ok) {
-                await axios.post("http://localhost:5002/course-enquiry/submit", {
+                await axios.post("https://trafyai.com/freedemo-form/submit", {
                     email: formData.email,
                     fname: formData.fname,
                     course: props.name
-                }, { timeout: 10000 });
+                }, { timeout: 15000 });
 
                 setFormData({
                     fname: "",
@@ -115,8 +114,7 @@ const DemoEnquiry = (props) => {
                     phone: "",
                     message: ""
                 });
-            } 
-            else {
+            } else {
                 Swal.fire({
                     title: 'Error',
                     text: 'Error: ' + res.status,
@@ -143,7 +141,7 @@ const DemoEnquiry = (props) => {
                         <button className="close-popup-button" onClick={() => setIsPopupVisible(false)}>x</button>
                         <form className="enquiryform" onSubmit={handleSubmit} autoComplete="off" method="POST">
                             <div className="enquiryform-heading">
-                                <h2>Get a Free Demo</h2>
+                                <h2>Get Started With</h2>
                                 <h4>{props.name}</h4>
                             </div>
                             <div className="enquiryname">
@@ -176,4 +174,4 @@ const DemoEnquiry = (props) => {
     );
 }
 
-export default DemoEnquiry;
+export default EnquiryForm;

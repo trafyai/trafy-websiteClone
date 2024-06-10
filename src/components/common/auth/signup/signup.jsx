@@ -268,6 +268,7 @@ const Signup = () => {
         }
 
         try {
+<<<<<<< HEAD
             await signUpWithEmail(email, password);
             router.push('/');
         } catch (error) {
@@ -279,16 +280,60 @@ const Signup = () => {
                 setShowModal(true); // Show the modal
             }
             console.log(error);
+=======
+            const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+            const user = userCredential.user;
+
+            // Store user details in Firebase Realtime Database
+            const databaseRef = firebase.database().ref('usersData');
+            const newUserRef = databaseRef.push();
+            await newUserRef.set({
+                uid: user.uid,
+                email: user.email,
+                firstName: fname,
+                lastName: lname
+            });
+
+            alert("Account Created");
+            router.push('/login');
+        } catch (err) {
+            alert(err.message);
+>>>>>>> origin/main
         }
     }
 
     const handleGoogleSignIn = async () => {
         try {
+<<<<<<< HEAD
             await googleSignIn();
             router.push('/');
         } catch (error) {
             console.log(error);
+=======
+            const provider = new firebase.auth.GoogleAuthProvider();
+            const result = await firebase.auth().signInWithPopup(provider);
+            const user = result.user;
+
+            // Extract user's first and last name from the displayName
+            const [firstName, ...lastName] = user.displayName.split(' ');
+
+            // Store user details in Firebase Realtime Database
+            const databaseRef = firebase.database().ref('usersData');
+            const newUserRef = databaseRef.push();
+            await newUserRef.set({
+                uid: user.uid,
+                email: user.email,
+                firstName: firstName,
+                lastName: lastName.join(' ')
+            });
+
+            alert("Signup with Google Successfully");
+            router.push('/login'); // Redirect to login after successful sign in
+        } catch (err) {
+            alert(err.message);
+>>>>>>> origin/main
         }
+
     }
 
     const togglePasswordVisibility = () => {

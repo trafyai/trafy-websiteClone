@@ -75,7 +75,10 @@ const CourseHeroData=[
         levelH:"Level",
         level:"Advanced",
         durationH:"Duration",
-        duration:"4 weeks"
+        duration:"4 weeks",
+        formLink:"https://courseenquiryform-default-rtdb.firebaseio.com/DM-CourseEnquiryFormData.json",
+        demoLink:"https://uiux-advance-formdata-default-rtdb.firebaseio.com/DM-FreeDemoFormData.json",
+
 
     },
     {
@@ -106,9 +109,9 @@ const CourseHeroData=[
         level:"Beginner",
         durationH:"Duration",
         duration:"4 weeks",
-        formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersForm.json",
+        formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json",
         formCourse:"UI/UX Beginner",
-        demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-BeginnersDemoForm.json",
+        demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-BeginnersFreeDemoForm.json",
     },
     {
         id:"Design-and-Develop-Multi-Device-UIUX",
@@ -138,7 +141,7 @@ const CourseHeroData=[
         level:"Intermediate",
         durationH:"Duration",
         duration:"8 weeks",
-        formLink:"https://uiux-intermediate-formdata-default-rtdb.firebaseio.com/UIUX-IntermediateForm.json",
+        formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-IntermediateEnquiryFormData.json",
         formCourse:"UI/UX Intermediate",
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-IntermediateFreeDemoForm.json"
     },
@@ -170,7 +173,7 @@ const CourseHeroData=[
         level:"Advanced",
         durationH:"Duration",
         duration:"12 weeks",
-        formLink:"https://uiux-advance-formdata-default-rtdb.firebaseio.com/UIUX-AdvanceForm.json",
+        formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-AdvanceEnquiryFormData.json",
         formCourse:"UI/UX Advanced",
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-AdvanceFreeDemoForm.json"
     }
