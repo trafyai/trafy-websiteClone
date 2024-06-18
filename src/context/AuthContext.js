@@ -49,9 +49,16 @@ export const AuthContextProvider = ({ children }) => {
             throw error;
         }
     };
+    const resetPassword = async (email) => {
+        try {
+            await sendPasswordResetEmail(auth, email);
+        } catch (error) {
+            throw error;
+        }
+    };
 
     return (
-        <AuthContext.Provider value={{ user, setUser, googleSignIn, logOut, signUpWithEmail, signInWithEmail, loading }}>
+        <AuthContext.Provider value={{ user, setUser, googleSignIn, logOut, signUpWithEmail, signInWithEmail, resetPassword, loading }}>
             {!loading && children}
         </AuthContext.Provider>
     );
