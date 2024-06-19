@@ -1,13 +1,82 @@
-'use client'
-import React, { useState } from "react";
-import './UserProfile.css';
+'use client';
 
-export default function UserProfile() {
+import React, { useState, useEffect } from "react";
+import './UserProfile.css';
+import { auth, database } from '@/firebase';
+import { ref, get } from 'firebase/database';
+import { useRouter } from 'next/navigation';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+
+const UserProfile = () => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
     const [showContent, setShowContent] = useState("profile");
+
+    const router = useRouter();
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                const userRef = ref(database, 'usersData/' + currentUser.uid);
+                get(userRef).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        setFirstName(data.firstName || '');
+                        setLastName(data.lastName || '');
+                        setEmail(data.email || '');
+                        setUser(data); // Optional: set the entire user data if needed
+                    } else {
+                        console.log("No data available");
+                    }
+                    setLoading(false);
+                }).catch((error) => {
+                    console.error(error);
+                    setLoading(false);
+                });
+            } else {
+                router.push('/login');
+            }
+        });
+    }, [router]);
+
+    const handleUpdate = () => {
+        if (user) {
+            const updates = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email
+            };
+
+            const userRef = ref(database, 'usersData/' + user.uid);
+            update(userRef, updates)
+                .then(() => {
+                    alert("Profile updated successfully");
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("Error updating profile");
+                });
+        }
+    };
+
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
+            router.push('/login');
+        }).catch((error) => {
+            console.error(error);
+        });
+    };
 
     const showProfileContent = (section) => {
         setShowContent(section);
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <main>
@@ -16,7 +85,7 @@ export default function UserProfile() {
                     <div className="user-dashboard">
                         <div className="user-picture">
                             <div className="user-pic"></div>
-                            <div className="user-name"><h2>John Doe</h2></div>
+                            <div className="user-name"><h2>{firstName} {lastName}</h2></div>
                         </div>
                         <div className="user-profile-contents">
                             <div className={"profile" + (showContent === "profile" ? " active" : "")} onClick={() => showProfileContent("profile")}><h3>Profile</h3></div>
@@ -34,26 +103,57 @@ export default function UserProfile() {
                             <form className="profile-form">
                                 <div className="Fname">
                                     <label htmlFor="fname">First name:</label>
-                                    <input type="text" placeholder="Enter first name" autoComplete="off" name="fname" className="fname" />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter first name"
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                        className="fname"
+                                        autoComplete="off"
+                                    />
                                 </div>
                                 <div className="Lname">
                                     <label htmlFor="lname">Last name:</label>
-                                    <input type="text" placeholder="Enter last name" autoComplete="off" name="lname" className="lname" />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter last name"
+                                        value={lastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                        className="lname"
+                                        autoComplete="off"
+                                    />
                                 </div>
                                 <div className="Pemail">
                                     <label htmlFor="email">Email:</label>
-                                    <input type="text" placeholder="Enter email" autoComplete="off" name="email" className="email" />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter email"
+                                        value={email}
+                                        className="email"
+                                        autoComplete="off"
+                                        // disabled // Disable email update for simplicity
+                                    />
                                 </div>
                                 <div className="Phone">
                                     <label htmlFor="phno">Phone number:</label>
-                                    <input type="text" placeholder="Enter phone number" autoComplete="off" name="phno" className="phno" />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter phone number"
+                                        className="phno"
+                                        autoComplete="off"
+                                    />
                                 </div>
                                 <div className="Country">
                                     <label htmlFor="country">Country:</label>
-                                    <input type="text" placeholder="Enter country" autoComplete="off" name="country" className="country" />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter country"
+                                        className="country"
+                                        autoComplete="off"
+                                    />
                                 </div>
                                 <div className="save-button">
-                                    <button className="save-changes">Save</button>
+                                    <button className="save-changes" onClick={handleUpdate}>Save</button>
                                 </div>
                             </form>
                         </div>
@@ -67,13 +167,36 @@ export default function UserProfile() {
                                 <form className="security-form">
                                     <div className="Pemail">
                                         <label htmlFor="email">Email:</label>
-                                        <input type="text" placeholder="Enter email" autoComplete="off" name="email" className="email" />
+                                        <input
+                                            type="text"
+                                            placeholder="Enter email"
+                                            className="email"
+                                            autoComplete="off"
+                                            // disabled // Keeping it simple
+                                        />
                                     </div>
                                     <div className="Ppassword">
-                                        <label htmlFor="password">Password:</label>
-                                        <input type="text" placeholder="Enter current password" autoComplete="off" name="password" className="password" />
-                                        <input type="text" placeholder="Enter new password" autoComplete="off" name="password" className="password" />
-                                        <input type="text" placeholder="Re-type new password" autoComplete="off" name="password" className="password" />
+                                        <label htmlFor="current-password">Current Password:</label>
+                                        <input
+                                            type="password"
+                                            placeholder="Enter current password"
+                                            className="password"
+                                            autoComplete="off"
+                                        />
+                                        <label htmlFor="new-password">New Password:</label>
+                                        <input
+                                            type="password"
+                                            placeholder="Enter new password"
+                                            className="password"
+                                            autoComplete="off"
+                                        />
+                                        <label htmlFor="confirm-password">Confirm New Password:</label>
+                                        <input
+                                            type="password"
+                                            placeholder="Re-type new password"
+                                            className="password"
+                                            autoComplete="off"
+                                        />
                                     </div>
                                     <div className="save-button">
                                         <button className="change-password">Change Password</button>
@@ -113,4 +236,6 @@ export default function UserProfile() {
             </div>
         </main>
     );
-}
+};
+
+export default UserProfile;

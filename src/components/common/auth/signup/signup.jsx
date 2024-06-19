@@ -1,248 +1,3 @@
-<<<<<<< HEAD
-=======
-
-// 'use client';
-// import React, { useState } from "react";
-// import '@styles/common/auth/login.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-// import Link from "next/link";
-// import { useRouter } from 'next/navigation';
-// import { UserAuth } from "@context/AuthContext";
-// import Modal from '@components/Modal';
-
-// const Signup = () => {
-//     const [fname, setFname] = useState('');
-//     const [lname, setLname] = useState('');
-//     const [email, setEmail] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [confirmpassword, setConfirmPassword] = useState('');
-//     const [showPassword, setShowPassword] = useState(false);
-//     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-//     const [fnameError, setFnameError] = useState('');
-//     const [lnameError, setLnameError] = useState('');
-//     const [emailError, setEmailError] = useState('');
-//     const [passwordError, setPasswordError] = useState('');
-//     const [confirmPasswordError, setConfirmPasswordError] = useState('');
-//     const [allFieldError, setAllFieldError] = useState('');
-//     const [firebaseError, setFirebaseError] = useState(''); // State to handle Firebase errors
-//     const [showModal, setShowModal] = useState(false); // State to control modal visibility
-//     const router = useRouter();
-
-//     const { googleSignIn, signUpWithEmail } = UserAuth();
-
-//     const validateFname = (value) => {
-//         if (!/^[a-zA-Z]*$/.test(value)) {
-//             setFnameError("First name should contain only alphabets.");
-//         } else {
-//             setFnameError('');
-//         }
-//     }
-
-//     const validateLname = (value) => {
-//         if (!/^[a-zA-Z]*$/.test(value)) {
-//             setLnameError("Last name should contain only alphabets.");
-//         } else {
-//             setLnameError('');
-//         }
-//     }
-
-//     const validateEmail = (value) => {
-//         if (!/^\w+([-]?\w+)@\w+([-]?\w+)(\.\w{2,3})+$/.test(value)) {
-//             setEmailError("Please enter a valid email address.");
-//         } else {
-//             setEmailError('');
-//         }
-//     }
-
-//     const validatePassword = (value) => {
-//         if (value.length < 8) {
-//             setPasswordError("Password should be at least 8 characters long.");
-//         } else {
-//             setPasswordError('');
-//         }
-//     }
-
-//     const validateConfirmPassword = (value) => {
-//         if (value !== password) {
-//             setConfirmPasswordError("Passwords do not match.");
-//         } else {
-//             setConfirmPasswordError('');
-//         }
-//     }
-
-//     const handleSumbit = async (e) => {
-//         e.preventDefault();
-
-//         // Reset previous error messages
-//         setAllFieldError('');
-//         setFirebaseError('');
-
-//         // Form validation
-//         if (!fname.trim() || !lname.trim() || !email.trim() || !password.trim() || !confirmpassword.trim()) {
-//             setAllFieldError("Please fill in all fields.");
-//             return;
-//         }
-
-//         if (fnameError || lnameError || emailError || passwordError || confirmPasswordError) {
-//             setAllFieldError("Please correct the errors before submitting.");
-//             return;
-//         }
-
-//         try {
-//             await signUpWithEmail(email, password);
-//             router.push('/');
-//         } catch (error) {
-//             if (error.code === 'auth/email-already-in-use') {
-//                 setFirebaseError('An account with this email already exists. Please log in.');
-//                 setShowModal(true); // Show the modal
-//             } else {
-//                 setFirebaseError('An error occurred during sign up. Please try again.');
-//                 setShowModal(true); // Show the modal
-//             }
-//             console.log(error);
-//         }
-//     }
-
-//     const handleGoogleSignIn = async () => {
-//         try {
-//             await googleSignIn();
-//             router.push('/');
-//         } catch (error) {
-//             console.log(error);
-//         }
-
-//     }
-
-//     const togglePasswordVisibility = () => {
-//         setShowPassword(!showPassword);
-//     }
-
-//     const toggleConfirmPasswordVisibility = () => {
-//         setShowConfirmPassword(!showConfirmPassword);
-//     }
-
-//     const closeModal = () => {
-//         setShowModal(false);
-//     }
-
-//     return (
-//         <div className="signup">
-//             <div className="signup-container">
-//                 <div className="signup-heading"><h1>Create Your Account</h1></div>
-//                 {firebaseError && <p style={{color:"red",paddingBottom:"6px"}}>{firebaseError}</p>}
-//                 {allFieldError && <div className="error-message">{allFieldError}</div>}
-//                 <form className="form" onSubmit={handleSumbit}>
-//                     <div className="Name">
-//                         <div className="fname">
-//                             <input
-//                                 type="text"
-//                                 value={fname}
-//                                 placeholder="Enter first name"
-//                                 autoComplete="off"
-//                                 name="fname"
-//                                 className="fname-holder"
-//                                 onChange={(e) => { setFname(e.target.value); validateFname(e.target.value); }}
-//                                 onBlur={(e) => validateFname(e.target.value)}
-//                             />
-//                             {fnameError && <span className="error-message" style={{ width: "100%" }}>{fnameError}</span>}
-//                         </div>
-//                         <div className="lname">
-//                             <input
-//                                 type="text"
-//                                 value={lname}
-//                                 placeholder="Enter last name"
-//                                 autoComplete="off"
-//                                 name="lname"
-//                                 className="lname-holder"
-//                                 onChange={(e) => { setLname(e.target.value); validateLname(e.target.value); }}
-//                                 onBlur={(e) => validateLname(e.target.value)}
-//                             />
-//                             {lnameError && <span className="error-message">{lnameError}</span>}
-//                         </div>
-//                     </div>
-//                     <div className="Email">
-//                         <input
-//                             type="text"
-//                             value={email}
-//                             placeholder="Enter email"
-//                             required
-//                             autoComplete="off"
-//                             name="email"
-//                             className="email-holder"
-//                             onChange={(e) => { setEmail(e.target.value); validateEmail(e.target.value); }}
-//                             onBlur={(e) => validateEmail(e.target.value)}
-//                         />
-//                         {emailError && <span className="error-message">{emailError}</span>}
-//                     </div>
-//                     <div className="Password">
-//                         <div className="password-input">
-//                             <input
-//                                 type={showPassword ? "text" : "password"}
-//                                 value={password}
-//                                 placeholder="Enter password"
-//                                 required
-//                                 autoComplete="off"
-//                                 name="password"
-//                                 className="password-holder"
-//                                 onChange={(e) => { setPassword(e.target.value); validatePassword(e.target.value); }}
-//                                 onBlur={(e) => validatePassword(e.target.value)}
-//                             />
-//                             <span className="password-toggle" onClick={togglePasswordVisibility}>
-//                                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-//                             </span>
-//                         </div>
-//                         {passwordError && <span className="error-message">{passwordError}</span>}
-//                     </div>
-//                     <div className="Password">
-//                         <div className="confirm-password-input">
-//                             <input
-//                                 type={showConfirmPassword ? "text" : "password"}
-//                                 value={confirmpassword}
-//                                 placeholder="Confirm password"
-//                                 required
-//                                 autoComplete="off"
-//                                 name="confirmpassword"
-//                                 className="password-holder"
-//                                 onChange={(e) => { setConfirmPassword(e.target.value); validateConfirmPassword(e.target.value); }}
-//                                 onBlur={(e) => validateConfirmPassword(e.target.value)}
-//                             />
-//                             <span className="password-toggle" onClick={toggleConfirmPasswordVisibility}>
-//                                 <FontAwesomeIcon icon={showConfirmPassword ? faEyeSlash : faEye} />
-//                             </span>
-//                         </div>
-//                         {confirmPasswordError && <span className="error-message">{confirmPasswordError}</span>}
-//                     </div>
-//                     <div className="SignUp-button">
-//                         <button className="signup-btn" type="submit">Sign Up</button>
-//                     </div>
-
-//                     <div className="divider"></div>
- 
-//                     <div className="google-signin">
-//                         <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Sign up with Google</button>
-//                     </div>
-
-//                     <p>Already have an account? <Link href="/login"> Login</Link> </p>
-//                 </form>
-//             </div>
-//             {/* <Modal show={showModal} handleClose={closeModal}>
-//                 <p>{firebaseError}</p>
-//                 {firebaseError === 'An error occurred during sign up. Please try again.' && (
-//                     <button onClick={closeModal}>Close</button>
-//                 )}
-//                 {firebaseError === 'An account with this email already exists. Please log in.' && (
-//                     <Link href="/login">
-//                         <button onClick={closeModal}>Login</button>
-//                     </Link>
-//                 )}
-//             </Modal> */}
-//         </div>
-//     );
-// }
-
-// export default Signup;
->>>>>>> 6f3dad6f4d646ad09bd808fe2dbfafe319791a8d
 'use client';
 
 import React, { useState } from "react";
@@ -251,15 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-<<<<<<< HEAD
 import Modal from '@components/Modal';
-=======
-import { UserAuth } from "@context/AuthContext";
 import zxcvbn from 'zxcvbn';
->>>>>>> 6f3dad6f4d646ad09bd808fe2dbfafe319791a8d
 
-// Using alias for firebase.js import
-import { auth, database } from '@/firebase'; 
+// Firebase imports
+import { auth, database } from '@/firebase';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
 
@@ -279,10 +30,8 @@ const Signup = () => {
     const [allFieldError, setAllFieldError] = useState('');
     const [firebaseError, setFirebaseError] = useState('');
     const [showModal, setShowModal] = useState(false);
-<<<<<<< HEAD
-=======
     const [passwordScore, setPasswordScore] = useState(0);
->>>>>>> 6f3dad6f4d646ad09bd808fe2dbfafe319791a8d
+
     const router = useRouter();
 
     const validateFname = (value) => {
@@ -318,12 +67,18 @@ const Signup = () => {
     };
 
     const validateConfirmPassword = (value) => {
-        if (value !== password && value) {
+        if (value !== password) {
             setConfirmPasswordError("Passwords do not match.");
         } else {
             setConfirmPasswordError('');
         }
     };
+
+    const handlePasswordChange = (value) => {
+        setPassword(value);
+        validatePassword(value);
+        setPasswordScore(zxcvbn(value).score);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -342,12 +97,9 @@ const Signup = () => {
         }
 
         try {
-<<<<<<< HEAD
-            // Sign up with email and password
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // Store user details in Firebase Realtime Database
             const userRef = ref(database, 'usersData/' + user.uid);
             await set(userRef, {
                 uid: user.uid,
@@ -358,10 +110,6 @@ const Signup = () => {
 
             alert("Account Created");
             router.push('/login');
-=======
-            await signUpWithEmail(email, password);
-            router.push('/');
->>>>>>> 6f3dad6f4d646ad09bd808fe2dbfafe319791a8d
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
                 setFirebaseError('An account with this email already exists. Please log in.');
@@ -370,25 +118,18 @@ const Signup = () => {
                 setFirebaseError('An error occurred during sign up. Please try again.');
                 setShowModal(true);
             }
-<<<<<<< HEAD
             console.error(error);
-=======
-            console.log(error);
->>>>>>> 6f3dad6f4d646ad09bd808fe2dbfafe319791a8d
         }
     };
 
     const handleGoogleSignIn = async () => {
         try {
-<<<<<<< HEAD
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
-            // Extract user's first and last name from the displayName
             const [firstName, ...lastName] = user.displayName.split(' ');
 
-            // Store user details in Firebase Realtime Database
             const userRef = ref(database, 'usersData/' + user.uid);
             await set(userRef, {
                 uid: user.uid,
@@ -403,14 +144,6 @@ const Signup = () => {
             alert(err.message);
         }
     };
-=======
-            await googleSignIn();
-            router.push('/');
-        } catch (error) {
-            console.log(error);
-        }
-    }
->>>>>>> 6f3dad6f4d646ad09bd808fe2dbfafe319791a8d
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -423,12 +156,6 @@ const Signup = () => {
     const closeModal = () => {
         setShowModal(false);
     };
-
-    const handlePasswordChange = (value) => {
-        setPassword(value);
-        validatePassword(value);
-        setPasswordScore(zxcvbn(value).score);
-    }
 
     const renderPasswordStrength = (score) => {
         const strengthLabels = ["Weak", "Fair", "Good", "Strong", "Very Strong"];
@@ -524,10 +251,10 @@ const Signup = () => {
                             </span>
                         </div>
                         {passwordError && <span className="error-message">{passwordError}</span>}
-                        {password && renderPasswordStrength(passwordScore)}
+                        {renderPasswordStrength(passwordScore)}
                     </div>
                     <div className="Password">
-                        <div className="confirm-password-input">
+                        <div className="password-input">
                             <input
                                 type={showConfirmPassword ? "text" : "password"}
                                 value={confirmpassword}
@@ -545,22 +272,21 @@ const Signup = () => {
                         </div>
                         {confirmPasswordError && <span className="error-message">{confirmPasswordError}</span>}
                     </div>
-                    <div className="SignUp-button">
-                        <button className="signup-btn" type="submit">Sign Up</button>
+                    <div className="signup-buttons">
+                        <button className="signup-button" type="submit">Sign up</button>
+                        <button type="button" className="google-button" onClick={handleGoogleSignIn}>
+                            <img src="/assets/icons8-google.svg" alt="Google" />
+                            Sign up with Google
+                        </button>
                     </div>
-
-                    <div className="divider"></div>
-
-                    <div className="google-signin">
-                        <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Sign up with Google</button>
-                    </div>
-                    <p style={{fontSize:"12px",lineHeight:"150%"}}>By signing up, you agree to our <Link href="/terms-of-service">Terms of services</Link> and <Link href="/privacy-policy">Privacy Policy</Link>.</p>
-
-                    <p>Already have an account? <Link href="/login"> Login</Link> </p>
                 </form>
+                <div className="login-link">
+                    <p>Already have an account? <Link href="/login">Login</Link></p>
+                </div>
             </div>
+            {showModal && <Modal onClose={closeModal} title="Signup Error" message={firebaseError} />}
         </div>
     );
-}
+};
 
 export default Signup;
