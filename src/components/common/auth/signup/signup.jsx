@@ -256,9 +256,9 @@ import { ref, set } from 'firebase/database';
 import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
 
 // Using alias for firebase.js import
-import { auth, database } from '@/firebase'; 
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { ref, set } from 'firebase/database';
+// import { auth, database } from '@/firebase'; 
+// import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// import { ref, set } from 'firebase/database';
 
 const Signup = () => {
     const [fname, setFname] = useState('');
