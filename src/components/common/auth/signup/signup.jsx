@@ -1,4 +1,5 @@
 
+
 // 'use client';
 // import React, { useState } from "react";
 // import '@styles/common/auth/login.css';
@@ -241,17 +242,23 @@
 
 // export default Signup;
 'use client';
+
 import React, { useState } from "react";
 import '@styles/common/auth/login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-import { UserAuth } from "@context/AuthContext";
+import Modal from '@components/Modal';
 import zxcvbn from 'zxcvbn';
 import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, set } from 'firebase/database';
 import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
+
+// Using alias for firebase.js import
+import { auth, database } from '@/firebase'; 
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { ref, set } from 'firebase/database';
 
 const Signup = () => {
     const [fname, setFname] = useState('');
@@ -270,9 +277,8 @@ const Signup = () => {
     const [firebaseError, setFirebaseError] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [passwordScore, setPasswordScore] = useState(0);
-    const router = useRouter();
 
-    const { googleSignIn, signUpWithEmail } = UserAuth();
+    const router = useRouter();
 
     const validateFname = (value) => {
         if (!/^[a-zA-Z]*$/.test(value)) {
@@ -280,7 +286,7 @@ const Signup = () => {
         } else {
             setFnameError('');
         }
-    }
+    };
 
     const validateLname = (value) => {
         if (!/^[a-zA-Z]*$/.test(value)) {
@@ -288,7 +294,7 @@ const Signup = () => {
         } else {
             setLnameError('');
         }
-    }
+    };
 
     const validateEmail = (value) => {
         if (!/^\w+([-]?\w+)@\w+([-]?\w+)(\.\w{2,3})+$/.test(value)) {
@@ -296,7 +302,7 @@ const Signup = () => {
         } else {
             setEmailError('');
         }
-    }
+    };
 
     const validatePassword = (value) => {
         if (value.length < 8) {
@@ -304,7 +310,7 @@ const Signup = () => {
         } else {
             setPasswordError('');
         }
-    }
+    };
 
     const validateConfirmPassword = (value) => {
         if (value !== password && value) {
@@ -312,9 +318,9 @@ const Signup = () => {
         } else {
             setConfirmPasswordError('');
         }
-    }
+    };
 
-    const handleSumbit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         setAllFieldError('');
@@ -345,16 +351,11 @@ const Signup = () => {
             router.push('/'); // Correct usage of router.push
 
         } catch (error) {
-            if (error.code === 'auth/email-already-in-use') {
                 setFirebaseError('An account with this email already exists. Please log in.');
                 setShowModal(true);
-            } else {
-                setFirebaseError('An error occurred during sign up. Please try again.');
-                setShowModal(true);
-            }
-            console.log(error);
+            console.error(error);
         }
-    }
+    };
 
     const handleGoogleSignIn = async () => {
         try {
@@ -377,19 +378,19 @@ const Signup = () => {
         } catch (err) {
             alert(err.message);
         }
-    }
+    };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
-    }
+    };
 
     const toggleConfirmPasswordVisibility = () => {
         setShowConfirmPassword(!showConfirmPassword);
-    }
+    };
 
     const closeModal = () => {
         setShowModal(false);
-    }
+    };
 
     const handlePasswordChange = (value) => {
         setPassword(value);
@@ -430,7 +431,7 @@ const Signup = () => {
                 <div className="signup-heading"><h1>Create Your Account</h1></div>
                 {firebaseError && <p style={{ color: "red", paddingBottom: "6px" }}>{firebaseError}</p>}
                 {allFieldError && <div className="error-message">{allFieldError}</div>}
-                <form className="form" onSubmit={handleSumbit}>
+                <form className="form" onSubmit={handleSubmit}>
                     <div className="Name">
                         <div className="fname">
                             <input
