@@ -249,6 +249,9 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { UserAuth } from "@context/AuthContext";
 import zxcvbn from 'zxcvbn';
+import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import { ref, set } from 'firebase/database';
+import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
 
 const Signup = () => {
     const [fname, setFname] = useState('');
@@ -328,8 +331,19 @@ const Signup = () => {
         }
 
         try {
-            await signUpWithEmail(email, password);
-            router.push('/');
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            const userRef = ref(database, 'usersData/' + user.uid);
+            await set(userRef, {
+                uid: user.uid,
+                email: user.email,
+                firstName: fname,
+                lastName: lname
+            });
+
+            router.push('/'); // Correct usage of router.push
+
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
                 setFirebaseError('An account with this email already exists. Please log in.');
@@ -344,10 +358,24 @@ const Signup = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-            await googleSignIn();
-            router.push('/');
-        } catch (error) {
-            console.log(error);
+            const provider = new GoogleAuthProvider();
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+
+            const [firstName, ...lastName] = user.displayName.split(' ');
+
+            const userRef = ref(database, 'usersData/' + user.uid);
+            await set(userRef, {
+                uid: user.uid,
+                email: user.email,
+                firstName: firstName,
+                lastName: lastName.join(' ')
+            });
+
+            alert("Signup with Google Successfully");
+            router.push('/login');
+        } catch (err) {
+            alert(err.message);
         }
     }
 
