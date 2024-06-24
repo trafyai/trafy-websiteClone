@@ -1,10 +1,42 @@
-'use client'
-import React, { useState } from "react";
+'use client';
+import React, { useState, useEffect } from "react";
 import UserProfile from "../user-profile/UserProfile";
-import '@styles/common/auth/user-dashboard/UserDashboard.css'
+import AccountSecurity from "./account-security/AccountSecurity";
+import '@styles/common/auth/user-dashboard/UserDashboard.css';
+import { auth, database } from '@/firebase';
+import { ref as dbRef, get } from 'firebase/database';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function UserDashboard() {
     const [showContent, setShowContent] = useState("profile");
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                const userRef = dbRef(database, 'usersData/' + currentUser.uid);
+                get(userRef).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        setUser({ ...data, uid: currentUser.uid }); // Include UID in the user state
+                    } else {
+                        console.log("No data available");
+                    }
+                    setLoading(false);
+                }).catch((error) => {
+                    console.error(error);
+                    setLoading(false);
+                });
+            } else {
+                router.push('/login');
+            }
+        });
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     const showProfileContent = (section) => {
         setShowContent(section);
@@ -16,8 +48,8 @@ export default function UserDashboard() {
                 <div className="user-profile-container">
                     <div className="user-dashboard">
                         <div className="user-picture">
-                            <div className="user-pic"></div>
-                            <div className="user-name"><h2>John Doe</h2></div>
+                            {user?.profilePicURL && <div className="user-pic" style={{ backgroundImage: `url(${user.profilePicURL})` }}></div>}
+                            <div className="user-name"><h2>{user ? `${user.firstName} ${user.lastName}` : 'Loading...'}</h2></div>
                         </div>
                         <div className="user-profile-contents">
                             <div className={"profile" + (showContent === "profile" ? " active" : "")} onClick={() => showProfileContent("profile")}><h3>Profile</h3></div>
@@ -27,34 +59,8 @@ export default function UserDashboard() {
                             <div className={"log-out" + (showContent === "log-out" ? " active" : "")} onClick={() => showProfileContent("log-out")}><h3>Log out</h3></div>
                         </div>
                     </div>
-                    {showContent === "profile" && (
-                        <UserProfile/>
-                    )}
-
-                    {showContent === "security" && (
-                        <div className="security-contents">
-                            <div className="security-contents-container">
-                                <div className="security-contents-heading">
-                                    <h1>Security</h1>
-                                </div>
-                                <form className="security-form">
-                                    <div className="Pemail">
-                                        <label htmlFor="email">Email:</label>
-                                        <input type="text" placeholder="Enter email" autoComplete="off" name="email" className="email" />
-                                    </div>
-                                    <div className="Ppassword">
-                                        <label htmlFor="password">Password:</label>
-                                        <input type="text" placeholder="Enter current password" autoComplete="off" name="password" className="password" />
-                                        <input type="text" placeholder="Enter new password" autoComplete="off" name="password" className="password" />
-                                        <input type="text" placeholder="Re-type new password" autoComplete="off" name="password" className="password" />
-                                    </div>
-                                    <div className="save-button">
-                                        <button className="change-password">Change Password</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    )}
+                    {showContent === "profile" && <UserProfile user={user} setUser={setUser} />}
+                    {showContent === "security" && <AccountSecurity />}
 
                     {showContent === "privacy" && (
                         <div className="privacy-contents">
