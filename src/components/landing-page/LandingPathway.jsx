@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { LandingPathwayData } from '@api/landing/LandingData'
 import Vector from '@public/assets/Images/landing-page/pathway/Vector.png'
+import Link from 'next/link'
 
 const LandingPathway = () => {
   return (
@@ -13,11 +14,11 @@ const LandingPathway = () => {
            
             <div className='landing-pathway-contents'>
             {LandingPathwayData.map((item,index)=>(
-                <div className='landing-pathway-box'>
+                <Link className='landing-pathway-box' href={item.url}>
                     <Image src={item.img} width="60"  height="60"/>
                     <h3>{item.title}</h3>
                     <p style={{display:"flex",alignItems:"center"}}>view pathways <Image src={Vector} width={16} style={{marginLeft:"6px"}}/></p>
-                </div>
+                </Link>
                  ))}
             </div>
             

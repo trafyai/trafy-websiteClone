@@ -1,16 +1,20 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import UserProfile from "../user-profile/UserProfile";
+import UserProfile from "./user-profile/UserProfile";
 import AccountSecurity from "./account-security/AccountSecurity";
+import CloseUserAccount from "./close-user-account/CloseUserAccount";
 import '@styles/common/auth/user-dashboard/UserDashboard.css';
 import { auth, database } from '@/firebase';
 import { ref as dbRef, get } from 'firebase/database';
 import { onAuthStateChanged } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
+
 
 export default function UserDashboard() {
     const [showContent, setShowContent] = useState("profile");
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
@@ -83,13 +87,7 @@ export default function UserDashboard() {
                     )}
 
                     {showContent === "log-out" && (
-                        <div className="logout-contents">
-                            <div className="logout-contents-container">
-                                <div className="logout-contents-heading">
-                                    <h1>Logout</h1>
-                                </div>
-                            </div>
-                        </div>
+                        <CloseUserAccount/>
                     )}
                 </div>
             </div>

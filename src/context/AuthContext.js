@@ -1,7 +1,12 @@
 'use client';
 import { useContext, createContext, useState, useEffect } from "react";
-import { signInWithPopup, signOut, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from '@firebase';
+import { 
+    signInWithPopup, signOut, GoogleAuthProvider, 
+    createUserWithEmailAndPassword, signInWithEmailAndPassword, 
+    onAuthStateChanged, deleteUser, reauthenticateWithCredential, EmailAuthProvider
+} from "firebase/auth";
+import { ref, remove } from "firebase/database";
+import { auth, database } from '@firebase';
 
 const AuthContext = createContext();
 
@@ -49,6 +54,7 @@ export const AuthContextProvider = ({ children }) => {
             throw error;
         }
     };
+
     const resetPassword = async (email) => {
         try {
             await sendPasswordResetEmail(auth, email);
@@ -57,8 +63,48 @@ export const AuthContextProvider = ({ children }) => {
         }
     };
 
+    const reauthenticate = async (password) => {
+        try {
+            const user = auth.currentUser;
+            if (!user) throw new Error("No user is currently signed in.");
+
+            const credential = EmailAuthProvider.credential(user.email, password);
+            await reauthenticateWithCredential(user, credential);
+        } catch (error) {
+            console.error("Reauthentication failed:", error);
+            throw error;
+        }
+    };
+
+    const deleteAccount = async () => {
+        try {
+            if (!auth.currentUser) {
+                console.error("No user is currently signed in.");
+                return;
+            }
+
+            const uid = auth.currentUser.uid;
+
+            // Remove user data from Realtime Database
+            await remove(ref(database, `users/${uid}`));
+            console.log(`User data for UID ${uid} removed from database.`);
+
+            // Delete user from Firebase Authentication
+            await deleteUser(auth.currentUser);
+            console.log(`User with UID ${uid} deleted from Firebase Authentication.`);
+
+            setUser(null);
+        } catch (error) {
+            console.error("Error deleting account:", error);
+            throw error;
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, setUser, googleSignIn, logOut, signUpWithEmail, signInWithEmail, resetPassword, loading }}>
+        <AuthContext.Provider value={{ 
+            user, setUser, googleSignIn, logOut, signUpWithEmail, 
+            signInWithEmail, resetPassword, reauthenticate, deleteAccount, loading 
+        }}>
             {!loading && children}
         </AuthContext.Provider>
     );
@@ -67,11 +113,3 @@ export const AuthContextProvider = ({ children }) => {
 export const UserAuth = () => {
     return useContext(AuthContext);
 };
-
-
-// useEffect(() => {
-//     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-//         setUser(currentUser);
-//     });
-//     return () => unSubscribe();
-// }, []);

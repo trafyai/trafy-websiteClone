@@ -16,7 +16,7 @@ export default function landingPage(){
         <>
        
         <LandingHero/>
-        <LandingCompaniesHired/>
+        {/* <LandingCompaniesHired/> */}
         <LandingFeatures/>
         <LandingPathway/>
         <LandingLearning/>

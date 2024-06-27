@@ -26,19 +26,23 @@ const LandingFeaturesData=[
 const LandingPathwayData=[
     {
         img:pIcon,
-        title:"Artificial Intelligence"
+        title:"Artificial Intelligence",
+        url:""
     }, 
     {
         img:pIcon,
-        title:"UI/UX Designing"
+        title:"UI/UX Designing",
+        url:"/courses/Introduction-to-Responsive-UI-Design"
     },
     {
         img:pIcon,
-        title:"Digital Marketing"
+        title:"Digital Marketing",
+        url:"/courses/digital-marketing-course"
     },
     {
         img:pIcon,
-        title:"Data Science"
+        title:"Data Science",
+        url:""
     }
 ]
 

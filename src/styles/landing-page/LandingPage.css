@@ -268,13 +268,13 @@
     background-color: #FFFEFC;
 }
 .landing-features-container{
-    width: 80%;
+    width: 85%;
     display: flex;
     flex-wrap: wrap;
     gap:3rem;
 }
 .landing-features-box{
-    width: 230px;
+    width: 200px;
     border: 2px solid #0F0D13;
     border-radius: 32px;
     display: flex;
