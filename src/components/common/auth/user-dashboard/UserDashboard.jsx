@@ -9,7 +9,6 @@ import { ref as dbRef, get } from 'firebase/database';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
-
 export default function UserDashboard() {
     const [showContent, setShowContent] = useState("profile");
     const [user, setUser] = useState(null);
@@ -38,6 +37,27 @@ export default function UserDashboard() {
         });
     }, []);
 
+    const extractNameFromEmail = (email) => {
+        const namePart = email.split('@')[0];
+        const nameSegments = namePart.split('.');
+        return [
+            nameSegments[0].charAt(0).toUpperCase() + nameSegments[0].slice(1),
+            nameSegments[1] ? nameSegments[1].charAt(0).toUpperCase() + nameSegments[1].slice(1) : ''
+        ];
+    };
+
+    const getDisplayName = () => {
+        if (user) {
+            if (user.firstName || user.lastName) {
+                return `${user.firstName || ''} ${user.lastName || ''}`.trim();
+            } else if (user.email) {
+                const [firstName, lastName] = extractNameFromEmail(user.email);
+                return `${firstName} ${lastName}`.trim();
+            }
+        }
+        return 'Loading...';
+    };
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -53,7 +73,7 @@ export default function UserDashboard() {
                     <div className="user-dashboard">
                         <div className="user-picture">
                             {user?.profilePicURL && <div className="user-pic" style={{ backgroundImage: `url(${user.profilePicURL})` }}></div>}
-                            <div className="user-name"><h2>{user ? `${user.firstName} ${user.lastName}` : 'Loading...'}</h2></div>
+                            <div className="user-name"><h2>{getDisplayName()}</h2></div>
                         </div>
                         <div className="user-profile-contents">
                             <div className={"profile" + (showContent === "profile" ? " active" : "")} onClick={() => showProfileContent("profile")}><h3>Profile</h3></div>

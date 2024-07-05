@@ -219,6 +219,24 @@ export default function UserProfile({ user, setUser }) {
 
     const router = useRouter();
 
+    
+    useEffect(() => {
+        if (!firstName && !lastName && email) {
+            const [extractedFirstName, extractedLastName] = extractNameFromEmail(email);
+            setFirstName(extractedFirstName);
+            setLastName(extractedLastName);
+        }
+    }, [email, firstName, lastName]);
+
+    const extractNameFromEmail = (email) => {
+        const namePart = email.split('@')[0];
+        const nameSegments = namePart.split('.');
+        return [
+            nameSegments[0].charAt(0).toUpperCase() + nameSegments[0].slice(1),
+            nameSegments[1] ? nameSegments[1].charAt(0).toUpperCase() + nameSegments[1].slice(1) : ''
+        ];
+    };
+
     const handleUpdate = async (e) => {
         e.preventDefault();
         setLoading(true);
