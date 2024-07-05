@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
  }
- .header-white-logo,.header-black-logo{
+ /* .header-white-logo,.header-black-logo{
   display: none;
  }
  [data-theme="light"] .header-black-logo{
@@ -27,7 +27,7 @@
  }
  [data-theme="dark"] .header-white-logo{
   display: block;
- }
+ } */
  .header-contents{
     display: flex;
     align-items: center;
@@ -292,23 +292,23 @@
  .header-theme-icons-tab{
   display: none;
  }
-.light-mode-icon {
-  display: none; /* Hide the light mode icon by default */
+/* .light-mode-icon {
+  display: none; 
 }
 
 .dark-mode-icon {
-  display: none; /* Hide the dark mode icon by default */
-}
+  display: none; 
+} */
 
 /* Show light mode icon when the theme is dark */
-[data-theme="dark"] .light-mode-icon {
+/* [data-theme="dark"] .light-mode-icon {
   display: block;
-}
+} */
 
 /* Show dark mode icon when the theme is light */
-[data-theme="light"] .dark-mode-icon {
+/* [data-theme="light"] .dark-mode-icon {
   display: block;
-}
+} */
  @media only screen and (max-width:1024px){
   .header{
     padding: 0px 16px;
@@ -319,11 +319,11 @@
   .header-container{
     width: 93%;
   }
-  .whitehamburger, .blackhamburger{
-    display: none;
+  .whitehamburger{
+    display: block;
   }
 
-  [data-theme="light"] .blackhamburger{
+  /* [data-theme="light"] .blackhamburger{
     display: block;
   }
   [data-theme="light"] .blackhamburger.hide{
@@ -331,23 +331,23 @@
   }
   [data-theme="dark"] .whitehamburger{
     display: block;
-  }
-  [data-theme="dark"] .whitehamburger.hide{
+  } */
+ .whitehamburger.hide{
     display: none;
   }
   .header-contents.show-contents{
     visibility: visible;
     box-shadow: -9999px 9999px 0px 9999px rgba(0, 0, 0, 0.09);
   }
-  .black-exit-icon.show,.white-exit-icon.show{
-    display: none;
+ .white-exit-icon.show{
+    display: block;
   }
-  [data-theme="light"] .black-exit-icon.show{
+  /* [data-theme="light"] .black-exit-icon.show{
     display: block;
   }
   [data-theme="dark"] .white-exit-icon.show{
     display: block;
-  }
+  } */
   .overflow{
     overflow: hidden;
   }

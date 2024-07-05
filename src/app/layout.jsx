@@ -1,5 +1,5 @@
 import '@styles/globals.css';
-import Header from '@components/common/header/header';
+import Header from '@components/common/header/Header.jsx';
 import Footer from '@components/common/footer/Footer';
 import imageO from'../app/opengraph-image.png';
 import { AuthContextProvider } from '@context/AuthContext';
@@ -31,13 +31,13 @@ export default function RootLayout({ children }) {
     
       <body>
       <AuthContextProvider>
-      <ThemeProvider>
+      {/* <ThemeProvider> */}
         <main className="app">
           <Header />
           {children}
           <Footer/>
         </main>
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
         </AuthContextProvider>
       </body>
     </html>

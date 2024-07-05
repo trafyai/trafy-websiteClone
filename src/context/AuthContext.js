@@ -45,6 +45,7 @@ export const AuthContextProvider = ({ children }) => {
         }
     };
 
+
     const signInWithEmail = async (email, password) => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);

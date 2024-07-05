@@ -58,11 +58,11 @@ export default function CourseSyllabus(props) {
                     alt="Expand More Icon"
                     className={`waccordion-icon ${accordionState[index]?.isRotated ? "rotated" : ""}`}
                   />
-                  <Image
+                  {/* <Image
                     src={ExpandMoreB}
                     alt="Expand More Icon"
                     className={`baccordion-icon ${accordionState[index]?.isRotated ? "rotated" : ""}`}
-                  />
+                  /> */}
                 </div>
                 {accordionState[index]?.isOpen && (
                   <div className="syllabus-accordion-contents">

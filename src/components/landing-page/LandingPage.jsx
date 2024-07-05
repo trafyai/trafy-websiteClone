@@ -1,10 +1,9 @@
 import LandingHero from '@components/landing-page/LandingHero';
-import LandingCompaniesHired from './LandingCompaniesHired';
-import LandingFeatures from './LandingFeatures';
+import LandingPartners from './LandingPartners';
 import LandingPathway from './LandingPathway';
-import LandingLearning from "@components/landing-page/LandingLearning";
-import LandingExplore from "@components/landing-page/LandingExplore";
-import LandingOptimised from "@components/landing-page/LandingOptimised";
+import LandingGoals from './LandingGoals';
+import LandingInnovation from './LandingInnovation';
+import LandingCaseStudy from './LandingCaseStudy';
 import LandingReview from "@components/landing-page/LandingReview";
 import LandingNewsletter from "@components/landing-page/LandingNewsletter";
 import LandingBetterTogether from "@components/landing-page/LandingBetterTogether";
@@ -16,13 +15,12 @@ export default function landingPage(){
         <>
        
         <LandingHero/>
-        {/* <LandingCompaniesHired/> */}
-        <LandingFeatures/>
+        <LandingPartners/>
         <LandingPathway/>
-        <LandingLearning/>
-        <LandingExplore/>
-        <LandingOptimised/>
-        <LandingBetterTogether/>
+        <LandingGoals/>
+        <LandingInnovation/>
+        <LandingCaseStudy/>
+        {/* <LandingBetterTogether/> */}
         <LandingReview/>
         <LandingNewsletter/>
         </>

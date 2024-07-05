@@ -42,14 +42,14 @@ export default function CourseFaq(props) {
                       accordionState[index]?.isRotated ? "rotated" : ""
                     }`}
                   />
-                  <Image
+                  {/* <Image
                     src={ExpandMoreB}
                     alt="Expand More Icon"
                     
                     className={`baccordion-icon ${
                       accordionState[index]?.isRotated ? "rotated" : ""
                     }`}
-                  />
+                  /> */}
                 </div>
                 {accordionState[index]?.isOpen && (
                   <div className="faq-accordion-contents">

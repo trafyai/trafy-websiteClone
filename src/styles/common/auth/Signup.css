@@ -1,5 +1,4 @@
-
-.login{
+.signup{
     width: 100%;
     padding-top: 120px;
     padding-bottom: 60px;
@@ -9,7 +8,7 @@
     justify-content: center;
     align-items: center;
 }
-.login-container{
+.signup-container{
     width:400px;
     padding: 32px 40px;
     border: 1px solid #c1bfbf;
@@ -17,10 +16,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:1.5rem;
+    gap:2rem;
     background-color: #ffffff;
 }
-.login-heading h1,.signup-heading h1{ 
+.signup-heading h1,.signup-heading h1{ 
     font-family: var(--p-font);
     font-weight: 600;
     font-size: 28px;
@@ -62,10 +61,10 @@
     font-size: 12.5px;
     padding-top: 4px;
   }
-  .login-button{
+  .signup-button{
     width: 100%;
   }
-  .login-btn{
+  .signup-btn{
     width: 100%;
     height: 40px;
     padding: 12px 32px;
@@ -78,9 +77,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
-  .login-btn:hover{
+  .signup-btn:hover{
     background-color: inherit;
     color: var(--h-black);
   }
@@ -93,11 +91,11 @@
       -webkit-box-shadow: 0 0 0 30px inherit inset !important; /* Ensure this matches your input background color */
       -webkit-text-fill-color: #1c1623!important;
   }
-
   .google-signin {
     width: 100%;
 }
-.login-with-google-btn {
+
+  .login-with-google-btn {
     transition: background-color .3s, box-shadow .3s;
       
     padding: 12px 16px;
@@ -132,8 +130,6 @@
         0 0 0 3px #c8dafc;
     }
 }
-
 .custom-text-field .MuiOutlinedInput-root {
-  padding-right: 0px;
+    padding-right: 0px;
 }
-

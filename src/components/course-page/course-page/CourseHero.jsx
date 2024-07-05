@@ -93,7 +93,7 @@ export default function CourseHero(props) {
                             <div className="hero-category"><p>{props.category}</p></div>
                             <div className="hero-popularity"><p>{props.popularity}</p></div>
                             <div className="share">
-                                <Image src={shareBlack} alt="" onClick={courseShare} className="course-share-icon-black" />
+                                {/* <Image src={shareBlack} alt="" onClick={courseShare} className="course-share-icon-black" /> */}
                                 <Image src={shareWhite} alt="" onClick={courseShare} className="course-share-icon-white" />
                             </div>
                         </div>
