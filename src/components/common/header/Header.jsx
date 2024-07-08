@@ -51,16 +51,11 @@ const Header = () => {
         document.body.classList.remove('overflow');
     }
 
-    const handleMouseEnter = () => {
-        clearTimeout(timeoutRef.current);
-        setHover(true); 
+    const handleDropDown = () => {
+        setHover(!hover); 
     }
 
-    const handleMouseLeave = () => {
-        timeoutRef.current = setTimeout(() => {
-            setHover(false);
-        }, 200);
-    }
+   
 
     const getFirstLetter = () => {
         if (user && user.email) {
@@ -86,15 +81,13 @@ const Header = () => {
                     <Link href="/"> <Image src={BlackLogo} alt="trafy logo" height={32} className="trafy-logo" /></Link>
                 </div>
                 
+                <div className='menu-lg'>
+                   
                 <div className='menu-left'>
                         <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
                         <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
                         <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
                     </div>
-
-                <div className='menu-lg'>
-                   
-
                     <div className='menu-right'>
                         {!loading && !user ? 
                             (<div className='menu-no-profile'>
@@ -103,13 +96,15 @@ const Header = () => {
                             </div>) 
                             :
                             (<div className='menu-profile'>
-                                <Link href="/user-dashboard" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                <div onClick={handleDropDown} >
                                     <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>{getFirstLetter()}</div>
-                                </Link>
+                                </div>
 
                                 {hover && 
-                                    (<div className="menu-user-dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                                        <Link href="/user-dashboard" onClick={handleNavigation}><p>User Dashboard</p></Link>
+                                    (<div className="menu-user-dropdown" >
+                                        <Link href="/account-settings" onClick={handleNavigation}><p>Profile</p></Link>
+                                        <Link href="/account-security" onClick={handleNavigation}><p>Security</p></Link>
+                                        <Link href="/" onClick={handleNavigation}><p>Notification</p></Link>
                                         <p onClick={handleLogOut}>Logout</p>
                                     </div>)
                                 }
@@ -125,25 +120,33 @@ const Header = () => {
 
                     {menuOpen &&
                         <div className='menu-mobile-contents' ref={menuRef}>
+                         
                             <div className='menu-top-contents'>
+                            {user &&(
+                                <div className='menu-profile'>
+                                <Link href="/account-settings"  onClick={handleNavigation}>
+                                    <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>{getFirstLetter()}</div>
+                                </Link>
+                            </div>
+                            )}
+                            <hr />
                                 <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
                                 <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
                                 <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
+                            <hr />
+                                <Link href="/account-settings" className='menu-account-settings' onClick={handleNavigation}>Account Settings</Link>
+                                <Link href="/account-security" className='menu-account-security' onClick={handleNavigation}>Security</Link>
+                                <Link href="/account-notification" className='menu-account-notification' onClick={handleNavigation}>Notification</Link>
+                                <Link href="/account-logout" className='menu-account-logout' onClick={handleNavigation}>Logout</Link>
                             </div>
 
                             <div className='menu-bottom-contents'>
-                                {!loading && !user ? 
-                                    (<div className='menu-no-profile'>
-                                        <Link href="/login" className="menu-login" onClick={handleNavigation}> Login</Link>
-                                        <Link href="/signup" className="menu-signup" onClick={handleNavigation}> Sign Up Free</Link>
-                                    </div>) 
-                                    :
-                                    (<div className='menu-profile'>
-                                        <Link href="/user-dashboard" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleNavigation}>
-                                            <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>{getFirstLetter()}</div>
-                                        </Link>
-                                    </div>)
-                                }
+                            {!loading && !user && (
+                                <div className='menu-no-profile'>
+                                    <Link href="/login" className="menu-login" onClick={handleNavigation}>Login</Link>
+                                    <Link href="/signup" className="menu-signup" onClick={handleNavigation}>Sign Up Free</Link>
+                                </div>
+                            )}
                             </div>
                         </div>
                     }

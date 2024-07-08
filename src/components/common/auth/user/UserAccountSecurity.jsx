@@ -1,8 +1,10 @@
+'use client'
 import React, { useState } from 'react';
 import { auth } from '@/firebase';
 import { reauthenticateWithCredential, updatePassword, updateEmail, EmailAuthProvider } from 'firebase/auth';
+import '@styles/common/auth/user/UserAccountSetting.css'
 
-const AccountSecurity = () => {
+const UserAccountSecurity = () => {
     const [email, setEmail] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -62,9 +64,7 @@ const AccountSecurity = () => {
     return (
         <div className="security-contents">
             <div className="security-contents-container">
-                <div className="security-contents-heading">
-                    <h1>Security</h1>
-                </div>
+              
                 <form className="security-form" onSubmit={handleChangeCredentials}>
                     <div className="Pemail">
                         <label htmlFor="email">Email:</label>
@@ -122,4 +122,4 @@ const AccountSecurity = () => {
     );
 };
 
-export default AccountSecurity;
+export default UserAccountSecurity;

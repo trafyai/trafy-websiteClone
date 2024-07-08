@@ -19,6 +19,13 @@
     gap:2rem;
     background-color: #ffffff;
 }
+.signup-heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:0.5rem;
+}
 .signup-heading h1,.signup-heading h1{ 
     font-family: var(--p-font);
     font-weight: 600;

@@ -27,19 +27,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap:1.5rem;
 }
 .menu-left{
     display: flex;
-    gap:1rem;
+    gap:1.5rem;
     align-items: center;
 }
-.menu-pathway, .menu-innovation, .menu-resources{
+.menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
     font-size: 16px;
     font-family: var(--p-font);
-    font-weight: 500;
+    font-weight: 400;
     color: var(--trafy-black);
 }
-.menu-pathway:hover, .menu-innovation:hover, .menu-resources:hover{
+.menu-pathway:hover, .menu-innovation:hover, .menu-resources:hover
+, .menu-account-settings:hover, .menu-account-security:hover, .menu-account-notification:hover, .menu-account-logout:hover{
     color:#55436c;
 }
 .menu-no-profile{
@@ -137,20 +139,23 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 16px;
             height: calc(100vh - 56px);
             position: absolute;
             top: 44px;
             right: -32px;
-          
+            box-shadow: -9999px 9999px 0 9999px rgba(0, 0, 0, .09);
+        }
+        .menu-profile{
+            padding: 8px 24px;
+            padding-top: 24px;
         }
         .menu-top-contents{
             display: flex;
             flex-direction: column;
-            gap:1rem;
+            gap:0.5rem;
         }
-        .menu-pathway, .menu-innovation, .menu-resources{
-            padding: 4px;
+        .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
+            padding: 8px 24px;
         }
         .menu-no-profile{
             flex-direction: column;
@@ -170,5 +175,7 @@
         width: 103vw;
         top: 40px;
         right: -26px;
+        height: calc(100vh - 48px);
     }
+
    }

@@ -254,6 +254,10 @@
 
 
 @media only screen and (max-width:1024px){
+    .landing-features{
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
     .landing-features-container{
         width: 85%;
         gap:1.5rem;
@@ -407,6 +411,9 @@
 
 
   @media only screen and (max-width:1024px){
+    .landing-pathway{
+        padding-bottom: 60px;
+    }
     .landing-pathway-container{
         width: 90%;
         gap:4rem;
@@ -537,6 +544,9 @@
     line-height: 150%;
 }
 @media only screen and (max-width: 1024px){
+    .landing-goals{
+        padding: 60px 0px;
+    }
     .landing-goals-container{
         width: 90%;
     }
@@ -702,6 +712,9 @@
 }
 
 @media only screen and (max-width:1024px){
+    .landing-innovation{
+        padding: 60px 0px;
+    }
     .landing-explore{
         padding: 60px 0px;
     }
@@ -728,6 +741,9 @@
     }
     .landing-innovation-right,.landing-innovation-left{
         width: 100%;
+    }
+    .landing-innovation-right{
+        justify-content: center;
     }
     .landing-innovation-left{
         align-items: center;
@@ -854,6 +870,9 @@
 }
 
 @media only screen and (max-width:1024px){
+    .landing-casestudy{
+        padding: 60px 0px;
+    }
     .landing-optimised{
         padding: 60px 0px;
         padding-top: 30px;
@@ -886,7 +905,9 @@
     }
     .landing-casestudy-contents{
         gap:1.5rem;
+        grid-template-columns: repeat(1,1fr);
     }
+    
 }
 @media only screen and (max-width:400px){
     .landing-casestudy {
@@ -940,7 +961,7 @@
     display: flex;
     gap:2.5rem;
     align-items: center;
-    animation: 25s carousel infinite linear;
+    animation: 32s carousel infinite linear;
 }
 .landing-review-bottom-container:hover .landing-review-bottom{
     animation-play-state:paused;
@@ -1013,6 +1034,19 @@
     justify-content: center;
     margin-top: 10px;
 }
+.indicator-container{
+    display: none;
+}
+@media only screen and (max-width:1024px){
+    .landing-review{
+        padding: 60px 0px;
+    }
+}
+@media only screen and (max-width:1000px){
+    .indicator-container{
+        display: flex;
+    }
+}
 
 .indicator-dot {
     width: 8px;
@@ -1024,7 +1058,7 @@
 }
 
 .indicator-dot.active {
-    background-color: #1c1623;
+    background-color: #b5b2b9;
 }
 @keyframes carousel {
     from{
@@ -1067,6 +1101,9 @@
     }
 }
 @media only screen and (max-width:600px){
+    .landing-review{
+        padding: 40px 0px;
+    }
     .landing-review-top h2 {
         font-size: 32px;
     }

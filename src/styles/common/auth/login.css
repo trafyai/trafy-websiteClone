@@ -20,6 +20,12 @@
     gap:1.5rem;
     background-color: #ffffff;
 }
+.login-heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .login-heading h1,.signup-heading h1{ 
     font-family: var(--p-font);
     font-weight: 600;

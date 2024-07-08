@@ -83,8 +83,7 @@ const Signup = () => {
                 email: user.email,
             });
 
-            alert("Signup with Google Successfully");
-            router.push('/login');
+            router.push('/');
         } catch (err) {
             alert(err.message);
         }
@@ -97,9 +96,12 @@ const Signup = () => {
     return (
         <div className="signup">
             <div className="signup-container">
-                <div className="signup-heading"><h1>Create Your Account</h1></div>
-                {firebaseError && <p style={{ color: "red", paddingBottom: "6px" }}>{firebaseError}</p>}
-                {allFieldError && <div className="error-message">{allFieldError}</div>}
+                <div className="signup-heading">
+                    <h1>Create Your Account</h1>
+                    {firebaseError && <p style={{ color: "red", paddingBottom: "6px",textAlign:"center",fontSize:"13px",fontFamily:"Inter" }}>{firebaseError}</p>}
+                    {allFieldError && <div className="error-message" style={{textAlign:"center",fontSize:"14px",fontFamily:"Inter"}}>{allFieldError}</div>}
+                </div>
+                
                 <form className="form" onSubmit={handleSubmit}>
                     <Box component="div" className="email" noValidate autoComplete="off">
                         <TextField
