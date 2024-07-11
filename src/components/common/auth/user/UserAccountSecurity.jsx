@@ -1,7 +1,7 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { auth } from '@/firebase';
-import { reauthenticateWithCredential, updatePassword, updateEmail, EmailAuthProvider } from 'firebase/auth';
+import { reauthenticateWithCredential, updatePassword, EmailAuthProvider } from 'firebase/auth';
 import '@styles/common/auth/user/UserAccountSetting.css'
 
 const UserAccountSecurity = () => {
@@ -11,6 +11,12 @@ const UserAccountSecurity = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    useEffect(() => {
+        if (auth.currentUser) {
+            setEmail(auth.currentUser.email);
+        }
+    }, []);
 
     const handleChangeCredentials = async (e) => {
         e.preventDefault();
@@ -33,10 +39,6 @@ const UserAccountSecurity = () => {
 
             await reauthenticateWithCredential(user, credential);
 
-            if (user.email !== email) {
-                await updateEmail(user, email);
-            }
-
             if (newPassword) {
                 await updatePassword(user, newPassword);
             }
@@ -53,8 +55,6 @@ const UserAccountSecurity = () => {
                 setError('The new password is too weak');
             } else if (error.code === 'auth/invalid-credential') {
                 setError('Invalid credentials provided');
-            } else if (error.code === 'auth/email-already-in-use') {
-                setError('The email address is already in use by another account');
             } else {
                 setError(error.message);
             }
@@ -64,7 +64,6 @@ const UserAccountSecurity = () => {
     return (
         <div className="security-contents">
             <div className="security-contents-container">
-              
                 <form className="security-form" onSubmit={handleChangeCredentials}>
                     <div className="Pemail">
                         <label htmlFor="email">Email:</label>
@@ -75,7 +74,7 @@ const UserAccountSecurity = () => {
                             name="email"
                             className="email"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            readOnly
                         />
                     </div>
                     <div className="Ppassword">

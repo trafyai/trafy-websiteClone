@@ -69,7 +69,7 @@ const Login = () => {
             } else if (error.code === 'auth/wrong-password') {
                 setPasswordError('Invalid password.');
             } else {
-                setGeneralError("The email or password is incorrect. Please try again.");
+                setGeneralError("An error occurred. Please try again.");
             }
         }
     };

@@ -62,6 +62,7 @@ const Signup = () => {
             await set(userRef, {
                 uid: user.uid,
                 email: user.email,
+                firstName: email.split('@')[0],
             });
 
             router.push('/'); // Correct usage of router.push
@@ -81,6 +82,7 @@ const Signup = () => {
             await set(userRef, {
                 uid: user.uid,
                 email: user.email,
+                firstName: user.email.split('@')[0],
             });
 
             router.push('/');

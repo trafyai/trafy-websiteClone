@@ -2,7 +2,7 @@
 import '@styles/common/auth/user/UserAccountSetting.css';
 import React, { useState, useEffect } from "react";
 import { auth, database, storage } from '@/firebase';
-import { ref as dbRef, update } from 'firebase/database';
+import { ref as dbRef, update, get } from 'firebase/database';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useRouter } from 'next/navigation';
 import { signOut } from 'firebase/auth';
@@ -10,9 +10,9 @@ import { FaPen } from 'react-icons/fa';
 import Image from 'next/image';
 import Default from '@public/assets/Images/comman/common/dark_mode.png';
 
-export default function UserAccountSetting({ user = {}, setUser }) {
-    const [loading, setLoading] = useState(false);
-    const [firstName, setFirstName] = useState(user.firstName || '');
+export default function UserAccountSetting({ user = {} }) {
+    const [loading, setLoading] = useState(true);
+    const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState(user.lastName || '');
     const [email, setEmail] = useState(user.email || '');
     const [phone, setPhone] = useState(user.phone || '');
@@ -22,6 +22,34 @@ export default function UserAccountSetting({ user = {}, setUser }) {
 
     const router = useRouter();
 
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const user = auth.currentUser;
+                if (user) {
+                    const userRef = dbRef(database, 'usersData/' + user.uid);
+                    const snapshot = await get(userRef);
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        const emailFirstPart = data.email.split('@')[0];
+                        setFirstName(emailFirstPart || '');
+                        setLastName(data.lastName || '');
+                        setEmail(data.email || '');
+                        setPhone(data.phone || '');
+                        setCountry(data.country || '');
+                        setProfilePicURL(data.profilePicURL || '');
+                    }
+                }
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
     const handleUpdate = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -29,7 +57,7 @@ export default function UserAccountSetting({ user = {}, setUser }) {
 
         if (profilePic) {
             try {
-                const storageReference = storageRef(storage, `profilePictures/${user.uid}/${profilePic.name}`);
+                const storageReference = storageRef(storage, `profilePictures/${auth.currentUser.uid}/${profilePic.name}`);
                 await uploadBytes(storageReference, profilePic);
                 newProfilePicURL = await getDownloadURL(storageReference);
             } catch (error) {
@@ -41,7 +69,6 @@ export default function UserAccountSetting({ user = {}, setUser }) {
         }
 
         const updates = {
-            firstName,
             lastName,
             email,
             phone,
@@ -49,11 +76,10 @@ export default function UserAccountSetting({ user = {}, setUser }) {
             profilePicURL: newProfilePicURL,
         };
 
-        const userRef = dbRef(database, 'usersData/' + user.uid);
+        const userRef = dbRef(database, 'usersData/' + auth.currentUser.uid);
         update(userRef, updates)
             .then(() => {
                 alert("Profile updated successfully");
-                setUser({ ...user, ...updates });
                 setProfilePicURL(newProfilePicURL);
                 setLoading(false);
             })
