@@ -97,7 +97,9 @@ const Header = () => {
                             :
                             (<div className='menu-profile'>
                                 <div onClick={handleDropDown} >
-                                    <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>{getFirstLetter()}</div>
+                                    <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
+                                        <Image src=""/>
+                                    </div>
                                 </div>
 
                                 {hover && 

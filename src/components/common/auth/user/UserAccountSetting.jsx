@@ -90,8 +90,10 @@ export default function UserAccountSetting({ user = {}, setUser }) {
             <form className="profile-form" onSubmit={handleUpdate}>
                 <div className="profile-pic-wrapper">
                     <Image src={profilePicURL || Default} alt="Profile" className="profile-pic" width={100} height={100}/>
+                   
                     <label htmlFor="profilePic" className="profile-pic-upload">
-                        <FaPen />
+                        <FaPen className='profile-pen'/>
+                        <p className='choose-pic'  htmlFor="profilePic">Choose photo</p>
                         <input
                             type="file"
                             id="profilePic"

@@ -9,12 +9,10 @@ const Page = () => {
     <div className='user-settings'>
         <div className='user-settings-container'>
             <div className='user-settings-dashboard'>
-                <UserDashboard />
+                <UserDashboard profile="inherit" security="#bab7c1"/>
                 <UserAccountSecurity/>
             </div>
-            <div className='user-settings-progress'>
-                <UserProgress/>
-            </div>
+          
         </div>
     </div>
   )

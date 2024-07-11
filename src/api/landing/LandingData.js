@@ -1,4 +1,8 @@
-import pIcon from '@public/assets/Images/landing-page/pathway/frame.png'
+import landingPage from '@components/landing-page/LandingPage'
+import ux from '@public/assets/Images/landing-page/pathway/ux.jpeg'
+import ai from '@public/assets/Images/landing-page/pathway/ai.svg'
+import dm from '@public/assets/Images/landing-page/pathway/dm.svg'
+
 import quote from '@public/assets/Images/landing-page/quote.png'
 
 const LandingFeaturesData=[
@@ -26,39 +30,51 @@ const LandingFeaturesData=[
 
 const LandingPathwayData=[
     {
-        img:pIcon,
+        id:"artificial-intelligence",
+        img:ux,
         title:"Artificial <br> Intelligence",
-        url:"",
+        label:"Artificial Intelligence",
+        url:"/",
         color:"#F0FFF7"
     }, 
     {
-        img:pIcon,
+        id:"uiux-designing",
+        img:ux,
         title:"UI/UX <br> Designing",
+        label:"UI/UX Designing",
         url:"/courses/Introduction-to-Responsive-UI-Design",
         color:"#FFFFF0"
     },
     {
-        img:pIcon,
+        id:"digital-marketing",
+        img:ux,
         title:"Digital <br> Marketing",
+        label:"Digital Marketing",
         url:"/courses/digital-marketing-course",
         color:"#F6F0FF"
     },
     {
-        img:pIcon,
+        id:"business-development",
+        img:ux,
         title:"Business <br> Development",
-        url:"",
+        label:"Business Development",
+        url:"/",
         color:"#FFF0FF"
     },
     {
-        img:pIcon,
+        id:"product-innovation",
+        img:ux,
         title:"Product <br> Innovation",
-        url:"",
+        label:"Product Innovation",
+        url:"/",
         color:"#F0F6FF"
     },
     {
-        img:pIcon,
+        id:"international-marketing",
+        img:ux,
         title:"International <br> Marketing",
-        url:"",
+        label:"International Marketing",
+        url:"/",
         color:"#FFF0F4"
     }
 ]
