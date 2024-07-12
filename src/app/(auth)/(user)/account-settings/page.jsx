@@ -8,7 +8,7 @@ const Page = () => {
     <div className='user-settings'>
         <div className='user-settings-container'>
             <div className='user-settings-dashboard'>
-                <UserDashboard profile="#bab7c1" security="inherit"/>
+                <UserDashboard profile="#e7e7e7" security="inherit"/>
                 <UserAccountSetting/>
             </div>
             

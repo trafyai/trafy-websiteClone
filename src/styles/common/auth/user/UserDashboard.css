@@ -8,13 +8,13 @@
     width: 30%;
 }
 .user-dashboard-contents{
-    padding: 24px 0px;
+    padding: 24px 12px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap:1rem;
-    background-color: #F2F1F6;
+    background-color: inherit;
     border-radius: 8px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -31,6 +31,7 @@
     display: flex;
     gap:1.5rem;
     align-items: center;
+    border-radius: 8px;
 }
 
 

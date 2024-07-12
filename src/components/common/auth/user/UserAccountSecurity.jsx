@@ -63,7 +63,6 @@ const UserAccountSecurity = () => {
 
     return (
         <div className="security-contents">
-            <div className="security-contents-container">
                 <form className="security-form" onSubmit={handleChangeCredentials}>
                     <div className="Pemail">
                         <label htmlFor="email">Email:</label>
@@ -116,7 +115,6 @@ const UserAccountSecurity = () => {
                     {error && <div className="error-message" style={{fontSize:"14px",fontFamily:"Inter",color:"red"}}>{error}</div>}
                     {success && <div className="success-message" style={{fontSize:"14px",fontFamily:"Inter",color:"red"}}>{success}</div>}
                 </form>
-            </div>
         </div>
     );
 };

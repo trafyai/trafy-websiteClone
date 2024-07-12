@@ -1,5 +1,7 @@
 'use client';
 import { useContext, createContext, useState, useEffect } from "react";
+import { ref as dbRef, get } from 'firebase/database';
+
 import { 
     signInWithPopup, signOut, GoogleAuthProvider, 
     createUserWithEmailAndPassword, signInWithEmailAndPassword, 
@@ -14,20 +16,53 @@ export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    //         setUser(currentUser);
+    //         setLoading(false);
+    //     });
+
+    //     return () => unsubscribe();
+    // }, []);
+
+    // const googleSignIn = async () => {
+    //     const provider = new GoogleAuthProvider();
+    //     const userCredential = await signInWithPopup(auth, provider);
+    //     setUser(userCredential.user);
+    //     return userCredential.user;
+    // };
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+            if (currentUser) {
+                const userRef = dbRef(database, 'usersData/' + currentUser.uid);
+                const snapshot = await get(userRef);
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    setUser({ ...currentUser, profilePicURL: data.profilePicURL });
+                } else {
+                    setUser(currentUser);
+                }
+            } else {
+                setUser(null);
+            }
             setLoading(false);
         });
 
         return () => unsubscribe();
     }, []);
-
     const googleSignIn = async () => {
         const provider = new GoogleAuthProvider();
         const userCredential = await signInWithPopup(auth, provider);
-        setUser(userCredential.user);
-        return userCredential.user;
+        const user = userCredential.user;
+        const userRef = dbRef(database, 'usersData/' + user.uid);
+        const snapshot = await get(userRef);
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            setUser({ ...user, profilePicURL: data.profilePicURL });
+        } else {
+            setUser(user);
+        }
+        return user;
     };
 
     const logOut = async () => {

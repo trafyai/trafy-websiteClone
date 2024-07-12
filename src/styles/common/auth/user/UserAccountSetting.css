@@ -5,11 +5,14 @@
     padding: 40px 0px;
     }
     .profile-form , .security-form, .privacy-form, .notification-form, .logout-form{
-        width: 100%;
+        width: 80%;
         display: flex;
         flex-direction: column;
         gap:1.5rem;
-        align-items: center;
+        align-items: flex-start;
+    }
+    .security-contents-container{
+        width: max-content;
     }
     .Fname, .Lname, .Pemail, .Phone, .Country, .Ppassword{
         display: flex;
@@ -60,7 +63,7 @@
     .profile-contents {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
     }
     
