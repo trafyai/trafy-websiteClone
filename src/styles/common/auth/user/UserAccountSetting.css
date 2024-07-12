@@ -119,7 +119,16 @@
         background-color: inherit;
         color: var(--h-black);
     }
-    
+    @media only screen and (max-width:1024px){
+        .profile-contents , .security-contents, .privacy-contents, .notification-contents, .logout-contents{
+           display: flex;
+           justify-content: center;
+            align-items: center;
+        }
+        .profile-form, .security-form, .privacy-form, .notification-form, .logout-form{
+            align-items: center;
+        }
+    }
     @media only screen and (max-width:600px){
         .profile-pen{
             display: none;

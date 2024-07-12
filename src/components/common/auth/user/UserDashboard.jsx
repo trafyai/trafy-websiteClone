@@ -13,7 +13,7 @@ export default function UserDashboard(props) {
        
             <div className="user-dashboard">
                 <div className="user-dashboard-contents">
-                    <div>
+                    <div style={{display:"flex",flexDirection:"column",gap:"0.5rem"}}>
                         <Link className="profile" href="/account-settings" style={{backgroundColor:props.profile}}>
                             <Image src={account} height={21} alt="Profile" />
                             <p>Profile</p>
