@@ -26,11 +26,12 @@
   align-items: center;
   justify-content: center;
 }
-.login-heading h1,.signup-heading h1{ 
+.login-heading h1{ 
     font-family: var(--p-font);
     font-weight: 600;
     font-size: 28px;
     color: var(--h-black);
+    text-align: center;
 }
 .form{
     width: 100%;
@@ -143,3 +144,10 @@
   padding-right: 0px;
 }
 
+
+@media only screen and (max-width:430px){
+  .login-container{
+    width:90%;
+    padding: 24px 33px;
+  }
+}

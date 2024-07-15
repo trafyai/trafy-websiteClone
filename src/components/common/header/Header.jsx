@@ -294,9 +294,9 @@ const Header = () => {
                                 <Link href="/account-settings" className='menu-account-settings' onClick={handleNavigation}>Account Settings</Link>
                                 <Link href="/account-security" className='menu-account-security' onClick={handleNavigation}>Security</Link>
                                 <Link href="/account-notification" className='menu-account-notification' onClick={handleNavigation}>Notification</Link>
-                                <p onClick={handleLogOut}>Logout</p>
+                                {user &&<p className='menu-account-logout' onClick={handleLogOut}>Logout</p>}
                             </div>
-                            <div className='menu-bottom-contents'>
+                            <div className='menu-bottom-contents' style={{padding:"16px"}}>
                                 {!loading && !user && (
                                     <div className='menu-no-profile'>
                                         <Link href="/login" className="menu-login" onClick={handleNavigation}>Login</Link>

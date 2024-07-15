@@ -31,6 +31,7 @@
     font-weight: 600;
     font-size: 28px;
     color: var(--h-black);
+    text-align:center;
 }
 .form{
     width: 100%;
@@ -139,4 +140,11 @@
 }
 .custom-text-field .MuiOutlinedInput-root {
     padding-right: 0px;
+}
+
+@media only screen and (max-width:430px){
+  .signup-container{
+    width:90%;
+    padding: 24px 33px;
+  }
 }
