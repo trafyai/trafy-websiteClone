@@ -170,7 +170,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState, useRef, useEffect, useContext } from "react";
-import BlackLogo from '@public/assets/Images/comman/header/blackLogo.png';
+import BlackLogo from '@public/assets/Images/comman/header/WhiteLogo.png';
 import close1 from '@public/assets/Images/comman/header/close (1).png';
 import blackHamburger from '@public/assets/Images/comman/header/bLogo.png';
 import { UserAuth } from '@context/AuthContext';
@@ -233,7 +233,7 @@ const Header = () => {
         <div className='navbar'>
             <div className='navbar-container'>
                 <div className='navbar-log'>
-                    <Link href="/"> <Image src={BlackLogo} alt="trafy logo" height={32} className="trafy-logo" /></Link>
+                    <Link href="/"> <Image src={BlackLogo} alt="trafy logo" height={26} className="trafy-logo" /></Link>
                 </div>
                 
                 <div className='menu-lg'>
@@ -251,8 +251,8 @@ const Header = () => {
                             :
                             (<div className='menu-profile'>
                                 <div onClick={handleDropDown}>
-                                    <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
-                                        <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/>
+                                    <div style={{ width: "24px", height: "24px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
+                                        {/* <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/> */}
                                     </div>
                                 </div>
 
@@ -280,7 +280,7 @@ const Header = () => {
                                 {user &&(
                                     <div className='menu-profile'>
                                         <Link href="/account-settings" onClick={handleNavigation}>
-                                            <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
+                                            <div style={{ width: "32px", height: "32px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
                                                 <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/>
                                             </div>
                                         </Link>

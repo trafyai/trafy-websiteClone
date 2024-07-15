@@ -4,9 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:  #FFFFFF;
+    background-color:  #02020a;
     padding: 8px 32px;
-    border-bottom: 1px solid #B0B0B0;
+    border-bottom: 1px solid #2a2929;
     position: fixed;
     z-index: 100;
 }
@@ -35,10 +35,10 @@
     align-items: center;
 }
 .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--p-font);
     font-weight: 400;
-    color: var(--trafy-black);
+    color: #f8f8f8;
 }
 .menu-pathway:hover, .menu-innovation:hover, .menu-resources:hover
 , .menu-account-settings:hover, .menu-account-security:hover, .menu-account-notification:hover, .menu-account-logout:hover{
@@ -50,30 +50,30 @@
 }
 .menu-login{
     padding: 6px 16px;
-    border: 2px solid var(--trafy-black);
+    border: 2px solid #f8f8f8;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--p-font);
     font-weight: 500;
-    color: var(--trafy-black);
+    color: #f8f8f8;
     background-color: inherit;
 }
 .menu-login:hover{
-    background-color: var(--trafy-black);
-    color: #FFFFFF;
+    background-color: #f8f8f8;
+    color: #02020a;
 }
 .menu-signup{
     padding: 6px 16px;
-    border: 2px solid var(--trafy-black);
+    border: 2px solid #f8f8f8;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--p-font);
     font-weight: 500;
-    background-color: var(--trafy-black);
-    color: #FFFFFF;
+    background-color: #f8f8f8;
+    color: #02020a;
 }
 .menu-signup:hover{
-    color: var(--trafy-black);
+    color: #f8f8f8;
     background-color: inherit;
 }
 .menu-user-dropdown{
