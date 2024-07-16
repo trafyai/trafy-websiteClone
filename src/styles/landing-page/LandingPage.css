@@ -1028,8 +1028,8 @@
 }
 .landing-review-card {
     padding: 24px;
-    width: 300px;
-    height: 350px;
+    width: 230px;
+    height: 270px;
     border: 1px solid #b0b0b0;
     background-color: #ffffff;
     border-radius: 16px;
@@ -1042,13 +1042,13 @@
 .landing-reviews{
     display: flex;
     flex-direction: column;
-    gap:1.5rem;
+    gap:1rem;
 }
 .landing-reviews p{
-    font-size: 18px;
+    font-size: 14px;
     font-family: var( --p-font);
     font-weight: 400;
-    color: var(--h-font);
+    color: var(--p-black);
     line-height: 150%;
 }
 .landing-review-name{
@@ -1057,14 +1057,14 @@
     gap:0.5rem;
 }
 .landing-review-name p {
-    font-size: 18px;
+    font-size: 14px;
     font-family:var( --p-font);
     font-weight: 500;
-    color: var(--p-font);
+    color: var(--p-black);
     line-height: 150%;
 }
 .landing-review-name a{
-    font-size: 14px;
+    font-size: 12px;
     font-family: var( --p-font);
     font-weight: 400;
     color: #5022C3;
@@ -1136,8 +1136,8 @@
     }
     .landing-review-card {
         padding: 24px;
-        width: 260px;
-        height: 340px;
+        /* width: 260px;
+        height: 340px; */
     }
 }
 @media only screen and (max-width:1024px){
