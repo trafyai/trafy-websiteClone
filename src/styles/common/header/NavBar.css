@@ -133,28 +133,27 @@
             display: block;
         }
         .menu-mobile-contents{
-            background-color: #FFFFFF;
-            width: 40vh;
+            background-color: var(--trafy-black);
+            width: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: calc(100vh - 56px);
             position: absolute;
-            top: 44px;
+            top: 41px;
             right: -32px;
             box-shadow: -9999px 9999px 0 9999px rgba(0, 0, 0, .09);
         }
         .menu-profile{
-            padding: 8px 24px;
-            padding-top: 24px;
+            padding: 16px 24px;
         }
         .menu-top-contents{
             display: flex;
             flex-direction: column;
-            gap:0.5rem;
+            gap:0rem;
         }
         .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
-            padding: 8px 24px;
+            padding: 16px 24px;
         }
         .menu-no-profile{
             flex-direction: column;
@@ -172,7 +171,7 @@
     }
     .menu-mobile-contents{
         width: 103vw;
-        top: 40px;
+        top: 37px;
         right: -26px;
         height: calc(100vh - 48px);
     }

@@ -32,7 +32,7 @@ const LandingPathwayData=[
     {
         id:"artificial-intelligence",
         img:ux,
-        title:"Artificial <br> Intelligence",
+        title:"Artificial Intelligence",
         label:"Artificial Intelligence",
         url:"/",
         color:"#F0FFF7"
@@ -40,7 +40,7 @@ const LandingPathwayData=[
     {
         id:"uiux-designing",
         img:ux,
-        title:"UI/UX <br> Designing",
+        title:"UI/UX Designing",
         label:"UI/UX Designing",
         url:"/courses/Introduction-to-Responsive-UI-Design",
         color:"#FFFFF0"
@@ -48,7 +48,7 @@ const LandingPathwayData=[
     {
         id:"digital-marketing",
         img:ux,
-        title:"Digital <br> Marketing",
+        title:"Digital Marketing",
         label:"Digital Marketing",
         url:"/courses/digital-marketing-course",
         color:"#F6F0FF"
@@ -56,7 +56,7 @@ const LandingPathwayData=[
     {
         id:"business-development",
         img:ux,
-        title:"Business <br> Development",
+        title:"Business Development",
         label:"Business Development",
         url:"/",
         color:"#FFF0FF"
@@ -64,7 +64,7 @@ const LandingPathwayData=[
     {
         id:"product-innovation",
         img:ux,
-        title:"Product <br> Innovation",
+        title:"Product Innovation",
         label:"Product Innovation",
         url:"/",
         color:"#F0F6FF"
@@ -72,7 +72,7 @@ const LandingPathwayData=[
     {
         id:"international-marketing",
         img:ux,
-        title:"International <br> Marketing",
+        title:"International Marketing",
         label:"International Marketing",
         url:"/",
         color:"#FFF0F4"

@@ -20,8 +20,8 @@
     --p-font:'Inter', sans-serif;
 
     /* new */
-    --trafy-black:#1c1623;
-    --h-black:#1c1623;
+    --trafy-black:#02020a;
+    --h-black:#02020a;
     --p-black:#3e3e3e;
     /* --h-white:#f8f8ff; */
     --h-white:#ffffff;
@@ -58,10 +58,10 @@
   /* } */
   /* [data-theme='dark'] { */
 
-    --h-black:#1c1623;
+    --h-black:#02020a;
     --p-black:#3e3e3e;
-    --h-white:#f8f8ff;
-    --p-white:#c7c1d1;
+    --h-white:#f8f8f8;
+    --p-white:#d1d1d1;
 
 
    /* ==================header====================== */
