@@ -30,53 +30,30 @@ const LandingFeaturesData=[
 
 const LandingPathwayData=[
     {
-        id:"artificial-intelligence",
+        id:"responsive-ui-design",
         img:ux,
-        title:"Artificial Intelligence",
-        label:"Artificial Intelligence",
-        url:"/",
+        title:"Responsive UI Design",
+        label:"Responsive UI Design",
+        url:"/courses/Introduction-to-Responsive-UI-Design",
         color:"#F0FFF7"
     }, 
     {
-        id:"uiux-designing",
+        id:"building-functional-ux",
         img:ux,
-        title:"UI/UX Designing",
-        label:"UI/UX Designing",
-        url:"/courses/Introduction-to-Responsive-UI-Design",
+        title:"Building Functional UX",
+        label:"Building Functional UX",
+        url:"/courses/Design-and-Develop-Multi-Device-UIUX",
         color:"#FFFFF0"
     },
     {
-        id:"digital-marketing",
+        id:"spatial-ui-designs",
         img:ux,
-        title:"Digital Marketing",
-        label:"Digital Marketing",
-        url:"/courses/digital-marketing-course",
+        title:"Spatial UI Designs",
+        label:"Spatial UI Designs",
+        url:"/courses/Spatial-and-Immersive-UIUX-Design",
         color:"#F6F0FF"
     },
-    {
-        id:"business-development",
-        img:ux,
-        title:"Business Development",
-        label:"Business Development",
-        url:"/",
-        color:"#FFF0FF"
-    },
-    {
-        id:"product-innovation",
-        img:ux,
-        title:"Product Innovation",
-        label:"Product Innovation",
-        url:"/",
-        color:"#F0F6FF"
-    },
-    {
-        id:"international-marketing",
-        img:ux,
-        title:"International Marketing",
-        label:"International Marketing",
-        url:"/",
-        color:"#FFF0F4"
-    }
+    
 ]
 
 const LandingReviewData=[

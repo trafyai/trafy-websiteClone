@@ -11,10 +11,10 @@ const LandingHero = () => {
             <div className="landing-hero-section">
                 <div className="landing-hero-container">
                     <div className="landing-hero-heading">
-                        <h1>Courses Designed for Leaders and Innovators</h1>
+                        <h1>Innovative Design. <br/>Interactive Experience.</h1>
                     </div>
                     <div className="landing-hero-paragraph">
-                        <p>Learn to lead and think like top decision makers of top 1% companies with courses curated to help you to work on the next big thing.</p>
+                        <p>Learn to design UI/UX faster, functional and salable.</p>
                     </div>
                    
                     <Link className="landing-hero-explore-btn" href="/courses">Explore Pathways</Link>

@@ -116,9 +116,9 @@ const Signup = () => {
                             value={email}
                             onChange={(e) => { setEmail(e.target.value); validateEmail(e.target.value); }}
                             onBlur={(e) => validateEmail(e.target.value)}
-                            InputLabelProps={{
-                                shrink: true, // Ensures label stays above the input when autofilled
-                            }}
+                            // InputLabelProps={{
+                            //     shrink: true, // Ensures label stays above the input when autofilled
+                            // }}
                         />
                     </Box>
                     <Box component="div" className="password" noValidate autoComplete="off">
@@ -140,9 +140,9 @@ const Signup = () => {
                                     </span>
                                 ),
                             }}
-                            InputLabelProps={{
-                                shrink: true, // Ensures label stays above the input when autofilled
-                            }}
+                            // InputLabelProps={{
+                            //     shrink: true, // Ensures label stays above the input when autofilled
+                            // }}
                         />
                     </Box>
                     <div className="signup-button">

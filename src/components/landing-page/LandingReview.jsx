@@ -33,10 +33,7 @@ export default function LandingReview() {
                                     </div>
                                     <div className="landing-review-name">
                                         <p>{item.name}</p>
-                                        <Link href="/">
-                                            View this similar course
-                                            <Image src={nextIcon} width={14} height={14} style={{ marginLeft: "5px" }} />
-                                        </Link>
+                                        
                                     </div>
                                 </div>
                             ))}
@@ -50,10 +47,7 @@ export default function LandingReview() {
                                     </div>
                                     <div className="landing-review-name">
                                         <p>{item.name}</p>
-                                        <Link href="/">
-                                            View this similar course
-                                            <Image src={nextIcon} width={14} height={14} style={{ marginLeft: "5px" }} />
-                                        </Link>
+                                      
                                     </div>
                                 </div>
                             ))}
@@ -67,10 +61,7 @@ export default function LandingReview() {
                                     </div>
                                     <div className="landing-review-name">
                                         <p>{item.name}</p>
-                                        <Link href="/">
-                                            View this similar course
-                                            <Image src={nextIcon} width={14} height={14} style={{ marginLeft: "5px" }} />
-                                        </Link>
+                                       
                                     </div>
                                 </div>
                             ))}

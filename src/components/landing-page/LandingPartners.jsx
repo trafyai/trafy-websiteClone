@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-import Logo from '@public/assets/Images/landing-page/better-together/b-amazon.png'
-import Clickup from '@public/assets/Images/landing-page/better-together/b-clickup.png'
-import Grphy from '@public/assets/Images/landing-page/better-together/b-grphy.png'
-import Hostinger from '@public/assets/Images/landing-page/better-together/b-hostinger.png'
-import Semrush from '@public/assets/Images/landing-page/better-together/b-semrush.png'
-import Shopify from '@public/assets/Images/landing-page/better-together/b-shopify.png'
-import Wati from '@public/assets/Images/landing-page/better-together/b-wati.png'
+import Logo from '@public/assets/Images/landing-page/better-together/amazon.png'
+import Clickup from '@public/assets/Images/landing-page/better-together/clickup.png'
+import Grphy from '@public/assets/Images/landing-page/better-together/grphy.png'
+import Hostinger from '@public/assets/Images/landing-page/better-together/hostinger.png'
+import Semrush from '@public/assets/Images/landing-page/better-together/semrush.png'
+import Shopify from '@public/assets/Images/landing-page/better-together/shopify.png'
+import Wati from '@public/assets/Images/landing-page/better-together/wati.png'
 
 const LandingPartners = () => {
   return (

@@ -66,8 +66,8 @@ const LandingPathway = () => {
     <div className='landing-pathway'>
       <div className='landing-pathway-container'>
         <div className='landing-pathway-heading'>
-          <h2>Curated Pathways</h2>
-          <p>For Students and Working professionals</p>
+          <h2>Explore Pathways</h2>
+          {/* <p>For Students and Working professionals</p> */}
         </div>
 
         <div className='landing-pathway-contents'>

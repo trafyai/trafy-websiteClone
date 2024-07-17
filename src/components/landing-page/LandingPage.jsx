@@ -2,6 +2,7 @@ import LandingHero from '@components/landing-page/LandingHero';
 import LandingPartners from './LandingPartners';
 import LandingPathway from './LandingPathway';
 import LandingGoals from './LandingGoals';
+import LandingTools from './LandingTools';
 import LandingInnovation from './LandingInnovation';
 import LandingCaseStudy from './LandingCaseStudy';
 import LandingReview from "@components/landing-page/LandingReview";
@@ -16,8 +17,9 @@ export default function landingPage(){
         <LandingPartners/>
         <LandingPathway/>
         <LandingGoals/>
-        <LandingInnovation/>
-        <LandingCaseStudy/>
+        <LandingTools/>
+        {/* <LandingInnovation/>
+        <LandingCaseStudy/> */}
         <LandingReview/>
         </>
     )
