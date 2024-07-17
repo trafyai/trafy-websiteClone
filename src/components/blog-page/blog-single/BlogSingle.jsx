@@ -184,7 +184,7 @@ const handleSubmit = async (event) => {
         
           <section className="blog-page-article-section" >
             <div className="blog-page-article-section-container">
-              <div className="blog-page-table-of-contents">
+              {/* <div className="blog-page-table-of-contents">
                 <div className="blog-page-table-of-contents-container">
                   <h4>Table of contents</h4>
                   {props.mainArticle && Array.isArray(props.mainArticle) && props.mainArticle.map((article, index) => (
@@ -193,14 +193,14 @@ const handleSubmit = async (event) => {
                   </p>
                 ))}
                 </div>
-              </div>
+              </div> */}
 
               <div className="blog-page-article-contents">
                 {Array.isArray(props.description) ? (
                   props.description.map((desc, descIndex) => (
                     <div className="blog-page-article-socials-description" key={descIndex}>
                       {/* <p>{desc}</p> */}
-                      <Image src={SS} style={{width:"100%",height:"100%", borderRadius:"8px"}}/>
+                      {/* <Image src={SS} style={{width:"100%",height:"100%", borderRadius:"8px"}}/> */}
                     </div>
                   ))
                 ) : (

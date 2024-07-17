@@ -37,7 +37,7 @@
 .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
     font-size: 14px;
     font-family: var(--p-font);
-    font-weight: 400;
+    font-weight: 500;
     color: #f8f8f8;
 }
 .menu-pathway:hover, .menu-innovation:hover, .menu-resources:hover
@@ -170,10 +170,17 @@
         padding: 0px 16px 0px 12px;
     }
     .menu-mobile-contents{
-        width: 103vw;
         top: 37px;
         right: -26px;
         height: calc(100vh - 48px);
     }
 
+   }
+   @media only screen and (max-width: 400px){
+    .menu-mobile-contents{
+        width: 103vw;
+        top: 37px;
+        right: -26px;
+        height: calc(100vh - 48px);
+    }
    }

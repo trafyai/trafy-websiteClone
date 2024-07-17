@@ -1,16 +1,17 @@
-// 'use client'
+
+
+
+// 'use client';
 // import '@styles/common/header/NavBar.css';
 // import Image from 'next/image';
 // import Link from 'next/link';
 // import { useRouter } from 'next/navigation';
 // import React, { useState, useRef, useEffect, useContext } from "react";
-// import WhiteLogo from '@public/assets/Images/comman/header/whiteLogo.png';
-// import BlackLogo from '@public/assets/Images/comman/header/blackLogo.png';
-// import close from '@public/assets/Images/comman/header/close.png';
-// import close1 from '@public/assets/Images/comman/header/close (1).png';
-// import whiteHamburger from '@public/assets/Images/comman/header/wLogo (2).png';
-// import blackHamburger from '@public/assets/Images/comman/header/bLogo.png';
+// import BlackLogo from '@public/assets/Images/comman/header/WhiteLogo.png';
+// import close1 from '@public/assets/Images/comman/header/close.png';
+// import blackHamburger from '@public/assets/Images/comman/header/wLogo.png';
 // import { UserAuth } from '@context/AuthContext';
+// import Default from '@public/assets/Images/comman/common/dark_mode.png';
 
 // const Header = () => {
 //     const [menuOpen, setMenuOpen] = useState(false);
@@ -41,13 +42,13 @@
 
 //     function toggleMenu() {
 //         setMenuOpen(!menuOpen);
-//         setHover(false); // Ensure dropdown is closed when toggling menu
+//         setHover(false); 
 //         document.body.classList.toggle('overflow');
 //     }
 
 //     function handleNavigation() {
 //         setMenuOpen(false);
-//         setHover(false); // Ensure dropdown is closed when navigating
+//         setHover(false);
 //         document.body.classList.remove('overflow');
 //     }
 
@@ -55,20 +56,12 @@
 //         setHover(!hover); 
 //     }
 
-   
-
-//     const getFirstLetter = () => {
-//         if (user && user.email) {
-//             return user.email.charAt(0).toUpperCase();
-//         }
-//         return '';
-//     };
-
 //     const handleLogOut = async () => {
 //         try {
 //             await logOut();
 //             setHover(false); 
 //             router.push('/');
+//             router.reload(); 
 //         } catch (error) {
 //             console.log(error);
 //         }
@@ -78,12 +71,11 @@
 //         <div className='navbar'>
 //             <div className='navbar-container'>
 //                 <div className='navbar-log'>
-//                     <Link href="/"> <Image src={BlackLogo} alt="trafy logo" height={32} className="trafy-logo" /></Link>
+//                     <Link href="/"> <Image src={BlackLogo} alt="trafy logo" height={26} className="trafy-logo" /></Link>
 //                 </div>
                 
 //                 <div className='menu-lg'>
-                   
-//                 <div className='menu-left'>
+//                     <div className='menu-left'>
 //                         <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
 //                         <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
 //                         <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
@@ -96,14 +88,14 @@
 //                             </div>) 
 //                             :
 //                             (<div className='menu-profile'>
-//                                 <div onClick={handleDropDown} >
-//                                     <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
-//                                         <Image src=""/>
+//                                 <div onClick={handleDropDown}>
+//                                     <div style={{ width: "24px", height: "24px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
+//                                         {/* <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/> */}
 //                                     </div>
 //                                 </div>
 
 //                                 {hover && 
-//                                     (<div className="menu-user-dropdown" >
+//                                     (<div className="menu-user-dropdown">
 //                                         <Link href="/account-settings" onClick={handleNavigation}><p>Profile</p></Link>
 //                                         <Link href="/account-security" onClick={handleNavigation}><p>Security</p></Link>
 //                                         <Link href="/" onClick={handleNavigation}><p>Notification</p></Link>
@@ -122,35 +114,34 @@
 
 //                     {menuOpen &&
 //                         <div className='menu-mobile-contents' ref={menuRef}>
-                         
 //                             <div className='menu-top-contents'>
-//                             {user &&(
-//                                 <div className='menu-profile'>
-//                                 <Link href="/account-settings"  onClick={handleNavigation}>
-//                                     <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
-//                                         <Image src=""/>
+//                                 {user &&(
+//                                     <div className='menu-profile'>
+//                                         <Link href="/account-settings" onClick={handleNavigation} style={{display:"flex",alignItems:"center",gap:"1rem"}}>
+//                                             <div style={{ width: "32px", height: "32px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
+//                                                 <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/>
+//                                             </div>
+//                                             <p>{user?.displayName || 'User'}</p> 
+//                                         </Link>
 //                                     </div>
-//                                 </Link>
-//                             </div>
-//                             )}
-//                             <hr />
+//                                 )}
+//                                {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
 //                                 <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
 //                                 <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
 //                                 <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
-//                             <hr />
+//                                 <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>
 //                                 <Link href="/account-settings" className='menu-account-settings' onClick={handleNavigation}>Account Settings</Link>
 //                                 <Link href="/account-security" className='menu-account-security' onClick={handleNavigation}>Security</Link>
 //                                 <Link href="/account-notification" className='menu-account-notification' onClick={handleNavigation}>Notification</Link>
-//                                 <Link href="/account-logout" className='menu-account-logout' onClick={handleNavigation}>Logout</Link>
+//                                 {user &&<p className='menu-account-logout' onClick={handleLogOut}>Logout</p>}
 //                             </div>
-
-//                             <div className='menu-bottom-contents'>
-//                             {!loading && !user && (
-//                                 <div className='menu-no-profile'>
-//                                     <Link href="/login" className="menu-login" onClick={handleNavigation}>Login</Link>
-//                                     <Link href="/signup" className="menu-signup" onClick={handleNavigation}>Sign Up Free</Link>
-//                                 </div>
-//                             )}
+//                             <div className='menu-bottom-contents' style={{padding:"16px"}}>
+//                                 {!loading && !user && (
+//                                     <div className='menu-no-profile'>
+//                                         <Link href="/login" className="menu-login" onClick={handleNavigation}>Login</Link>
+//                                         <Link href="/signup" className="menu-signup" onClick={handleNavigation}>Sign Up Free</Link>
+//                                     </div>
+//                                 )}
 //                             </div>
 //                         </div>
 //                     }
@@ -164,12 +155,13 @@
 // export default Header;
 
 
+
 'use client';
 import '@styles/common/header/NavBar.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import BlackLogo from '@public/assets/Images/comman/header/WhiteLogo.png';
 import close1 from '@public/assets/Images/comman/header/close.png';
 import blackHamburger from '@public/assets/Images/comman/header/wLogo.png';
@@ -209,10 +201,13 @@ const Header = () => {
         document.body.classList.toggle('overflow');
     }
 
-    function handleNavigation() {
-        setMenuOpen(false);
-        setHover(false); // Ensure dropdown is closed when navigating
-        document.body.classList.remove('overflow');
+    function handleNavigation(targetPath) {
+        if (router.pathname !== targetPath) {
+            setMenuOpen(false);
+            setHover(false);
+            document.body.classList.remove('overflow');
+            router.push(targetPath);
+        }
     }
 
     const handleDropDown = () => {
@@ -224,6 +219,7 @@ const Header = () => {
             await logOut();
             setHover(false); 
             router.push('/');
+            router.reload(); 
         } catch (error) {
             console.log(error);
         }
@@ -238,15 +234,15 @@ const Header = () => {
                 
                 <div className='menu-lg'>
                     <div className='menu-left'>
-                        <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
-                        <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
-                        <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
+                        <Link href="/courses" className="menu-pathway" onClick={() => handleNavigation('/courses')}>Pathways</Link>
+                        <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
+                        <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
                     </div>
                     <div className='menu-right'>
                         {!loading && !user ? 
                             (<div className='menu-no-profile'>
-                                <Link href="/login" className="menu-login" onClick={handleNavigation}> Login</Link>
-                                <Link href="/signup" className="menu-signup" onClick={handleNavigation}> Sign Up Free</Link>
+                                <Link href="/login" className="menu-login" onClick={() => handleNavigation('/login')}> Login</Link>
+                                <Link href="/signup" className="menu-signup" onClick={() => handleNavigation('/signup')}> Sign Up Free</Link>
                             </div>) 
                             :
                             (<div className='menu-profile'>
@@ -258,9 +254,9 @@ const Header = () => {
 
                                 {hover && 
                                     (<div className="menu-user-dropdown">
-                                        <Link href="/account-settings" onClick={handleNavigation}><p>Profile</p></Link>
-                                        <Link href="/account-security" onClick={handleNavigation}><p>Security</p></Link>
-                                        <Link href="/" onClick={handleNavigation}><p>Notification</p></Link>
+                                        <Link href="/account-settings" onClick={() => handleNavigation('/account-settings')}><p>Profile</p></Link>
+                                        <Link href="/account-security" onClick={() => handleNavigation('/account-security')}><p>Security</p></Link>
+                                        <Link href="/" onClick={() => handleNavigation('/')}><p>Notification</p></Link>
                                         <p onClick={handleLogOut}>Logout</p>
                                     </div>)
                                 }
@@ -279,29 +275,29 @@ const Header = () => {
                             <div className='menu-top-contents'>
                                 {user &&(
                                     <div className='menu-profile'>
-                                        <Link href="/account-settings" onClick={handleNavigation} style={{display:"flex",alignItems:"center",gap:"1rem"}}>
+                                        <Link href="/account-settings" onClick={() => handleNavigation('/account-settings')} style={{display:"flex",alignItems:"center",gap:"1rem"}}>
                                             <div style={{ width: "32px", height: "32px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
                                                 <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/>
                                             </div>
-                                            <p>{user?.displayName || 'User'}</p> {/* Display user name here */}
+                                            <p>{user?.displayName || 'User'}</p> 
                                         </Link>
                                     </div>
                                 )}
                                {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
-                                <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
-                                <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
-                                <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
+                                <Link href="/courses" className="menu-pathway" onClick={() => handleNavigation('/courses')}>Pathways</Link>
+                                <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
+                                <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
                                 <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>
-                                <Link href="/account-settings" className='menu-account-settings' onClick={handleNavigation}>Account Settings</Link>
-                                <Link href="/account-security" className='menu-account-security' onClick={handleNavigation}>Security</Link>
-                                <Link href="/account-notification" className='menu-account-notification' onClick={handleNavigation}>Notification</Link>
+                                <Link href="/account-settings" className='menu-account-settings' onClick={() => handleNavigation('/account-settings')}>Account Settings</Link>
+                                <Link href="/account-security" className='menu-account-security' onClick={() => handleNavigation('/account-security')}>Security</Link>
+                                <Link href="/account-notification" className='menu-account-notification' onClick={() => handleNavigation('/account-notification')}>Notification</Link>
                                 {user &&<p className='menu-account-logout' onClick={handleLogOut}>Logout</p>}
                             </div>
                             <div className='menu-bottom-contents' style={{padding:"16px"}}>
                                 {!loading && !user && (
                                     <div className='menu-no-profile'>
-                                        <Link href="/login" className="menu-login" onClick={handleNavigation}>Login</Link>
-                                        <Link href="/signup" className="menu-signup" onClick={handleNavigation}>Sign Up Free</Link>
+                                        <Link href="/login" className="menu-login" onClick={() => handleNavigation('/login')}>Login</Link>
+                                        <Link href="/signup" className="menu-signup" onClick={() => handleNavigation('/signup')}>Sign Up Free</Link>
                                     </div>
                                 )}
                             </div>
@@ -315,3 +311,4 @@ const Header = () => {
 }
 
 export default Header;
+
