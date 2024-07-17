@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import BlogSingleData from '@api/blog/BlogSingleData';
  
 
-export const alt = 'About Acme'
+export const alt = ''
 export const size = {
   width: 1200,
   height: 630,

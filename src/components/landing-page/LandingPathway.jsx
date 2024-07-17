@@ -77,7 +77,9 @@ const LandingPathway = () => {
                 <Image src={item.img} style={{ height: "100%" }} />
               </div>
               <div className='landing-pathway-box-contents'>
-                <h3 dangerouslySetInnerHTML={{ __html: item.title }} />
+                {/* <h3 dangerouslySetInnerHTML={{ __html: item.title }}  /> */}
+                <h3>{item.title}</h3>
+
                 <p style={{ display: "flex", alignItems: "center" }}>Know more <Image src={Vector} style={{ marginLeft: "10px" }} /></p>
               </div>
             </Link>

@@ -4,9 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:  #FFFFFF;
+    background-color:  #02020a;
     padding: 8px 32px;
-    border-bottom: 1px solid #B0B0B0;
+    border-bottom: 1px solid #2a2929;
     position: fixed;
     z-index: 100;
 }
@@ -35,10 +35,10 @@
     align-items: center;
 }
 .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--p-font);
-    font-weight: 400;
-    color: var(--trafy-black);
+    font-weight: 500;
+    color: #f8f8f8;
 }
 .menu-pathway:hover, .menu-innovation:hover, .menu-resources:hover
 , .menu-account-settings:hover, .menu-account-security:hover, .menu-account-notification:hover, .menu-account-logout:hover{
@@ -50,30 +50,30 @@
 }
 .menu-login{
     padding: 6px 16px;
-    border: 2px solid var(--trafy-black);
+    border: 2px solid #f8f8f8;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--p-font);
     font-weight: 500;
-    color: var(--trafy-black);
+    color: #f8f8f8;
     background-color: inherit;
 }
 .menu-login:hover{
-    background-color: var(--trafy-black);
-    color: #FFFFFF;
+    background-color: #f8f8f8;
+    color: #02020a;
 }
 .menu-signup{
     padding: 6px 16px;
-    border: 2px solid var(--trafy-black);
+    border: 2px solid #f8f8f8;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--p-font);
     font-weight: 500;
-    background-color: var(--trafy-black);
-    color: #FFFFFF;
+    background-color: #f8f8f8;
+    color: #02020a;
 }
 .menu-signup:hover{
-    color: var(--trafy-black);
+    color: #f8f8f8;
     background-color: inherit;
 }
 .menu-user-dropdown{
@@ -133,28 +133,27 @@
             display: block;
         }
         .menu-mobile-contents{
-            background-color: #FFFFFF;
-            width: 40vh;
+            background-color: var(--trafy-black);
+            width: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: calc(100vh - 56px);
             position: absolute;
-            top: 44px;
+            top: 41px;
             right: -32px;
             box-shadow: -9999px 9999px 0 9999px rgba(0, 0, 0, .09);
         }
         .menu-profile{
-            padding: 8px 24px;
-            padding-top: 24px;
+            padding: 16px 24px;
         }
         .menu-top-contents{
             display: flex;
             flex-direction: column;
-            gap:0.5rem;
+            gap:0rem;
         }
         .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
-            padding: 8px 24px;
+            padding: 16px 24px;
         }
         .menu-no-profile{
             flex-direction: column;
@@ -171,10 +170,17 @@
         padding: 0px 16px 0px 12px;
     }
     .menu-mobile-contents{
-        width: 103vw;
-        top: 40px;
+        top: 37px;
         right: -26px;
         height: calc(100vh - 48px);
     }
 
+   }
+   @media only screen and (max-width: 400px){
+    .menu-mobile-contents{
+        width: 103vw;
+        top: 37px;
+        right: -26px;
+        height: calc(100vh - 48px);
+    }
    }

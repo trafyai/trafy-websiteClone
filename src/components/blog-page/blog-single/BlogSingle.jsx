@@ -7,6 +7,7 @@ import Facebook from '@public/assets/Images/comman/common/socials-black/facebook
 import Twitter_w from '@public/assets/Images/comman/common/socials-white/twitter-w.png';
 import Linkedin_w from '@public/assets/Images/comman/common/socials-white/linkedin-w.png';
 import Facebook_w from '@public/assets/Images/comman/common/socials-white/facebook-w.png';
+import SS from '@public/assets/Images/blog/ss.jpeg';
 
 import Image from "next/image";
 
@@ -161,7 +162,7 @@ const handleSubmit = async (event) => {
 
       <div className="blog-page">
         <div className="blog-page-container">  
-          <section className="blog-page-hero-section" style={{ backgroundColor: props.bgcolor }}>
+          <section className="blog-page-hero-section" >
             <div className="blog-page-hero-section-container">
               <div className="blog-page-hero-section-category">
                 <p className="blog-page-hero-category">{props.category}</p>
@@ -169,8 +170,12 @@ const handleSubmit = async (event) => {
               <div className="blog-page-hero-section-heading">
                 <h1>{props.title}</h1>
               </div>
+              <div className="blog-page-hero-section-para">
+                <p>{props.metaDescription}</p>
+              </div>
               <div className="blog-page-hero-section-author">
-                <p>{props.author}</p>
+                <p>By <span style={{fontWeight:"700"}}>{props.author} </span></p>
+                <span style={{color:"#d1d1d1"}}>|</span>
                 <p>{props.date}</p>
                 <p>{props.read}</p>
               </div>
@@ -179,7 +184,7 @@ const handleSubmit = async (event) => {
         
           <section className="blog-page-article-section" >
             <div className="blog-page-article-section-container">
-              <div className="blog-page-table-of-contents">
+              {/* <div className="blog-page-table-of-contents">
                 <div className="blog-page-table-of-contents-container">
                   <h4>Table of contents</h4>
                   {props.mainArticle && Array.isArray(props.mainArticle) && props.mainArticle.map((article, index) => (
@@ -188,13 +193,14 @@ const handleSubmit = async (event) => {
                   </p>
                 ))}
                 </div>
-              </div>
+              </div> */}
 
               <div className="blog-page-article-contents">
                 {Array.isArray(props.description) ? (
                   props.description.map((desc, descIndex) => (
                     <div className="blog-page-article-socials-description" key={descIndex}>
-                      <p>{desc}</p>
+                      {/* <p>{desc}</p> */}
+                      {/* <Image src={SS} style={{width:"100%",height:"100%", borderRadius:"8px"}}/> */}
                     </div>
                   ))
                 ) : (
@@ -221,9 +227,6 @@ const handleSubmit = async (event) => {
                   <Image src={Linkedin} alt="" onClick={shareToLinkedIn} className="blog-social-b"/>
                   <Image src={Facebook} alt="" onClick={shareToFacebook} className="blog-social-b"/>
                   <Image src={Twitter} alt="" onClick={shareToTwitter} className="blog-social-b"/>
-                  <Image src={Linkedin_w} alt="" onClick={shareToLinkedIn} className="blog-social-w"/>
-                  <Image src={Facebook_w} alt="" onClick={shareToFacebook} className="blog-social-w"/>
-                  <Image src={Twitter_w} alt="" onClick={shareToTwitter} width="30" height="30" className="blog-social-w"/>
                 </div>
               </div>
             </div>

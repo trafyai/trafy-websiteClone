@@ -19,12 +19,13 @@
     justify-content: center;
 }
 .landing-hero-heading h1{
-    font-size: 72px;
+    font-size: 66px;
     width:78%;
     font-family: var( --h-font);
     font-weight: 600;
     color: var(--h-black);
     text-align: center;
+    line-height: 110%;
 }
 .landing-hero-paragraph p{
     font-size: 20px;
@@ -221,13 +222,13 @@
     padding:  24px;
 }
 .landing-features-value p{
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
     color: #7746c6;
     font-family: var(--p-font);
 }
 .landing-features-key p{
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
     color: var(--h-black);
     font-family: var(--p-font);
@@ -341,10 +342,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:1.5rem;
+    gap:1rem;
 }
 .landing-pathway-heading h2{
-    font-size: 48px;
+    font-size: 40px;
     font-family: var( --h-font);
     font-weight: 600;
     color: var(--h-black);
@@ -401,7 +402,7 @@
   }
 
 .landing-pathway-box h3{
-    font-size: 28px;
+    font-size: 24px;
     font-family: var(--p-font);
     text-align: center;
     color: var(--h-black);
@@ -543,11 +544,11 @@
 .landing-goals-heading{
     display: flex;
     flex-direction: column;
-    gap:1.5rem;
+    gap:1rem;
     align-items: center;
 }
 .landing-goals-heading h2{
-    font-size: 48px;
+    font-size: 40px;
     font-family: var( --h-font);
     font-weight: 600;
     color: var(--h-black);
@@ -559,8 +560,8 @@
     font-weight: 400;
     color: var(--p-black);
     text-align: center;
-    width: 60%;
-    line-height: 150%;
+    width: 65%;
+    line-height: 140%;
 }
 .landing-goals-contents{
     display: grid;
@@ -577,9 +578,9 @@
 }
 .landing-goals-box h3{
     padding: 16px;
-    font-size: 24px;
+    font-size: 22px;
     font-family: var( --h-font);
-    font-weight: 600;
+    font-weight: 500;
     color: var(--h-black);
     text-align: center;
     border-bottom: 1px solid #B0B0B0;
@@ -699,13 +700,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap:1.5rem;
+    gap:1rem;
 }
 .landing-innovation-left h2{
-    font-size: 48px;
+    font-size: 40px;
     font-family: var( --h-font);
     font-weight: 600;
     color: var(--h-white);
+    line-height: 120%;
 }
 .landing-innovation-left span{
     font-size: 18px;
@@ -723,6 +725,7 @@
     font-family: var( --p-font);
     font-weight: 400;
     color: var(--p-white);
+    line-height: 140%;
 }
 .landing-innovation-right{
     width: 50%;
@@ -746,7 +749,7 @@
     gap:1.5rem;
 }
 .landing-innovation-right-contents h3{
-    font-size: 32px;
+    font-size: 24px;
     font-family: var( --p-font);
     font-weight: 500;
     color: var(--h-black);
@@ -871,7 +874,7 @@
     gap:2.5rem;
 }
 .landing-casestudy-heading h2{
-    font-size: 48px;
+    font-size: 40px;
     font-family: var( --h-font);
     font-weight: 600;
     color: var(--h-white);
@@ -993,7 +996,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:5rem;
+    gap:3rem;
 }
 .landing-review-top{
     display: flex;
@@ -1001,8 +1004,8 @@
     gap:0.5rem;
 }
 .landing-review-top h2 {
-    font-size: 48px;
-    font-family: var( --h-font);
+    font-size: 40px;
+    font-family: var(--h-font);
     font-weight: 600;
     color: var(--h-black);
     text-align: center;
@@ -1028,8 +1031,8 @@
 }
 .landing-review-card {
     padding: 24px;
-    width: 300px;
-    height: 350px;
+    width: 230px;
+    height: 260px;
     border: 1px solid #b0b0b0;
     background-color: #ffffff;
     border-radius: 16px;
@@ -1042,13 +1045,13 @@
 .landing-reviews{
     display: flex;
     flex-direction: column;
-    gap:1.5rem;
+    gap:1rem;
 }
 .landing-reviews p{
-    font-size: 18px;
+    font-size: 14px;
     font-family: var( --p-font);
     font-weight: 400;
-    color: var(--h-font);
+    color: var(--p-black);
     line-height: 150%;
 }
 .landing-review-name{
@@ -1057,14 +1060,14 @@
     gap:0.5rem;
 }
 .landing-review-name p {
-    font-size: 18px;
+    font-size: 14px;
     font-family:var( --p-font);
     font-weight: 500;
-    color: var(--p-font);
+    color: var(--p-black);
     line-height: 150%;
 }
 .landing-review-name a{
-    font-size: 14px;
+    font-size: 12px;
     font-family: var( --p-font);
     font-weight: 400;
     color: #5022C3;
@@ -1136,8 +1139,8 @@
     }
     .landing-review-card {
         padding: 24px;
-        width: 260px;
-        height: 340px;
+        /* width: 260px;
+        height: 340px; */
     }
 }
 @media only screen and (max-width:1024px){
