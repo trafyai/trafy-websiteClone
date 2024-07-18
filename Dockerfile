@@ -1,5 +1,9 @@
 # Build stage
-FROM node:14 AS builder
+FROM node:18.17.0-alpine
+
+# Update npm
+RUN npm install -g npm@latest
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
