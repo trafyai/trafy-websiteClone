@@ -56,6 +56,7 @@
     font-family:var( --p-font);
     font-weight: 500;
     font-size: 15px;
+    color:var(--p-white);
 }
 .hero-cta{
     display: flex;
