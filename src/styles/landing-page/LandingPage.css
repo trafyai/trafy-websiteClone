@@ -1278,7 +1278,7 @@
 }
 @media only screen and (max-width:400px){
     .landing-review{
-        padding:50px;
+        padding:50px 0px;
         padding-top:10px;
     }
     .landing-review-container{
@@ -1288,7 +1288,7 @@
         font-size: 28px;
     }
     .landing-review-bottom-container{
-        overflow:visible;
+        /* overflow:visible; */
     }
 }
 

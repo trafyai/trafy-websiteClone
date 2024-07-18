@@ -1,7 +1,7 @@
 import landingPage from '@components/landing-page/LandingPage'
 import ux from '@public/assets/Images/landing-page/pathway/ux.png'
-import ai from '@public/assets/Images/landing-page/pathway/ai.svg'
-import dm from '@public/assets/Images/landing-page/pathway/dm.svg'
+import ai from '@public/assets/Images/landing-page/pathway/ai.png'
+import dm from '@public/assets/Images/landing-page/pathway/dm.png'
 
 import quote from '@public/assets/Images/landing-page/quote.svg'
 
