@@ -297,7 +297,7 @@ const Login = () => {
 
                     <div className="google-signin">
                         <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Login with Google</button>
-                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Don't have an account? <Link href="/signup">Sign up</Link></p>
+                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Dont have an account? <Link href="/signup">Sign up</Link></p>
                     </div>
                 </form>
             </div>

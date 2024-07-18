@@ -18,7 +18,7 @@ export default async function Image({ params }) {
     return new ImageResponse(
       (
        
-<img src={product.metaImage} alt="img"/>
+<ImageResponse src={product.metaImage} alt="img"/>
 
       ),
       {
