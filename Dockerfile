@@ -1,46 +1,39 @@
-# Build stage
-FROM node:18.17.0-alpine AS builder
+FROM node:18-alpine AS base
 
-# Update npm
-RUN npm install -g npm@latest
-
-# Set working directory
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package*.json ./
+RUN npm ci
 
-# Install dependencies
-RUN npm install
-
-# Copy the entire directory (assuming src is in the root)
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Run build (adjust this according to your build script)
+ENV NEXT_TELEMETRY_DISABLED 1
+
 RUN npm run build
 
-# Production stage
-FROM node:14-alpine AS production
-
-# Set working directory
+FROM base AS runner
 WORKDIR /app
 
-# Add group and user
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy necessary files from builder stage
-COPY --from=builder /app/src/public ./public
-COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
-# Adjust other directories as needed
 
-# Set user
 USER nextjs
 
-# Expose port
 EXPOSE 3000
 
-# Start the application
+ENV PORT 3000
+
 CMD ["npm", "start"]
