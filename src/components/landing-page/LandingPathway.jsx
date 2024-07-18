@@ -63,7 +63,7 @@ const LandingPathway = () => {
   const [selectedPathway, setSelectedPathway] = useState(LandingPathwayData[0].id);
 
   return (
-    <div className='landing-pathway'>
+    <div id='landingPathways' className='landing-pathway'>
       <div className='landing-pathway-container'>
         <div className='landing-pathway-heading'>
           <h2>Explore Pathways</h2>
@@ -73,8 +73,8 @@ const LandingPathway = () => {
         <div className='landing-pathway-contents'>
           {LandingPathwayData.map((item, index) => (
             <Link key={index} className='landing-pathway-box' href={item.url}>
-              <div className='image-wrapper' style={{ backgroundColor: item.color }}>
-                <Image src={item.img} style={{ height: "100%" }} />
+              <div className='image-wrapper' style={{ backgroundColor: item.color , height:"230px"}}>
+                {/* <Image src={item.img} style={{ height: "100%" }} /> */}
               </div>
               <div className='landing-pathway-box-contents'>
                 {/* <h3 dangerouslySetInnerHTML={{ __html: item.title }}  /> */}

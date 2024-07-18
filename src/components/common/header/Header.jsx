@@ -1,12 +1,11 @@
 
 
-
 // 'use client';
 // import '@styles/common/header/NavBar.css';
 // import Image from 'next/image';
 // import Link from 'next/link';
 // import { useRouter } from 'next/navigation';
-// import React, { useState, useRef, useEffect, useContext } from "react";
+// import React, { useState, useRef, useEffect } from "react";
 // import BlackLogo from '@public/assets/Images/comman/header/WhiteLogo.png';
 // import close1 from '@public/assets/Images/comman/header/close.png';
 // import blackHamburger from '@public/assets/Images/comman/header/wLogo.png';
@@ -42,14 +41,17 @@
 
 //     function toggleMenu() {
 //         setMenuOpen(!menuOpen);
-//         setHover(false); 
+//         setHover(false); // Ensure dropdown is closed when toggling menu
 //         document.body.classList.toggle('overflow');
 //     }
 
-//     function handleNavigation() {
-//         setMenuOpen(false);
-//         setHover(false);
-//         document.body.classList.remove('overflow');
+//     function handleNavigation(targetPath) {
+//         if (router.pathname !== targetPath) {
+//             setMenuOpen(false);
+//             setHover(false);
+//             document.body.classList.remove('overflow');
+//             router.push(targetPath);
+//         }
 //     }
 
 //     const handleDropDown = () => {
@@ -76,15 +78,15 @@
                 
 //                 <div className='menu-lg'>
 //                     <div className='menu-left'>
-//                         <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
-//                         <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
-//                         <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
+//                         <Link href="/courses" className="menu-pathway" onClick={() => handleNavigation('/courses')}>Pathways</Link>
+//                         <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
+//                         <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
 //                     </div>
 //                     <div className='menu-right'>
 //                         {!loading && !user ? 
 //                             (<div className='menu-no-profile'>
-//                                 <Link href="/login" className="menu-login" onClick={handleNavigation}> Login</Link>
-//                                 <Link href="/signup" className="menu-signup" onClick={handleNavigation}> Sign Up Free</Link>
+//                                 <Link href="/login" className="menu-login" onClick={() => handleNavigation('/login')}> Login</Link>
+//                                 <Link href="/signup" className="menu-signup" onClick={() => handleNavigation('/signup')}> Sign Up Free</Link>
 //                             </div>) 
 //                             :
 //                             (<div className='menu-profile'>
@@ -96,9 +98,9 @@
 
 //                                 {hover && 
 //                                     (<div className="menu-user-dropdown">
-//                                         <Link href="/account-settings" onClick={handleNavigation}><p>Profile</p></Link>
-//                                         <Link href="/account-security" onClick={handleNavigation}><p>Security</p></Link>
-//                                         <Link href="/" onClick={handleNavigation}><p>Notification</p></Link>
+//                                         <Link href="/account-settings" onClick={() => handleNavigation('/account-settings')}><p>Profile</p></Link>
+//                                         <Link href="/account-security" onClick={() => handleNavigation('/account-security')}><p>Security</p></Link>
+//                                         <Link href="/" onClick={() => handleNavigation('/')}><p>Notification</p></Link>
 //                                         <p onClick={handleLogOut}>Logout</p>
 //                                     </div>)
 //                                 }
@@ -117,7 +119,7 @@
 //                             <div className='menu-top-contents'>
 //                                 {user &&(
 //                                     <div className='menu-profile'>
-//                                         <Link href="/account-settings" onClick={handleNavigation} style={{display:"flex",alignItems:"center",gap:"1rem"}}>
+//                                         <Link href="/account-settings" onClick={() => handleNavigation('/account-settings')} style={{display:"flex",alignItems:"center",gap:"1rem"}}>
 //                                             <div style={{ width: "32px", height: "32px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
 //                                                 <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/>
 //                                             </div>
@@ -126,20 +128,20 @@
 //                                     </div>
 //                                 )}
 //                                {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
-//                                 <Link href="/courses" className="menu-pathway" onClick={handleNavigation}>Pathways</Link>
-//                                 <Link href="/blogs" className="menu-resources" onClick={handleNavigation}> Resources </Link>
-//                                 <Link href="/" className="menu-innovation" onClick={handleNavigation}> Innovation Circle </Link>
+//                                 <Link href="/courses" className="menu-pathway" onClick={() => handleNavigation('/courses')}>Pathways</Link>
+//                                 <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
+//                                 <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
 //                                 <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>
-//                                 <Link href="/account-settings" className='menu-account-settings' onClick={handleNavigation}>Account Settings</Link>
-//                                 <Link href="/account-security" className='menu-account-security' onClick={handleNavigation}>Security</Link>
-//                                 <Link href="/account-notification" className='menu-account-notification' onClick={handleNavigation}>Notification</Link>
+//                                 <Link href="/account-settings" className='menu-account-settings' onClick={() => handleNavigation('/account-settings')}>Account Settings</Link>
+//                                 <Link href="/account-security" className='menu-account-security' onClick={() => handleNavigation('/account-security')}>Security</Link>
+//                                 <Link href="/account-notification" className='menu-account-notification' onClick={() => handleNavigation('/account-notification')}>Notification</Link>
 //                                 {user &&<p className='menu-account-logout' onClick={handleLogOut}>Logout</p>}
 //                             </div>
 //                             <div className='menu-bottom-contents' style={{padding:"16px"}}>
 //                                 {!loading && !user && (
 //                                     <div className='menu-no-profile'>
-//                                         <Link href="/login" className="menu-login" onClick={handleNavigation}>Login</Link>
-//                                         <Link href="/signup" className="menu-signup" onClick={handleNavigation}>Sign Up Free</Link>
+//                                         <Link href="/login" className="menu-login" onClick={() => handleNavigation('/login')}>Login</Link>
+//                                         <Link href="/signup" className="menu-signup" onClick={() => handleNavigation('/signup')}>Sign Up Free</Link>
 //                                     </div>
 //                                 )}
 //                             </div>
@@ -153,7 +155,6 @@
 // }
 
 // export default Header;
-
 
 
 'use client';
@@ -197,12 +198,20 @@ const Header = () => {
 
     function toggleMenu() {
         setMenuOpen(!menuOpen);
-        setHover(false); // Ensure dropdown is closed when toggling menu
+        setHover(false); 
         document.body.classList.toggle('overflow');
     }
 
     function handleNavigation(targetPath) {
-        if (router.pathname !== targetPath) {
+        if (targetPath.startsWith('#')) {
+            setMenuOpen(false);
+            setHover(false);
+            document.body.classList.remove('overflow');
+            const element = document.querySelector(targetPath);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else if (router.pathname !== targetPath) {
             setMenuOpen(false);
             setHover(false);
             document.body.classList.remove('overflow');
@@ -234,7 +243,7 @@ const Header = () => {
                 
                 <div className='menu-lg'>
                     <div className='menu-left'>
-                        <Link href="/courses" className="menu-pathway" onClick={() => handleNavigation('/courses')}>Pathways</Link>
+                        <a href="#landingPathways" className="menu-pathway" onClick={() => handleNavigation('#landingPathways')}>Pathways</a>
                         <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
                         <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
                     </div>
@@ -256,7 +265,7 @@ const Header = () => {
                                     (<div className="menu-user-dropdown">
                                         <Link href="/account-settings" onClick={() => handleNavigation('/account-settings')}><p>Profile</p></Link>
                                         <Link href="/account-security" onClick={() => handleNavigation('/account-security')}><p>Security</p></Link>
-                                        <Link href="/" onClick={() => handleNavigation('/')}><p>Notification</p></Link>
+                                        <Link href="/" onClick={() => handleNavigation('/')}>Notification</Link>
                                         <p onClick={handleLogOut}>Logout</p>
                                     </div>)
                                 }
@@ -284,31 +293,28 @@ const Header = () => {
                                     </div>
                                 )}
                                {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
-                                <Link href="/courses" className="menu-pathway" onClick={() => handleNavigation('/courses')}>Pathways</Link>
+                                <a href="#landingPathways" className="menu-pathway" onClick={() => handleNavigation('#landingPathways')}>Pathways</a>
                                 <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
                                 <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
                                 <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>
                                 <Link href="/account-settings" className='menu-account-settings' onClick={() => handleNavigation('/account-settings')}>Account Settings</Link>
                                 <Link href="/account-security" className='menu-account-security' onClick={() => handleNavigation('/account-security')}>Security</Link>
                                 <Link href="/account-notification" className='menu-account-notification' onClick={() => handleNavigation('/account-notification')}>Notification</Link>
-                                {user &&<p className='menu-account-logout' onClick={handleLogOut}>Logout</p>}
-                            </div>
-                            <div className='menu-bottom-contents' style={{padding:"16px"}}>
-                                {!loading && !user && (
-                                    <div className='menu-no-profile'>
-                                        <Link href="/login" className="menu-login" onClick={() => handleNavigation('/login')}>Login</Link>
-                                        <Link href="/signup" className="menu-signup" onClick={() => handleNavigation('/signup')}>Sign Up Free</Link>
-                                    </div>
-                                )}
+                                {user &&<p onClick={handleLogOut}>Logout</p>}
+                                {!loading && !user ? 
+                                    (<div className='menu-no-profile'>
+                                        <Link href="/login" className="menu-login" onClick={() => handleNavigation('/login')}> Login</Link>
+                                        <Link href="/signup" className="menu-signup" onClick={() => handleNavigation('/signup')}> Sign Up Free</Link>
+                                    </div>) 
+                                    :null
+                                }
                             </div>
                         </div>
                     }
                 </div>
-                {/* ------------------------------------------------------------------------------------------------------- */}
             </div>
         </div>
-    )
+    );
 }
 
 export default Header;
-
