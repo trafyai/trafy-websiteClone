@@ -28,7 +28,7 @@ export default function LandingReview() {
                             {LandingReviewData.map((item, index) => (
                                 <div className="landing-review-card" key={index}>
                                     <div className="landing-reviews">
-                                        <Image src={item.img} alt="" />
+                                        <Image src={item.img} alt="" width="18"/>
                                         <p>{item.review}</p>
                                     </div>
                                     <div className="landing-review-name">
@@ -42,7 +42,7 @@ export default function LandingReview() {
                             {LandingReviewData.map((item, index) => (
                                 <div className="landing-review-card" key={index}>
                                     <div className="landing-reviews">
-                                        <Image src={item.img} alt="" />
+                                        <Image src={item.img} alt="" width="18"/>
                                         <p>{item.review}</p>
                                     </div>
                                     <div className="landing-review-name">
@@ -56,7 +56,7 @@ export default function LandingReview() {
                             {LandingReviewData.map((item, index) => (
                                 <div className="landing-review-card" key={index}>
                                     <div className="landing-reviews">
-                                        <Image src={item.img} alt="" />
+                                        <Image src={item.img} alt="" width="18"/>
                                         <p>{item.review}</p>
                                     </div>
                                     <div className="landing-review-name">

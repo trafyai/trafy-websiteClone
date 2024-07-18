@@ -2,7 +2,7 @@
     padding-top: 120px;
     display: flex;
     justify-content: center;
-    background-color: var(--landing-bg);
+    background-color: var(--trafy-black);
 }
 .hero-section-container{
     width: 80%;
@@ -314,7 +314,7 @@
     padding-top: 60px;
     display: flex;
     justify-content: center;
-    background-color: var(--landing-bg);
+    background-color: var(--trafy-black);
 }
 .course-description-container{
     width: 80%;
@@ -446,7 +446,7 @@
     padding:90px 0px;
     display: flex;
     justify-content: center;
-    background-color: var(--landing-bg);
+    background-color: var(--trafy-black);
 }
 .course-syllabus-container{
     width: 80%;
@@ -465,7 +465,7 @@
     display: flex;
     flex-direction: column;
     border: 1px solid var(--landing-cards-border);
-    background-color: var( --landing-cards-bg);
+    background-color: #16161D;
     border-radius: 16px;
 }
 .course-syllabus-accordion{
@@ -534,7 +534,7 @@
     display: flex;
     padding: 90px 0px;
     justify-content: center;
-    background-color: var( --landing-bg);
+    background-color: var( --trafy-black);
   }
   .course-project-container{
     width: 80%;
@@ -559,7 +559,7 @@
     max-height: 350px;
     min-height: 250px;
     border: 1px solid var(--landing-cards-border);
-    background-color: var( --landing-cards-bg);
+    background-color: #16161D;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
@@ -638,7 +638,7 @@
     display: flex;
     justify-content: center;
     padding:90px 0px;
-    background-color: var(--landing-bg);
+    background-color: var(--trafy-black);
   }
   .course-review-container{
     width: 80%;
@@ -664,7 +664,7 @@
     max-height: 350px;
     min-height: 250px;
     border: 1px solid var( --landing-cards-border);
-    background-color: var( --landing-cards-bg);
+    background-color: #16161D;
     border-radius: 24px;
     display: flex;
     flex-direction: column;
@@ -730,7 +730,7 @@
     display: flex;
     justify-content: center;
     padding:90px 0px;
-    background-color: var(--landing-cards-bg);
+    background-color: #16161D;
   }
   .course-certificate-container{
     width: 80%;
@@ -825,7 +825,7 @@
     padding:90px 0px;
     display: flex;
     justify-content: center;
-    background-color: var(--landing-bg);
+    background-color: var(--trafy-black);
 }
 .course-faq-container{
     width: 80%;
@@ -851,7 +851,7 @@
     display: flex;
     flex-direction: column;
     border: 1px solid var(--landing-cards-border);
-    background-color: var( --landing-cards-bg);
+    background-color: #16161D;
     border-radius: 16px;
     gap:1rem;
 }
@@ -894,7 +894,7 @@
     padding:90px 0px;
     display: flex;
     justify-content: center;
-    background-color: var(--landing-bg);
+    background-color: var(--trafy-black);
 }
 .course-payment-container{
     width: 80%;
@@ -916,7 +916,7 @@
 .course-payment-box{
     width:370px;
     border-radius: 16px;
-    background-color: var( --landing-cards-bg);
+    background-color: #16161D;
     display: flex;
     flex-direction: column;
     padding: 24px;

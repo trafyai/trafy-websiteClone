@@ -6,6 +6,7 @@ import LandingTools from './LandingTools';
 import LandingInnovation from './LandingInnovation';
 import LandingCaseStudy from './LandingCaseStudy';
 import LandingReview from "@components/landing-page/LandingReview";
+import LandingAi from './LandingAi';
 import '@styles/landing-page/LandingPage.css'
 
 export default function landingPage(){
@@ -21,6 +22,7 @@ export default function landingPage(){
         {/* <LandingInnovation/>
         <LandingCaseStudy/> */}
         <LandingReview/>
+        <LandingAi/>  
         </>
     )
 }

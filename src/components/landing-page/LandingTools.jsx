@@ -2,8 +2,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import Link from "next/link";
-import Icon1 from '@public/assets/Images/landing-page/tools/icon1.png';
-import Icon2 from '@public/assets/Images/landing-page/tools/icon2.png';
+import Icon1 from '@public/assets/Images/landing-page/tools/icon1.svg';
+import Icon2 from '@public/assets/Images/landing-page/tools/icon2.svg';
 import Icon3 from '@public/assets/Images/landing-page/tools/icon3.png';
 import Icon4 from '@public/assets/Images/landing-page/tools/icon4.png';
 

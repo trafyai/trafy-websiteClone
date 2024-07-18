@@ -426,17 +426,19 @@
 
   @media only screen and (max-width:1024px){
     .landing-pathway{
-        padding-bottom: 60px;
+        padding-bottom: 70px;
     }
     .landing-pathway-container{
         width: 90%;
-        gap:4rem;
+        gap:2.5rem;
     }
     .landing-pathway-heading h2{
         font-size: 40px;
     }
     .landing-pathway-contents{
-        grid-template-columns: repeat(2, auto);    }
+        grid-template-columns: repeat(2, auto);   
+        gap:1.5rem;
+    }
     .landing-pathway-box h3{
         font-size: 24px;
     }
@@ -472,10 +474,10 @@
    
   }
   @media only screen and (max-width:400px){
-    /* .landing-pathway{
+    .landing-pathway{
         padding-top: 10px;
         padding-bottom: 50px;
-    } */
+    }
     .landing-pathway-container{
         gap: 2rem;
     }
@@ -532,6 +534,7 @@
   }
 /* -----------------------------------------------------Goals section----------------------------------------------- */
 .landing-goals {
+    padding-top:65px;
     padding: 90px 0px;
     display: flex;
     justify-content: center;
@@ -607,7 +610,8 @@
 }
 @media only screen and (max-width: 1024px){
     .landing-goals{
-        padding: 60px 0px;
+        padding: 70px 0px;
+        padding-top:50px;
     }
     .landing-goals-container{
         width: 90%;
@@ -653,10 +657,10 @@
     }
 }
 @media only screen and (max-width: 400px){
-    /* .landing-goals{
+    .landing-goals{
         padding-top: 40px;
         padding-bottom: 50px;
-    } */
+    }
     .landing-goals-container{
         gap:2rem;
     }
@@ -729,10 +733,14 @@
     .landing-tools-container{
         width:85%;
     }
+    .landing-tools{
+        padding:70px 0px;
+    }
 }
 @media only screen and (max-width:600px){
     .landing-review{
         padding:60px 0px;
+        padding-top: 30px;
     }
     .landing-tools-container{
         width:90%;
@@ -753,6 +761,9 @@
 }
 }
 @media only screen and (max-width:400px){
+    .landing-tools{
+        padding:50px 0px;
+    }
     .landing-tools-container {
         gap: 2.5rem;
         padding: 32px;
@@ -1190,7 +1201,8 @@
 }
 @media only screen and (max-width:1024px){
     .landing-review{
-        padding: 60px 0px;
+        padding: 70px 0px;
+        padding-top:20px;
     }
 }
 @media only screen and (max-width:1000px){
@@ -1263,8 +1275,18 @@
     }
 }
 @media only screen and (max-width:400px){
+    .landing-review{
+        padding:50px;
+        padding-top:10px;
+    }
+    .landing-review-container{
+        gap:2rem;
+    }
     .landing-review-top h2 {
         font-size: 28px;
+    }
+    .landing-review-bottom-container{
+        overflow:visible;
     }
 }
 
@@ -1272,14 +1294,85 @@
 
 .landing-ai {
     padding: 90px 0px;
+    padding-top: 30px;
     display: flex;
     justify-content: center;
     background-color: var(--trafy-black);
 }
 .landing-ai-container{
-    width: 85%;
+    width: 65%;
+    padding: 60px 40px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap:3rem;
+    justify-content: center;
+    gap:2rem;
+    background-color: #5E43F3;
+    border-radius:8px;
+}
+.landing-ai-container h2{
+    font-size: 40px;
+    font-family: var( --h-font);
+    font-weight: 600;
+    color: var(--h-white);
+    width:60%;
+}
+.landing-ai-container button{
+    height:max-content;
+    padding:12px 24px;
+    border:1px solid var(--p-white);
+    border-radius:8px;
+    background-color:inherit;
+    font-size: 16px;
+    font-family: var(--p-font);
+    color:var(--h-white);
+}
+.landing-ai-container button:hover{
+    background-color: var(--h-white);
+    color:inherit;
+}
+
+@media only screen and (max-width:1024px){
+    .landing-ai{
+        padding-top: 20px;
+        padding-bottom: 70px;
+    }
+    .landing-ai-container{
+        width: 85%;
+    }
+}
+@media only screen and (max-width:730px){
+    .landing-ai-container{
+        flex-direction: column;
+        padding:32px;
+    }
+    .landing-ai-container h2{
+        text-align: center;
+        width:100%;
+    }
+}
+@media only screen and (max-width:600px){
+    .landing-ai-container{
+        width:90%;
+    }
+    .landing-ai-container h2{
+        font-size:32px;
+        text-align: center;
+        width:100%;
+    }
+}
+@media only screen and (max-width:400px){
+    .landing-ai{
+        padding:50px 0px;
+        padding-top:10px;
+    }
+    .landing-ai-container{
+        gap:1.5rem;
+        padding:24px;
+    }
+    .landing-ai-container h2{
+        font-size:28px;
+    }
+    .landing-ai-container button{
+        padding:10px 24px;
+    }
 }
