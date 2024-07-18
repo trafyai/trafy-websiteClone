@@ -1,5 +1,5 @@
 # Build stage
-FROM node:18.17.0-alpine
+FROM node:18.17.0-alpine AS builder
 
 # Update npm
 RUN npm install -g npm@latest
@@ -11,15 +11,15 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM node:14-alpine
+FROM node:14-alpine AS production
 WORKDIR /app
 
 # Add group and user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy necessary files from build stage
-COPY --from=builder /app/src/public ./public
+# Copy necessary files from builder stage
+COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
