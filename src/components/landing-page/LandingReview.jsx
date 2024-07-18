@@ -19,7 +19,7 @@ export default function LandingReview() {
             <div className="landing-review">
                 <div className="landing-review-container">
                     <div className="landing-review-top">
-                        <h2>Witness other's achievements through learning.</h2>
+                        <h2>Witness others achievements through learning.</h2>
                     </div>
 
                     <div className="landing-review-bottom-container" >
