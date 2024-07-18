@@ -232,11 +232,11 @@ const handleSubmit = async (event) => {
             </div>
           </section>
 
-          <section className="blog-newsletter">
+          {/* <section className="blog-newsletter">
             <div className="blog-newsletter-container">
-              {renderFormOrMessage()} {/* Render form or thank you message */}
+              {renderFormOrMessage()} 
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
     </main>

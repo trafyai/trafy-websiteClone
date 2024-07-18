@@ -139,7 +139,8 @@ export default function CourseHero(props) {
                     }
                   {enquiry &&   <EnquiryForm link={props.formLink}
                                             course={props.formCourse}
-                                            name={props.courseHeading}/> }
+                                            name={props.courseHeading}
+                                            title="Get Started with"/> }
                   {demo &&   <DemoEnquiry link={props.demoLink}
                                             course={props.formCourse}
                                             name={props.courseHeading}/> }

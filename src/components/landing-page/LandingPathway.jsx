@@ -73,8 +73,8 @@ const LandingPathway = () => {
         <div className='landing-pathway-contents'>
           {LandingPathwayData.map((item, index) => (
             <Link key={index} className='landing-pathway-box' href={item.url}>
-              <div className='image-wrapper' style={{ backgroundColor: item.color , height:"230px"}}>
-                {/* <Image src={item.img} style={{ height: "100%" }} /> */}
+              <div className='image-wrapper' style={{ backgroundColor: item.color }}>
+                <Image src={item.img} style={{ height: "100%" }} />
               </div>
               <div className='landing-pathway-box-contents'>
                 {/* <h3 dangerouslySetInnerHTML={{ __html: item.title }}  /> */}

@@ -141,7 +141,7 @@ const EnquiryForm = (props) => {
                         <button className="close-popup-button" onClick={() => setIsPopupVisible(false)}>x</button>
                         <form className="enquiryform" onSubmit={handleSubmit} autoComplete="off" method="POST">
                             <div className="enquiryform-heading">
-                                <h2>Get Started With</h2>
+                                <h2>{props.title}</h2>
                                 <h4>{props.name}</h4>
                             </div>
                             <div className="enquiryname">

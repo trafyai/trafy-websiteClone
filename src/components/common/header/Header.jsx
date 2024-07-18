@@ -245,7 +245,7 @@ const Header = () => {
                     <div className='menu-left'>
                         <a href="#landingPathways" className="menu-pathway" onClick={() => handleNavigation('#landingPathways')}>Pathways</a>
                         <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
-                        <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
+                        {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
                     </div>
                     <div className='menu-right'>
                         {!loading && !user ? 
@@ -295,7 +295,7 @@ const Header = () => {
                                {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
                                 <a href="#landingPathways" className="menu-pathway" onClick={() => handleNavigation('#landingPathways')}>Pathways</a>
                                 <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
-                                <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link>
+                                {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
                                 <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>
                                 <Link href="/account-settings" className='menu-account-settings' onClick={() => handleNavigation('/account-settings')}>Account Settings</Link>
                                 <Link href="/account-security" className='menu-account-security' onClick={() => handleNavigation('/account-security')}>Security</Link>
@@ -318,3 +318,6 @@ const Header = () => {
 }
 
 export default Header;
+
+
+

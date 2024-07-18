@@ -1,5 +1,5 @@
 import landingPage from '@components/landing-page/LandingPage'
-import ux from '@public/assets/Images/landing-page/pathway/ux.jpeg'
+import ux from '@public/assets/Images/landing-page/pathway/ux.png'
 import ai from '@public/assets/Images/landing-page/pathway/ai.svg'
 import dm from '@public/assets/Images/landing-page/pathway/dm.svg'
 
@@ -30,27 +30,27 @@ const LandingFeaturesData=[
 
 const LandingPathwayData=[
     {
-        id:"responsive-ui-design",
+        id:"responsive-ui-designs",
         img:ux,
         title:"Responsive UI Design",
         label:"Responsive UI Design",
-        url:"/courses/Introduction-to-Responsive-UI-Design",
+        url:"/courses/responsive-ui-designs",
         color:"#F0FFF7"
     }, 
     {
         id:"building-functional-ux",
-        img:ux,
+        img:dm,
         title:"Building Functional UX",
         label:"Building Functional UX",
-        url:"/courses/Design-and-Develop-Multi-Device-UIUX",
+        url:"/courses/building-functional-ux",
         color:"#FFFFF0"
     },
     {
         id:"spatial-ui-designs",
-        img:ux,
+        img:ai,
         title:"Spatial UI Designs",
         label:"Spatial UI Designs",
-        url:"/courses/Spatial-and-Immersive-UIUX-Design",
+        url:"/courses/spatial-ui-designs",
         color:"#F6F0FF"
     },
     

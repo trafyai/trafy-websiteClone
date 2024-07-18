@@ -82,7 +82,7 @@ const CourseHeroData=[
 
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         bgColor:"#f9f7ff",
         category:"UI/UX",
         popularity:"Popular",
@@ -114,7 +114,7 @@ const CourseHeroData=[
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-BeginnersFreeDemoForm.json",
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         bgColor:"#f9f7ff",
         category:"UI/UX",
         popularity:"Popular",
@@ -146,7 +146,7 @@ const CourseHeroData=[
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-IntermediateFreeDemoForm.json"
     },
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         bgColor:"#f9f7ff",
         category:"UI/UX",
         popularity:"Popular",
@@ -207,7 +207,7 @@ const CourseAboutData=[
         ]
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         bgColor:"#f9f7ff",
         aboutH:"About the Course",
         description:"Introduction to Responsive UI Design course provides a structured journey through fundamental principles and practical techniques for creating engaging digital experiences. From user-centered design basics to advanced topics like the latest trends, you'll master typography, colors, user flows, wireframing, and landing page development.",
@@ -229,7 +229,7 @@ const CourseAboutData=[
         ]
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         bgColor:"#f9f7ff",
         aboutH:"About the Course",
         description:"Design and Develop Multi-Device UI/UX Course begins with foundational concepts like user-centric design to advanced topics such as data-driven design and mobile UX, you'll gain a diverse skill set. Learn the latest design trends and core UX principles adaptable to evolving trends. ",
@@ -252,7 +252,7 @@ const CourseAboutData=[
         ]
     },
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         bgColor:"#f9f7ff",
         aboutH:"About the Course",
         description:"Spatial and Immersive UI/UX Design curriculum is built on deep core values like user research, usability, testing, designing for modern technologies like Wear OS and Vision OS. Our strategic gamified learning process helps you gain foundational knowledge and build diversified projects for your portfolio.",
@@ -319,7 +319,7 @@ const CourseSyllabusData=[
         ]
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         bgColor:"#f9f7ff",
         viewMore:"#6d28d9",
         hoverColor:"1c1623",
@@ -343,7 +343,7 @@ const CourseSyllabusData=[
         }        ]
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         bgColor:"#f9f7ff",
         viewMore:"#6d28d9",
         hoverColor:"1c1623",
@@ -379,7 +379,7 @@ const CourseSyllabusData=[
         ]
     },
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         bgColor:"#f9f7ff",
         viewMore:"#6d28d9",
         hoverColor:"1c1623",
@@ -462,7 +462,7 @@ const CourseProjectData=[
          ]
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         heading:"Projects",
         bgColor:"#d9cefb",
         project:[
@@ -479,7 +479,7 @@ const CourseProjectData=[
          ]
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         heading:"Projects",
         bgColor:"#d9cefb",
         project:[
@@ -508,7 +508,7 @@ const CourseProjectData=[
          ]
     },
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         heading:"Projects",
         bgColor:"#d9cefb",
         project:[
@@ -560,7 +560,7 @@ const CourseReviewData=[
         ]
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         bgColor:"#f9f7ff",
         heading:"Reviews",
         review:[
@@ -571,7 +571,7 @@ const CourseReviewData=[
         ]
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         bgColor:"#f9f7ff",
         heading:"Reviews",
         review:[
@@ -582,7 +582,7 @@ const CourseReviewData=[
         ]
     },
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         bgColor:"#f9f7ff",
         heading:"Reviews",
         review:[
@@ -603,21 +603,21 @@ const CourseCertificateData=[
         description:"Add this credential to your LinkedIn profile, resume, or CV to showcase your expertise. Share your achievement on social media and during performance reviews to underscore your commitment to professional growth and success."
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         bgColor:"#f9f7ff",
         image:uiuxcertificate,
         heading:"Earn Industry Recognised Certificate",
         description:"Add this credential to your LinkedIn profile, resume, or CV to showcase your expertise. Share your achievement on social media and during performance reviews to underscore your commitment to professional growth and success."
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         bgColor:"#f9f7ff",
         image:uiuxcertificate,
         heading:"Earn Industry Recognised Certificate",
         description:"Add this credential to your LinkedIn profile, resume, or CV to showcase your expertise. Share your achievement on social media and during performance reviews to underscore your commitment to professional growth and success."
     },
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         bgColor:"#f9f7ff",
         image:uiuxcertificate,
         heading:"Earn Industry Recognised Certificate",
@@ -672,7 +672,7 @@ const CoursePaymentData=[
 
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         bgColor:"#f4f0ff",
         shadowColor:"0px 0px 41px -8px #d5bdff",
         feeH:"Course Fee",
@@ -715,7 +715,7 @@ const CoursePaymentData=[
         ]
     },
 {
-    id:"Design-and-Develop-Multi-Device-UIUX",
+    id:"building-functional-ux",
     bgColor:"#f4f0ff",
     shadowColor:"0px 0px 41px -8px #d5bdff",
     feeH:"Course Fee",
@@ -759,7 +759,7 @@ const CoursePaymentData=[
 
 },
 {
-    id:"Spatial-and-Immersive-UIUX-Design",
+    id:"spatial-ui-designs",
     bgColor:"#f4f0ff",
     shadowColor:"0px 0px 41px -8px #d5bdff",
     feeH:"Course Fee",
@@ -828,7 +828,7 @@ const CourseFaqData=[
         ]
     },
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         bgColor:"#f9f7ff",
         dropIcon:ExpandMore,
         heading:"Frequently asked questions",
@@ -851,7 +851,7 @@ const CourseFaqData=[
         ]
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         bgColor:"#f9f7ff",
         dropIcon:ExpandMore,
         heading:"Frequently asked questions",
@@ -874,7 +874,7 @@ const CourseFaqData=[
         ]
     },
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         bgColor:"#f9f7ff",
         dropIcon:ExpandMore,
         heading:"Frequently asked questions",
@@ -900,27 +900,27 @@ const CourseFaqData=[
 
 const CourseSimilarData=[
     {
-        id:"Introduction-to-Responsive-UI-Design",
+        id:"responsive-ui-designs",
         course:"uiuxCourse",
         ids:[
-            "Introduction-to-Responsive-UI-Design"
+            "responsive-ui-designs"
         ]
     },
     {
-        id:"Design-and-Develop-Multi-Device-UIUX",
+        id:"building-functional-ux",
         course:"uiuxCourse",
         ids:[
-            "Introduction-to-Responsive-UI-Design",
-            "Design-and-Develop-Multi-Device-UIUX"
+            "responsive-ui-designs",
+            "building-functional-ux"
         ]
     },  
     {
-        id:"Spatial-and-Immersive-UIUX-Design",
+        id:"spatial-ui-designs",
         course:"uiuxCourse",
         ids:[
-            "Introduction-to-Responsive-UI-Design",
-            "Design-and-Develop-Multi-Device-UIUX",
-            "Spatial-and-Immersive-UIUX-Design"
+            "responsive-ui-designs",
+            "building-functional-ux",
+            "spatial-ui-designs"
         ]
     }
 
