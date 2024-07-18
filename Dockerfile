@@ -5,9 +5,9 @@ FROM node:18.17.0-alpine AS builder
 RUN npm install -g npm@latest
 
 WORKDIR /app
-COPY package*.json ./
+COPY package*.json /app/
 RUN npm install
-COPY . .
+COPY . /app
 RUN npm run build
 
 # Production stage
@@ -20,9 +20,9 @@ RUN adduser --system --uid 1001 nextjs
 
 # Copy necessary files from builder stage
 COPY --from=builder /app/public ./public
-COPY --from=builder /.next ./.next
-COPY --from=builder /node_modules ./node_modules
-COPY --from=builder /package.json ./package.json
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
 
 # Set user
 USER nextjs
