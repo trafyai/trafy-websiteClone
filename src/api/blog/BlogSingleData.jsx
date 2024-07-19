@@ -82,7 +82,7 @@ const BlogSingleData= [
     description: [
           "In a world where digital experiences reign supreme, capturing and holding users' attention is the holy grail of design. Immersive UI (User Interface) design goes beyond mere functionality; it aims to create captivating experiences that draw users into a digital realm, leaving them feeling deeply engaged and connected. From virtual reality (VR) environments to interactive websites, immersive UI design has the power to transport users to new dimensions of interaction. Let's delve into the essence of immersive UI design and explore what sets it apart."
     ],
-    metaDescription:"In a world where digital experiences reign supreme, capturing and holding users' attention is the holy grail of design.",
+    metaDescription:"In a world where digital experiences reign supreme, capturing and holding users attention is the holy grail of design.",
     mainArticle: [
       {
         heading: "The Power of Immersion",
