@@ -1,10 +1,10 @@
+
 'use client';
 
 import { useState } from 'react';
 import '@styles/common/auth/Enquiry.css';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
-import axios from 'axios';
 
 const EnquiryForm = (props) => {
     const [formData, setFormData] = useState({
@@ -90,9 +90,9 @@ const EnquiryForm = (props) => {
             }
         });
 
-        // Store form data in the backend
+        // Store form data in Firebase Realtime DB
         try {
-            const res = await fetch(`${props.link}`, {
+            const res = await fetch('https://newsletter-form-9e6c9-default-rtdb.firebaseio.com/AiForm.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -101,12 +101,6 @@ const EnquiryForm = (props) => {
             });
 
             if (res.ok) {
-                await axios.post("https://trafyai.com/course-enquiry/submit", {
-                    email: formData.email,
-                    fname: formData.fname,
-                    course: props.name
-                }, { timeout: 15000 });
-
                 setFormData({
                     fname: "",
                     lname: "",
