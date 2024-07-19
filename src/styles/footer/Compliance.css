@@ -3,23 +3,23 @@
     display: flex;
     flex-direction: column;
     gap:1.5rem;
-    background-color: var(--landing-bg);
+    background-color: var(--trafy-black);
 }
 
 .compliance h1{
     font-size: 32px;
     font-family: 'Inter',sans-serif;
-    color: var(--landing-heading-clr);
+    color: var(--h-white);
 }
 .compliance h4{
     font-size: 18px;
     font-family: 'Inter',sans-serif;
-    color: var(--landing-heading-clr);
+    color: var(--h-white);
 }
 .compliance p{
     font-size: 16px;
     font-family: 'Inter',sans-serif;
-    color: var(--landing-para-clr);
+    color: var(--p-white);
     line-height: 150%;
 }
 .compliance ul {
@@ -33,7 +33,7 @@
     list-style-type: disc; 
     font-size: 16px;
     font-family: 'Inter',sans-serif;
-    color: var(--landing-para-clr);
+    color: var(--p-white);
     line-height: 150%;
     /* Use disc type bullet points */
   }

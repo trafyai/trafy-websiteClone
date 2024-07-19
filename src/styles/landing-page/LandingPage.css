@@ -75,7 +75,7 @@
 }
 @media only screen and (max-width:600px){
     .landing-hero-container{
-        gap: 1rem;
+        gap: 1.2rem;
     }
     .landing-hero-section {
         padding-top: 120px;
@@ -95,8 +95,8 @@
 }
 @media only screen and (max-width:400px){
     .landing-hero-section {
-        padding-top: 100px;
-        padding-bottom: 60px;
+        padding-top: 120px;
+        padding-bottom: 80px;
     }
     .landing-hero-heading h1{
         font-size: 32px;
@@ -303,7 +303,7 @@
 }
 @media only screen and (max-width:400px){
     .landing-features{
-        padding-top: 10px;
+        padding-top: 20px;
         padding-bottom: 50px;
     }
     .landing-features-contents {
@@ -478,6 +478,7 @@
   @media only screen and (max-width:400px){
     .landing-pathway{
         padding: 50px 0px;
+        padding-bottom:60px;
     }
     .landing-pathway-container{
         gap: 2rem;
@@ -660,7 +661,7 @@
 @media only screen and (max-width: 400px){
     .landing-goals{
         padding-top: 40px;
-        padding-bottom: 50px;
+        padding-bottom: 60px;
     }
     .landing-goals-container{
         gap:2rem;
@@ -763,7 +764,7 @@
 }
 @media only screen and (max-width:400px){
     .landing-tools{
-        padding:50px 0px;
+        padding:60px 0px;
     }
     .landing-tools-container {
         gap: 2.5rem;
@@ -1278,7 +1279,7 @@
 }
 @media only screen and (max-width:400px){
     .landing-review{
-        padding:50px 0px;
+        padding:60px 0px;
         padding-top:10px;
     }
     .landing-review-container{
@@ -1358,14 +1359,14 @@
         width:90%;
     }
     .landing-ai-container h2{
-        font-size:32px;
+        font-size:28px;
         text-align: center;
         width:100%;
     }
 }
 @media only screen and (max-width:400px){
     .landing-ai{
-        padding:50px 0px;
+        padding:60px 0px;
         padding-top:10px;
     }
     .landing-ai-container{
@@ -1373,7 +1374,7 @@
         padding:24px;
     }
     .landing-ai-container h2{
-        font-size:28px;
+        font-size:24px;
     }
     .landing-ai-container button{
         padding:10px 24px;

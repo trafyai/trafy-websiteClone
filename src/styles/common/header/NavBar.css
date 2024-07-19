@@ -152,9 +152,16 @@
             padding: 16px 24px;
         }
         .menu-top-contents{
+            padding-top:8px;
             display: flex;
             flex-direction: column;
             gap:0rem;
+        }
+        .menu-bottom-contents{
+            display: flex;
+            flex-direction: column;
+            gap:1rem;
+            padding:0px 24px 16px 16px;
         }
         .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
             padding: 16px 24px;
@@ -164,6 +171,7 @@
         }
         .menu-login, .menu-signup{
             text-align: center;
+            padding:10px 24px
         }
 
    }

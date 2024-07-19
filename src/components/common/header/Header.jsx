@@ -285,10 +285,10 @@ const Header = () => {
                                 {user &&(
                                     <div className='menu-profile'>
                                         <Link href="/account-settings" onClick={() => handleNavigation('/account-settings')} style={{display:"flex",alignItems:"center",gap:"1rem"}}>
-                                            <div style={{ width: "32px", height: "32px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
+                                            <div style={{ width: "36px", height: "36px", borderRadius: "100%", backgroundColor: "grey", display: "flex", justifyContent: "center", alignItems: "center", color: "black", fontFamily: "Inter" }}>
                                                 <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/>
                                             </div>
-                                            <p>{user?.displayName || 'User'}</p> 
+                                            <p style={{fontSize:"14px",fontFamily:"Inter",color:"var(--h-white)"}}>{user?.displayName || 'User'}</p> 
                                         </Link>
                                     </div>
                                 )}
@@ -296,12 +296,15 @@ const Header = () => {
                                 <a href="#landingPathways" className="menu-pathway" onClick={() => handleNavigation('#landingPathways')}>Pathways</a>
                                 <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
                                 {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
-                                <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>
-                                <Link href="/account-settings" className='menu-account-settings' onClick={() => handleNavigation('/account-settings')}>Account Settings</Link>
-                                <Link href="/account-security" className='menu-account-security' onClick={() => handleNavigation('/account-security')}>Security</Link>
-                                <Link href="/account-notification" className='menu-account-notification' onClick={() => handleNavigation('/account-notification')}>Notification</Link>
-                                {user &&<p onClick={handleLogOut}>Logout</p>}
-                                {!loading && !user ? 
+                                {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
+                               {user && <Link href="/account-settings" className='menu-account-settings' onClick={() => handleNavigation('/account-settings')}>Account Settings</Link>}
+                               {user &&<Link href="/account-security" className='menu-account-security' onClick={() => handleNavigation('/account-security')}>Security</Link>}
+                               {user &&<Link href="/account-notification" className='menu-account-notification' onClick={() => handleNavigation('/account-notification')}>Notification</Link>}
+                                {user &&<p className='menu-account-logout' onClick={handleLogOut}>Logout</p>}
+                               
+                            </div>
+                            <div className='menu-bottom-contents'>
+                            {!loading && !user ? 
                                     (<div className='menu-no-profile'>
                                         <Link href="/login" className="menu-login" onClick={() => handleNavigation('/login')}> Login</Link>
                                         <Link href="/signup" className="menu-signup" onClick={() => handleNavigation('/signup')}> Sign Up Free</Link>
