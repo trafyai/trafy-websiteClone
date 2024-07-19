@@ -24,6 +24,10 @@
     display: flex;
     align-items: center;
 }
+.trafy-logo{
+    height:26px;
+    width:65px;
+}
 .menu-mobile{
     display: none;
 }
@@ -127,11 +131,17 @@
             display: flex;
             align-items: center;
         }
+        .hamburger{
+            width: 30px;
+            height: 20px;
+        }
         .hamburger.hide{
             display: none;
         }
         .exit-icon{
             display: none;
+             width: 20px;
+            height: 20px;
         }
         .exit-icon.show{
             display: block;
@@ -194,5 +204,13 @@
         top: 37px;
         right: -26px;
         height: calc(95vh - 48px);
+    }
+    .trafy-logo{
+        height:24px;
+        width:63px;
+    }
+    .hamburger{
+        width:26px;
+        height:16px;
     }
    }

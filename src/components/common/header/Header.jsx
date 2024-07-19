@@ -238,7 +238,7 @@ const Header = () => {
         <div className='navbar'>
             <div className='navbar-container'>
                 <div className='navbar-log'>
-                    <Link href="/"> <Image src={whiteLogo} alt="trafy logo" height={26} className="trafy-logo" /></Link>
+                    <Link href="/"> <Image src={whiteLogo} alt="trafy logo"  className="trafy-logo" /></Link>
                 </div>
                 
                 <div className='menu-lg'>
@@ -276,8 +276,8 @@ const Header = () => {
 
                 {/* 0------------------------------------Hamburger----------------------------------- */}
                 <div className='menu-mobile'>
-                    <Image src={blackHamburger} alt="" className={`hamburger ${menuOpen ? 'hide' : ''}`} style={{width:"30px",height:"20px"}} onClick={toggleMenu} />
-                    <Image src={close1} alt="" className={`exit-icon ${menuOpen ? 'show' : ''}`} style={{width:"20px",height:"20px"}} onClick={toggleMenu} />
+                    <Image src={blackHamburger} alt="" className={`hamburger ${menuOpen ? 'hide' : ''}`}  onClick={toggleMenu} />
+                    <Image src={close1} alt="" className={`exit-icon ${menuOpen ? 'show' : ''}`}  onClick={toggleMenu} />
 
                     {menuOpen &&
                         <div className='menu-mobile-contents' ref={menuRef}>

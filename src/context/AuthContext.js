@@ -1,7 +1,6 @@
 'use client';
 import { useContext, createContext, useState, useEffect } from "react";
 import { ref as dbRef, get } from 'firebase/database';
-
 import { 
     signInWithPopup, signOut, GoogleAuthProvider, 
     createUserWithEmailAndPassword, signInWithEmailAndPassword, 
