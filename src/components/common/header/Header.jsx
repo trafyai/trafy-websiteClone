@@ -292,11 +292,11 @@ const Header = () => {
                                         </Link>
                                     </div>
                                 )}
-                               {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
+                               {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929",borderRightWidth:"0",borderLeftWidth:"0"}}/>}
                                 <a href="#landingPathways" className="menu-pathway" onClick={() => handleNavigation('#landingPathways')}>Pathways</a>
                                 <Link href="/blogs" className="menu-resources" onClick={() => handleNavigation('/blogs')}> Resources </Link>
                                 {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
-                                {user &&  <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929"}}/>}
+                                <hr style={{borderBottom:"0",borderTop:"1px solid #2a2929",borderRightWidth:"0",borderLeftWidth:"0"}}/>
                                {user && <Link href="/account-settings" className='menu-account-settings' onClick={() => handleNavigation('/account-settings')}>Account Settings</Link>}
                                {user &&<Link href="/account-security" className='menu-account-security' onClick={() => handleNavigation('/account-security')}>Security</Link>}
                                {user &&<Link href="/account-notification" className='menu-account-notification' onClick={() => handleNavigation('/account-notification')}>Notification</Link>}
