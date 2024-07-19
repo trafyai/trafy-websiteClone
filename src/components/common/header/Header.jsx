@@ -163,7 +163,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState, useRef, useEffect } from "react";
-import BlackLogo from '@public/assets/Images/comman/header/WhiteLogo.png';
+import whiteLogo from '@public/assets/Images/comman/header/whiteLogo.png';
 import close1 from '@public/assets/Images/comman/header/close.png';
 import blackHamburger from '@public/assets/Images/comman/header/wLogo.png';
 import { UserAuth } from '@context/AuthContext';
@@ -238,7 +238,7 @@ const Header = () => {
         <div className='navbar'>
             <div className='navbar-container'>
                 <div className='navbar-log'>
-                    <Link href="/"> <Image src={BlackLogo} alt="trafy logo" height={26} className="trafy-logo" /></Link>
+                    <Link href="/"> <Image src={whiteLogo} alt="trafy logo" height={26} className="trafy-logo" /></Link>
                 </div>
                 
                 <div className='menu-lg'>
