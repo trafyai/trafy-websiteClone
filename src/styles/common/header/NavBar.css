@@ -1,214 +1,229 @@
 .active-link {
-    color: #ba9ffb;
+  color: #ba9ffb;
 }
 
-.navbar{
-    width: 100%;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:  #02020a;
-    padding: 8px 32px;
-    border-bottom: 1px solid #2a2929;
-    position: fixed;
-    z-index: 100;
+.navbar {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #02020a;
+  padding: 8px 32px;
+  border-bottom: 1px solid #2a2929;
+  position: fixed;
+  z-index: 100;
 }
-.navbar-container{
-    width: 100%;
-    display: flex;
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.navbar-log a,
+.navbar-log {
+  display: flex;
+  align-items: center;
+}
+.trafy-logo {
+  height: 26px;
+  width: 65px;
+}
+.menu-mobile {
+  display: none;
+}
+.menu-lg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.menu-left {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.menu-pathway,
+.menu-innovation,
+.menu-resources,
+.menu-account-settings,
+.menu-account-security,
+.menu-account-notification,
+.menu-account-logout {
+  font-size: 14px;
+  font-family: var(--p-font);
+  font-weight: 500;
+  color: #f8f8f8;
+}
+.menu-pathway:hover,
+.menu-innovation:hover,
+.menu-resources:hover,
+.menu-account-settings:hover,
+.menu-account-security:hover,
+.menu-account-notification:hover,
+.menu-account-logout:hover {
+  color: #a5a5a5;
+}
+.menu-no-profile {
+  display: flex;
+  gap: 0.7rem;
+}
+.menu-login {
+  padding: 6px 16px;
+  border: 1px solid #f8f8f8;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--p-font);
+  font-weight: 500;
+  color: #f8f8f8;
+  background-color: inherit;
+}
+.menu-login:hover {
+  background-color: #f8f8f8;
+  color: #02020a;
+}
+.menu-signup {
+  padding: 6px 16px;
+  border: 1px solid #f8f8f8;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--p-font);
+  font-weight: 500;
+  background-color: #f8f8f8;
+  color: #02020a;
+}
+.menu-signup:hover {
+  color: #f8f8f8;
+  background-color: inherit;
+}
+.menu-user-dropdown {
+  margin-top: 6px;
+  padding: 8px 0px;
+  border: 1px solid #b0b0b0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.menu-user-dropdown p {
+  padding: 16px 32px;
+  font-size: 16px;
+  border-radius: 8px;
+  color: var(--h-black);
+  font-family: var(--p-font);
+}
+.menu-user-dropdown p:hover {
+  color: #c9c9ca;
+}
+.menu-user-dropdown p:first-child {
+  border-radius: 0px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .overflow {
+    overflow: hidden;
+  }
+  .navbar {
+    padding: 6px 24px;
+  }
+  .navbar-container {
     justify-content: space-between;
-    gap:3rem;
-}
-.navbar-log a, .navbar-log{
-    display: flex;
-    align-items: center;
-}
-.trafy-logo{
-    height:26px;
-    width:65px;
-}
-.menu-mobile{
+  }
+  .menu-lg,
+  .menu-left {
     display: none;
-}
-.menu-lg{
+  }
+  .menu-mobile {
+    display: block;
+    position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap:1.5rem;
-}
-.menu-left{
-    display: flex;
-    gap:1.5rem;
-    align-items: center;
-}
-.menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
-    font-size: 14px;
-    font-family: var(--p-font);
-    font-weight: 500;
-    color: #f8f8f8;
-}
-.menu-pathway:hover, .menu-innovation:hover, .menu-resources:hover
-, .menu-account-settings:hover, .menu-account-security:hover, .menu-account-notification:hover, .menu-account-logout:hover{
-    color:#a5a5a5;
-}
-.menu-no-profile{
-    display: flex;
-    gap:0.7rem;
-}
-.menu-login{
-    padding: 6px 16px;
-    border: 1px solid #f8f8f8;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: var(--p-font);
-    font-weight: 500;
-    color: #f8f8f8;
-    background-color: inherit;
-}
-.menu-login:hover{
-    background-color: #f8f8f8;
-    color: #02020a;
-}
-.menu-signup{
-    padding: 6px 16px;
-    border: 1px solid #f8f8f8;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: var(--p-font);
-    font-weight: 500;
-    background-color: #f8f8f8;
-    color: #02020a;
-}
-.menu-signup:hover{
-    color: #f8f8f8;
-    background-color: inherit;
-}
-.menu-user-dropdown{
-    margin-top:6px;
-    padding: 8px 0px;
-    border: 1px solid #b0b0b0;
-    border-radius: 8px;
-    background-color: #FFFFFF;
-    position: absolute;
-    top:55px;
-    right: 20px;
+  }
+  .hamburger {
+    width: 30px;
+    height: 20px;
+  }
+  .hamburger.hide {
+    display: none;
+  }
+  .exit-icon {
+    display: none;
+    width: 20px;
+    height: 20px;
+  }
+  .exit-icon.show {
+    display: block;
+  }
+
+  .menu-mobile-contents {
+    background-color: #101214;
+    width: 250px;
     display: flex;
     flex-direction: column;
-   }
-   .menu-user-dropdown p{
-    padding: 16px 32px;
-    font-size: 16px;
+    position: absolute;
+    top: 54px;
+    right: 4px;
+    padding: 28px;
     border-radius: 8px;
-    color: var(--h-black);
-    font-family: var(--p-font);
-   }
-   .menu-user-dropdown p:hover{
-   color:#c9c9ca;
-   }
-   .menu-user-dropdown p:first-child{
-    border-radius: 0px;
-  
-   }
+    gap: 2rem;
+    border: 1px solid #2a2929;
+  }
 
+  .menu-top-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .menu-bottom-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .menu-pathway,
+  .menu-innovation,
+  .menu-resources,
+  .menu-account-settings,
+  .menu-account-security,
+  .menu-account-notification,
+  .menu-account-logout {
+  }
+  .menu-no-profile {
+    flex-direction: column;
+  }
+  .menu-login,
+  .menu-signup {
+    text-align: center;
+    padding: 10px 24px;
+  }
+}
 
-   @media only screen and (max-width: 1023px){
-        .overflow {
-            overflow: hidden;
-        }
-        .navbar{
-            padding: 6px 24px;
-        }
-        .navbar-container{
-            justify-content: space-between;
-        }
-        .menu-lg,.menu-left{
-            display: none;
-        }
-        .menu-mobile{
-            display: block;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .hamburger{
-            width: 30px;
-            height: 20px;
-        }
-        .hamburger.hide{
-            display: none;
-        }
-        .exit-icon{
-            display: none;
-             width: 20px;
-            height: 20px;
-        }
-        .exit-icon.show{
-            display: block;
-        }
-        
-        .menu-mobile-contents {
-            background-color: #101214;
-            width: 40vh;
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 54px;
-            right: 4px;
-            padding:28px;
-            border-radius: 8px;
-            gap:2rem;
-            border: 1px solid #2a2929;
-        }
-       
-       
-        .menu-top-contents{
-            display: flex;
-            flex-direction: column;
-            gap:1.5rem;
-        }
-        .menu-bottom-contents{
-            display: flex;
-            flex-direction: column;
-            gap:2rem;
-        }
-        .menu-pathway, .menu-innovation, .menu-resources, .menu-account-settings, .menu-account-security, .menu-account-notification, .menu-account-logout{
-        }
-        .menu-no-profile{
-            flex-direction: column;
-        }
-        .menu-login, .menu-signup{
-            text-align: center;
-            padding:10px 24px
-        }
-
-   }
-
-   @media only screen and (max-width: 600px){
-    .navbar{
-        height: 48px;
-        padding: 0px 16px 0px 12px;
-    }
-    /* .menu-mobile-contents{
+@media only screen and (max-width: 600px) {
+  .navbar {
+    height: 48px;
+    padding: 0px 16px 0px 12px;
+  }
+  /* .menu-mobile-contents{
         top: 37px;
         right: -26px;
         height: calc(100vh - 48px);
     } */
-
-   }
-   @media only screen and (max-width: 400px){
-    /* .menu-mobile-contents{
+}
+@media only screen and (max-width: 400px) {
+  /* .menu-mobile-contents{
         width: 103vw;
         top: 37px;
         right: -26px;
         height: calc(95vh - 48px);
     } */
-    .trafy-logo{
-        height:24px;
-        width:60px;
-    }
-    .hamburger{
-        width:26px;
-        height:16px;
-    }
-   }
+  .trafy-logo {
+    height: 24px;
+    width: 60px;
+  }
+  .hamburger {
+    width: 26px;
+    height: 16px;
+  }
+}
