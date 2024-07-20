@@ -13,6 +13,8 @@ export default function robots() {
         "/forget-password",
         "/reset-password",
         "/services",
+        "/account-security",
+        "/account-settings",
       ],
     },
     sitemap: "https://trafyai.com/sitemap.xml",
