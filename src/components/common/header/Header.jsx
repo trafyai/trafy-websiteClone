@@ -439,7 +439,7 @@ const Header = () => {
                     Security
                   </Link>
                 )}
-                {user && (
+                {/* {user && (
                   <Link
                     href="/account-notification"
                     className="menu-account-notification"
@@ -447,7 +447,7 @@ const Header = () => {
                   >
                     Notification
                   </Link>
-                )}
+                )} */}
                 {user && (
                   <p className="menu-account-logout" onClick={handleLogOut}>
                     Logout
