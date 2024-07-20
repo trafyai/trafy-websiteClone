@@ -11,7 +11,6 @@ export const metadata = {
   },
   description:
     "Learn UI/UX designing, artificial intelligence, and digital marketing with our interactive courses and accelerate your career with expert guidance",
-
   metadataBase: new URL("https://trafyai.com/"),
   openGraph: {
     title: "trafy",
@@ -37,6 +36,20 @@ export default function RootLayout({ children }) {
           </main>
           {/* </ThemeProvider> */}
         </AuthContextProvider>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:5066232,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            `,
+          }}
+        />
       </body>
     </html>
   );
