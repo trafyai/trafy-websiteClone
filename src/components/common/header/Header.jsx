@@ -296,7 +296,13 @@ const Header = () => {
                       fontFamily: "Inter",
                     }}
                   >
-                    {/* <Image src={user?.profilePicURL || Default} alt="Profile" width={36} height={36} style={{ borderRadius: '50%' }}/> */}
+                    <Image
+                      src={user?.profilePicURL || Default}
+                      alt="Profile"
+                      width={24}
+                      height={24}
+                      style={{ borderRadius: "50%" }}
+                    />
                   </div>
                 </div>
 
