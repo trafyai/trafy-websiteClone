@@ -314,9 +314,9 @@ const Header = () => {
                     >
                       <p>Security</p>
                     </Link>
-                    <Link href="/" onClick={() => handleNavigation("/")}>
+                    {/* <Link href="/" onClick={() => handleNavigation("/")}>
                       Notification
-                    </Link>
+                    </Link> */}
                     <p onClick={handleLogOut}>Logout</p>
                   </div>
                 )}
