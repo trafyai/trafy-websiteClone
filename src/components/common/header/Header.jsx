@@ -132,11 +132,11 @@ const Header = () => {
                       width: "24px",
                       height: "24px",
                       borderRadius: "100%",
-                      backgroundColor: "grey",
+                      backgroundColor: "#f8f8f8",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                      color: "black",
+                      color: "white",
                       fontFamily: "Inter",
                     }}
                   >
@@ -209,7 +209,7 @@ const Header = () => {
                           width: "36px",
                           height: "36px",
                           borderRadius: "100%",
-                          backgroundColor: "grey",
+                          backgroundColor: "white",
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
