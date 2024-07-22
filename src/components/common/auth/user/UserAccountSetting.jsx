@@ -113,7 +113,9 @@ export default function UserAccountSetting({ user = {} }) {
 
     return (
         <div className="profile-contents">
+            
             <form className="profile-form" onSubmit={handleUpdate}>
+                <h2>Profile</h2>
                 <div className="profile-pic-wrapper">
                     <Image src={profilePicURL || Default} alt="Profile" className="profile-pic" width={100} height={100}/>
                    
