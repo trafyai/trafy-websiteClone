@@ -32,7 +32,7 @@ export default function UserAccountSetting({ user = {} }) {
                     if (snapshot.exists()) {
                         const data = snapshot.val();
                         const emailFirstPart = data.email.split('@')[0];
-                        setFirstName(emailFirstPart || '');
+                        setFirstName(data.firstName || emailFirstPart || '');
                         setLastName(data.lastName || '');
                         setEmail(data.email || '');
                         setPhone(data.phone || '');
@@ -69,6 +69,7 @@ export default function UserAccountSetting({ user = {} }) {
         }
 
         const updates = {
+            firstName,
             lastName,
             email,
             phone,
