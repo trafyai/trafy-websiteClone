@@ -3,7 +3,6 @@ import Header from "@components/common/header/Header.jsx";
 import Footer from "@components/common/footer/Footer";
 import imageO from "../app/opengraph-image.png";
 import { AuthContextProvider } from "@context/AuthContext";
-import { ThemeProvider } from "next-themes";
 
 export const metadata = {
   title: {
@@ -28,13 +27,11 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body>
         <AuthContextProvider>
-          {/* <ThemeProvider> */}
           <main className="app">
             <Header />
             {children}
             <Footer />
           </main>
-          {/* </ThemeProvider> */}
         </AuthContextProvider>
         <script
           dangerouslySetInnerHTML={{
