@@ -1,5 +1,3 @@
-
-
 'use client';
 import React, { useState } from "react";
 import '@styles/common/auth/login.css';
@@ -31,16 +29,20 @@ const Login = () => {
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
         setEmailError(''); // Clear email error on change
+        setGeneralError(''); // Clear general error on change
     };
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
         setPasswordError(''); // Clear password error on change
+        setGeneralError(''); // Clear general error on change
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setGeneralError('');
+        setEmailError('');
+        setPasswordError('');
         let valid = true;
 
         if (!email || !validateEmail(email)) {
@@ -61,12 +63,10 @@ const Login = () => {
             await signInWithEmail(email, password);
             router.push('/');
         } catch (error) {
-            if (error.code === 'auth/user-not-found') {
-                setEmailError('The email you entered is not registered.');
-            } else if (error.code === 'auth/wrong-password') {
-                setPasswordError('Invalid password.');
+            if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                setGeneralError("Email or password is incorrect.");
             } else {
-                setGeneralError("An error occurred. Please try again.");
+                setGeneralError("Email or password is incorrect.");
             }
         }
     };
@@ -102,11 +102,7 @@ const Login = () => {
                             helperText={emailError}
                             value={email}
                             onChange={handleEmailChange}
-                            // InputLabelProps={{
-                            //     shrink: true, // Ensure label stays above input when filled
-                            // }}
                         />
-
                     </Box>
 
                     <Box component="div" noValidate autoComplete="off" className="password">
@@ -127,9 +123,6 @@ const Login = () => {
                                     </span>
                                 ),
                             }}
-                            // InputLabelProps={{
-                            //     shrink: true, // Ensure label stays above input when filled
-                            // }}
                         />
                         <div className="forgot-password" style={{ width: "100%", display: "flex", justifyContent: "end", fontSize: "12px", fontFamily: "Inter", paddingTop: "6px" }}>
                             <Link href="/forgot-password">Forgot Password?</Link>
@@ -142,7 +135,7 @@ const Login = () => {
 
                     <div className="google-signin">
                         <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Login with Google</button>
-                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Dont have an account? <Link href="/signup">Sign up</Link></p>
+                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Don't have an account? <Link href="/signup">Sign up</Link></p>
                     </div>
                 </form>
             </div>

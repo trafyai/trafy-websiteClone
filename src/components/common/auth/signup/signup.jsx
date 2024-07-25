@@ -1,5 +1,3 @@
-
-
 'use client';
 import React, { useState } from "react";
 import '@styles/common/auth/Signup.css';
@@ -24,7 +22,9 @@ const Signup = () => {
     const router = useRouter();
 
     const validateEmail = (value) => {
-        if (!/^\w+([-]?\w+)@\w+([-]?\w+)(\.\w{2,3})+$/.test(value)) {
+        // Stricter regex for email validation
+        const emailRegex = /^[^\s@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(value)) {
             setEmailError("Please enter a valid email address.");
         } else {
             setEmailError('');
@@ -87,7 +87,9 @@ const Signup = () => {
 
             router.push('/');
         } catch (err) {
-            alert(err.message);
+            if (err.code !== 'auth/popup-closed-by-user') {
+                setFirebaseError(err.message);
+            }
         }
     };
 
@@ -116,9 +118,6 @@ const Signup = () => {
                             value={email}
                             onChange={(e) => { setEmail(e.target.value); validateEmail(e.target.value); }}
                             onBlur={(e) => validateEmail(e.target.value)}
-                            // InputLabelProps={{
-                            //     shrink: true, // Ensures label stays above the input when autofilled
-                            // }}
                         />
                     </Box>
                     <Box component="div" className="password" noValidate autoComplete="off">
@@ -140,9 +139,6 @@ const Signup = () => {
                                     </span>
                                 ),
                             }}
-                            // InputLabelProps={{
-                            //     shrink: true, // Ensures label stays above the input when autofilled
-                            // }}
                         />
                     </Box>
                     <div className="signup-button">
@@ -150,7 +146,13 @@ const Signup = () => {
                     </div>
 
                     <div className="google-signin">
-                        <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Sign up with Google</button>
+                        <button
+                            type="button"
+                            className="login-with-google-btn"
+                            onClick={handleGoogleSignIn}
+                        >
+                            Sign up with Google
+                        </button>
                         <div>
                             <p style={{ fontSize: "12px", lineHeight: "150%", fontFamily: "Inter", textAlign: "center", paddingTop: "12px" }}>
                                 By signing up, you agree to our <Link href="/terms-of-service">Terms of services</Link> and <Link href="/privacy-policy">Privacy Policy</Link>.
