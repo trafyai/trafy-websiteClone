@@ -26,14 +26,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const { slug } = params;
   const HeroData = CourseHeroData.find((course) => course.id === slug);
 
-  if (!HeroData) {
-    // Return default metadata if course is not found
-    return {
-      title: "Course not found",
-      description: "The course you are looking for does not exist.",
-    };
-  }
-
   return {
     title: HeroData.courseHeading,
     description: HeroData.courseDescription,

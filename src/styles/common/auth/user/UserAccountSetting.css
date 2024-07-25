@@ -11,6 +11,21 @@
         gap:1.5rem;
         align-items: flex-start;
     }
+    .profile-contents h2, .security-contents h2{
+        font-size: 24px;
+        font-family: var(--h-font);
+        font-weight: 600;
+        color:var(--h-black);
+        line-height:150%;
+        padding-bottom:1rem;
+    }
+    .security-form p{
+        font-size: 16px;
+        font-family: var(--p-font);
+        font-weight: 400;
+        color: var(--p-black);
+        line-height:150%;
+    }
     .security-contents-container{
         width: max-content;
     }
@@ -125,7 +140,7 @@
            justify-content: center;
             align-items: center;
         }
-        .profile-form, .security-form, .privacy-form, .notification-form, .logout-form{
+        .profile-form,  .privacy-form, .notification-form, .logout-form{
             align-items: center;
         }
     }

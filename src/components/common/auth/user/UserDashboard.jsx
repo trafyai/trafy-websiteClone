@@ -22,10 +22,10 @@ export default function UserDashboard(props) {
                             <Image src={security} height={21} alt="Security" />
                             <p>Security</p>
                         </Link>
-                        <Link className="notification" href="/account-notification">
+                        {/* <Link className="notification" href="/account-notification">
                             <Image src={notification} height={21} alt="Notification" />
                             <p>Notification</p>
-                        </Link>
+                        </Link> */}
                     </div>
                     <Link className="log-out" href="/logout">
                         <Image src={logout} height={21} alt="Log out" />
