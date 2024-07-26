@@ -146,8 +146,8 @@
     align-items: center;
   }
   .hamburger {
-    width: 30px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
   }
   .hamburger.hide {
     display: none;
@@ -225,8 +225,5 @@
     height: 24px;
     width: 60px;
   }
-  .hamburger {
-    width: 26px;
-    height: 16px;
-  }
+
 }

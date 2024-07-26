@@ -3,6 +3,7 @@ import UiuxCourse from '@components/course-page/course-landing-page/UiuxCourse';
 import DigitalMarketingCourse from '@components/course-page/course-landing-page/DigitalMarketingCourse';
 // import ArtificialIntelligenceCourse from '@components/course-page/course-landing-page/ArtificialIntelligenceCourse';
 import Head from 'next/head';
+import LandingPage from '@components/landing-page/LandingPage';
 
 const Course = () => {
   return (
@@ -12,7 +13,7 @@ const Course = () => {
       </Head>
         <UiuxCourse/>
         <DigitalMarketingCourse/>
-        {/* <ArtificialIntelligenceCourse/> */}
+      {/* <LandingPage/> */}
     </div>
   )
 }

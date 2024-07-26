@@ -13,16 +13,27 @@ export default function ServiceStartup() {
     return (
         <div className='service-startup'>
             <div className='service-startup-container'>
-                <div className='service-startup-heading'>
+                {/* <div className='service-startup-heading'>
                     <h2>Startups that are accelerated with us </h2>
                     <p>Bring your ideas to life with trafy AI integrated Gen AI app development team. </p>
-                </div>
+                </div> */}
                 <div className='service-startup-contents'>
-                   <div><Image src={art1}/></div>
-                   <div><Image src={art2}/></div>
-                   <div><Image src={art3}/></div>
-                   <div> <Image src={art4}/></div>
-                   <div><Image src={art6}/></div>
+                   <div className='service-startup-box'>
+                        <p>100+</p>
+                        <h4 >Integrations</h4>
+                   </div>
+                   <div className='service-startup-box'>
+                        <p>3+</p>
+                        <h4 >Countries</h4>
+                   </div>
+                   <div className='service-startup-box'>
+                        <p>15+</p>
+                        <h4 >Companies</h4>
+                   </div>
+                   <div className='service-startup-box'>
+                        <p>5000+</p>
+                        <h4 >Students</h4>
+                   </div>
                 </div>
             </div>
         </div>
