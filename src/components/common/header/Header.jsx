@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 import React, { useState, useRef, useEffect } from "react";
 import whiteLogo from "@public/assets/Images/comman/header/whiteLogo.png";
 import close1 from "@public/assets/Images/comman/header/close.png";
-import blackHamburger from "@public/assets/Images/comman/header/wLogo.png";
+import blackHamburger from "@public/assets/Images/comman/header/hamburger.svg";
 import { UserAuth } from "@context/AuthContext";
-import Default from "@public/assets/Images/comman/common/dark_mode.png";
+import Default from "@public/assets/Images/comman/header/default.svg"
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -92,7 +92,7 @@ const Header = () => {
               className="menu-pathway"
               onClick={() => handleNavigation("#landingPathways")}
             >
-              Pathways
+              Learn
             </a>
             <Link
               href="/blogs"
@@ -252,7 +252,7 @@ const Header = () => {
                   className="menu-pathway"
                   onClick={() => handleNavigation("/courses")}
                 >
-                  Pathways
+                  Learn
                 </Link>
                 <Link
                   href="/blogs"

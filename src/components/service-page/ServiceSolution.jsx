@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import {ServiceSolutionData} from '@api/service/ServiceData';
+import Image from 'next/image';
 
 export default function ServiceSolution() {
 
@@ -14,9 +15,11 @@ export default function ServiceSolution() {
                 <div className='service-solution-content'>
                     {ServiceSolutionData.map((item, index) => (
                         <div className="service-solution-box" key={index}>
-                           {/* <Image src={}/> */}
-                           <h3>{item.title}</h3>
-                           <p>{item.para}</p>
+                           <Image src={item.img}/>
+                           <div className='service-solution-box-contents'>
+                                <h3>{item.title}</h3>
+                                <p>{item.para}</p>
+                           </div>
                         </div>
                     ))}
                 </div>

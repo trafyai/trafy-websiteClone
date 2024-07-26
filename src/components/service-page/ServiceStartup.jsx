@@ -18,11 +18,22 @@ export default function ServiceStartup() {
                     <p>Bring your ideas to life with trafy AI integrated Gen AI app development team. </p>
                 </div>
                 <div className='service-startup-contents'>
-                   <div><Image src={art1}/></div>
-                   <div><Image src={art2}/></div>
-                   <div><Image src={art3}/></div>
-                   <div> <Image src={art4}/></div>
-                   <div><Image src={art6}/></div>
+                   <div className='service-startup-box'>
+                        <p>100+</p>
+                        <p style={{fontSize:"18px"}}>Integrations</p>
+                   </div>
+                   <div className='service-startup-box'>
+                        <p>3+</p>
+                        <p style={{fontSize:"18px"}}>Countries</p>
+                   </div>
+                   <div className='service-startup-box'>
+                        <p>15+</p>
+                        <p style={{fontSize:"18px"}}>Companies</p>
+                   </div>
+                   <div className='service-startup-box'>
+                        <p>5000+</p>
+                        <p style={{fontSize:"18px"}}>Students</p>
+                   </div>
                 </div>
             </div>
         </div>
