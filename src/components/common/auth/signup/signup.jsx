@@ -5,11 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth";
 import { ref, set } from 'firebase/database';
 import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import validator from 'email-validator';
+
+const API_KEY = 'YOUR_ABSTRACT_API_KEY';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -17,43 +20,79 @@ const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [firebaseError, setFirebaseError] = useState('');
-    const [allFieldError, setAllFieldError] = useState('');
+    const [generalError, setGeneralError] = useState('');
     const router = useRouter();
 
-    const validateEmail = (value) => {
-        // Stricter regex for email validation
-        const emailRegex = /^[^\s@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(value)) {
-            setEmailError("Please enter a valid email address.");
-        } else {
-            setEmailError('');
+    const validateEmail = async (value) => {
+        if (!validator.validate(value)) {
+            return "Please enter a valid email address.";
+        }
+
+        try {
+            const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=${API_KEY}&email=${value}`);
+            const data = await response.json();
+            if (!data.is_valid_format.value || !data.is_smtp_valid.value) {
+                return "Email does not exist.";
+            }
+            return '';
+        } catch (error) {
+            console.error("Email validation error:", error);
+            return '';
         }
     };
 
     const validatePassword = (value) => {
         if (value.length < 8) {
-            setPasswordError("Password should be at least 8 characters long.");
-        } else {
-            setPasswordError('');
+            return "Password should be at least 8 characters long.";
+        }
+        return '';
+    };
+
+    const checkEmailExists = async (email) => {
+        try {
+            const signInMethods = await fetchSignInMethodsForEmail(auth, email);
+            return signInMethods.length > 0;
+        } catch (error) {
+            console.error("Error checking email existence:", error);
+            return false;
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setAllFieldError('');
-        setFirebaseError('');
+        setGeneralError('');
+        setEmailError('');
+        setPasswordError('');
 
-        if (!email.trim() || !password.trim()) {
-            setAllFieldError("Please fill in all fields.");
+        let emailErrorMessage = '';
+        let passwordErrorMessage = '';
+
+        if (!email.trim()) {
+            emailErrorMessage = "Please enter your email.";
+        } else {
+            emailErrorMessage = await validateEmail(email);
+        }
+
+        if (!password.trim()) {
+            passwordErrorMessage = "Please enter your password.";
+        } else {
+            passwordErrorMessage = validatePassword(password);
+        }
+
+        if (emailErrorMessage || passwordErrorMessage) {
+            setEmailError(emailErrorMessage);
+            setPasswordError(passwordErrorMessage);
             return;
         }
 
-        if (emailError || passwordError) {
-            setAllFieldError("Please correct the errors before submitting.");
+        // Check if email already exists
+        const emailExists = await checkEmailExists(email);
+        if (emailExists) {
+            setGeneralError('An account with this email already exists. Please log in.');
             return;
         }
 
+        // Create new user account
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
@@ -65,9 +104,13 @@ const Signup = () => {
                 firstName: email.split('@')[0],
             });
 
-            router.push('/'); // Correct usage of router.push
+            router.push('/');
         } catch (error) {
-            setFirebaseError('An account with this email already exists. Please log in.');
+            if (error.code === 'auth/email-already-in-use') {
+                setGeneralError('An account with this email already exists. Please log in.');
+            } else {
+                setGeneralError('An error occurred. Please try again.');
+            }
             console.error(error);
         }
     };
@@ -88,7 +131,7 @@ const Signup = () => {
             router.push('/');
         } catch (err) {
             if (err.code !== 'auth/popup-closed-by-user') {
-                setFirebaseError(err.message);
+                setGeneralError(err.message);
             }
         }
     };
@@ -102,10 +145,8 @@ const Signup = () => {
             <div className="signup-container">
                 <div className="signup-heading">
                     <h1>Create Your Account</h1>
-                    {firebaseError && <p style={{ color: "red", paddingBottom: "6px",textAlign:"center",fontSize:"13px",fontFamily:"Inter" }}>{firebaseError}</p>}
-                    {allFieldError && <div className="error-message" style={{textAlign:"center",fontSize:"14px",fontFamily:"Inter"}}>{allFieldError}</div>}
+                    {generalError && <p style={{ color: "red", paddingBottom: "6px", textAlign: "center", fontSize: "13px", fontFamily: "Inter" }}>{generalError}</p>}
                 </div>
-                
                 <form className="form" onSubmit={handleSubmit}>
                     <Box component="div" className="email" noValidate autoComplete="off">
                         <TextField
@@ -116,8 +157,7 @@ const Signup = () => {
                             error={!!emailError}
                             helperText={emailError}
                             value={email}
-                            onChange={(e) => { setEmail(e.target.value); validateEmail(e.target.value); }}
-                            onBlur={(e) => validateEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </Box>
                     <Box component="div" className="password" noValidate autoComplete="off">
@@ -130,8 +170,7 @@ const Signup = () => {
                             error={!!passwordError}
                             helperText={passwordError}
                             value={password}
-                            onChange={(e) => { setPassword(e.target.value); validatePassword(e.target.value); }}
-                            onBlur={(e) => validatePassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             InputProps={{
                                 endAdornment: (
                                     <span className="eye" onClick={togglePasswordVisibility}>
@@ -144,7 +183,6 @@ const Signup = () => {
                     <div className="signup-button">
                         <button className="signup-btn" type="submit">Sign Up</button>
                     </div>
-
                     <div className="google-signin">
                         <button
                             type="button"
