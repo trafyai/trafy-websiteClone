@@ -69,18 +69,13 @@
   font-family: var(--p-font);
   font-weight: 500;
   color: var(--h-white);
-  border: 1px solid rgb(110, 93, 247);
+  border: 1px solid #1B72E8;
   border-radius: 8px;
-  background: rgb(110, 93, 247);
-  background: linear-gradient(
-    90deg,
-    rgba(110, 93, 247, 1) 0%,
-    rgba(95, 63, 236, 1) 100%
-  );
+  background-color: #1B72E8;
 }
 .service-hero-form form button:hover {
   background: inherit;
-  color: rgb(75, 58, 202);
+  color: #1B72E8;
 }
 .service-hero-form form p {
   font-size: 13px;
@@ -276,12 +271,12 @@
     align-items: center;
 }
 .service-solution-heading h2 {
-  width:80%;
+  width:70%;
   font-size: 48px;
   font-family: var(--h-font);
   font-weight: 500;
   color: var(--h-black);
-  line-height: 120%;
+  line-height: 130%;
   text-align: center;
 }
 .service-solution-heading p {
@@ -296,9 +291,10 @@
 }
 .service-solution-content {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, max-content);
   grid-template-rows: 1fr;
   gap: 2.5rem;
+  justify-content: center;
 }
 .service-solution-box {
   /* width: 100%;
@@ -312,6 +308,8 @@
   border-radius: 8px;
   flex:1;
   aspect-ratio: 1 / 1;
+  max-width:270px;
+  min-width:240px;
 }
 .service-solution-box img{
   height:48px;
@@ -335,11 +333,7 @@
   color: var(--p-black);
   line-height: 150%;
 }
-@media only screen and (max-width: 1200px){
-  .service-solution-content {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+
 @media only screen and (max-width: 1024px) {
   .service-solution-container {
     width: 90%;
@@ -416,7 +410,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--trafy-black);
+  background-color: var(--trafy-white);
 }
 .service-startup-container {
   width: 85%;
@@ -453,7 +447,7 @@
 .service-startup-contents {
   width: 100%;
   display: flex;
-  gap:4rem;
+  gap:5rem;
   justify-content: center;
 }
 .service-startup-box{
@@ -464,10 +458,16 @@
   gap:1rem;
 }
 .service-startup-box p{
-  font-size: 24px;
+  font-size: 48px;
   font-family: var(--h-font);
   font-weight: 600;
-  color: var(--h-white);
+  color: var(--h-black);
+}
+.service-startup-box h4{
+  font-size: 18px;
+  font-family: var(--p-font);
+  font-weight: 400;
+  color: var(--h-black);
 }
 /* ------------------------------------------Service PartnerShip----------------------------- */
 
