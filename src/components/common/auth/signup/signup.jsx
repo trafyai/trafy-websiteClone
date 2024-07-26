@@ -12,8 +12,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import validator from 'email-validator';
 
-const API_KEY = 'YOUR_ABSTRACT_API_KEY';
-
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -23,22 +21,17 @@ const Signup = () => {
     const [generalError, setGeneralError] = useState('');
     const router = useRouter();
 
-    const validateEmail = async (value) => {
+    const validateEmail = (value) => {
         if (!validator.validate(value)) {
             return "Please enter a valid email address.";
         }
 
-        try {
-            const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=${API_KEY}&email=${value}`);
-            const data = await response.json();
-            if (!data.is_valid_format.value || !data.is_smtp_valid.value) {
-                return "Email does not exist.";
-            }
-            return '';
-        } catch (error) {
-            console.error("Email validation error:", error);
-            return '';
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(value)) {
+            return "Please enter a proper email address.";
         }
+
+        return '';
     };
 
     const validatePassword = (value) => {
@@ -64,20 +57,8 @@ const Signup = () => {
         setEmailError('');
         setPasswordError('');
 
-        let emailErrorMessage = '';
-        let passwordErrorMessage = '';
-
-        if (!email.trim()) {
-            emailErrorMessage = "Please enter your email.";
-        } else {
-            emailErrorMessage = await validateEmail(email);
-        }
-
-        if (!password.trim()) {
-            passwordErrorMessage = "Please enter your password.";
-        } else {
-            passwordErrorMessage = validatePassword(password);
-        }
+        let emailErrorMessage = validateEmail(email);
+        let passwordErrorMessage = validatePassword(password);
 
         if (emailErrorMessage || passwordErrorMessage) {
             setEmailError(emailErrorMessage);

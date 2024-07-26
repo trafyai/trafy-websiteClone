@@ -64,9 +64,9 @@ const Login = () => {
             router.push('/');
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                setGeneralError("Email or password is incorrect.");
+                setGeneralError("Email or password is incorrect. Please try again");
             } else {
-                setGeneralError("Email or password is incorrect.");
+                setGeneralError("Email or password is incorrect. Please try again");
             }
         }
     };
