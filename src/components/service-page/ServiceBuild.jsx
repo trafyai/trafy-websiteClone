@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Swal from 'sweetalert2';
+import Image from "next/image";
+import arrowIcon from '@public/assets/Images/service-page/Arrow-icon.svg';
 
 // Email validation function
 const validateEmail = (email) => {
@@ -22,11 +24,6 @@ export default function ServiceBuild() {
     e.preventDefault();
 
     // Check if email is valid
-    if (!email) {
-      setError("Please enter your email address.");
-      return;
-    }
-
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
       Swal.fire({
@@ -114,7 +111,9 @@ export default function ServiceBuild() {
             onChange={handleChange}
           />
           {error && <p className="error-message">{error}</p>}
-          <button type="submit">Submit</button>
+          <button type="submit" style={{ display: 'flex', alignItems: 'center' }}>
+            <Image src={arrowIcon} alt="Arrow Icon" width={16} height={16} />
+          </button>
         </form>
       </div>
     </div>
