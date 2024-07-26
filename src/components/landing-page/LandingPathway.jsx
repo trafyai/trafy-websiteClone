@@ -56,7 +56,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { LandingPathwayData } from '@api/landing/LandingData'
-import Vector from '@public/assets/Images/landing-page/pathway/Vector.png'
+import Vector from '@public/assets/Images/landing-page/pathway/arrow right.svg'
 import Link from 'next/link'
 
 const LandingPathway = () => {

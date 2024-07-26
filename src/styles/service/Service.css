@@ -335,6 +335,9 @@
 }
 
 @media only screen and (max-width: 1024px) {
+  .service-solution{
+    padding: 60px 0px;
+  }
   .service-solution-container {
     width: 90%;
   }
@@ -360,7 +363,7 @@
     width:80%;
   }
   .service-solution-content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, max-content);
   }
 }
 @media only screen and (max-width: 720px) {
@@ -369,6 +372,9 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .service-solution{
+    padding: 40px 0px;
+  }
   .service-solution-container{
     gap:2.5rem;
   }
@@ -388,6 +394,8 @@
 .service-solution-box{
  aspect-ratio:0;
  gap:1rem;
+max-width: 100%;
+min-width:100%;
 }
 .service-solution-box-contents{
   gap:0.6rem;
@@ -494,7 +502,7 @@
   gap: 1.5rem;
 }
 .service-partnership-heading h2 {
-  font-size: 24px;
+  font-size: 22px;
   font-family: var(--h-font);
   font-weight: 500;
   color: var(--p-black);
@@ -524,12 +532,18 @@
   }
 }
 @media only screen and (max-width:600px){
+  .service-partnership{
+    padding: 40px 0px;
+  }
   .service-partnership-contents img{
     height:20px;
   }
   .service-partnership-contents {
     gap: 2rem;
     row-gap: 1rem;
+}
+.service-partnership-heading h2{
+  font-size: 18px;
 }
 }
 /* -------------------------------------------Service Build------------------------------- */

@@ -46,7 +46,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
-import Vector from '@public/assets/Images/landing-page/pathway/Vector.png';
+import Vector from '@public/assets/Images/landing-page/pathway/arrow right.svg';
 
 const LandingCaseStudy = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
