@@ -11,9 +11,9 @@ const Course = () => {
       <Head>
         <meta name="robots" content="noindex" />
       </Head>
-        {/* <UiuxCourse/>
-        <DigitalMarketingCourse/> */}
-      <LandingPage/>
+        <UiuxCourse/>
+        <DigitalMarketingCourse/>
+      {/* <LandingPage/> */}
     </div>
   )
 }
