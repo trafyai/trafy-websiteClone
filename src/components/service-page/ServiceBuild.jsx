@@ -104,7 +104,7 @@ export default function ServiceBuild() {
       <div className="service-build-container">
         <div className="service-build-heading">
           <h2>Ready to build the next Generative AI</h2>
-          <p>Let's get you started with expert guidance and mentorship</p>
+          <p>Lets get you started with expert guidance and mentorship</p>
         </div>
         <form className="service-build-form" onSubmit={handleSubmit}>
           <input
