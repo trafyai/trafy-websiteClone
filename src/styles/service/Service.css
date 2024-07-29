@@ -135,12 +135,13 @@
 /* ---------------------------------------------Service Grow Section--------------------------------- */
 .accordion-icon {
   transition: transform 0.3s ease;
-  transform: rotate(270deg);
 }
 
 .rotated {
-  transform: rotate(360deg);
+  transform: rotate(90deg);
 }
+
+
 
 .service-grow {
   padding: 90px 0px;
@@ -350,9 +351,7 @@
   .service-solution-heading h2{
     font-size: 40px;
   }
-  .service-solution-box{
-    padding:16px;
-  }
+ 
  
 }
 @media only screen and (max-width: 900px) {
@@ -455,6 +454,7 @@ min-width:100%;
 .service-startup-contents {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap:5rem;
   justify-content: center;
 }
@@ -556,10 +556,10 @@ min-width:100%;
   background-color: #ffffff;
 }
 .service-build-container {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 2.5rem;
   padding: 40px;
   border: 1px solid #b1b1b1;
   border-radius: 8px;
@@ -567,14 +567,14 @@ min-width:100%;
 .service-build-heading {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .service-build-heading h2 {
   font-size: 40px;
   font-family: var(--h-font);
   font-weight: 500;
   color: var(--h-black);
-  line-height: 120%;
+  line-height: 130%;
 }
 .service-build-heading p {
   font-size: 18px;
@@ -607,28 +607,37 @@ min-width:100%;
   font-family: var(--p-font);
   font-weight: 500;
   color: var(--h-white);
-  border: 1px solid rgb(110, 93, 247);
+  border: 1px solid #1B72E8;
   border-radius: 8px;
-  background: rgb(110, 93, 247);
-  background: linear-gradient(
-    90deg,
-    rgba(110, 93, 247, 1) 0%,
-    rgba(95, 63, 236, 1) 100%
-  );
+  background: #1B72E8;
+ 
 }
-.service-buils-form button:hover {
-  background: inherit;
-  color: rgb(75, 58, 202);
+.service-build-form button:hover {
+  background:#0d5cc6;
 }
-
+@media only screen and (min-width: 1200px) {
+  .service-build-heading h2{
+    width:70%;
+  
+  }
+}
 @media only screen and (max-width: 1024px) {
   .service-build-container {
-    width: 90%;
+    width: 70%;
   }
+  .service-build-heading{
+    gap:0.7rem;
+  }
+  .service-build-container{
+    gap:1.5rem;
+  }
+
 }
 @media only screen and (max-width: 600px) {
   .service-build-container {
-    gap: 2.5rem;
+    gap: 1.5rem;
+    width:90%;
+    padding:24px;
   }
   .service-build-heading {
     gap: 0.8rem;
@@ -643,6 +652,7 @@ min-width:100%;
 @media only screen and (max-width: 400px) {
   .service-build-container {
     padding: 32px;
+    width:90%;
   }
   .service-build-container {
     gap: 2rem;
