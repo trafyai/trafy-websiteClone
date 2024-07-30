@@ -135,12 +135,13 @@
 /* ---------------------------------------------Service Grow Section--------------------------------- */
 .accordion-icon {
   transition: transform 0.3s ease;
-  transform: rotate(270deg);
 }
 
 .rotated {
-  transform: rotate(360deg);
+  transform: rotate(90deg);
 }
+
+
 
 .service-grow {
   padding: 90px 0px;
@@ -335,6 +336,9 @@
 }
 
 @media only screen and (max-width: 1024px) {
+  .service-solution{
+    padding: 60px 0px;
+  }
   .service-solution-container {
     width: 90%;
   }
@@ -347,9 +351,7 @@
   .service-solution-heading h2{
     font-size: 40px;
   }
-  .service-solution-box{
-    padding:16px;
-  }
+ 
  
 }
 @media only screen and (max-width: 900px) {
@@ -360,7 +362,7 @@
     width:80%;
   }
   .service-solution-content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, max-content);
   }
 }
 @media only screen and (max-width: 720px) {
@@ -369,6 +371,9 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .service-solution{
+    padding: 40px 0px;
+  }
   .service-solution-container{
     gap:2.5rem;
   }
@@ -388,6 +393,8 @@
 .service-solution-box{
  aspect-ratio:0;
  gap:1rem;
+max-width: 100%;
+min-width:100%;
 }
 .service-solution-box-contents{
   gap:0.6rem;
@@ -447,6 +454,7 @@
 .service-startup-contents {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap:5rem;
   justify-content: center;
 }
@@ -494,7 +502,7 @@
   gap: 1.5rem;
 }
 .service-partnership-heading h2 {
-  font-size: 24px;
+  font-size: 22px;
   font-family: var(--h-font);
   font-weight: 500;
   color: var(--p-black);
@@ -524,12 +532,18 @@
   }
 }
 @media only screen and (max-width:600px){
+  .service-partnership{
+    padding: 40px 0px;
+  }
   .service-partnership-contents img{
     height:20px;
   }
   .service-partnership-contents {
     gap: 2rem;
     row-gap: 1rem;
+}
+.service-partnership-heading h2{
+  font-size: 18px;
 }
 }
 /* -------------------------------------------Service Build------------------------------- */
@@ -542,10 +556,10 @@
   background-color: #ffffff;
 }
 .service-build-container {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 2.5rem;
   padding: 40px;
   border: 1px solid #b1b1b1;
   border-radius: 8px;
@@ -553,14 +567,14 @@
 .service-build-heading {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .service-build-heading h2 {
   font-size: 40px;
   font-family: var(--h-font);
   font-weight: 500;
   color: var(--h-black);
-  line-height: 120%;
+  line-height: 130%;
 }
 .service-build-heading p {
   font-size: 18px;
@@ -593,28 +607,37 @@
   font-family: var(--p-font);
   font-weight: 500;
   color: var(--h-white);
-  border: 1px solid rgb(110, 93, 247);
+  border: 1px solid #1B72E8;
   border-radius: 8px;
-  background: rgb(110, 93, 247);
-  background: linear-gradient(
-    90deg,
-    rgba(110, 93, 247, 1) 0%,
-    rgba(95, 63, 236, 1) 100%
-  );
+  background: #1B72E8;
+ 
 }
-.service-buils-form button:hover {
-  background: inherit;
-  color: rgb(75, 58, 202);
+.service-build-form button:hover {
+  background:#0d5cc6;
 }
-
+@media only screen and (min-width: 1200px) {
+  .service-build-heading h2{
+    width:70%;
+  
+  }
+}
 @media only screen and (max-width: 1024px) {
   .service-build-container {
-    width: 90%;
+    width: 70%;
   }
+  .service-build-heading{
+    gap:0.7rem;
+  }
+  .service-build-container{
+    gap:1.5rem;
+  }
+
 }
 @media only screen and (max-width: 600px) {
   .service-build-container {
-    gap: 2.5rem;
+    gap: 1.5rem;
+    width:90%;
+    padding:24px;
   }
   .service-build-heading {
     gap: 0.8rem;
@@ -629,6 +652,7 @@
 @media only screen and (max-width: 400px) {
   .service-build-container {
     padding: 32px;
+    width:90%;
   }
   .service-build-container {
     gap: 2rem;

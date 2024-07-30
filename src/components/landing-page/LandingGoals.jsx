@@ -17,11 +17,11 @@ const LandingGoals = () => {
                     <h3>For your Education</h3>
 
                     <div className='landing-goals-box-contents'>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Core Concepts</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Modern Technology</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Learning Paths</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Cheat Sheets</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Multiplatform Integration</p></div>
+                        <div className='landing-goals-box-points'><p>Core Concepts</p></div>
+                        <div className='landing-goals-box-points'><p>Modern Technology</p></div>
+                        <div className='landing-goals-box-points'><p>Learning Paths</p></div>
+                        <div className='landing-goals-box-points'><p>Cheat Sheets</p></div>
+                        <div className='landing-goals-box-points'><p>Multiplatform Integration</p></div>
                     </div>
 
                 </div>
@@ -30,12 +30,12 @@ const LandingGoals = () => {
                     <h3>For your Career</h3>
 
                     <div className='landing-goals-box-contents'>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Personalized Curriculum</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Unlimited Doubt 
+                        <div className='landing-goals-box-points'><p>Personalized Curriculum</p></div>
+                        <div className='landing-goals-box-points'><p>Unlimited Doubt 
                         Clearing Session</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Placement Training</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Impressive CV & Cover Letters</p></div>
-                        <div className='landing-goals-box-points'><Image src={point}/><p>Post Hiring Support</p></div>
+                        <div className='landing-goals-box-points'><p>Placement Training</p></div>
+                        <div className='landing-goals-box-points'><p>Impressive CV & Cover Letters</p></div>
+                        <div className='landing-goals-box-points'><p>Post Hiring Support</p></div>
                     </div>
                     
                 </div>

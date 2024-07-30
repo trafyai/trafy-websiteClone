@@ -3,6 +3,7 @@ import Edu from '@public/assets/Images/service-page/service-solutions/education.
 import Fin from '@public/assets/Images/service-page/service-solutions/FINANCE.svg';
 import Health from '@public/assets/Images/service-page/service-solutions/healthcare.svg';
 import Media from '@public/assets/Images/service-page/service-solutions/media.svg';
+import Market from '@public/assets/Images/service-page/service-solutions/marketing.svg';
 
 
  
@@ -45,8 +46,8 @@ import Media from '@public/assets/Images/service-page/service-solutions/media.sv
         img:Ecom
     },
     {
-        title:"Marketing",
-        para:"Manage and grow your business with customized Marketing enablement solutions.",
+        title:"Education",
+        para:"Planning to get into payment processing industry. We have exactly what you need.",
         img:Edu
     },
     {
@@ -64,10 +65,11 @@ import Media from '@public/assets/Images/service-page/service-solutions/media.sv
         para:"Manage and grow your business with customized Marketing enablement solutions.",
         img:Health
     },
+    
     {
-        title:"Education",
-        para:"Planning to get into payment processing industry. We have exactly what you need.",
-        img:Edu
+        title:"Marketing",
+        para:"Manage and grow your business with customized Marketing enablement solutions.",
+        img:Market
     },
 
 ]

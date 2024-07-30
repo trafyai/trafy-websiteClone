@@ -14,7 +14,7 @@ const Home = () => {
    
        
     <div>
-       {/* <ServiceHero />
+       {/* <ServiceHero  hred="cou/>
       <ServicePartnership />
       <ServiceGrow />
       <ServiceSolution />

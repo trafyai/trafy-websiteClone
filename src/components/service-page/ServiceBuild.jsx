@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Swal from 'sweetalert2';
 import Image from "next/image";
-import arrowIcon from '@public/assets/Images/service-page/Arrow-icon.svg';
+import arrowIcon from '@public/assets/Images/service-page/service-build/arrow_right_white.svg';
 
 // Email validation function
 const validateEmail = (email) => {
@@ -112,7 +112,7 @@ export default function ServiceBuild() {
           />
           {error && <p className="error-message">{error}</p>}
           <button type="submit" style={{ display: 'flex', alignItems: 'center' }}>
-            <Image src={arrowIcon} alt="Arrow Icon" width={16} height={16} />
+            <Image src={arrowIcon} alt="Arrow Icon" width={20} height={20} />
           </button>
         </form>
       </div>
