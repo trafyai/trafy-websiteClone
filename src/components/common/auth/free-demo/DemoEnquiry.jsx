@@ -93,7 +93,7 @@ const EnquiryForm = (props) => {
             });
 
             if (res.ok) {
-                await axios.post("https://trafyai.com/freedemo-form/submit", {
+                await axios.post("https://trafy-backend-m5es3qxgoq-uc.a.run.app/freedemo-form/submit", {
                     email: formData.email,
                     fname: formData.fname,
                     course: props.name

@@ -55,6 +55,7 @@ const EnquiryForm = (props) => {
         setErrorMessages({ ...errorMessages, [name]: errorMessage });
     };
 
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -90,7 +91,7 @@ const EnquiryForm = (props) => {
             });
 
             if (res.ok) {
-                await axios.post("https://trafyai.com/course-enquiry/submit", {
+                await axios.post("https://trafy-backend-m5es3qxgoq-uc.a.run.app/course-enquiry/submit", {
                     email: formData.email,
                     fname: formData.fname,
                     course: props.name
