@@ -17,7 +17,7 @@ export default function LandingAi() {
                 <h2>AI could be your new instructor.</h2>
                 <button onClick={showEnquiry}>Join trafy AI Beta</button>
             </div>
-            {enquiry && <EnquiryForm link="https://newsletter-form-9e6c9-default-rtdb.firebaseio.com/DM-CourseEnquiryFormData.json"
+            {enquiry && <EnquiryForm link="https://newsletter-form-9e6c9-default-rtdb.firebaseio.com/AiForm.json"
                 course="AI beta"
                 name="Stay Updated"
                 title="Join trafy AI Beta" />}
