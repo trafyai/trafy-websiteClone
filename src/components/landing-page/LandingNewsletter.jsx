@@ -25,7 +25,7 @@ const LandingNewsletter = () => {
 
 
         try {
-            const response = await fetch('https://newsletter-form-9e6c9-default-rtdb.firebaseio.com/NewsLetterForm.json', {
+            const response = await fetch('https://newsletter-form-9e6c9-default-rtdb.firebaseio.com/AiForm.json', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
