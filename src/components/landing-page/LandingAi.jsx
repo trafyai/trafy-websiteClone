@@ -56,6 +56,13 @@ export default function LandingAi() {
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+            {enquiry && <EnquiryForm link="https://newsletter-form-9e6c9-default-rtdb.firebaseio.com/AiForm.json"
+                course="AI beta"
+                name="Stay Updated"
+                title="Join trafy AI Beta" />}
+>>>>>>> origin/main
         </div>
     );
 }
