@@ -13,10 +13,6 @@ export default function LandingAi() {
 
     return (
         <div className="landing-bento">
-            <div className="landing-bento-heading">
-                <h2>Nemo enim ipsam voluptatem quia</h2>
-                <p>sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam</p>
-            </div>
             <div className="landing-bento-container">
                 <div className="landing-ai-container">
                     <div className="landing-ai-left">

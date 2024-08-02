@@ -2,15 +2,16 @@ import React from "react";
 import Image from 'next/image';
 import Link from "next/link";
 
-import amazon from '@public/assets/Images/landing-page/better-together/b-amazon.png';
-import clickup from '@public/assets/Images/landing-page/better-together/b-clickup.png';
-import hostinger from '@public/assets/Images/landing-page/better-together/b-hostinger.png';
-import graphy from '@public/assets/Images/landing-page/better-together/b-grphy.png';
-import hubspot from '@public/assets/Images/landing-page/better-together/b-hubspot.png';
-import mailercloud from '@public/assets/Images/landing-page/better-together/b-mailercloud.png';
-import semrush from '@public/assets/Images/landing-page/better-together/b-semrush.png';
-import shopify from '@public/assets/Images/landing-page/better-together/b-shopify.png';
-import wati from '@public/assets/Images/landing-page/better-together/b-wati.png';
+import algacart from '@public/assets/Images/landing-page/partners/algacart.png';
+import ardeur from '@public/assets/Images/landing-page/partners/ardeur.png';
+import arrora from '@public/assets/Images/landing-page/partners/arrora.png';
+import bioorganica from '@public/assets/Images/landing-page/partners/bioorganica.png';
+import bioscholar from '@public/assets/Images/landing-page/partners/bioscholar.png';
+import naturaa from '@public/assets/Images/landing-page/partners/naturaa.png';
+import neuen from '@public/assets/Images/landing-page/partners/neuen.png';
+import protivore from '@public/assets/Images/landing-page/partners/protivore.png';
+import squash from '@public/assets/Images/landing-page/partners/Squash.png';
+
 
 export default function LandingBetterTogether(){
     return(
@@ -23,15 +24,15 @@ export default function LandingBetterTogether(){
                           {/* <button>Get started</button>  */}
                     </div>
                     <div className="landing-better-right">
-                        <div className="landing-better-image-b"><Image src={amazon} alt="amazon" /></div>
-                        <div className="landing-better-image-b"><Image src={hostinger} alt="hostinger" /></div>
-                        <div className="landing-better-image-b"><Image src={semrush} alt="semrush" height= {24} /></div>
-                        <div className="landing-better-image-b"><Image src={clickup} alt="clickup" /></div>
-                        <div className="landing-better-image-b"><Image src={hubspot}alt="hubspot" /></div>
-                        <div className="landing-better-image-b"><Image src={graphy} alt="graphy" height= {24} /></div>
-                        <div className="landing-better-image-b"><Image src={shopify} alt="shopify" /></div>
-                        <div className="landing-better-image-b"><Image src={mailercloud} alt="mailercloud" /></div>
-                        <div className="landing-better-image-b"><Image src={wati} alt="wati" /></div>
+                        <div className="landing-better-image-b"><Image src={algacart} alt="amazon" /></div>
+                        <div className="landing-better-image-b"><Image src={ardeur} alt="hostinger" /></div>
+                        <div className="landing-better-image-b"><Image src={arrora} alt="semrush" height= {24} /></div>
+                        <div className="landing-better-image-b"><Image src={bioorganica} alt="clickup" /></div>
+                        <div className="landing-better-image-b"><Image src={bioscholar}alt="hubspot" /></div>
+                        <div className="landing-better-image-b"><Image src={naturaa} alt="graphy" height= {24} /></div>
+                        <div className="landing-better-image-b"><Image src={neuen} alt="shopify" /></div>
+                        <div className="landing-better-image-b"><Image src={protivore} alt="mailercloud" /></div>
+                        <div className="landing-better-image-b"><Image src={squash} alt="wati" /></div>
                            
                     </div>
                 </div>

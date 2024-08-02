@@ -1,6 +1,6 @@
 .landing-hero-section {
-  padding-top: 220px;
-  padding-bottom: 160px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: flex;
   justify-content: center;
   background-color: var(--trafy-white);
@@ -12,35 +12,35 @@
 }
 .landing-hero-contents {
   width:50%;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: flex-start;
 }
 
 .landing-hero-heading,
 .landing-hero-paragraph {
   display: flex;
-  justify-content: center;
 }
 .landing-hero-heading h1 {
-  font-size: 66px;
+  font-size: 56px;
   font-family: var(--h-font);
   font-weight: 600;
   color: var(--h-black);
-  line-height: 130%;
+  line-height: 150%;
 }
 .landing-hero-paragraph p {
+  width: 90%;
   font-size: 20px;
   font-family: var(--p-font);
   font-weight: 400;
-  line-height: 150%;
+  line-height: 170%;
   color: var(--p-black);
-  width: 40rem;
 }
 .landing-hero-explore-btn {
   margin-top: 6px;
-  padding: 16px 32px;
+  padding: 12px 32px;
   background-color: var(--trafy-blue);
   border: 2px solid var(--trafy-blue);
   border-radius: 8px;
@@ -60,33 +60,71 @@
   width:100%;
   height:100%;
 }
+@media only screen and (max-width: 1201px){
+  .landing-hero-heading h1{
+    font-size: 48px;
+    line-height: 130%;
+  }
+  .landing-hero-heading p{
+    font-size: 18px;
+    line-height: 150%;
+  }
+  .landing-hero-contents{
+    padding-top: 100px;
+  }
+ 
+}
 @media only screen and (max-width: 1024px) {
+  .landing-hero-container{
+    gap: 0;
+  }
   .landing-hero-section {
-    padding-top: 180px;
-    padding-bottom: 100px;
+    padding-top: 60px;
+    padding-bottom: 0px;
   }
   .landing-hero-contents {
-    gap: 1.5rem;
-  }
-  .landing-hero-paragraph p {
-    font-size: 18px;
-    width: 30rem;
-  }
-  .landing-hero-heading h1 {
-    font-size: 56px;
+    gap: 1rem;
   }
   .landing-hero-explore-btn,
   .landing-hero-explore-btn:hover {
     font-size: 16px;
   }
+  .landing-hero-container{
+    flex-direction: column;
+  }
+  .landing-hero-contents,.landing-hero-image{
+    width: 100%;
+  }
+  .landing-hero-contents{
+    align-items: center;
+  }
+  .landing-hero-heading h1,.landing-hero-paragraph p{
+    width: 100%;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .landing-hero-container{
+    flex-direction: column;
+  }
+  .landing-hero-contents,.landing-hero-image{
+    width: 100%;
+  }
+  .landing-hero-contents{
+    align-items: center;
+  }
+  .landing-hero-heading h1,.landing-hero-paragraph p{
+    text-align: center;
+  }
 }
 @media only screen and (max-width: 600px) {
   .landing-hero-contents {
     gap: 1.2rem;
+    padding-top: 0px;
   }
   .landing-hero-section {
-    padding-top: 120px;
-    padding-bottom: 80px;
+    padding-top: 100px;
+    padding-bottom: 20px;
   }
   .landing-hero-paragraph p {
     font-size: 18px;
@@ -101,9 +139,8 @@
   }
 }
 @media only screen and (max-width: 400px) {
-  .landing-hero-section {
-    padding-top: 120px;
-    padding-bottom: 80px;
+  .landing-hero-container{
+    gap: 1.5rem;
   }
   .landing-hero-heading h1 {
     font-size: 32px;
@@ -125,7 +162,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
   overflow-x: hidden;
 }
 
@@ -214,6 +251,10 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .landing-partners{
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .landing-partners-container {
     width: 90%;
     gap: 1.5rem;
@@ -228,7 +269,7 @@
     padding-top: 20px;
   }
   .landing-partners-container {
-    gap: 0.2rem;
+    gap: 1rem;
   }
   .landing-partners-heading p {
     font-size: 16px;
@@ -239,8 +280,8 @@
 /* ----------------------------------------------------------Pathway section----------------------------------------- */
 
 .landing-pathway {
-  padding: 80px 0px;
-  padding-bottom: 90px;
+  padding: 60px 0px;
+  padding-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -251,7 +292,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 3.5rem;
 }
 .landing-pathway-heading {
   display: flex;
@@ -281,7 +322,7 @@
 .landing-pathway-contents {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 2.5rem;
   justify-content: center;
 }
 .landing-pathway-box {
@@ -361,10 +402,13 @@
   color:var(--h-white);
   font-weight:500;
 }
+.landing-pathway-box-contents-bottom span:hover{
+  background-color: #2034c5;
+}
 @media only screen and (max-width: 1024px) {
   .landing-pathway {
     padding-bottom: 100px;
-    padding-top: 40px;
+    padding-top: 10px;
   }
   .landing-pathway-container {
     width: 90%;
@@ -383,6 +427,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .landing-pathway{
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .landing-pathway-heading h2 {
     font-size: 32px;
   }
@@ -429,7 +477,8 @@
 
 
 .landing-masterclass{
-  padding: 90px 0px;
+  padding: 60px 0px;
+  padding-bottom: 80px;
   display: flex;
   justify-content: center;
   background-color: var(--trafy-white);
@@ -439,7 +488,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 .landing-masterclass-heading h2{
   font-size: 40px;
@@ -450,7 +499,10 @@
 }
 .landing-masterclass-contents{
   display:flex;
-  gap:2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap:2.5rem;
 }
 .landing-masterclass-card{
   width: 329px;
@@ -514,17 +566,25 @@
 
 @media only screen and (max-width:1024px){
   .landing-masterclass{
-    padding-top: 40px;
+    padding-top: 10px;
     padding-bottom: 100px;
   }
   .landing-masterclass-container{
     width:90%;
+    gap:2.5rem;
+  }
+  .landing-masterclass-contents{
+    gap:1.5rem;
   }
   .landing-masterclass-heading h2{
     font-size:40px;
   }
 }
 @media only screen and (max-width:600px){
+  .landing-masterclass{
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .landing-masterclass-container{
     gap:2rem;
   }
@@ -645,7 +705,8 @@
 } */
 
 .landing-accordion {
-  padding: 90px 0px;
+  padding: 80px 0px;
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   background-color: var(--trafy-white);
@@ -657,7 +718,7 @@
   justify-content: space-between;
 }
 .landing-accordion-left {
-  width: 40%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -746,7 +807,7 @@
 
 @media only screen and (max-width:1024px){
   .landing-accordion{
-    padding-top:40px;
+    padding-top:10px;
     padding-bottom: 100px;
   }
   .landing-accordion-container{
@@ -763,11 +824,17 @@
   }
 }
 @media only screen and (max-width:600px){
+  .landing-accordion{
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .landing-accordion-left h2{
     font-size: 32px;
+    text-align: center;
   }
   .landing-accordion-left p{
     font-size: 16px;
+    text-align: center;
   }
 }
 @media only screen and (max-width:400px){
@@ -789,7 +856,8 @@
 /* --------------------------------------------------review section----------------------------------------- */
 
 .landing-review {
-  padding: 90px 0px;
+  padding: 60px 0px;
+  padding-bottom: 80px;
   display: flex;
   justify-content: center;
   background-color: var(--trafy-white);
@@ -916,7 +984,7 @@
 @media only screen and (max-width: 1024px) {
   .landing-review {
     padding: 70px 0px;
-    padding-top: 20px;
+    padding-top: 10px;
   }
 }
 @media only screen and (max-width: 1000px) {
@@ -982,6 +1050,10 @@
   /* .landing-review{
         padding: 40px 0px;
     } */
+    .landing-review{
+      padding-top: 20px;
+      padding-bottom: 60px;
+    }
   .landing-review-top h2 {
     font-size: 32px;
   }
@@ -1009,8 +1081,8 @@
 /* ------------------------------------------------Landing Ai------------------------------------ */
 
 .landing-bento{
-  padding: 90px 0px;
-  padding-top:40px;
+  padding: 80px 0px;
+  padding-top:60px;
   display: flex;
   flex-direction: column;
   gap:3rem;
@@ -1019,7 +1091,7 @@
   background-color: var(--trafy-white);
 }
 .landing-bento-heading{
-  width:90%;
+  width:60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1050,12 +1122,13 @@
 }
 .landing-ai-container {
   width: 60%;
-  padding:32px;
-  display: flex;
+  padding: 65px 56px;
+    display: flex;
   flex-direction: column;
   gap: 1rem;
   background-color: #F8F1F6;
   border-radius: 8px;
+  justify-content: center;
 }
 .landing-ai-left h2 {
   font-size: 28px;
@@ -1067,10 +1140,10 @@
 .landing-ai-right{
   display:flex;
   flex-direction: column;
-  gap:1rem;
+  gap:1.5rem;
 }
 .landing-ai-right p{
-  font-size: 16px;
+  font-size: 18px;
   font-family: var(--p-font);
   font-weight: 400;
   color: var(--p-black);
@@ -1104,15 +1177,16 @@
 }
 .landing-features-container {
   width: 50%;
-  padding: 32px;
+  padding: 65px 56px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   background-color: #F8F1F6;
   border-radius: 8px;
+  justify-content: center;
 }
 .landing-features-heading h2 {
-  font-size: 20px;
+  font-size: 28px;
   font-family: var(--h-font);
   font-weight: 600;
   color: var(--h-black); 
@@ -1140,15 +1214,32 @@
   font-family: var(--p-font);
   color:var(--p-black);
 }
+@media only screen and (max-width:1201px){
+  .landing-ai-container, .landing-features-container{
+    padding:56px 48px;
+  }
+  .landing-ai-right{
+    gap:1rem;
+  }
+  .landing-features-container{
+    justify-content: flex-start;
+  }
+}
 @media only screen and (max-width: 1024px) {
   .landing-bento{
-    padding-top:40px;
+    padding-top:10px;
     padding-bottom:100px;
   }
   .landing-bento-container{
     width:90%;
   }
+  .landing-bento-heading{
+    width:90%;
+  }
   .landing-ai-container {
+    width: 50%;
+  }
+  .landing-features-container {
     width: 50%;
   }
   .landing-features-contents{
@@ -1172,6 +1263,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .landing-bento{
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .landing-ai-container{
     flex-direction: column;
     gap:1rem;
@@ -1217,7 +1312,8 @@
 
 /* ----------------------------------------Landing Better----------------------------------- */
 .landing-better{
-  padding: 90px 0px;
+  padding: 60px 0px;
+  padding-bottom: 80px;
   display: flex;
   justify-content: center;
   background-color: var(--trafy-white);
@@ -1228,6 +1324,7 @@
   gap:2.5rem;
 }
 .landing-better-left{
+  width: 60%;
   display:flex;
   flex-direction: column;
   gap:0.5rem;
@@ -1247,20 +1344,21 @@
   line-height:150%;
 }
 .landing-better-right{
+  width: 50%;
   padding-top:18px;
   display:grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3,140px);
   grid-template-rows:  repeat(3,max-content);
   gap: 1.5rem;
   align-items:center;
 }
 .landing-better-image-b img{
   width:max-content;
-  height:24px;
+  height:20px;
 }
 @media only screen and (max-width:1024px){
   .landing-better{
-    padding-top:40px;
+    padding-top:10px;
     padding-bottom: 100px;
   }
   .landing-better-container{
@@ -1270,25 +1368,46 @@
 @media only screen and (max-width:900px){
   .landing-better-container{
     flex-direction: column;
-    gap:1.5rem;
+    gap:2rem;
+    align-items: center;
   }
   .landing-better-right{
     grid-template-columns: repeat(3, max-content);
     column-gap: 2rem;
   }
+  .landing-better-left{
+    width: 100%;
+    align-items: center;
+    gap:1rem;
+  }
+  .landing-better-left h2,.landing-better-left P{
+    text-align: center;
+  }
+  .landing-better-right{
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    gap:2.2rem;
+  }
 }
 @media only screen and (max-width:600px){
+  .landing-better{
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .landing-better-container{
     gap:1rem;
   }
   .landing-better-left h2{
     font-size: 32px;
     width: 100%;
+    text-align: center;
 
   }
   .landing-better-left p{
     font-size: 16px;
     width: 100%;
+    text-align: center;
   }
   .landing-better-right{
     grid-template-rows: repeat(3, 1fr);
@@ -1296,10 +1415,7 @@
     column-gap:1rem;
     row-gap:1rem;
   }
-  .landing-better-image-b img{
-    width:90%;
-    height:max-content;
-  }
+  
 }
 @media only screen and (max-width:400px){
   .landing-better{
@@ -1313,6 +1429,7 @@
     font-size:28px;
   }
   .landing-better-image-b img{
-    width:100%;
+    width:80%;
+    height: max-content;
   }
 }

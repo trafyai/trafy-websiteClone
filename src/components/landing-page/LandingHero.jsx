@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-import Hero from '@public/assets/Images/landing-page/hero.png'
+import Hero from '@public/assets/Images/landing-page/hero.svg'
 
 const LandingHero = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +36,7 @@ const LandingHero = () => {
                             <h1>Innovative Design. <br />Interactive Experience.</h1>
                         </div>
                         <div className="landing-hero-paragraph">
-                            <p>Learn to design UI/UX faster, functional and scalable.</p>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                         </div>
                         <button
                             className="landing-hero-explore-btn"

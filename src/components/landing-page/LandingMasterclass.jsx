@@ -25,7 +25,36 @@ export default function LandingMasterclass(){
                                 <span>Register<Image src={Click} style={{marginLeft:"8px"}}/></span>
                             </div>
                         </div>
+                    </div>  
+                    <div className="landing-masterclass-card">
+                        <div className="masterclass-image-wrapper">
+                            <Image src={img} alt="" className="masterclass-main-img"/>
+                            <Image src={share} alt="" className="masterclass-share-img"/>
+                        </div>
+                        <div className="masterclass-card-content">
+                            <h3>Spatial UI Designs</h3>
+                            <span className="date">Sunday, 1 August | 1:30 PM</span>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                            <div className='landing-pathway-box-contents-bottom'>
+                                <span>Register<Image src={Click} style={{marginLeft:"8px"}}/></span>
+                            </div>
+                        </div>
                     </div>
+                    <div className="landing-masterclass-card">
+                        <div className="masterclass-image-wrapper">
+                            <Image src={img} alt="" className="masterclass-main-img"/>
+                            <Image src={share} alt="" className="masterclass-share-img"/>
+                        </div>
+                        <div className="masterclass-card-content">
+                            <h3>Spatial UI Designs</h3>
+                            <span className="date">Sunday, 1 August | 1:30 PM</span>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam</p>
+                            <div className='landing-pathway-box-contents-bottom'>
+                                <span>Register<Image src={Click} style={{marginLeft:"8px"}}/></span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
