@@ -1,32 +1,11 @@
 import landingPage from '@components/landing-page/LandingPage'
-import ux from '@public/assets/Images/landing-page/pathway/ux.png'
+import ux from '@public/assets/Images/landing-page/pathway/ui.png'
 import ai from '@public/assets/Images/landing-page/pathway/ai.png'
 import dm from '@public/assets/Images/landing-page/pathway/dm.png'
 
-import quote from '@public/assets/Images/landing-page/quote.svg'
+import quote from '@public/assets/Images/landing-page/Vector.svg'
 
-const LandingFeaturesData=[
-    {
-        top:"1000+",
-        bottom:"Students"
-    },
-    {
-        top:"20+",
-        bottom:"Expert Mentors"
-    }, 
-    {
-        top:"10+",
-        bottom:"Pathways"
-    },
-    {
-        top:"50+",
-        bottom:"Companies"
-    },
-    {
-        top:"Unlimited ",
-        bottom:"Free Resources"
-    },
-]
+
 
 const LandingPathwayData=[
     {
@@ -55,6 +34,85 @@ const LandingPathwayData=[
     },
     
 ]
+
+const LandingEntrepreneurData=[
+    {
+        id:"spatial-ui-designs",
+        img:ai,
+        title:"Spatial UI Designs",
+        label:"Spatial UI Designs",
+        url:"/courses/spatial-ui-designs",
+        color:"#F6F0FF"
+    },
+    {
+        id:"spatial-ui-designs",
+        img:ai,
+        title:"Spatial UI Designs",
+        label:"Spatial UI Designs",
+        url:"/courses/spatial-ui-designs",
+        color:"#F6F0FF"
+    },
+]
+
+const LandingAccordionData = [
+    {
+        heading: "For the Students",
+        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
+        points: [
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+        ]
+    },{
+        heading: "For the Students",
+        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
+        points: [
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+        ]
+    },
+    {
+        heading: "For the Students",
+        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
+        points: [
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+        ]
+    },
+    {
+        heading: "For the Students",
+        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
+        points: [
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+        ]
+    },
+    {
+        heading: "For the Students",
+        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
+        points: [
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+            "Sed ut perspiciatis unde omnis iste",
+        ]
+    },
+
+
+];
+
 
 const LandingReviewData=[
     {
@@ -116,4 +174,4 @@ const LandingReviewData=[
 
 ]
 
-export {LandingFeaturesData,LandingPathwayData, LandingReviewData};
+export {LandingPathwayData, LandingReviewData, LandingEntrepreneurData, LandingAccordionData};

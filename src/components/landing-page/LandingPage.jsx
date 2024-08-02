@@ -1,12 +1,13 @@
 import LandingHero from '@components/landing-page/LandingHero';
 import LandingPartners from './LandingPartners';
 import LandingPathway from './LandingPathway';
-import LandingGoals from './LandingGoals';
-import LandingTools from './LandingTools';
-import LandingInnovation from './LandingInnovation';
-import LandingCaseStudy from './LandingCaseStudy';
+import LandingEnterpreneur from './LandingEnterpreneur';
+import LandingMasterclass from './LandingMasterclass';
+import LandingAccordion from './LandingAccordion';
 import LandingReview from "@components/landing-page/LandingReview";
 import LandingAi from './LandingAi';
+import LandingBetterTogether from './LandingBetterTogether';
+
 import '@styles/landing-page/LandingPage.css'
 
 export default function landingPage(){
@@ -17,12 +18,13 @@ export default function landingPage(){
         <LandingHero/>
         <LandingPartners/>
         <LandingPathway/>
-        <LandingGoals/>
-        <LandingTools/>
-        {/* <LandingInnovation/>
-        <LandingCaseStudy/> */}
+        <LandingEnterpreneur/>
+        <LandingMasterclass/>
+        <LandingAccordion/>
+        <LandingAi/> 
+        <LandingBetterTogether/>
         <LandingReview/>
-        <LandingAi/>  
+        
         </>
     )
 }

@@ -3,15 +3,14 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { LandingPathwayData } from '@api/landing/LandingData'
+import { LandingEntrepreneurData } from '@api/landing/LandingData'
 import Live from '@public/assets/Images/landing-page/pathway/live-session.svg'
 import Click from '@public/assets/Images/landing-page/pathway/click-arrow.svg'
 
 import Link from 'next/link'
 
-const LandingPathway = () => {
-  const [selectedPathway, setSelectedPathway] = useState(LandingPathwayData[0].id);
-
+const LandingEnterpreneur = () => {
+   
   return (
     <div id='landingPathways' className='landing-pathway'>
       <div className='landing-pathway-container'>
@@ -21,7 +20,7 @@ const LandingPathway = () => {
         </div>
 
         <div className='landing-pathway-contents'>
-          {LandingPathwayData.map((item, index) => (
+          {LandingEntrepreneurData.map((item, index) => (
             <Link key={index} className='landing-pathway-box' href={item.url}>
               <div className='pathway-image-wrapper' >
                 <Image src={item.img} />
@@ -43,4 +42,4 @@ const LandingPathway = () => {
   )
 }
 
-export default LandingPathway
+export default LandingEnterpreneur

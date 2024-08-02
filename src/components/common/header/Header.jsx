@@ -4,8 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, useRef, useEffect } from "react";
-import whiteLogo from "@public/assets/Images/comman/header/whiteLogo.png";
-import close1 from "@public/assets/Images/comman/header/close.png";
+import whiteLogo from "@public/assets/Images/comman/header/blackLogo.png";
+import trafyIcon from "@public/assets/Images/comman/header/trafy icon.png";
+
+import close1 from "@public/assets/Images/comman/header/close.svg";
 import blackHamburger from "@public/assets/Images/comman/header/hamburger.svg";
 import { UserAuth } from "@context/AuthContext";
 import Default from "@public/assets/Images/comman/header/default.svg"
@@ -81,19 +83,27 @@ const Header = () => {
         <div className="navbar-log">
           <Link href="/">
             {" "}
+            <Image src={trafyIcon} className="trafy-icon"/>
             <Image src={whiteLogo} alt="trafy logo" className="trafy-logo" />
           </Link>
         </div>
 
         <div className="menu-lg">
           <div className="menu-left">
-            <a
-              href="#landingPathways"
+            <Link
+              href="/"
               className="menu-pathway"
-              onClick={() => handleNavigation("#landingPathways")}
+              onClick={() => handleNavigation("/")}
             >
-              Learn
-            </a>
+             Courses
+            </Link>
+            <Link
+              href="/"
+              className="menu-pathway"
+              onClick={() => handleNavigation("/")}
+            >
+             Masterclass
+            </Link>
             <Link
               href="/blogs"
               className="menu-resources"
@@ -106,24 +116,15 @@ const Header = () => {
           </div>
           <div className="menu-right">
             {!loading && !user ? (
-              <div className="menu-no-profile">
-                <Link
-                  href="/login"
-                  className="menu-login"
-                  onClick={() => handleNavigation("/login")}
-                >
-                  {" "}
-                  Login
-                </Link>
                 <Link
                   href="/signup"
                   className="menu-signup"
                   onClick={() => handleNavigation("/signup")}
                 >
                   {" "}
-                  Sign Up Free
+                  Get Started
                 </Link>
-              </div>
+             
             ) : (
               <div className="menu-profile">
                 <div onClick={handleDropDown}>
@@ -247,13 +248,20 @@ const Header = () => {
                     }}
                   />
                 )}
-                <Link
-                  href="/courses"
-                  className="menu-pathway"
-                  onClick={() => handleNavigation("/courses")}
-                >
-                  Learn
-                </Link>
+                  <Link
+              href="/"
+              className="menu-pathway"
+              onClick={() => handleNavigation("/")}
+            >
+             Courses
+            </Link>
+            <Link
+              href="/"
+              className="menu-pathway"
+              onClick={() => handleNavigation("/")}
+            >
+             Masterclass
+            </Link>
                 <Link
                   href="/blogs"
                   className="menu-resources"
@@ -266,7 +274,7 @@ const Header = () => {
                 <hr
                   style={{
                     borderBottom: "0",
-                    borderTop: "1px solid #2a2929",
+                    borderTop: "1px solid var(--box-border)",
                     borderRightWidth: "0",
                     borderLeftWidth: "0",
                   }}
@@ -307,21 +315,14 @@ const Header = () => {
               <div className="menu-bottom-contents">
                 {!loading && !user ? (
                   <div className="menu-no-profile">
-                    <Link
-                      href="/login"
-                      className="menu-login"
-                      onClick={() => handleNavigation("/login")}
-                    >
-                      {" "}
-                      Login
-                    </Link>
+                    
                     <Link
                       href="/signup"
                       className="menu-signup"
                       onClick={() => handleNavigation("/signup")}
                     >
                       {" "}
-                      Sign Up Free
+                      Get Started
                     </Link>
                   </div>
                 ) : null}

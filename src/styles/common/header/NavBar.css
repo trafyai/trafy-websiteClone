@@ -8,9 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #02020a;
+  background-color: var(--trafy-white);
   padding: 8px 40px;
-  border-bottom: 1px solid #2a2929;
+  border-bottom: 1px solid var(--box-border);
   position: fixed;
   z-index: 100;
 }
@@ -25,9 +25,13 @@
   display: flex;
   align-items: center;
 }
+.trafy-icon{
+  height: 40px;
+  width: 100%;
+}
 .trafy-logo {
-  height: 26px;
-  width: 65px;
+  height: 28px;
+  width: 100%;
 }
 .menu-mobile {
   display: none;
@@ -53,7 +57,7 @@
   font-size: 14px;
   font-family: var(--p-font);
   font-weight: 500;
-  color: #f8f8f8;
+  color: var(--p-black)
 }
 .menu-pathway:hover,
 .menu-innovation:hover,
@@ -62,39 +66,26 @@
 .menu-account-security:hover,
 .menu-account-notification:hover,
 .menu-account-logout:hover {
-  color: #a5a5a5;
+  color: var(--h-black);
 }
 .menu-no-profile {
   display: flex;
   gap: 0.7rem;
 }
-.menu-login {
-  padding: 6px 16px;
-  border: 1px solid #f8f8f8;
-  border-radius: 8px;
-  font-size: 14px;
-  font-family: var(--p-font);
-  font-weight: 500;
-  color: #f8f8f8;
-  background-color: inherit;
-}
-.menu-login:hover {
-  background-color: #f8f8f8;
-  color: #02020a;
-}
+
 .menu-signup {
   padding: 6px 16px;
-  border: 1px solid #f8f8f8;
+  border: 1px solid var(--trafy-blue);
   border-radius: 8px;
   font-size: 14px;
   font-family: var(--p-font);
   font-weight: 500;
-  background-color: #f8f8f8;
-  color: #02020a;
+  background-color: inherit;
+  color: var(--trafy-blue);
 }
 .menu-signup:hover {
-  color: #f8f8f8;
-  background-color: inherit;
+  color: var(--trafy-white);
+  background-color:var(--trafy-blue);
 }
 .menu-user-dropdown {
   width: 130px;
@@ -145,24 +136,20 @@
     display: flex;
     align-items: center;
   }
-  .hamburger {
-    width: 32px;
-    height: 32px;
-  }
+ 
   .hamburger.hide {
     display: none;
   }
   .exit-icon {
     display: none;
-    width: 20px;
-    height: 20px;
+  
   }
   .exit-icon.show {
     display: block;
   }
 
   .menu-mobile-contents {
-    background-color: #101214;
+    background-color: var(--trafy-white);
     width: 250px;
     display: flex;
     flex-direction: column;
@@ -172,7 +159,7 @@
     padding: 28px;
     border-radius: 8px;
     gap: 2rem;
-    border: 1px solid #2a2929;
+    border: 1px solid var(--box-border);
   }
 
   .menu-top-contents {
