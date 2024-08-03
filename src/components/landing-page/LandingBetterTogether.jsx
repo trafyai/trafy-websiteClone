@@ -20,7 +20,8 @@ export default function LandingBetterTogether(){
                 <div className="landing-better-container">
                     <div className="landing-better-left">
                         <h2>Lorem ipsum dolor sit amet</h2>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti 
+                            quos dolores et quas molestias excepturi</p>
                           {/* <button>Get started</button>  */}
                     </div>
                     <div className="landing-better-right">

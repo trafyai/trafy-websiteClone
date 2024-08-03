@@ -1337,7 +1337,7 @@
   gap:0.5rem;
 }
 .landing-better-left h2{
-  font-size: 40px;
+  font-size: 28px;
   font-family: var(--h-font);
   font-weight: 600;
   color: var(--h-black);
@@ -1354,15 +1354,28 @@
   width: 100%;
   padding-top:18px;
   display:grid;
-  grid-template-columns: repeat(3,auto);
+  grid-template-columns: repeat(3,135px);
   grid-template-rows: repeat(3,max-content);
   gap: 1.5rem;
   align-items:center;
+  justify-content: center;
 }
 .landing-better-image-b img{
   width:80%;
   height:max-content;
 }
+@media only screen and (max-width:1201px){
+.landing-better-right{
+  width: 100%;
+  padding-top:18px;
+  display:grid;
+  grid-template-columns: repeat(3,auto);
+  grid-template-rows: repeat(3,max-content);
+  gap: 1.5rem;
+  align-items:center;
+}
+}
+
 @media only screen and (max-width:1024px){
   .landing-better{
     padding-bottom: 100px;
@@ -1374,19 +1387,22 @@
 @media only screen and (max-width:900px){
   .landing-better-container{
     flex-direction: column;
-    gap:2rem;
-    align-items: center;
-  }
-
-
-  .landing-better-left h2,.landing-better-left P{
-    text-align: center;
+    gap:0.5rem;
+  } 
+  .landing-better-left p,.landing-better-left h2{
+    width: 100%;
   }
   .landing-better-right{
     width: 100%;
-    justify-content: center;
-    justify-items: center;
-    gap:2.2rem;
+    padding-top:18px;
+    display:grid;
+    grid-template-columns: repeat(3,135px);
+    grid-template-rows: repeat(3,max-content);
+    gap: 1.5rem;
+    justify-content: start;
+  }
+  .landing-better-image-b img{
+    width: 70%;
   }
 }
 @media only screen and (max-width:600px){
@@ -1396,23 +1412,19 @@
   }
   .landing-better-container{
     gap:1rem;
+    padding: 48px 32px;
   }
   .landing-better-left h2{
-    font-size: 32px;
-    width: 100%;
-    text-align: center;
-
+    font-size: 24px;
   }
   .landing-better-left p{
     font-size: 16px;
-    width: 100%;
-    text-align: center;
   }
   .landing-better-right{
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    column-gap:1rem;
-    row-gap:1rem;
+   gap:1rem;
+   
   }
   
 }
@@ -1421,14 +1433,18 @@
     padding-top:20px;
     padding-bottom: 50px;
   }
+  .landing-better-container{
+    padding: 32px;
+    gap: 0rem;;
+  }
   .landing-better-left{
     gap:1rem;
   }
   .landing-better-left h2{
-    font-size:28px;
+    font-size:24px;
   }
   .landing-better-image-b img{
-    width:80%;
+    width:90%;
     height: max-content;
   }
 }
