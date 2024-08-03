@@ -743,13 +743,21 @@
   flex-direction: column;
 }
 .landing-accordion-box {
-  padding: 18px 2px;
+  padding: 18px 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--box-border);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.landing-accordion-box.expanded {
+  background-color: #eff5fb; /* pastel blue */
+  border-radius: 8px;
+  padding:18px;
+  margin-top:4px;
+}
+
 .landing-accordion-box h3 {
   width: 100%;
   display: flex;
@@ -1081,7 +1089,6 @@
 /* ------------------------------------------------Landing Ai------------------------------------ */
 
 .landing-bento{
-  padding: 80px 0px;
   padding-top:60px;
   display: flex;
   flex-direction: column;
@@ -1181,7 +1188,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: #F8F1F6;
+  background-color: #f1f1f8;
   border-radius: 8px;
   justify-content: center;
 }
@@ -1228,7 +1235,6 @@
 @media only screen and (max-width: 1024px) {
   .landing-bento{
     padding-top:10px;
-    padding-bottom:100px;
   }
   .landing-bento-container{
     width:90%;
@@ -1265,7 +1271,6 @@
 @media only screen and (max-width: 600px) {
   .landing-bento{
     padding-top: 20px;
-    padding-bottom: 60px;
   }
   .landing-ai-container{
     flex-direction: column;
@@ -1287,7 +1292,6 @@
 @media only screen and (max-width: 400px) {
   .landing-bento{
     padding-top: 20px;
-    padding-bottom: 50px;
     gap:2rem;
   }
   .landing-bento-heading h2{
@@ -1312,7 +1316,7 @@
 
 /* ----------------------------------------Landing Better----------------------------------- */
 .landing-better{
-  padding: 60px 0px;
+  padding: 20px 0px;
   padding-bottom: 80px;
   display: flex;
   justify-content: center;
@@ -1322,9 +1326,12 @@
   width:85%;
   display: flex;
   gap:2.5rem;
+  padding: 56px 48px;
+  background-color: #F1F8F2;
+  border-radius: 8px;
 }
 .landing-better-left{
-  width: 60%;
+  width: 100%;
   display:flex;
   flex-direction: column;
   gap:0.5rem;
@@ -1344,21 +1351,20 @@
   line-height:150%;
 }
 .landing-better-right{
-  width: 50%;
+  width: 100%;
   padding-top:18px;
   display:grid;
-  grid-template-columns: repeat(3,140px);
-  grid-template-rows:  repeat(3,max-content);
+  grid-template-columns: repeat(3,auto);
+  grid-template-rows: repeat(3,max-content);
   gap: 1.5rem;
   align-items:center;
 }
 .landing-better-image-b img{
-  width:max-content;
-  height:20px;
+  width:80%;
+  height:max-content;
 }
 @media only screen and (max-width:1024px){
   .landing-better{
-    padding-top:10px;
     padding-bottom: 100px;
   }
   .landing-better-container{
@@ -1371,15 +1377,8 @@
     gap:2rem;
     align-items: center;
   }
-  .landing-better-right{
-    grid-template-columns: repeat(3, max-content);
-    column-gap: 2rem;
-  }
-  .landing-better-left{
-    width: 100%;
-    align-items: center;
-    gap:1rem;
-  }
+
+
   .landing-better-left h2,.landing-better-left P{
     text-align: center;
   }

@@ -24,9 +24,10 @@
 .navbar-log {
   display: flex;
   align-items: center;
+
 }
 .trafy-icon{
-  height: 40px;
+  height: 42px;
   width: 100%;
 }
 .trafy-logo {
@@ -35,6 +36,7 @@
 }
 .menu-mobile {
   display: none;
+  padding-right: 12px;
 }
 .menu-lg {
   display: flex;
@@ -80,12 +82,12 @@
   font-size: 14px;
   font-family: var(--p-font);
   font-weight: 500;
-  background-color: inherit;
-  color: var(--trafy-blue);
+  background-color: var(--trafy-blue);
+  color: var(--trafy-white);
 }
 .menu-signup:hover {
-  color: var(--trafy-white);
-  background-color:var(--trafy-blue);
+  color: var(--trafy-blue);
+  background-color:var(--trafy-white);
 }
 .menu-user-dropdown {
   width: 130px;
@@ -155,7 +157,7 @@
     flex-direction: column;
     position: absolute;
     top: 54px;
-    right: 4px;
+    left: 4px;
     padding: 28px;
     border-radius: 8px;
     gap: 2rem;
@@ -195,6 +197,10 @@
     height: 48px;
     padding: 0px 20px 0px 16px;
   }
+  .hamburger, .exit-icon{
+    width: 20px;
+    height:20px;
+  }
   /* .menu-mobile-contents{
         top: 37px;
         right: -26px;
@@ -208,9 +214,9 @@
         right: -26px;
         height: calc(95vh - 48px);
     } */
-  .trafy-logo {
+  /* .trafy-logo {
     height: 24px;
     width: 60px;
-  }
+  } */
 
 }

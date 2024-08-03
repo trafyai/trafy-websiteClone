@@ -40,7 +40,6 @@
 //     );
 // }
 
-
 'use client'
 import React, { useState } from "react";
 import Drop from '@public/assets/Images/landing-page/right.svg';
@@ -63,7 +62,11 @@ export default function LandingAccordion() {
                 </div>
                 <div className="landing-accordion-right">
                     {LandingAccordionData.map((item, index) => (
-                        <div className="landing-accordion-box" onClick={() => toggleAccordion(index)} key={index}>
+                        <div
+                            className={`landing-accordion-box ${openIndex === index ? 'expanded' : ''}`}
+                            onClick={() => toggleAccordion(index)}
+                            key={index}
+                        >
                             <h3>
                                 {item.heading}
                                 <Image 
