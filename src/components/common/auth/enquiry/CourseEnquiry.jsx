@@ -91,7 +91,7 @@ const EnquiryForm = (props) => {
             });
 
             if (res.ok) {
-                await axios.post("https://trafy-backend-m5es3qxgoq-uc.a.run.app/course-enquiry/submit", {
+                await axios.post("http://localhost:5002/course-enquiry/submit", {
                     email: formData.email,
                     fname: formData.fname,
                     course: props.name
