@@ -188,7 +188,7 @@
 }
 .landing-partners {
   padding: 80px 0px;
-  padding-top: 10px;
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -475,7 +475,6 @@
 
 /* -----------------------------------------------Landing masterclass---------------------------------- */
 
-
 .landing-masterclass{
   padding: 60px 0px;
   padding-bottom: 80px;
@@ -563,7 +562,111 @@
   color: #535353;
   font-weight: 400;
 }
+/* -------------------------- */
+.no-scroll {
+    overflow: hidden;
+}
 
+.landing-masterclass {
+    position: relative;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 320px;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    gap:1.5rem;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.popup-header p{
+  font-size:16px;
+  font-family: var(--p-font);
+}
+.popup-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.course-share-socials {
+    display: flex;
+    gap:2rem;   
+    flex-wrap: wrap;
+}
+.course-share-socials img{
+  width:40px;
+  height:40px;
+}
+
+
+.course-share-link input {
+    width: 70%;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size:14px;
+    font-family:var(--p-font);
+}
+
+.course-share-link button {
+    padding: 8px 12px;
+    background-color: #02020a;
+    border: 1px solid #02020a;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.course-share-link button:hover {
+    background-color: #ffffff;
+    color: #02020a;
+}
+
+.alert {
+    position: fixed;
+    background: #353535;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1001;
+    transition: opacity 0.5s ease;
+    font-size:13px;
+    font-family: var(--p-font);
+
+}
+
+.alert-top-right {
+    top: 20px;
+    right: 20px;
+    opacity: 1;
+}
+
+
+/* -------------------------------------------- */
 @media only screen and (max-width:1024px){
   .landing-masterclass{
     padding-top: 10px;

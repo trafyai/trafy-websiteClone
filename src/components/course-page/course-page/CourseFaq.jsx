@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import Image from "next/image";
-import ExpandMore from '@public/assets/Images/comman/common/expand_more_white.png';
+import ExpandMore from '@public/assets/Images/comman/common/chevron_right.svg'
 
 export default function CourseFaq(props) {
   const [accordionState, setAccordionState] = useState({});

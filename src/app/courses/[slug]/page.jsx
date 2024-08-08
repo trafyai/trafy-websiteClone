@@ -22,19 +22,19 @@ import CoursePayment from "@components/course-page/course-page/CoursePayment";
 import CourseFaq from "@components/course-page/course-page/CourseFaq";
 import CourseSimilar from "@components/course-page/course-page/CourseSimilar";
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  const { slug } = params;
-  const HeroData = CourseHeroData.find((course) => course.id === slug);
+// export async function generateMetadata({ params, searchParams }, parent) {
+//   const { slug } = params;
+//   const HeroData = CourseHeroData.find((course) => course.id === slug);
 
-  return {
-    title: HeroData.courseHeading,
-    description: HeroData.courseDescription,
-    openGraph: {
-      title: HeroData.courseHeading,
-      description: HeroData.courseDescription,
-    },
-  };
-}
+//   return {
+//     title: HeroData.courseHeading,
+//     description: HeroData.courseDescription,
+//     openGraph: {
+//       title: HeroData.courseHeading,
+//       description: HeroData.courseDescription,
+//     },
+//   };
+// }
 
 export default function CoursePage({ params }) {
   const { slug } = params;
