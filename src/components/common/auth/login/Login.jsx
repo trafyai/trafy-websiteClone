@@ -169,7 +169,6 @@ const Login = () => {
     const [generalError, setGeneralError] = useState('');
     const [returnUrl, setReturnUrl] = useState('/'); // Default return URL
 
-    const { googleSignIn, signInWithEmail } = UserAuth();
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -229,7 +228,7 @@ const Login = () => {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                 setGeneralError("Email or password is incorrect. Please try again");
             } else {
-                setGeneralError("Email or password is incorrect. Please try again");
+                setGeneralError("An error occurred. Please try again.");
             }
         }
     };
@@ -299,7 +298,7 @@ const Login = () => {
 
                     <div className="google-signin">
                         <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Login with Google</button>
-                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Don&apos;t have an account? <Link href="/signup">Sign up</Link></p>
+                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Don't have an account? <Link href="/signup">Sign up</Link></p>
                     </div>
                 </form>
             </div>
