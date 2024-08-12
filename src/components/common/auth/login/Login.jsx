@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useState } from "react";
 import '@styles/common/auth/login.css';
@@ -18,8 +19,12 @@ const Login = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [generalError, setGeneralError] = useState('');
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const router = useRouter();
+
+    // Retrieve the previous page from local storage
+    const previousPage = typeof window !== 'undefined' ? localStorage.getItem('previousPage') || '/' : '/';
 
     const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,7 +76,8 @@ const Login = () => {
                 firstName: user.email.split('@')[0],
             });
 
-            router.push('/');
+            // Update authentication status
+            setIsAuthenticated(true);
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                 setGeneralError("Email or password is incorrect. Please try again");
@@ -99,7 +105,8 @@ const Login = () => {
                 firstName: user.email.split('@')[0],
             });
 
-            router.push('/');
+            // Update authentication status
+            setIsAuthenticated(true);
         } catch (err) {
             if (err.code === 'auth/cancelled-popup-request') {
                 setGeneralError('Unable to get profile information from Google.');
@@ -108,6 +115,20 @@ const Login = () => {
             }
         }
     };
+
+    useEffect(() => {
+        // Store the current page URL before redirecting to login
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('previousPage', window.location.pathname);
+        }
+    }, []);
+
+    useEffect(() => {
+        // Redirect to previous page or home if authenticated
+        if (isAuthenticated) {
+            router.push(previousPage);
+        }
+    }, [isAuthenticated, previousPage, router]);
 
     return (
         <div className="login">
