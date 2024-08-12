@@ -5,8 +5,9 @@
 // import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 // import Link from "next/link";
 // import { useRouter } from 'next/navigation';
-// import { UserAuth } from "@context/AuthContext";
-
+// import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+// import { ref, set } from 'firebase/database';
+// import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
 // import Box from '@mui/material/Box';
 // import TextField from '@mui/material/TextField';
 
@@ -18,7 +19,6 @@
 //     const [passwordError, setPasswordError] = useState('');
 //     const [generalError, setGeneralError] = useState('');
 
-//     const { googleSignIn, signInWithEmail } = UserAuth();
 //     const router = useRouter();
 
 //     const validateEmail = (email) => {
@@ -60,13 +60,23 @@
 //         }
 
 //         try {
-//             await signInWithEmail(email, password);
+//             const userCredential = await signInWithEmailAndPassword(auth, email, password);
+//             const user = userCredential.user;
+
+//             // Store user data in Firebase Realtime Database
+//             const userRef = ref(database, 'usersData/' + user.uid);
+//             await set(userRef, {
+//                 uid: user.uid,
+//                 email: user.email,
+//                 firstName: user.email.split('@')[0],
+//             });
+
 //             router.push('/');
 //         } catch (error) {
 //             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
 //                 setGeneralError("Email or password is incorrect. Please try again");
 //             } else {
-//                 setGeneralError("Email or password is incorrect. Please try again");
+//                 setGeneralError("An error occurred. Please try again.");
 //             }
 //         }
 //     };
@@ -77,10 +87,25 @@
 
 //     const handleGoogleSignIn = async () => {
 //         try {
-//             await googleSignIn();
+//             const provider = new GoogleAuthProvider();
+//             const result = await signInWithPopup(auth, provider);
+//             const user = result.user;
+
+//             // Store user data in Firebase Realtime Database
+//             const userRef = ref(database, 'usersData/' + user.uid);
+//             await set(userRef, {
+//                 uid: user.uid,
+//                 email: user.email,
+//                 firstName: user.email.split('@')[0],
+//             });
+
 //             router.push('/');
-//         } catch (error) {
-//             setGeneralError(error.message);
+//         } catch (err) {
+//             if (err.code === 'auth/cancelled-popup-request') {
+//                 setGeneralError('Unable to get profile information from Google.');
+//             } else if (err.code !== 'auth/popup-closed-by-user') {
+//                 setGeneralError(err.message);
+//             }
 //         }
 //     };
 
@@ -135,7 +160,7 @@
 
 //                     <div className="google-signin">
 //                         <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Login with Google</button>
-//                         <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Don&apos;t have an account? <Link href="/signup">Sign up</Link></p>
+//                         <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Don't have an account? <Link href="/signup">Sign up</Link></p>
 //                     </div>
 //                 </form>
 //             </div>
@@ -145,18 +170,16 @@
 
 // export default Login;
 
-
-
-
 'use client';
 import React, { useState, useEffect } from "react";
 import '@styles/common/auth/login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
-import { useRouter, useSearchParams } from 'next/navigation';
-import { UserAuth } from "@context/AuthContext";
-
+import { useRouter } from 'next/navigation';
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { ref, set } from 'firebase/database';
+import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
@@ -167,20 +190,12 @@ const Login = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [generalError, setGeneralError] = useState('');
-    const [returnUrl, setReturnUrl] = useState('/'); // Default return URL
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const router = useRouter();
-    const searchParams = useSearchParams();
 
-    useEffect(() => {
-        if (router.isReady) {
-            const returnUrlParam = searchParams.get('returnUrl');
-            console.log('Return URL:', returnUrlParam); // Debugging
-            if (returnUrlParam) {
-                setReturnUrl(returnUrlParam);
-            }
-        }
-    }, [searchParams, router.isReady]);
+    // Retrieve the previous page from local storage
+    const previousPage = typeof window !== 'undefined' ? localStorage.getItem('previousPage') || '/' : '/';
 
     const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -221,9 +236,19 @@ const Login = () => {
         }
 
         try {
-            await signInWithEmail(email, password);
-            console.log('Redirecting to:', returnUrl); // Debugging
-            router.push(returnUrl); // Redirect to the return URL
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Store user data in Firebase Realtime Database
+            const userRef = ref(database, 'usersData/' + user.uid);
+            await set(userRef, {
+                uid: user.uid,
+                email: user.email,
+                firstName: user.email.split('@')[0],
+            });
+
+            // Update authentication status
+            setIsAuthenticated(true);
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                 setGeneralError("Email or password is incorrect. Please try again");
@@ -239,13 +264,42 @@ const Login = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-            await googleSignIn();
-            console.log('Redirecting to:', returnUrl); // Debugging
-            router.push(returnUrl); // Redirect to the return URL
-        } catch (error) {
-            setGeneralError(error.message);
+            const provider = new GoogleAuthProvider();
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+
+            // Store user data in Firebase Realtime Database
+            const userRef = ref(database, 'usersData/' + user.uid);
+            await set(userRef, {
+                uid: user.uid,
+                email: user.email,
+                firstName: user.email.split('@')[0],
+            });
+
+            // Update authentication status
+            setIsAuthenticated(true);
+        } catch (err) {
+            if (err.code === 'auth/cancelled-popup-request') {
+                setGeneralError('Unable to get profile information from Google.');
+            } else if (err.code !== 'auth/popup-closed-by-user') {
+                setGeneralError(err.message);
+            }
         }
     };
+
+    useEffect(() => {
+        // Store the current page URL before redirecting to login
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('previousPage', window.location.pathname);
+        }
+    }, []);
+
+    useEffect(() => {
+        // Redirect to previous page or home if authenticated
+        if (isAuthenticated) {
+            router.push(previousPage);
+        }
+    }, [isAuthenticated, previousPage, router]);
 
     return (
         <div className="login">
