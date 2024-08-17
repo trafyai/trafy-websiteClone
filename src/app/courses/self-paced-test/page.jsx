@@ -29,7 +29,7 @@ export default function CourseListPage() {
 
                 // Attempt to parse the response as JSON
                 const data = JSON.parse(responseText);
-                console.log('Parsed data:', data); // Log parsed data
+                // console.log('Parsed data:', data); // Log parsed data
                 setCourses(data); // Update state with fetched data
 
                 setLoading(false);
