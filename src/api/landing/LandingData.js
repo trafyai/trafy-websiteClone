@@ -2,6 +2,7 @@ import landingPage from '@components/landing-page/LandingPage'
 import ux from '@public/assets/Images/landing-page/pathway/ui.png'
 import ai from '@public/assets/Images/landing-page/pathway/ai.png'
 import dm from '@public/assets/Images/landing-page/pathway/dm.png'
+import bs from '@public/assets/Images/landing-page/pathway/business-strategy 1.svg'
 
 import quote from '@public/assets/Images/landing-page/Vector.svg'
 
@@ -11,26 +12,26 @@ const LandingPathwayData=[
     {
         id:"responsive-ui-designs",
         img:ux,
-        title:"Responsive UI Design",
-        label:"Responsive UI Design",
+        title:"Design",
+        label:"Design",
         url:"/courses/responsive-ui-designs",
-        color:"#F0FFF7"
+        color:"#F2FFF0"
     }, 
     {
         id:"building-functional-ux",
         img:dm,
-        title:"Building Functional UX",
-        label:"Building Functional UX",
+        title:"Marketing",
+        label:"Marketing",
         url:"/courses/building-functional-ux",
-        color:"#FFFFF0"
+        color:"#FFEAE5"
     },
     {
         id:"spatial-ui-designs",
-        img:ai,
-        title:"Spatial UI Designs",
-        label:"Spatial UI Designs",
+        img:bs,
+        title:"Sales",
+        label:"Sales",
         url:"/courses/spatial-ui-designs",
-        color:"#F6F0FF"
+        color:"#FFF0D5"
     },
     
 ]

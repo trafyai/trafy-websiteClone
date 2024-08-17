@@ -509,6 +509,7 @@ const Header = () => {
                   {" "}
                   Resources{" "}
                 </Link>
+               
                 {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
                 <hr
                   style={{
@@ -569,8 +570,10 @@ const Header = () => {
           </Link>
         </div>
 
+        
+        
         <div className="menu-lg">
-          <div className="menu-left">
+        <div className="menu-left">
             <Link
               href="/courses"
               className="menu-pathway"
@@ -592,6 +595,13 @@ const Header = () => {
             >
               {" "}
               Resources{" "}
+            </Link>
+            <Link
+              href="/courses"
+              className="menu-pathway"
+              onClick={() => handleNavigation("/courses")}
+            >
+             Courses
             </Link>
             {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
           </div>

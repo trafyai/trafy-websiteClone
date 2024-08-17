@@ -71,7 +71,8 @@
 //                 firstName: user.email.split('@')[0],
 //             });
 
-//             router.push('/');
+//             // router.push('/');
+//             router.back();
 //         } catch (error) {
 //             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
 //                 setGeneralError("Email or password is incorrect. Please try again");
@@ -99,7 +100,8 @@
 //                 firstName: user.email.split('@')[0],
 //             });
 
-//             router.push('/');
+//             // router.push('/');
+//             router.back();
 //         } catch (err) {
 //             if (err.code === 'auth/cancelled-popup-request') {
 //                 setGeneralError('Unable to get profile information from Google.');
@@ -170,6 +172,8 @@
 
 // export default Login;
 
+
+
 'use client';
 import React, { useState, useEffect } from "react";
 import '@styles/common/auth/login.css';
@@ -177,7 +181,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { ref, set } from 'firebase/database';
 import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
 import Box from '@mui/material/Box';
@@ -190,12 +194,23 @@ const Login = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [generalError, setGeneralError] = useState('');
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loading, setLoading] = useState(true); // Add loading state
 
     const router = useRouter();
 
-    // Retrieve the previous page from local storage
-    const previousPage = typeof window !== 'undefined' ? localStorage.getItem('previousPage') || '/' : '/';
+    useEffect(() => {
+        // Check if user is already logged in
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Redirect if user is already logged in
+                router.push('/'); // Redirect to home or another page
+            } else {
+                setLoading(false); // Set loading to false when done
+            }
+        });
+
+        return () => unsubscribe(); // Cleanup subscription on unmount
+    }, [router]);
 
     const validateEmail = (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -247,8 +262,8 @@ const Login = () => {
                 firstName: user.email.split('@')[0],
             });
 
-            // Update authentication status
-            setIsAuthenticated(true);
+            // router.push('/');
+            router.back();
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                 setGeneralError("Email or password is incorrect. Please try again");
@@ -276,8 +291,8 @@ const Login = () => {
                 firstName: user.email.split('@')[0],
             });
 
-            // Update authentication status
-            setIsAuthenticated(true);
+            // router.push('/');
+            router.back();
         } catch (err) {
             if (err.code === 'auth/cancelled-popup-request') {
                 setGeneralError('Unable to get profile information from Google.');
@@ -287,19 +302,9 @@ const Login = () => {
         }
     };
 
-    useEffect(() => {
-        // Store the current page URL before redirecting to login
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('previousPage', window.location.pathname);
-        }
-    }, []);
-
-    useEffect(() => {
-        // Redirect to previous page or home if authenticated
-        if (isAuthenticated) {
-            router.push(previousPage);
-        }
-    }, [isAuthenticated, previousPage, router]);
+    if (loading) {
+        return <p>Loading...</p>; // Display loading state while checking authentication
+    }
 
     return (
         <div className="login">

@@ -177,6 +177,7 @@ const handleSubmit = async (event) => {
                 <p>By <span style={{fontWeight:"700"}}>{props.author} </span></p>
                 <span style={{color:"#d1d1d1"}}>|</span>
                 <p>{props.date}</p>
+                <span style={{color:"#d1d1d1"}}>|</span>
                 <p>{props.read}</p>
               </div>
             </div>
@@ -232,11 +233,16 @@ const handleSubmit = async (event) => {
             </div>
           </section>
 
-          {/* <section className="blog-newsletter">
+          <section className="blog-other-article">
+            <div className="blog-other-article-container"></div>
+          </section>
+
+          <section className="blog-newsletter">
             <div className="blog-newsletter-container">
               {renderFormOrMessage()} 
             </div>
-          </section> */}
+          </section>
+
         </div>
       </div>
     </main>
