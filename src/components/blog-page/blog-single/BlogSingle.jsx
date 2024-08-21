@@ -149,10 +149,11 @@ export default function BlogPage({ blogId }) {
                 <p>{blogData.metaDescription}</p>
               </div>
               <div className="blog-page-hero-section-author">
-                <p>By <span style={{ fontWeight: "700" }}>{blogData.author}</span></p>
-                <span style={{ color: "#d1d1d1" }}>|</span>
-                <p>{blogData.date}</p>
-                <p>{blogData.read}</p>
+                <p>By <span style={{fontWeight:"700"}}>{props.author} </span></p>
+                <span style={{color:"#d1d1d1"}}>|</span>
+                <p>{props.date}</p>
+                <span style={{color:"#d1d1d1"}}>|</span>
+                <p>{props.read}</p>
               </div>
             </div>
           </section>
@@ -195,9 +196,16 @@ export default function BlogPage({ blogId }) {
             </div>
           </section>
 
-          {/* <section className="blog-newsletter-section">
-            {renderFormOrMessage()}
-          </section> */}
+          <section className="blog-other-article">
+            <div className="blog-other-article-container"></div>
+          </section>
+
+          <section className="blog-newsletter">
+            <div className="blog-newsletter-container">
+              {renderFormOrMessage()} 
+            </div>
+          </section>
+
         </div>
       </div>
     </main>

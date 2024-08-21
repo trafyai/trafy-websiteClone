@@ -3,7 +3,7 @@ import LandingPartners from './LandingPartners';
 import LandingPathway from './LandingPathway';
 import LandingEnterpreneur from './LandingEnterpreneur';
 import LandingMasterclass from './LandingMasterclass';
-import LandingAccordion from './LandingAccordion';
+import LandingInnovation from './LandingInnovation';
 import LandingReview from "@components/landing-page/LandingReview";
 import LandingAi from './LandingAi';
 import LandingBetterTogether from './LandingBetterTogether';
@@ -18,11 +18,11 @@ export default function landingPage(){
         <LandingHero/>
         <LandingPartners/>
         <LandingPathway/>
-        <LandingEnterpreneur/>
+        {/* <LandingEnterpreneur/> */}
         <LandingMasterclass/>
-        <LandingAccordion/>
-        <LandingAi/> 
-        <LandingBetterTogether/>
+        <LandingInnovation/>
+        {/* <LandingAi/> 
+        <LandingBetterTogether/> */}
         <LandingReview/>
         
         </>
