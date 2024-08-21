@@ -511,7 +511,7 @@ const Header = () => {
                 </Link>
                
                 {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
-                <hr
+                {user &&  (<hr
                   style={{
                     borderBottom: "0",
                     borderTop: "1px solid var(--box-border)",
@@ -519,6 +519,7 @@ const Header = () => {
                     borderLeftWidth: "0",
                   }}
                 />
+          )}
                 {user && (
                   <Link
                     href="/account-settings"
@@ -544,21 +545,7 @@ const Header = () => {
                   </p>
                 )}
               </div>
-              <div className="menu-bottom-contents">
-                {!loading && !user ? (
-                  <div className="menu-no-profile">
-                    
-                    <Link
-                      href="/signup"
-                      className="menu-signup"
-                      onClick={() => handleNavigation("/signup")}
-                    >
-                      {" "}
-                      Get Started
-                    </Link>
-                  </div>
-                ) : null}
-              </div>
+              
             </div>
           )}
         </div>
@@ -605,7 +592,7 @@ const Header = () => {
             </Link>
             {/* <Link href="/" className="menu-innovation" onClick={() => handleNavigation('/')}> Innovation Circle </Link> */}
           </div>
-          <div className="menu-right">
+          <div className="menu-right-d">
             {!loading && !user ? (
                 <Link
                   href="/signup"
@@ -656,9 +643,6 @@ const Header = () => {
                     >
                       <p>Security</p>
                     </Link>
-                    {/* <Link href="/" onClick={() => handleNavigation("/")}>
-                      Notification
-                    </Link> */}
                     <p onClick={handleLogOut}>Logout</p>
                   </div>
                 )}
@@ -666,6 +650,64 @@ const Header = () => {
             )}
           </div>
         </div>
+
+        <div className="menu-right">
+            {!loading && !user ? (
+                <Link
+                  href="/signup"
+                  className="menu-signup"
+                  onClick={() => handleNavigation("/signup")}
+                >
+                  {" "}
+                  Get Started
+                </Link>
+             
+            ) : (
+              <div className="menu-profile">
+                <div onClick={handleDropDown}>
+                  <div
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      borderRadius: "100%",
+                      backgroundColor: "#f8f8f8",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "white",
+                      fontFamily: "Inter",
+                    }}
+                  >
+                    <Image
+                      src={user?.profilePicURL || Default}
+                      alt="Profile"
+                      width={24}
+                      height={24}
+                      style={{ borderRadius: "50%" }}
+                    />
+                  </div>
+                </div>
+
+                {hover && (
+                  <div className="menu-user-dropdown">
+                    <Link
+                      href="/account-settings"
+                      onClick={() => handleNavigation("/account-settings")}
+                    >
+                      <p>Profile</p>
+                    </Link>
+                    <Link
+                      href="/account-security"
+                      onClick={() => handleNavigation("/account-security")}
+                    >
+                      <p>Security</p>
+                    </Link>
+                    <p onClick={handleLogOut}>Logout</p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
       </div>
     </div>

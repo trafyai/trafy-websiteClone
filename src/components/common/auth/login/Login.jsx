@@ -176,7 +176,7 @@
 
 
 'use client';
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import '@styles/common/auth/login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';

@@ -13,7 +13,8 @@ export default function LandingMasterclass() {
                 <div className="landing-masterclass-heading">
                     <h4>Masterclass</h4>
                     <h2>Stay at the top with Insights from experts</h2>
-                    <p>Upcoming Masterclasses <Image src={img}/></p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
+                    <span>Upcoming Masterclasses <Image src={img}/></span>
                 </div>
                 <div className="landing-masterclass-img">
                   <Image src={hero}/>
