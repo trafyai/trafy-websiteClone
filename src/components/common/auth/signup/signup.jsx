@@ -110,9 +110,11 @@ const Signup = () => {
             });
 
             router.push('/');
-        } catch (err) {
-            if (err.code !== 'auth/popup-closed-by-user') {
-                setGeneralError(err.message);
+        } catch (error) {
+            if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                setGeneralError("Email or password is incorrect. Please try again");
+            } else {
+                setGeneralError("An error occurred. Please try again.");
             }
         }
     };

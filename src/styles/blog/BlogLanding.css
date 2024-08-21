@@ -36,8 +36,9 @@
     border-bottom-right-radius: 0px;
 }
 .blog-landing-card-image img{
-    width: 70%;
-    height: max-content;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
 }
 .blog-landing-card-content{
    padding: 16px;

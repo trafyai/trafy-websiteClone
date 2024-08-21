@@ -7,7 +7,7 @@ import {
     onAuthStateChanged, deleteUser, reauthenticateWithCredential, EmailAuthProvider
 } from "firebase/auth";
 import { ref, remove } from "firebase/database";
-import { auth, database } from '@firebase';
+import { auth, db } from '@firebase';
 
 const AuthContext = createContext();
 
@@ -33,7 +33,7 @@ export const AuthContextProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
-                const userRef = dbRef(database, 'usersData/' + currentUser.uid);
+                const userRef = dbRef(db, 'usersData/' + currentUser.uid);
                 const snapshot = await get(userRef);
                 if (snapshot.exists()) {
                     const data = snapshot.val();
@@ -53,7 +53,7 @@ export const AuthContextProvider = ({ children }) => {
         const provider = new GoogleAuthProvider();
         const userCredential = await signInWithPopup(auth, provider);
         const user = userCredential.user;
-        const userRef = dbRef(database, 'usersData/' + user.uid);
+        const userRef = dbRef(db, 'usersData/' + user.uid);
         const snapshot = await get(userRef);
         if (snapshot.exists()) {
             const data = snapshot.val();
@@ -121,7 +121,7 @@ export const AuthContextProvider = ({ children }) => {
             const uid = auth.currentUser.uid;
 
             // Remove user data from Realtime Database
-            await remove(ref(database, `users/${uid}`));
+            await remove(ref(db, `users/${uid}`));
             console.log(`User data for UID ${uid} removed from database.`);
 
             // Delete user from Firebase Authentication
