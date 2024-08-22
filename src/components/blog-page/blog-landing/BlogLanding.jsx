@@ -29,8 +29,8 @@ export default function BlogLanding(){
                         </div>
                         <div className="blog-landing-card-description">
                         <p>
-                        {item.description}
-                        {/* {item.description.split(' ').slice(0, 15).join(' ')}{item.description.split(' ').length > 15 ? '...' : ''} */}
+                        {/* {item.description} */}
+                        {item.description.split(' ').slice(0, 15).join(' ')}{item.description.split(' ').length > 15 ? '...' : ''}
                         </p>
                         </div>
                         <div className="blog-landing-card-author">

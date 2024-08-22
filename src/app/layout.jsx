@@ -6,14 +6,12 @@ import { AuthContextProvider } from "@context/AuthContext";
 import { CourseContextProvider } from "@context/CourseContext";
 
 export const metadata = {
-  title: {
-    default: "trafy",
-  },
+  title: "trafy - Your Personalised AI mentor",
   description:
     "Learn UI/UX designing, artificial intelligence, and digital marketing with our interactive courses and accelerate your career with expert guidance",
   metadataBase: new URL("https://trafyai.com/"),
   openGraph: {
-    title: "trafy",
+    title: "trafy - Your Personalised AI mentor",
     description:
       "Learn UI/UX designing, artificial intelligence, and digital marketing with our interactive courses and accelerate your career with expert guidance",
   },
