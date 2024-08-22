@@ -5,7 +5,7 @@
     flex-direction: column;
     gap:3rem;
    align-items: center;
-   background-color:var(--trafy-black);
+   background-color:var(--trafy-white);
 }
 .course-landing-dm, .course-landing-ai{
     padding-top: 120px;
@@ -14,7 +14,7 @@
     flex-direction: column;
     gap:3rem;
    align-items: center;
-   background-color:var(--trafy-black);
+   background-color:var(--trafy-white);
 }
 .course-landing-ai-container{
     width: 80%;
@@ -26,7 +26,7 @@
     padding-top: 8px;
     font-size: 24px;
     font-weight: 600;
-    color:var(--landing-heading-clr);
+    color:var(--h-black);
     font-family: var( --h-font);
 }
 .course-landing-ai-box-container{
@@ -37,7 +37,7 @@
 .course-landing-ai-box{
     width: 350px;
     border:1px solid #d8d8d8;
-    color:var(--trafy-black);
+    color:var(--trafy-white);
     border-radius: 24px;
     height: max-content;
     display: flex;
@@ -84,7 +84,7 @@
     font-size: 16px;
     font-weight: 400;
     font-family: var( --p-font);
-    color:var(--landing-para-clr);
+    color:var(--p-black);
 }
 .landing-ai-card-labels-contents{
     display: flex;
@@ -99,7 +99,7 @@
     font-size: 14px;
     font-weight: 400;
     font-family: var( --p-font);
-    color:var(--landing-para-clr);
+    color:var(--p-black);
 }
 .course-landing-ai-box hr{
     border: 1px solid #f5f3f3;
@@ -126,7 +126,7 @@
     font-size: 14px;
     font-weight: 400;
     font-family: var( --p-font);
-    color:var(--landing-para-clr);
+    color:var(--p-black);
     padding-left: 4px;
 }
 .landing-ai-card-level{
@@ -138,7 +138,7 @@
     font-size: 16px;
     font-weight: 400;
     font-family: var( --p-font);
-    color:var(--landing-para-clr);
+    color:var(--p-black);
 }
 
 @media only screen and (max-width:900px){
