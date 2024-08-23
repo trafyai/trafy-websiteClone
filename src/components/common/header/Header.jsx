@@ -105,9 +105,9 @@
 //              Masterclass
 //             </Link>
 //             <Link
-//               href="/blogs"
+//               href="https://blog.trafyai.com/"
 //               className="menu-resources"
-//               onClick={() => handleNavigation("/blogs")}
+//               onClick={() => handleNavigation("https://blog.trafyai.com/")}
 //             >
 //               {" "}
 //               Resources{" "}
@@ -263,9 +263,9 @@
 //              Masterclass
 //             </Link>
 //                 <Link
-//                   href="/blogs"
+//                   href="https://blog.trafyai.com/"
 //                   className="menu-resources"
-//                   onClick={() => handleNavigation("/blogs")}
+//                   onClick={() => handleNavigation("https://blog.trafyai.com/")}
 //                 >
 //                   {" "}
 //                   Resources{" "}
@@ -502,9 +502,9 @@
 //              Masterclass
 //             </Link>
 //                 <Link
-//                   href="/blogs"
+//                   href="https://blog.trafyai.com/"
 //                   className="menu-resources"
-//                   onClick={() => handleNavigation("/blogs")}
+//                   onClick={() => handleNavigation("https://blog.trafyai.com/")}
 //                 >
 //                   {" "}
 //                   Resources{" "}
@@ -576,9 +576,9 @@
 //              Masterclass
 //             </Link>
 //             <Link
-//               href="/blogs"
+//               href="https://blog.trafyai.com/"
 //               className="menu-resources"
-//               onClick={() => handleNavigation("/blogs")}
+//               onClick={() => handleNavigation("https://blog.trafyai.com/")}
 //             >
 //               {" "}
 //               Resources{" "}
@@ -828,9 +828,9 @@ const Header = () => {
              Masterclass
             </Link>
             <Link
-              href="/blogs"
+              href="https://blog.trafyai.com/"
               className="menu-resources"
-              onClick={() => handleNavigation("/blogs")}
+              onClick={() => handleNavigation("https://blog.trafyai.com/")}
             >
               {" "}
               Resources{" "}
@@ -942,9 +942,9 @@ const Header = () => {
              Masterclass
             </Link>
                 <Link
-                  href="/blogs"
+                  href="https://blog.trafyai.com/"
                   className="menu-resources"
-                  onClick={() => handleNavigation("/blogs")}
+                  onClick={() => handleNavigation("https://blog.trafyai.com/")}
                 >
                   {" "}
                   Resources{" "}
