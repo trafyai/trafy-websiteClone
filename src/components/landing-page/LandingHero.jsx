@@ -20,9 +20,9 @@ const LandingHero = () => {
                         <div className="landing-hero-paragraph">
                             <p>Design, Marketing, Sales, and Startup courses curated for your growth by your Personalized AI Mentor</p>
                         </div>
-                        <button className="landing-hero-explore-btn">
+                        <Link href='/signup' className="landing-hero-explore-btn">
                             Get started
-                        </button>
+                        </Link>
                     </div>
               </div>
               <div className="landing-hero-bottom-container">

@@ -30,7 +30,7 @@
 }
 .trafy-icon{
   height: 42px;
-  width: 100%;
+  width: 42px;;
 }
 .trafy-logo {
   height: 28px;
@@ -168,7 +168,6 @@
     padding:8px 12px;
     border:1px solid var(--box-border);
     border-radius: 6px;
-    margin-right: 8px;
   }
  
   .hamburger.hide {

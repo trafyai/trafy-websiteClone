@@ -837,6 +837,12 @@ background: linear-gradient(148deg, rgba(108,125,247,1) 51%, rgba(235,100,244,1)
 }
 }
 @media only screen and (max-width:400px){
+  .landing-innovation-contents{
+    gap:1.5rem;
+  }
+  .landing-innovation-container{
+    gap:2rem;
+  }
   .landing-innovation-heading h4{
     font-size:13px;
   }
