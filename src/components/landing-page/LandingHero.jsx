@@ -5,10 +5,22 @@ import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import Ai from '@public/assets/Images/landing-page/hero/ai 1.svg'
 import Article from '@public/assets/Images/landing-page/hero/article.svg'
+import { UserAuth } from "@context/AuthContext";
+import { useRouter } from "next/navigation";
 
 
 const LandingHero = () => {
+    const { user, logOut, loading } = UserAuth();
+    const router = useRouter();
 
+    function handleNavigate(){
+        if(user){
+            router.push('/courses')
+        }
+        else{
+            router.push('/signup')
+        }
+    }
     return (
         <main>
             <div className="landing-hero-section">
@@ -20,9 +32,9 @@ const LandingHero = () => {
                         <div className="landing-hero-paragraph">
                             <p>Design, Marketing, Sales, and Startup courses curated for your growth by your Personalized AI Mentor.</p>
                         </div>
-                        <Link href='/signup' className="landing-hero-explore-btn">
+                        <div className="landing-hero-explore-btn" onClick={handleNavigate}>
                             Get started
-                        </Link>
+                        </div>
                     </div>
               </div>
               <div className="landing-hero-bottom-container">
