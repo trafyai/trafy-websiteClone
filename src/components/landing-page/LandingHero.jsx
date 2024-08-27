@@ -18,7 +18,7 @@ const LandingHero = () => {
                             <h1>Skyrocket your Career </h1>
                         </div>
                         <div className="landing-hero-paragraph">
-                            <p>Design, Marketing, Sales, and Startup courses curated for your growth by your Personalized AI Mentor</p>
+                            <p>Design, Marketing, Sales, and Startup courses curated for your growth by your Personalized AI Mentor.</p>
                         </div>
                         <Link href='/signup' className="landing-hero-explore-btn">
                             Get started

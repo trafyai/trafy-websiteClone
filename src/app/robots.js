@@ -15,6 +15,7 @@ export default function robots() {
         "/services",
         "/account-security",
         "/account-settings",
+        "/self-paced-test"
       ],
     },
     sitemap: "https://trafyai.com/sitemap.xml",

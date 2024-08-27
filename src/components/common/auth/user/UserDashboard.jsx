@@ -8,7 +8,21 @@ import security from '@public/assets/Images/dashboard/security.svg';
 import account from '@public/assets/Images/dashboard/account.svg';
 import logout from '@public/assets/Images/dashboard/logout.svg';
 
+
 export default function UserDashboard(props) {
+    const { user, logOut, loading } = UserAuth();
+    const router = useRouter();
+
+    const handleLogOut = async () => {
+        try {
+          await logOut();
+          router.push("/");
+          router.reload();
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
     return (
        
             <div className="user-dashboard">
@@ -27,10 +41,12 @@ export default function UserDashboard(props) {
                             <p>Notification</p>
                         </Link> */}
                     </div>
-                    <Link className="log-out" href="/logout">
+                    <div className="log-out" 
+                    onClick={handleLogOut}
+                    >
                         <Image src={logout} height={21} alt="Log out" />
                         <p>Log out</p>
-                    </Link>
+                    </div>
                 </div>
             </div>
         
