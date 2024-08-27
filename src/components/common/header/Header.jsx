@@ -928,13 +928,13 @@ const Header = () => {
               <div className="menu-top-contents">
            
                 
-            <Link
+            {/* <Link
               href="/courses"
               className="menu-pathway"
               onClick={() => handleNavigation("/courses")}
             >
              Courses
-            </Link>
+            </Link> */}
             <Link
               href="/"
               className="menu-pathway"

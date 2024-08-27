@@ -22,7 +22,7 @@ const LandingPathwayData=[
         img:dm,
         title:"Marketing",
         label:"Marketing",
-        url:"",
+        url:"/courses/digital-marketing-course",
         color:"#FFEAE5"
     },
     {
