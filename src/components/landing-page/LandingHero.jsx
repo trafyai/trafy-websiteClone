@@ -6,7 +6,6 @@ import Image from "next/image";
 import Ai from '@public/assets/Images/landing-page/hero/ai 1.svg'
 import Article from '@public/assets/Images/landing-page/hero/article.svg'
 import { UserAuth } from "@context/AuthContext";
-import { useRouter } from "next/navigation";
 
 
 const LandingHero = () => {
