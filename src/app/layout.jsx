@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
               {children}
               <Footer />
             </main>
-            <GoogleAnalytics gaId="GTM-NX8D4BFD" />
+            <GoogleAnalytics gtmId="GTM-NX8D4BFD" />
           </CourseContextProvider>
         </AuthContextProvider>
       </body>
