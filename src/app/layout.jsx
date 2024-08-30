@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           </CourseContextProvider>
         </AuthContextProvider>
       </body>
-      <GoogleAnalytics gaId="GTM-NX8D4BFD" />
+      <GoogleAnalytics gtmId="GTM-NX8D4BFD" />
 
     </html>
   );
