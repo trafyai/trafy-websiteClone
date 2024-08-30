@@ -40,10 +40,15 @@ export default function RootLayout({ children }) {
               {children}
               <Footer />
             </main>
+            <GoogleAnalytics gtmId="GTM-NX8D4BFD" />
           </CourseContextProvider>
         </AuthContextProvider>
       </body>
+<<<<<<< HEAD
       <GoogleAnalytics gtmId="GTM-NX8D4BFD" />
+=======
+      
+>>>>>>> 2d38f02a0c1b20a0e206de6c85a62a067cbe858c
 
     </html>
   );
