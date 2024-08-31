@@ -11,6 +11,7 @@
     flex-direction: column;
     gap: 2.5rem;
 }
+
 .masterclass-landing-heading h2{
     font-size: 28px;
     color: var(--h-black);
@@ -25,20 +26,25 @@
     width: 370px;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
     border: 1px solid var(--box-border);
     border-radius: 16px;
-    padding: 32px 24px ;
 }
-.masterclass-box-badge p{
-    width: max-content;
-    font-size: 13px;
-    color: var(--p-black);
-    font-weight: 400;
-    font-family: var(--p-font);
-    padding: 4px 8px;
-    border: 1px solid var(--box-border);
-    border-radius: 4px;
+.masterclass-box-image {
+    width: 100%;
+    height: 100%;
+}
+.masterclass-box-image img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
+}
+.masterclass-box-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 24px ;
 }
 .masterclass-box-heading{
     display: flex;
@@ -58,38 +64,34 @@
     font-weight: 400;
     font-family: var(--p-font);
 }
-.masterclass-box-description p{
-    font-size: 16px;
+
+.masterclass-box-details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 4px 0px;
+}
+.masterclass-box-detail-content{
+    display: flex;
+    gap:0.8rem;
+    align-items: center;
+}
+.masterclass-box-detail-content p{
+    font-size: 14px;
     color: var(--p-black);
     font-weight: 400;
     font-family: var(--p-font);
-    line-height: 150%;
 }
 .masterclass-box-event{
     display: flex;
     gap: 2rem;
     justify-content: space-between;
+    align-items: flex-end;
 }
-.masterclass-box-instructor{
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-}
-.masterclass-box-instructor-name{
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-.masterclass-box-instructor-name h4{
-    font-size: 15px;
+.masterclass-box-price p{
+    font-size: 18px;
     color: var(--h-black);
-    font-weight: 500;
-    font-family: var(--p-font);
-}
-.masterclass-box-instructor-name h5{
-    font-size: 11px;
-    color: #797979;
-    font-weight: 400;
+    font-weight: 700;
     font-family: var(--p-font);
 }
 .masterclass-box-button{
@@ -127,9 +129,7 @@
     .masterclass-box-heading h2{
         font-size: 20px;
     }
-    .masterclass-box-description p{
-        font-size: 15px;
-    }
+  
 }
 @media only screen and (max-width:400px){
     .masterclass-landing-container{

@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { MasterclassData } from '@api/masterclass/MasterclassData'
 import Link from 'next/link'
+import image from '@public/assets/Images/blog/5 key principles.png'
 
 export default function MasterclassLanding(){
   return (
@@ -14,26 +15,41 @@ export default function MasterclassLanding(){
 
                 {MasterclassData.map((item,index)=>(
                     <div className='masterclass-landing-box' key={index}>
-                        <div className='masterclass-box-badge'>
-                            <p>{item.category}</p>
+                        <div className='masterclass-box-image'>
+                            <Image src={image}/>
                         </div>
-
+                     
+                     <div className='masterclass-box-content'>
                         <div className='masterclass-box-heading'>
                             <h2>{item.title}</h2>
-                            <p><Image src=""/>{item.date} | {item.time}</p>
                         </div>
 
-                        <div className='masterclass-box-description'>
-                            <p>{item.cDesc}</p>
+                        <div className='masterclass-box-details'>
+                            <div className='masterclass-box-detail-content'>
+                            <Image src={item.dateIcon}/>
+                            <p>{item.date}</p>
+                            </div>
+
+                            <div className='masterclass-box-detail-content'>
+                            <Image src={item.timeIcon}/>
+                            <p>{item.time}</p>
+                            </div>
+
+                            <div className='masterclass-box-detail-content'>
+                            <Image src={item.projectIcon}/>
+                            <p>{item.project}</p>
+                            </div>
+
+                            <div className='masterclass-box-detail-content'>
+                            <Image src={item.modeIcon}/>
+                            <p>{item.mode}</p>
+                            </div>
                         </div>
 
+                        
                         <div className='masterclass-box-event'>
-                            <div className='masterclass-box-instructor'>
-                                <Image src=""/>
-                                <div className='masterclass-box-instructor-name'>
-                                    <h4>{item.instructor}</h4>
-                                    <h5>{item.instructorDesignation}</h5>
-                                </div>
+                            <div className='masterclass-box-price'>
+                               <p>{item.price}</p>
                             </div>
 
                             <Link href={`/masterclass/${item.id}`} className='masterclass-box-button'>
@@ -43,7 +59,8 @@ export default function MasterclassLanding(){
                         </div> 
 
                     </div>
-                    ))}
+                </div>
+                ))}
 
                 </div>
             

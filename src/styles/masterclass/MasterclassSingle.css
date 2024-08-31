@@ -6,7 +6,7 @@
     align-items: center;
 }
 .mc-single-container{
-    width: 75%;
+    width: 55%;
     display: flex;
     flex-direction: row-reverse;
     gap:5rem;
@@ -17,7 +17,7 @@
 }
 @media only screen and (max-width:1200px){
     .mc-single-container{
-        width: 85%;
+        width: 70%;
         gap: 3rem;
     }
 }
@@ -26,15 +26,14 @@
         gap:0rem;
     }
 }
-@media only screen and (max-width:600px){
-    .mc-single{
-        padding-top: 100px;
-        padding-bottom: 40px;
+@media only screen and (max-width:700px){
+    .mc-single-container{
+        width: 85%;
     }
 }
 @media only screen and (max-width:600px){
     .mc-single{
-        padding-top: 80px;
+        padding-top: 100px;
         padding-bottom: 40px;
     }
 }
@@ -42,19 +41,23 @@
 /* -------------------------------------------------side card-------------------------------- */
 
 .mc-single-side-card{
-    height: auto;
-    width: 330px;
+  margin-top: 30px;
+    width: 100%;
 }
 .mc-card-container{
-    position: sticky;
-    /* top: 80px; */
-    width: 330px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap:0.8rem;
-    padding: 24px 24px;
+    gap:2rem;
+    padding: 32px 24px;
     border: 1px solid var(--box-border);
     border-radius: 16px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.mc-card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 .mc-card-heading h3{
     font-size: 20px;
@@ -95,7 +98,7 @@
 }
 .mc-card-price{
     display: flex;
-    gap:2rem;
+    gap:1.5rem;
     align-items: center;
 }
 .mc-card-price p{
@@ -107,7 +110,7 @@
 .mc-card-button{
     width: 100%;
     height: max-content;
-    padding: 8px 16px;
+    padding: 8px 24px;
     font-size: 16px;
     color: var(--h-white);
     font-weight: 400;
@@ -126,84 +129,39 @@
     }
 }
 @media only screen and (max-width:1200px){
+  
+ 
+}
+@media only screen and (max-width:1024px){
+  
+}
+@media only screen and (max-width: 600px) {
     .mc-single-side-card{
-        width: 300px;
+        margin-top: 20px;
     }
     .mc-card-container{
-        width: 300px;
-        padding: 20px;
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
+    }
+}
+@media only screen and (max-width: 400px){
+  
+    .mc-card-container{
+        padding: 24px ;
     }
     .mc-card-heading h3{
-        font-size: 18px;
+        font-size: 17px;
     }
-    .mc-card-description p, .mc-card-button{
+    .mc-card-description p{
         font-size: 15px;
-    }
-    .mc-card-details{
-        gap: 0.5rem;
     }
     .mc-card-detail-content p{
         font-size: 13px;
     }
-}
-@media only screen and (max-width:1024px){
-    .mc-single-side-card{
-        width: 1px;
-    }
-    .mc-card-container{
-        padding: 14px 28px;
-        position: fixed;
-        bottom: 0px;
-        right: -10px;
-        width: 100vw;
-        height: max-content;
-        border-radius: 0px;
-        background-color: var(--trafy-white);
-        flex-direction:row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .mc-card-heading h3{
-        display: none   ;
-    }
-    .mc-card-heading h2{
-        display: block;
-        font-weight: 500;
-    }
-    .mc-card-description, .mc-card-details{
-        display: none;
-    }
     .mc-card-price{
-        gap: 1.5rem;
-    }
-    .mc-card-button {
-        width: max-content;
-        padding: 10px 20px;
-    }
-}
-@media only screen and (max-width: 600px) {
-    .mc-card-container {
-        padding: 8px 28px;
-    }
-    .mc-card-heading h2 {
-        font-size: 16px;
-    }
-    .mc-card-price {
-        gap: 1rem;
-    }
-    .mc-card-price p {
-        font-size: 18px;
-    }
-}
-@media only screen and (max-width: 600px){
-    .mc-card-container {
-        padding: 8px 20px;
-    }
-    .mc-card-heading h2 {
-        font-size: 14px;
-    }
-    .mc-card-button {
-        font-size: 14px;
+        width: 100%;
+        justify-content: space-between;
     }
 }
 /* -------------------------------------------------Hero-------------------------------- */
@@ -211,7 +169,7 @@
 .mc-main-hero{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 .mc-hero-badge p{
     width: max-content;
@@ -223,14 +181,19 @@
     border: 1px solid var(--box-border);
     border-radius: 4px;
 }
+.mc-hero-heading{
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
 .mc-hero-heading h1{
-    font-size: 48px;
+    font-size: 42px;
     color: var(--h-black);
     font-weight: 600;
     font-family: var(--h-font);
     line-height: 130%;
 }
-.mc-hero-description p{
+.mc-hero-heading p{
     font-size: 18px;
     color: var(--p-black);
     font-weight: 400;
@@ -257,7 +220,7 @@
     border-radius: 12px;
 }
 @media only screen and (max-width:1200px){
-    .mc-hero-description p{
+    .mc-hero-heading p{
         font-size: 16px;
     }
 }
@@ -270,6 +233,12 @@
     }
 }
 @media only screen and (max-width:600px){
+    .mc-main-hero{
+        gap: 1rem;
+    }
+    .mc-hero-heading{
+        gap: 0.5rem;
+    }
     .mc-hero-heading h1 {
         font-size: 32px;
     }
@@ -280,7 +249,7 @@
 }
 @media only screen and (max-width:400px){
     .mc-hero-heading h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
 }
 /* --------------------------------------------------------------Learn--------------------------------------------------- */
