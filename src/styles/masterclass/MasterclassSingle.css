@@ -1,0 +1,508 @@
+.mc-single{
+    padding-top: 120px;
+    padding-bottom: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mc-single-container{
+    width: 75%;
+    display: flex;
+    flex-direction: row-reverse;
+    gap:5rem;
+}
+.mc-single-main{
+    display: flex;
+    flex-direction: column;
+}
+@media only screen and (max-width:1200px){
+    .mc-single-container{
+        width: 85%;
+        gap: 3rem;
+    }
+}
+@media only screen and (max-width:1024px){
+    .mc-single-container{
+        gap:0rem;
+    }
+}
+@media only screen and (max-width:600px){
+    .mc-single{
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+}
+@media only screen and (max-width:600px){
+    .mc-single{
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+}
+
+/* -------------------------------------------------side card-------------------------------- */
+
+.mc-single-side-card{
+    height: auto;
+    width: 330px;
+}
+.mc-card-container{
+    position: sticky;
+    /* top: 80px; */
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    gap:0.8rem;
+    padding: 24px 24px;
+    border: 1px solid var(--box-border);
+    border-radius: 16px;
+}
+.mc-card-heading h3{
+    font-size: 20px;
+    color: var(--h-black);
+    font-weight: 600;
+    font-family: var(--h-font);
+}
+.mc-card-heading h2{
+    font-size: 20px;
+    color: var(--h-black);
+    font-weight: 600;
+    font-family: var(--h-font);
+    display: none;
+}
+.mc-card-description p{
+    font-size: 16px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+    line-height: 150%;
+}
+.mc-card-details{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 4px 0px;
+}
+.mc-card-detail-content{
+    display: flex;
+    gap:0.8rem;
+    align-items: center;
+}
+.mc-card-detail-content p{
+    font-size: 14px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+}
+.mc-card-price{
+    display: flex;
+    gap:2rem;
+    align-items: center;
+}
+.mc-card-price p{
+    font-size: 20px;
+    color: var(--h-black);
+    font-weight: 600;
+    font-family: var(--h-font);
+}
+.mc-card-button{
+    width: 100%;
+    height: max-content;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: var(--h-white);
+    font-weight: 400;
+    font-family: var(--p-font);
+    background-color: var(--trafy-blue);
+    border: 1px solid var(--trafy-blue);
+    border-radius: 6px;
+}
+.mc-card-button:hover{
+    background-color: inherit;
+    color: var(--trafy-blue);
+}
+@media only screen and (min-width:1400px){
+    .mc-card-container{
+        top: 80px;
+    }
+}
+@media only screen and (max-width:1200px){
+    .mc-single-side-card{
+        width: 300px;
+    }
+    .mc-card-container{
+        width: 300px;
+        padding: 20px;
+    }
+    .mc-card-heading h3{
+        font-size: 18px;
+    }
+    .mc-card-description p, .mc-card-button{
+        font-size: 15px;
+    }
+    .mc-card-details{
+        gap: 0.5rem;
+    }
+    .mc-card-detail-content p{
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width:1024px){
+    .mc-single-side-card{
+        width: 1px;
+    }
+    .mc-card-container{
+        padding: 14px 28px;
+        position: fixed;
+        bottom: 0px;
+        right: -10px;
+        width: 100vw;
+        height: max-content;
+        border-radius: 0px;
+        background-color: var(--trafy-white);
+        flex-direction:row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mc-card-heading h3{
+        display: none   ;
+    }
+    .mc-card-heading h2{
+        display: block;
+        font-weight: 500;
+    }
+    .mc-card-description, .mc-card-details{
+        display: none;
+    }
+    .mc-card-price{
+        gap: 1.5rem;
+    }
+    .mc-card-button {
+        width: max-content;
+        padding: 10px 20px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .mc-card-container {
+        padding: 8px 28px;
+    }
+    .mc-card-heading h2 {
+        font-size: 16px;
+    }
+    .mc-card-price {
+        gap: 1rem;
+    }
+    .mc-card-price p {
+        font-size: 18px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .mc-card-container {
+        padding: 8px 20px;
+    }
+    .mc-card-heading h2 {
+        font-size: 14px;
+    }
+    .mc-card-button {
+        font-size: 14px;
+    }
+}
+/* -------------------------------------------------Hero-------------------------------- */
+
+.mc-main-hero{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.mc-hero-badge p{
+    width: max-content;
+    font-size: 14px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+    padding: 4px 8px;
+    border: 1px solid var(--box-border);
+    border-radius: 4px;
+}
+.mc-hero-heading h1{
+    font-size: 48px;
+    color: var(--h-black);
+    font-weight: 600;
+    font-family: var(--h-font);
+    line-height: 130%;
+}
+.mc-hero-description p{
+    font-size: 18px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+    line-height: 160%;
+}
+.mc-hero-date p{
+    font-size: 14px;
+    color: #797979;
+    font-weight: 400;
+    font-family: var(--p-font);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    display: none;
+}
+.mc-hero-image{
+    width: 100%;
+    height: 100%;
+}
+.mc-hero-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+@media only screen and (max-width:1200px){
+    .mc-hero-description p{
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width:1024px){
+    .mc-hero-heading h1 {
+        font-size: 42px;
+    }
+    .mc-hero-date p{
+        display: flex;
+    }
+}
+@media only screen and (max-width:600px){
+    .mc-hero-heading h1 {
+        font-size: 32px;
+    }
+    .mc-hero-date p img{
+        width: 20px;
+        height: 20px;
+    }
+}
+@media only screen and (max-width:400px){
+    .mc-hero-heading h1 {
+        font-size: 26px;
+    }
+}
+/* --------------------------------------------------------------Learn--------------------------------------------------- */
+
+.mc-main-learn{
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.mc-learn-heading h2{
+    font-size: 24px;
+    color: var(--h-black);
+    font-weight: 600;
+    font-family: var(--h-font);
+}
+.mc-learn-content-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+}
+.mc-learn-content{
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+.mc-learn-content p{
+    font-size: 18px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+    line-height: 150%;
+}
+@media only screen and (max-width:1200px){
+    .mc-learn-content p{
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width:600px){
+    .mc-learn-heading h2{
+        font-size: 22px;
+    }
+    .mc-learn-content-container{
+        grid-template-columns: 1fr ;
+    }
+}
+@media only screen and (max-width:600px){
+    .mc-main-learn {
+        padding-top: 40px;
+    }
+}
+/* -------------------------------------------------------------Course Accordion----------------------------------------------- */
+
+.mc-course-syllabus{
+    padding: 60px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.mc-course-syllabus-heading{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.mc-course-syllabus-heading h2{
+    font-size: 24px;
+    color: var(--h-black);
+    font-weight: 600;
+    font-family: var(--h-font);
+}
+.mc-course-syllabus-heading p{
+    font-size: 18px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+    line-height: 160%;
+}
+.mc-course-syllabus-accordion-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.mc-course-syllabus-accordion{
+    padding: 16px;
+    border: 1px solid var(--box-border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.syllabus-accordion-title{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.syllabus-accordion-title h2{
+    font-size: 18px;
+    color: var(--h-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+}
+.syllabus-accordion-contents p{
+    font-size: 17px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+    line-height: 150%;
+}
+.rotated {
+    transform: rotate(90deg);
+}
+  @media only screen and (max-width:1200px){
+    .mc-course-syllabus-heading p{
+        font-size: 16px;
+    }
+    .syllabus-accordion-title h2{
+        font-size: 16px;
+    }
+    .syllabus-accordion-contents p{
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width:600px){
+    .mc-course-syllabus{
+        padding: 40px 0px;
+    }
+    .mc-course-syllabus-heading{
+        gap: 1rem;
+    }
+    .mc-course-syllabus-heading h2{
+        font-size: 22px;
+    }
+}
+  /* --------------------------------------------------------------Instructor-------------------------------------------- */
+
+  .mc-instructor{
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+  }
+  .mc-instructor-heading h2{
+    font-size: 24px;
+    color: var(--h-black);
+    font-weight: 600;
+    font-family: var(--h-font);
+  }
+  .mc-instructor-content{
+    display: flex;
+    gap:1.5rem;
+  }
+  .mc-instructor-about{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+  }
+  .mc-instructor-name{
+    display: flex;
+    flex-direction: column;
+    gap:0.3rem;
+  }
+  .mc-instructor-name h3{
+    font-size:20px;
+    color: var(--h-black);
+    font-weight: 500;
+    font-family: var(--p-font);
+  }
+  .mc-instructor-name p{
+    font-size: 13px;
+    color: #797979;
+    font-weight: 400;
+    font-family: var(--p-font);
+  }
+  .mc-instructor-description P{
+    font-size: 16px;
+    color: var(--p-black);
+    font-weight: 400;
+    font-family: var(--p-font);
+    line-height: 150%;
+  }
+  .mc-instructor-image{
+    width: 90%;
+    height: 100%;
+  }
+  .mc-instructor-image img{
+    width: 100%;
+    height: 100%;
+  }
+  @media only screen and (max-width:1200px){
+    .mc-instructor-description p{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width:1024px){
+    .mc-instructor-image{
+        width: 60%;
+    }
+}
+@media only screen and (max-width:850px){
+    .mc-instructor-image{
+        width: 85%;
+    }
+}
+@media only screen and (max-width:600px){
+    .mc-instructor-content{
+        align-items: center;
+    }
+    .mc-instructor-heading h2{
+        font-size: 22px;
+    }
+    .mc-instructor-name h3 {
+        font-size: 18px;
+    }
+    .mc-instructor-description{
+        display: none;
+    }
+    .mc-instructor-image {
+        width: 60px;
+        height: 60px;
+    }
+    .mc-instructor-about{
+        width: 60%;
+        gap: 0rem;
+    }
+}

@@ -936,9 +936,9 @@ const Header = () => {
              Courses
             </Link> */}
             <Link
-              href="/"
+              href="/masterclass"
               className="menu-pathway"
-              onClick={() => handleNavigation("/")}
+              onClick={() => handleNavigation("/masterclass")}
             >
              Masterclass
             </Link>
