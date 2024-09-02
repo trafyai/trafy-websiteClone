@@ -100,7 +100,7 @@ const Login = () => {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                 setGeneralError("Email or password is incorrect. Please try again");
             } else {
-                setGeneralError("An error occurred. Please try again.");
+                setGeneralError("Email or password is incorrect. Please try again");
             }
         }
     };
@@ -147,7 +147,7 @@ const Login = () => {
             <div className="login-container">
                 <div className="login-heading">
                     <h1>Login</h1>
-                    {generalError && <div className="error-message" style={{ paddingTop: "6px" }}>{generalError}</div>}
+                    {generalError && <div className="error-message" style={{ paddingTop: "10px" }}>{generalError}</div>}
                 </div>
                 <form className="form" onSubmit={handleSubmit}>
                     <Box component="div" noValidate autoComplete="off" className="email">
