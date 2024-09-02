@@ -7,6 +7,8 @@ import notification from '@public/assets/Images/dashboard/notification.svg';
 import security from '@public/assets/Images/dashboard/security.svg';
 import account from '@public/assets/Images/dashboard/account.svg';
 import logout from '@public/assets/Images/dashboard/logout.svg';
+import { UserAuth } from "@context/AuthContext";
+import { useRouter } from 'next/navigation';
 
 
 export default function UserDashboard(props) {

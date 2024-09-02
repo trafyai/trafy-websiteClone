@@ -119,7 +119,7 @@ export default function RootLayout({ children }) {
               {children}
               <Footer />
             </main>
-            <GoogleAnalytics gaId="GTM-NX8D4BFD" />
+            <GoogleAnalytics gaId="G-THWZDJH6WZ" />
           </CourseContextProvider>
         </AuthContextProvider>
       </body>

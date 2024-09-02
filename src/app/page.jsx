@@ -9,7 +9,7 @@ const Home = () => {
    
        
     <div>
-        <GoogleAnalytics gaId="GTM-NX8D4BFD" />
+        <GoogleAnalytics gaId="G-THWZDJH6WZ" />
 
         <LandingPage/>
     </div>

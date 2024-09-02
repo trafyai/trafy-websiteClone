@@ -20,29 +20,13 @@ export default function MasterclassLanding(){
                         </div>
                      
                      <div className='masterclass-box-content'>
+                        
                         <div className='masterclass-box-heading'>
                             <h2>{item.title}</h2>
-                        </div>
-
-                        <div className='masterclass-box-details'>
                             <div className='masterclass-box-detail-content'>
-                            <Image src={item.dateIcon}/>
-                            <p>{item.date}</p>
-                            </div>
-
-                            <div className='masterclass-box-detail-content'>
-                            <Image src={item.timeIcon}/>
-                            <p>{item.time}</p>
-                            </div>
-
-                            <div className='masterclass-box-detail-content'>
-                            <Image src={item.projectIcon}/>
-                            <p>{item.project}</p>
-                            </div>
-
-                            <div className='masterclass-box-detail-content'>
-                            <Image src={item.modeIcon}/>
-                            <p>{item.mode}</p>
+                                <p>{item.date}</p>
+                                <span>|</span>
+                                <p>{item.mode}</p>
                             </div>
                         </div>
 
@@ -53,7 +37,7 @@ export default function MasterclassLanding(){
                             </div>
 
                             <Link href={`/masterclass/${item.id}`} className='masterclass-box-button'>
-                                Regsiter
+                                Join now
                             </Link>
 
                         </div> 

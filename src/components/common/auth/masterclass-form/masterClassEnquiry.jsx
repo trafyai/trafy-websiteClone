@@ -115,12 +115,16 @@ const MasterClassEnquiryForm = (props) => {
         }
     };
 
+    const closeForm = () => {
+        setIsPopupVisible(false);
+    };
+
     return (
         <>
             {isPopupVisible && (
                 <div className="popup-overlay">
                     <div className="course-enquiry-form-contents">
-                        <button className="close-popup-button" onClick={() => props.onClose()}>x</button>
+                        <button className="close-popup-button" onClick={closeForm}>x</button>
                         <form className="enquiryform" onSubmit={handleSubmit} autoComplete="off" method="POST">
                             <div className="enquiryform-heading">
                                 <h2>{props.title}</h2>

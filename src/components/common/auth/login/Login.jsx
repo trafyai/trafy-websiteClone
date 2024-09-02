@@ -27,7 +27,7 @@ const Login = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // Redirect if user is already logged in
-                router.push('/'); // Redirect to home or another page
+                router.back(); // Redirect to home or another page
             } else {
                 setLoading(false); // Set loading to false when done
             }
@@ -94,7 +94,7 @@ const Login = () => {
             // Save merged data back to the database
             await set(userRef, updatedData);
 
-            router.back();
+            // router.back();
 
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
@@ -131,7 +131,7 @@ const Login = () => {
             // Save merged data back to the database
             await set(userRef, updatedData);
 
-            router.back();
+            // router.back();
 
         } catch (err) {
             if (err.code === 'auth/cancelled-popup-request') {
