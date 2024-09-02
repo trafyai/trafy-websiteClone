@@ -6,7 +6,6 @@ import { MasterClassPriceCard } from './MasterClassPriceCard';
 import { MasterClassLearn } from './MasterClassLearn';
 import MasterClassAccordion from './MasterClassAccordion';
 import { MasterClassInstructor } from './MasterClassInstructor';
-import MasterClassEnquiryForm from '@Components/common/auth/masterclass-form/masterClassEnquiry';
 import '@styles/common/auth/masterClassEnquiry.css';
 import { auth } from '@firebase'; // Adjust this path based on your actual file structure
 import { onAuthStateChanged } from 'firebase/auth';
