@@ -14,3 +14,4 @@ const MasterclassPage = () => {
 };
 
 export default MasterclassPage; // Ensure the component is the default export
+

@@ -18,7 +18,7 @@ export const MasterClassLearn = (props) => {
       ))}
 
       {props.learnSecT.map((item,index)=>(
-      <div className='mc-learn-content'>
+      <div className='mc-learn-content' key={index}>
         <Image src={tick}/>
         <p>{item}</p>
       </div>
