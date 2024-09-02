@@ -45,11 +45,7 @@ export default function MasterclassSingle(props) {
           <MasterClassInstructor {...props} />
         </div>
       </div>
-      {showEnquiry && isAuthenticated && (
-        <div className="popup-overlay">
-          <MasterClassEnquiryForm {...props} onClose={() => setShowEnquiry(false)} />
-        </div>
-      )}
+  
     </div>
   );
 }
