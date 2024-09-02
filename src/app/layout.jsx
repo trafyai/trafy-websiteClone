@@ -84,7 +84,7 @@ import imageO from "../app/opengraph-image.png";
 import { AuthContextProvider } from "@context/AuthContext";
 import { CourseContextProvider } from "@context/CourseContext";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 
 export const metadata = {
@@ -107,7 +107,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      {/* <head>
       <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -117,18 +117,18 @@ export default function RootLayout({ children }) {
             })(window,document,'script','dataLayer','GTM-NX8D4BFD');`,
           }}
         />
-      </head>
+      </head> */}
       <body>
    
    
-      <noscript>
+      {/* <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NX8D4BFD"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
-        </noscript>
+        </noscript> */}
 
 
         <AuthContextProvider>
@@ -138,7 +138,7 @@ export default function RootLayout({ children }) {
               {children}
               <Footer />
             </main>
-            {/* <GoogleAnalytics gaId="GTM-NX8D4BFD" /> */}
+            <GoogleAnalytics gaId="GTM-NX8D4BFD" />
           </CourseContextProvider>
         </AuthContextProvider>
       </body>
