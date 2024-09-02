@@ -115,9 +115,9 @@ export default function RootLayout({ children }) {
               })(window,document,'script','dataLayer','GTM-NX8D4BFD');`}</script>
           </head>
       <body>
-        
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX8D4BFD"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+        {/* <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX8D4BFD"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> */}
 
         <AuthContextProvider>
           <CourseContextProvider>
