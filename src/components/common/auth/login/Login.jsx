@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { ref, set, get } from 'firebase/database';
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged, fetchSignInMethodsForEmail } from "firebase/auth";
+import { ref, get } from 'firebase/database';
 import { auth, database } from '@firebase'; // Adjust this path based on your actual file structure
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -18,7 +18,7 @@ const Login = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [generalError, setGeneralError] = useState('');
-    const [loading, setLoading] = useState(true); // Add loading state
+    const [loading, setLoading] = useState(true);
 
     const router = useRouter();
 
@@ -27,7 +27,7 @@ const Login = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // Redirect if user is already logged in
-                router.back(); // Redirect to home or another page
+                router.push('/landing-page'); // Redirect to landing page or another page
             } else {
                 setLoading(false); // Set loading to false when done
             }
@@ -75,6 +75,13 @@ const Login = () => {
         }
 
         try {
+            const signInMethods = await fetchSignInMethodsForEmail(auth, email);
+        
+            if (signInMethods.length === 0) {
+                setGeneralError('No account found with this email. Please sign up first.');
+                return;
+            }
+
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
@@ -91,10 +98,8 @@ const Login = () => {
                 firstName: existingData.firstName || user.email.split('@')[0],
             };
 
-            // Save merged data back to the database
-            await set(userRef, updatedData);
-
-            // router.back();
+            // Redirect to landing page
+            router.push('/landing-page');
 
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
@@ -112,26 +117,31 @@ const Login = () => {
     const handleGoogleSignIn = async () => {
         try {
             const provider = new GoogleAuthProvider();
-            const result = await signInWithPopup(auth, provider);
-            const user = result.user;
+
+            // First, check if the account exists using the email from Google.
+            const user = await signInWithPopup(auth, provider);
+            const signInMethods = await fetchSignInMethodsForEmail(auth, user.user.email);
+
+            if (signInMethods.length === 0) {
+                setGeneralError('No account found with this email. Please sign up first.');
+                return;
+            }
 
             // Fetch existing user data
-            const userRef = ref(database, 'usersData/' + user.uid);
+            const userRef = ref(database, 'usersData/' + user.user.uid);
             const snapshot = await get(userRef);
             let existingData = snapshot.exists() ? snapshot.val() : {};
 
             // Merge existing data with new data
             const updatedData = {
                 ...existingData,
-                uid: user.uid,
-                email: user.email,
-                firstName: existingData.firstName || user.email.split('@')[0],
+                uid: user.user.uid,
+                email: user.user.email,
+                firstName: existingData.firstName || user.user.email.split('@')[0],
             };
 
-            // Save merged data back to the database
-            await set(userRef, updatedData);
-
-            // router.back();
+            // Redirect to the desired page
+            router.push('/landing-page'); // Or wherever you want to redirect
 
         } catch (err) {
             if (err.code === 'auth/cancelled-popup-request') {
@@ -193,7 +203,7 @@ const Login = () => {
 
                     <div className="google-signin">
                         <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>Login with Google</button>
-                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Dont have an account? <Link href="/signup">Sign up</Link></p>
+                        <p style={{ fontFamily: "Inter", fontSize: "13px", paddingTop: "16px", textAlign: "center" }}>Don't have an account? <Link href="/signup">Sign up</Link></p>
                     </div>
                 </form>
             </div>
