@@ -1,18 +1,23 @@
-.course-landing-uiux{
-    padding-top: 60px;
-    padding-bottom: 60px;
+.course-landing-page{
+    padding-top: 120px;
+    padding-bottom: 90px;
     display: flex;
     flex-direction: column;
-    gap:3rem;
+    gap: 5rem;
+}
+.course-landing-uiux{
+  
+    display: flex;
+    flex-direction: column;
+    gap:2.5rem;
    align-items: center;
    background-color:var(--trafy-white);
 }
 .course-landing-dm, .course-landing-ai{
-    padding-top: 120px;
-    padding-bottom: 60px;
+ 
     display: flex;
     flex-direction: column;
-    gap:3rem;
+    gap:2.5rem;
    align-items: center;
    background-color:var(--trafy-white);
 }

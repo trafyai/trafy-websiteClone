@@ -11,7 +11,7 @@ export default function DigitalMarketingCourse(){
          <main>
             <div className="course-landing-ai">
                       <div className="course-landing-ai-container">
-                      <div className="course-landing-ai-heading"><h2>  Digital Marketing Course</h2></div>
+                      <div className="course-landing-ai-heading"><h2>  Digital Marketing </h2></div>
                         </div>
                   
                         <div className="course-landing-ai-container">

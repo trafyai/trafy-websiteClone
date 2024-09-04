@@ -11,7 +11,7 @@ export default function UiuxCourse(){
          <main>
             <div className="course-landing-ai">
                         <div className="course-landing-ai-container">
-                        <div className="course-landing-ai-heading"><h2> UI/UX Designing Course</h2></div>
+                        <div className="course-landing-ai-heading"><h2> UI/UX Designing </h2></div>
                         </div>
                         <div className="course-landing-ai-container">
                            

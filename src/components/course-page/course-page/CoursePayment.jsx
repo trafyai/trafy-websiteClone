@@ -2,7 +2,7 @@
 import React,{useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import EnquiryForm from "@components/common/auth/enquiry/CourseEnquiry";
+import MasterClassEnquiryForm from '@components/common/auth/masterclass-form/masterClassEnquiry';
 
 
 export default function CoursePayment(props){
@@ -34,10 +34,7 @@ export default function CoursePayment(props){
                         </ul>
                         </div>
                        <div className="course-payment-enroll" onClick={showEnquiry}>Enroll now</div>
-                       {enquiry &&   <EnquiryForm link={props.formLink}
-                                            course={props.formCourse}
-                                            name={props.courseHeading}
-                                            title="Get Started with"/> }
+                       {enquiry &&   <MasterClassEnquiryForm/> }
                     </div>
                     <div className="course-payment-option">
                         <div className="payment-option-heading"><h3>{props.paymentH}</h3></div>

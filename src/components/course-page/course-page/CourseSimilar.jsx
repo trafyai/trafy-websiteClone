@@ -27,7 +27,7 @@ const CourseSimilar = (props) => {
     const filteredCourseData = courseData.filter(item => !props.ids.includes(item.id));
 
     return (
-        <div>
+        <div style={{padding:"0px 0px 60px 0px"}}>
             {filteredCourseData.length > 0 && (
         <div className="course-landing-uiux" >
              <div className="course-landing-ai-container">

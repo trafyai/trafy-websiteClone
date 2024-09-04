@@ -4,11 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import shareBlack from '@public/assets/Images/course-page/hero-section/share.svg';
 import shareWhite from '@public/assets/Images/course-page/hero-section/share-white.png';
-import EnquiryForm from "@components/common/auth/enquiry/CourseEnquiry";
-import DemoEnquiry from "@components/common/auth/free-demo/DemoEnquiry";
+import MasterClassEnquiryForm from '@components/common/auth/masterclass-form/masterClassEnquiry';
 
 
-import CourseEnquiry from '../../common/auth/enquiry/CourseEnquiry';
+
 
 
 export default function CourseHero(props) {
@@ -137,13 +136,8 @@ export default function CourseHero(props) {
                     {showAlert &&
                         <div className="alert">Link copied to clipboard</div>
                     }
-                  {enquiry &&   <EnquiryForm link={props.formLink}
-                                            course={props.formCourse}
-                                            name={props.courseHeading}
-                                            title="Get Started with"/> }
-                  {demo &&   <DemoEnquiry link={props.demoLink}
-                                            course={props.formCourse}
-                                            name={props.courseHeading}/> }
+                  {enquiry &&   <MasterClassEnquiryForm/> }
+                  {demo &&   <MasterClassEnquiryForm /> }
                     <div className="hero-sub">
                         <div className="hero-platform">
                             <div className="platform-heading"><p>{props.platform}</p></div>

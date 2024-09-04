@@ -1,8 +1,7 @@
 import landingPage from '@components/landing-page/LandingPage'
 import ux from '@public/assets/Images/landing-page/pathway/ui.png'
-import ai from '@public/assets/Images/landing-page/pathway/ai.png'
-import dm from '@public/assets/Images/landing-page/pathway/dm.png'
-import bs from '@public/assets/Images/landing-page/pathway/business-strategy 1.svg'
+import dm from '@public/assets/Images/landing-page/pathway/dmm.png'
+import bs from '@public/assets/Images/landing-page/pathway/bs.png'
 
 import quote from '@public/assets/Images/landing-page/Vector.svg'
 
@@ -12,17 +11,17 @@ const LandingPathwayData=[
     {
         id:"responsive-ui-designs",
         img:ux,
-        title:"Design",
+        title:"UI/UX",
         label:"Design",
-        url:"/courses/responsive-ui-designs",
-        color:"#F2FFF0"
+        url:"/courses",
+        color:"#F4F0FF"
     }, 
     {
         id:"building-functional-ux",
         img:dm,
         title:"Marketing",
         label:"Marketing",
-        url:"/courses/digital-marketing-course",
+        url:"/courses",
         color:"#FFEAE5"
     },
     {
@@ -30,89 +29,11 @@ const LandingPathwayData=[
         img:bs,
         title:"Sales",
         label:"Sales",
-        url:"",
-        color:"#FFF0D5"
+        url:"/courses",
+        color:"#F2FFF0"
     },
     
 ]
-
-const LandingEntrepreneurData=[
-    {
-        id:"spatial-ui-designs",
-        img:ai,
-        title:"Spatial UI Designs",
-        label:"Spatial UI Designs",
-        url:"/courses/spatial-ui-designs",
-        color:"#F6F0FF"
-    },
-    {
-        id:"spatial-ui-designs",
-        img:ai,
-        title:"Spatial UI Designs",
-        label:"Spatial UI Designs",
-        url:"/courses/spatial-ui-designs",
-        color:"#F6F0FF"
-    },
-]
-
-const LandingAccordionData = [
-    {
-        heading: "For the Students",
-        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
-        points: [
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-        ]
-    },{
-        heading: "For the Students",
-        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
-        points: [
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-        ]
-    },
-    {
-        heading: "For the Students",
-        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
-        points: [
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-        ]
-    },
-    {
-        heading: "For the Students",
-        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
-        points: [
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-        ]
-    },
-    {
-        heading: "For the Students",
-        para: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur",
-        points: [
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-            "Sed ut perspiciatis unde omnis iste",
-        ]
-    },
-
-
-];
 
 
 const LandingReviewData=[
@@ -175,4 +96,4 @@ const LandingReviewData=[
 
 ]
 
-export {LandingPathwayData, LandingReviewData, LandingEntrepreneurData, LandingAccordionData};
+export {LandingPathwayData, LandingReviewData};

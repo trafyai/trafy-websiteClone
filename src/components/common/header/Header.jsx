@@ -96,7 +96,7 @@ const Header = () => {
               className="menu-pathway"
               onClick={() => handleNavigation("/courses")}
             >
-              Courses
+              Pathway
             </Link>
             <Link
               href="/"
@@ -177,7 +177,7 @@ const Header = () => {
             onClick={() => handleNavigation("/courses")}
             style={{ paddingRight: "16px" }}
           >
-            Courses
+            Pathway
           </Link>
           <Image
             src={blackHamburger}
