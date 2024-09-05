@@ -136,8 +136,8 @@ export default function CourseHero(props) {
                     {showAlert &&
                         <div className="alert">Link copied to clipboard</div>
                     }
-                  {enquiry &&   <MasterClassEnquiryForm/> }
-                  {demo &&   <MasterClassEnquiryForm /> }
+                  {enquiry &&   <MasterClassEnquiryForm title="Get Started" /> }
+                  {demo &&   <MasterClassEnquiryForm title="Join Free Demo"/> }
                     <div className="hero-sub">
                         <div className="hero-platform">
                             <div className="platform-heading"><p>{props.platform}</p></div>
