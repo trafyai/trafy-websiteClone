@@ -679,6 +679,7 @@ const CoursePaymentData=[
         weeks:"4 weeks",
         start:"Starting at",
         rate:"INR 10,000",
+        fee:"10000",
         sub:"Including",
         sublist:[
             {list:"Lifetime access to course materials"},
@@ -722,6 +723,7 @@ const CoursePaymentData=[
     weeks:"8 weeks",
     start:"Starting at",
     rate:"INR 25,000",
+    fee:"25000",
     sub:"Including",
     sublist:[
         {list:"Lifetime access to course materials"},
@@ -767,6 +769,7 @@ const CoursePaymentData=[
     start:"Starting at",
     rate:"INR 60,000",
     sub:"Including",
+    fee:"60000",
     sublist:[
         {list:"Lifetime access to course materials"},
         {list:"Doubt clearing sessions"},

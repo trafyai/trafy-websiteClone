@@ -6,19 +6,13 @@ import shareBlack from '@public/assets/Images/course-page/hero-section/share.svg
 import shareWhite from '@public/assets/Images/course-page/hero-section/share-white.png';
 import MasterClassEnquiryForm from '@components/common/auth/masterclass-form/masterClassEnquiry';
 
-
-
-
-
 export default function CourseHero(props) {
     const [showShare, setShowShare] = useState(false);
     const [pageUrl, setPageUrl] = useState('window.location.href');
     const [showAlert, setShowAlert] = useState(false);
-    const [enquiry,setEnquiry]= useState(false);
-    const [demo,setDemo]= useState(false);
+    const [formType, setFormType] = useState(null); // Use a single state to control form visibility
 
     useEffect(() => {
-        // Check if window object is available
         if (typeof window !== 'undefined') {
             setPageUrl(window.location.href);
         }
@@ -38,11 +32,9 @@ export default function CourseHero(props) {
     function courseShare() {
         setShowShare(!showShare);
     }
-    function showEnquiry(){
-        setEnquiry(!enquiry);
-    }
-    function showDemo(){
-        setDemo(!demo);
+
+    function showForm(type) {
+        setFormType(type);
     }
 
     function shareToLinkedIn() {
@@ -71,9 +63,8 @@ export default function CourseHero(props) {
         navigator.clipboard.writeText(pageUrl)
             .then(() => {
                 setShowAlert(true);
-                setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
+                setTimeout(() => setShowAlert(false), 3000);
 
-                // Select the input element and highlight the text
                 const inputElement = document.querySelector('.course-share-link input');
                 inputElement.select();
                 inputElement.setSelectionRange(0, inputElement.value.length);
@@ -92,7 +83,6 @@ export default function CourseHero(props) {
                             <div className="hero-category"><p>{props.category}</p></div>
                             <div className="hero-popularity"><p>{props.popularity}</p></div>
                             <div className="share">
-                                {/* <Image src={shareBlack} alt="" onClick={courseShare} className="course-share-icon-black" /> */}
                                 <Image src={shareWhite} alt="" onClick={courseShare} className="course-share-icon-white" />
                             </div>
                         </div>
@@ -106,17 +96,29 @@ export default function CourseHero(props) {
                             <div className="hero-rating-number">{props.rating}</div>
                             <div className="hero-rating-star">
                                 <Image src={props.ratingIcon} alt="" />
-                            </div>
+                            </div>  
                         </div>
                         <div className="hero-cta">
-                            <div className="hero-enroll" onClick={showEnquiry}>Join now</div>
-                            <div className="hero-demo" onClick={showDemo}>Free Demo</div>
+                            <div className="hero-enroll" onClick={() => showForm('course')}>Join now</div>
+                            <div className="hero-demo" onClick={() => showForm('demo')}>Free Demo</div>
                         </div>
                     </div>
 
-                    {enquiry && <MasterClassEnquiryForm paymentType="course" title="Course Registration" name="UI/UX Design Course" />}
-                    {demo && <MasterClassEnquiryForm paymentType="masterclass" title="MasterClass Registration" name="UI/UX MasterClass" />}
-                    
+                    {formType === 'course' && 
+                        <MasterClassEnquiryForm 
+                            paymentType="course" 
+                            title="Course Registration" 
+                            name="UI/UX Design Course" 
+                        />
+                    }
+                    {formType === 'demo' && 
+                        <MasterClassEnquiryForm 
+                            paymentType="masterclass" 
+                            title="MasterClass Registration" 
+                            name="UI/UX MasterClass" 
+                        />
+                    }
+
                     {showShare &&
                         <div className="course-share">
                             <div className="course-share-exit">
@@ -140,8 +142,7 @@ export default function CourseHero(props) {
                     {showAlert &&
                         <div className="alert">Link copied to clipboard</div>
                     }
-                  {enquiry &&   <MasterClassEnquiryForm title="Get Started" /> }
-                  {demo &&   <MasterClassEnquiryForm title="Join Free Demo"/> }
+
                     <div className="hero-sub">
                         <div className="hero-platform">
                             <div className="platform-heading"><p>{props.platform}</p></div>
