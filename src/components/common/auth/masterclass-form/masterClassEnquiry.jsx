@@ -115,7 +115,7 @@ const MasterClassEnquiryForm = (props) => {
 
             // Step 2: Create Razorpay Order based on the clicked button (course or masterclass)
             const paymentType = props.paymentType === "course" ? "Course" : "MasterClass";
-            const amount = props.paymentType === "course" ? 49900 : 19900; // 499 INR for course, 199 INR for masterclass (in paise)
+            const amount = props.paymentType === "course" ? 499 : 199; // 499 INR for course, 199 INR for masterclass (in paise)
 
             const res = await fetch('http://localhost:5000/api/createOrder', {
                 method: 'POST',
