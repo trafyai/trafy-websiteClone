@@ -113,6 +113,10 @@ export default function CourseHero(props) {
                             <div className="hero-demo" onClick={showDemo}>Free Demo</div>
                         </div>
                     </div>
+
+                    {enquiry && <MasterClassEnquiryForm paymentType="course" title="Course Registration" name="UI/UX Design Course" />}
+                    {demo && <MasterClassEnquiryForm paymentType="masterclass" title="MasterClass Registration" name="UI/UX MasterClass" />}
+                    
                     {showShare &&
                         <div className="course-share">
                             <div className="course-share-exit">

@@ -110,15 +110,24 @@ const MasterClassEnquiryForm = (props) => {
             await fetch(`https://masterclass-formdata-default-rtdb.firebaseio.com/enquiries.json`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData), 
+                body: JSON.stringify(formData),
             });
 
-            // Step 2: Create Razorpay Order
+            // Step 2: Create Razorpay Order based on the clicked button (course or masterclass)
+            const paymentType = props.paymentType === "course" ? "Course" : "MasterClass";
+            const amount = props.paymentType === "course" ? 49900 : 19900; // 499 INR for course, 199 INR for masterclass (in paise)
+
             const res = await fetch('http://localhost:5000/api/createOrder', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ amount: 199, name: "trafyai-MasterClass", description: "MasterClass Registration" }), // Adjust values as needed
+                body: JSON.stringify({
+                    amount, // Pass the amount based on the type
+                    name: `trafyai-${paymentType}`, // Product name for Razorpay
+                    description: `${paymentType} Registration`,
+                    type: props.paymentType // Either 'course' or 'masterclass'
+                }),
             });
+
             const data = await res.json();
 
             if (data.success) {
@@ -132,7 +141,6 @@ const MasterClassEnquiryForm = (props) => {
                         order_id: data.order_id,
                         handler: function (response) {
                             alert("Payment Succeeded");
-                            // Optionally, handle post-payment actions here
                         },
                         prefill: {
                             contact: formData.phone,
