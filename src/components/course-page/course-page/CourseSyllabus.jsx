@@ -77,7 +77,7 @@ export default function CourseSyllabus(props) {
                 <button
                   onClick={handleViewLess}
                   style={{
-                    color: hovered ? "var(--landing-heading-clr)" : "var(--landing-para-clr)",
+                    color: hovered ? "var(--trafy-black)" : "var(--trafy-purple)",
                     transition: 'color 0.3s ease',
                   }}
                   onMouseEnter={handleMouseEnter}
@@ -89,7 +89,7 @@ export default function CourseSyllabus(props) {
                 <button
                   onClick={handleViewMore}
                   style={{
-                    color: hovered ? "var(--landing-heading-clr)" : "var(--landing-para-clr)",
+                    color: hovered ? "var(--trafy-black)" : "var(--trafy-purple)",
                     transition: 'color 0.3s ease',
                   }}
                   onMouseEnter={handleMouseEnter}

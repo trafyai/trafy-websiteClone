@@ -62,7 +62,7 @@ export default function CoursePage({ params }) {
       <CourseCertificate {...CertificateData} />
       <CoursePayment {...PaymentData} />
       <CourseFaq {...FaqData} />
-      <CourseSimilar {...SimilarData} />
+      {/* <CourseSimilar {...SimilarData} /> */}
     </main>
   );
 }

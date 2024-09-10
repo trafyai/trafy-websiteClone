@@ -102,11 +102,14 @@ export default function CourseHero(props) {
                         <div className="hero-description">
                             <p>{props.courseDescription}</p>
                         </div>
-                        <div className="hero-rating">
+                        {/* <div className="hero-rating">
                             <div className="hero-rating-number">{props.rating}</div>
                             <div className="hero-rating-star">
                                 <Image src={props.ratingIcon} alt="" />
                             </div>
+                        </div> */}
+                        <div className="hero-price">
+                        <p><strong>INR {props.rate}</strong>  <span style={{textDecoration:"line-through",fontWeight:"400"}}>{props.initialRate}</span></p>
                         </div>
                         <div className="hero-cta">
                             <div className="hero-enroll" onClick={showEnquiry}>Join now</div>
@@ -138,7 +141,7 @@ export default function CourseHero(props) {
                     }
                   {enquiry &&   <MasterClassEnquiryForm title="Get Started" /> }
                   {demo &&   <MasterClassEnquiryForm title="Join Free Demo"/> }
-                    <div className="hero-sub">
+                    {/* <div className="hero-sub">
                         <div className="hero-platform">
                             <div className="platform-heading"><p>{props.platform}</p></div>
                             <div className="platform-images">
@@ -161,7 +164,7 @@ export default function CourseHero(props) {
                             <div className="duration-heading"><p>{props.durationH}</p></div>
                             <div className="duration"><p>{props.duration}</p></div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </main>
