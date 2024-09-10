@@ -139,9 +139,10 @@ export default function CourseHero(props) {
                     {showAlert &&
                         <div className="alert">Link copied to clipboard</div>
                     }
-                  {enquiry &&   <MasterClassEnquiryForm title="Get Started" /> }
-                  {demo &&   <MasterClassEnquiryForm title="Join Free Demo"/> }
-                    {/* <div className="hero-sub">
+                  {enquiry &&   <MasterClassEnquiryForm title="Get Started" courseFee={`${props.fee} `} courseType={`${props.formtype}`} courseName={`${props.courseName}`} courseDescription={`${props.courseDescription}`} /> }
+                  {demo &&   <MasterClassEnquiryForm title="Join Free Demo" courseFee={`${props.fee} `}/> }
+{/* 
+                    <div className="hero-sub">
                         <div className="hero-platform">
                             <div className="platform-heading"><p>{props.platform}</p></div>
                             <div className="platform-images">
@@ -164,7 +165,7 @@ export default function CourseHero(props) {
                             <div className="duration-heading"><p>{props.durationH}</p></div>
                             <div className="duration"><p>{props.duration}</p></div>
                         </div>
-                    </div> */}
+                    </div>  */}
                 </div>
             </div>
         </main>

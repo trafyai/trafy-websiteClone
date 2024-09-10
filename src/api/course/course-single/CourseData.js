@@ -80,7 +80,7 @@ const CourseHeroData=[
         duration:"4 weeks",
         formLink:"https://courseenquiryform-default-rtdb.firebaseio.com/DM-CourseEnquiryFormData.json",
         demoLink:"https://uiux-advance-formdata-default-rtdb.firebaseio.com/DM-FreeDemoFormData.json",
-
+        fee:"10000",
 
     },
     {
@@ -116,6 +116,9 @@ const CourseHeroData=[
         formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json",
         formCourse:"UI/UX Beginner",
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-BeginnersFreeDemoForm.json",
+        fee:"1",
+        formtype:"uiuxCourse",
+        courseName:"UIUX-responsive-ui-designs",
     },
     {
         id:"building-functional-ux",
@@ -149,7 +152,10 @@ const CourseHeroData=[
         duration:"8 weeks",
         formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-IntermediateEnquiryFormData.json",
         formCourse:"UI/UX Intermediate",
-        demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-IntermediateFreeDemoForm.json"
+        demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-IntermediateFreeDemoForm.json",
+        fee:"25000",
+        formtype:"uiuxCourse",
+        courseName:"UIUX-building-functional-ux",
     },
     {
         id:"spatial-ui-designs",
@@ -183,7 +189,10 @@ const CourseHeroData=[
         duration:"12 weeks",
         formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-AdvanceEnquiryFormData.json",
         formCourse:"UI/UX Advanced",
-        demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-AdvanceFreeDemoForm.json"
+        demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-AdvanceFreeDemoForm.json",
+        fee:"60000",
+        formtype:"uiuxCourse",
+        courseName:"UIUX-spatial-ui-designs",
     }
 ]
 
@@ -779,6 +788,7 @@ const CoursePaymentData=[
     rate:"INR 60,000 /",
     initialRate:"1,25,000",
     sub:"Including",
+    fee:"60000",
     sublist:[
         {list:"Lifetime access to course materials"},
         {list:"Doubt clearing sessions"},
