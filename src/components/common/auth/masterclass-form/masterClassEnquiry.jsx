@@ -39,6 +39,8 @@ const MasterClassEnquiryForm = (props) => {
                     script.src = "https://checkout.razorpay.com/v1/checkout.js";
                     script.onload = () => {
                         console.log("Razorpay SDK loaded successfully");
+                        // console.log('Razorpay Key:', process.env.RAZORPAY_ID_KEY);
+
                         setRazorpayScriptLoaded(true);
                         resolve(true);
                     };
@@ -147,6 +149,9 @@ const MasterClassEnquiryForm = (props) => {
                             color: "#2300a3"
                         },
                         image: 'https://firebasestorage.googleapis.com/v0/b/testing-f9c8c.appspot.com/o/trafy%20icon.png?alt=media&token=a14b5cd3-febe-4f10-90d4-9f2073646012',
+
+                       
+
                     };
                     const razorpay = new window.Razorpay(options);
                     razorpay.on('payment.failed', function (response) {
