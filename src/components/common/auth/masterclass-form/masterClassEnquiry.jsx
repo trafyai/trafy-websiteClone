@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '@styles/common/auth/masterClassEnquiry.css';
 
 const MasterClassEnquiryForm = (props) => {
@@ -24,39 +24,8 @@ const MasterClassEnquiryForm = (props) => {
     });
 
     const [isPopupVisible, setIsPopupVisible] = useState(true);
-    const [showPopup, setShowPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState('');
-    const [popupType, setPopupType] = useState('');
-    const [razorpayScriptLoaded, setRazorpayScriptLoaded] = useState(false);
-
-    useEffect(() => {
-        const loadRazorpayScript = () => {
-            return new Promise((resolve, reject) => {
-                if (window.Razorpay) {
-                    resolve(true);
-                } else {
-                    const script = document.createElement("script");
-                    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-                    script.onload = () => {
-                        console.log("Razorpay SDK loaded successfully");
-                        // console.log('Razorpay Key:', process.env.RAZORPAY_ID_KEY);
-
-                        setRazorpayScriptLoaded(true);
-                        resolve(true);
-                    };
-                    script.onerror = () => {
-                        console.error("Failed to load Razorpay SDK");
-                        reject(new Error("Failed to load Razorpay SDK"));
-                    };
-                    document.body.appendChild(script);
-                }
-            });
-        };
-
-        loadRazorpayScript().catch(error => {
-            console.error('Error loading Razorpay script:', error);
-        });
-    }, []);
+    const [showPopup, setShowPopup] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -89,9 +58,9 @@ const MasterClassEnquiryForm = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         const { fname, lname, email, phone, city, category, message } = formData;
-
+    
         const newErrorMessages = {
             fname: !fname ? "Please enter your first name." : "",
             lname: !lname ? "Please enter your last name." : "",
@@ -100,76 +69,46 @@ const MasterClassEnquiryForm = (props) => {
             city: !city ? "Please enter your city." : "",
             message: "" // No validation for the message field
         };
-
+    
         setErrorMessages(newErrorMessages);
-
+    
         if (Object.values(newErrorMessages).some(message => message !== "")) {
             return;
         }
-
+    
         try {
             // Step 1: Save form data to Firebase
             const firebaseUrl = props.courseType === 'uiuxCourse'
                 ? 'https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json'
                 : 'https://masterclass-formdata-default-rtdb.firebaseio.com/enquiries.json';
-
+    
             await fetch(firebaseUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-
-            // Step 2: Create Razorpay Order
-            const res = await fetch('https://trafywebsite-backend-865611889264.us-central1.run.app/api/createOrder', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ amount: props.courseFee, name: props.courseName, description:props.courseDescription }),
+    
+            // Reset form fields after successful submission
+            setFormData({
+                fname: "",
+                lname: "",
+                email: "",
+                phone: "",
+                city: "",
+                category: "student",
+                message: "",
             });
-            const data = await res.json();
-
-            if (data.success) {
-                if (razorpayScriptLoaded) {
-                    const options = {
-                        key: data.key_id,
-                        amount: data.amount,
-                        currency: "INR",
-                        name: data.product_name,
-                        description: data.description,
-                        order_id: data.order_id,
-                        handler: function (response) {
-                            alert("Payment Succeeded");
-                            window.location.reload();
-                        },
-                        prefill: {
-                            contact: formData.phone,
-                            name: `${formData.fname} ${formData.lname}`,
-                            email: formData.email,
-                        },
-                        theme: {
-                            color: "#2300a3"
-                        },
-                        image: 'https://firebasestorage.googleapis.com/v0/b/testing-f9c8c.appspot.com/o/trafy%20icon.png?alt=media&token=a14b5cd3-febe-4f10-90d4-9f2073646012',
-
-                       
-
-                    };
-                    const razorpay = new window.Razorpay(options);
-                    razorpay.on('payment.failed', function (response) {
-                        alert("Payment Failed");
-                    });
-                    razorpay.open();
-                } else {
-                    alert("Razorpay SDK not loaded. Please try again.");
-                }
-            } else {
-                alert(data.msg);
-            }
+    
+            // setPopupMessage("Form submitted successfully!");
+            window.alert("Thank you for submitting the form.");
+            setShowPopup(true);
         } catch (error) {
             console.error('Error:', error);
             setPopupMessage(`Error: ${error.message}`);
             setShowPopup(true);
         }
     };
+    
 
     const closeForm = () => {
         setIsPopupVisible(false);
@@ -219,8 +158,8 @@ const MasterClassEnquiryForm = (props) => {
                                 <textarea placeholder="Message" className="enquiry-message" name="message" style={{ width: "100%" }} value={formData.message} onChange={handleChange} />
                             </div>
                             <button type="submit" className="course-enquiry-button">Submit</button>
-
                         </form>
+                        {showPopup && <div className="popup-message">{popupMessage}</div>}
                     </div>
                 </div>
             )}
