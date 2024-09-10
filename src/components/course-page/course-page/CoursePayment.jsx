@@ -11,7 +11,6 @@ export default function CoursePayment(props){
         setEnquiry(!enquiry);
     }
 
-const fees=props.fee;
     return(
         <main>
              <div className="course-payment" >
@@ -22,7 +21,7 @@ const fees=props.fee;
                         <div className="payment-month"><p>{props.weeks}</p></div>
                         <div className="payment-starting">
                             <p>{props.start}</p>
-                            <h3>{props.rate}</h3>
+                            <h3>{props.rate} / <span style={{textDecoration:"line-through",fontWeight:"400"}}>{props.initialRate}</span></h3>
                         </div>
                         
                         <hr />
@@ -35,7 +34,7 @@ const fees=props.fee;
                         </ul>
                         </div>
                        <div className="course-payment-enroll" onClick={showEnquiry}>Enroll now</div>
-                       {enquiry &&   <MasterClassEnquiryForm title="headnggg" courseFee={fees} /> }
+                       {enquiry &&   <MasterClassEnquiryForm/> }
                     </div>
                     <div className="course-payment-option">
                         <div className="payment-option-heading"><h3>{props.paymentH}</h3></div>

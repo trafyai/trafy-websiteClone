@@ -136,7 +136,7 @@ export const MasterClassPriceCard = (props) => {
 
                 {formOpen && (
                     user ? (
-                        <MasterClassEnquiryForm title="Join now"/>
+                        <MasterClassEnquiryForm title="Join now" courseFee={`${props.fee}`} courseName={`${props.courseName}`}/>
                     ) : (
                         handleLogin()
                     )

@@ -22,6 +22,9 @@ export const MasterclassData=[
         modeIcon:Mode,
         mode:"Online",
         price:"₹199",
+        fee:"199",
+        courseName:"UIUX-MasterClass",
+        // formtype:"MasterClass",
         learnSecO:[
             "Interactive prototyping",
             "Interactive prototyping",
