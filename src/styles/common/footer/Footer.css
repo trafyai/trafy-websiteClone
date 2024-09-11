@@ -71,8 +71,11 @@
     align-items: center;
     row-gap: 4px;
   }
-  .footer-logo img{
+  .footer-logo{
     height: 26px;
+  }
+  .footer-logo img{
+    height: 100%;
     width: 100%;
   }
   .copyright-text{
