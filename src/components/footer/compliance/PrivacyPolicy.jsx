@@ -11,7 +11,7 @@ function PrivacyPolicy() {
         <h1>
           Privacy Policy
         </h1>
-        <p>Your privacy is important to us, so <strong>DMERZ TECHNOLOGY PRIVATE LIMITED</strong>, an India Company, has created the following Privacy Policy to let you know what information we collect when you visit our Site https://trafyai.com/, why we collect it and how we use it.</p>
+        <p>Your privacy is important to us, so <strong>DMERZ TECHNOLOGY PRIVATE LIMITED</strong>, registered address No 157, G1, 4/608, V.O.C. Street, Perungudi, OMR, Chennai - 600041. an India Company, has created the following Privacy Policy to let you know what information we collect when you visit our Site https://trafyai.com/, why we collect it and how we use it.</p>
         <p>The terms “You,” “Your,” “Yours” and “User” refer to the entity/person/organization using our Site.</p>
         <p>When this Policy mentions “We”, “Us,” and “Our” it refers to <strong>DMERZ TECHNOLOGY PRIVATE LIMITED</strong> and its subsidiaries and affiliates.</p>
         <p>This Privacy Policy is governed by our Terms of Service.</p>

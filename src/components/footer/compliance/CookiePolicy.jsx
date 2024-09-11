@@ -14,7 +14,7 @@ function CookiePolicy() {
         Cookie Policy
       </h1>
       <p>In this Cookie Policy we will provide you with detailed information on 
-        how <strong>DMERZ TECHNOLOGY PRIVATE LIMITED</strong> (hereinafter – the “we” or “our”), shall undertake to 
+        how <strong>DMERZ TECHNOLOGY PRIVATE LIMITED</strong>, registered address No 157, G1, 4/608, V.O.C. Street, Perungudi, OMR, Chennai - 600041. (hereinafter – the “we” or “our”), shall undertake to 
         ensure the security of personal information and the protection of rights of the visitors and users of the websites 
         (hereinafter – the “Visitors”, “You”) while you use our websites including but not limited to https://trafyai.com/ (hereinafter – 
         the “Site”) and the content on it.</p>
