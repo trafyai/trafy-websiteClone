@@ -22,7 +22,6 @@ export default function LandingBetterTogether(){
                         <h2>Lorem ipsum dolor sit amet</h2>
                         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti 
                             quos dolores et quas molestias excepturi</p>
-                          {/* <button>Get started</button>  */}
                     </div>
                     <div className="landing-better-right">
                         <div className="landing-better-image-b"><Image src={algacart} alt="amazon" /></div>
