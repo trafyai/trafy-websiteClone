@@ -21,7 +21,7 @@ export default function CoursePayment(props){
                         <div className="payment-month"><p>{props.weeks}</p></div>
                         <div className="payment-starting">
                             <p>{props.start}</p>
-                            <h3>{props.rate} / <span style={{textDecoration:"line-through",fontWeight:"400"}}>{props.initialRate}</span></h3>
+                            <h3>{props.rate}  <span style={{textDecoration:"line-through",fontWeight:"400"}}>{props.initialRate}</span></h3>
                         </div>
                         
                         <hr />

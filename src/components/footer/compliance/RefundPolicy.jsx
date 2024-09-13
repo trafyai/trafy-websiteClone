@@ -12,7 +12,7 @@ function RefundPolicy() {
       <h1>
         Refund Policy
       </h1>
-      <p>All our clients are very important to us, that’s why <strong>DMERZ TECHNOLOGY PRIVATE LIMITED</strong>, has created the following Refund Policy to let You know how we handle the refunds for the goods ordered and bought on our website <a href="https://trafyai.com/">https://trafyai.com/</a></p>
+      <p>All our clients are very important to us, that’s why <strong>DMERZ TECHNOLOGY PRIVATE LIMITED</strong>, registered address No 157, G1, 4/608, V.O.C. Street, Perungudi, OMR, Chennai - 600041. has created the following Refund Policy to let You know how we handle the refunds for the goods ordered and bought on our website <a href="https://trafyai.com/">https://trafyai.com/</a></p>
       <p>The terms “You,” “Your,” and “Yours” refer to the entity/ person/ organization using our Website. When this Policy mentions “we”, “us,”, and “our” it refers to the Company and its subsidiaries or /and affiliates. The term “goods” refers to any product or item bought on our Website by You.</p>
       <p>This Refund Policy is governed by our Terms of Services.</p>
       <p>For any questions regarding this Refund Policy or any requests regarding the refunds and returns, please contact us by email <strong> support@trafyai.com</strong>, phone at +91 99418 34334, or other contacts provided below.</p>

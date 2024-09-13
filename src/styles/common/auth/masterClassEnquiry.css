@@ -268,21 +268,21 @@
 
 
 /* Media query adjustments for small screens */
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
     .country-dropdown,
     .state-dropdown {
         font-size: 14px;
         padding: 10px;
     }
-}
+} */
 
-@media only screen and (max-width: 400px) {
+/* @media only screen and (max-width: 400px) {
     .country-dropdown,
     .state-dropdown {
         font-size: 12px;
         padding: 8px;
     }
-}
+} */
 
 /* Media queries for responsiveness */
 @media only screen and (max-width: 600px) {
