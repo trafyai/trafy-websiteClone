@@ -29,6 +29,9 @@
     border: 1px solid var(--box-border);
     border-radius: 16px;
 }
+.masterclass-landing-box:hover{
+    border: 1px solid #AAA8A7;
+}
 .masterclass-box-image {
     width: 100%;
     height: 100%;

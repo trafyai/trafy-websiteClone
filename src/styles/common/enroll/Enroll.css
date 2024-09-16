@@ -1,0 +1,354 @@
+.enroll{
+    padding: 120px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.enroll-container{
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.enroll-heading h3{
+    font-size: 28px;
+    font-family: var(--h-font);
+    font-weight: 600;
+    color: var(--h-black);
+}
+.enroll-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+
+@media only screen and (max-width:1200px){
+    .enroll-content{
+        gap: 3rem;
+    }
+    .course-checkout{
+        width: 50%;
+    }
+    .course-enquiry-form-contents{
+        width: 50%;
+    }
+}
+
+
+.course-enquiry-form-contents {
+    width: 50%;
+    background: var(--trafy-white);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.enquiryform {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    border-radius: 12px;
+    background-color: var(--trafy-white);
+}
+.enquiryform-heading h2 {
+    font-size: 28px;
+    font-family: var(--p-font);
+    font-weight: 600;
+    padding-bottom: 1rem;
+    color: var(--h-black);
+    text-align: center;
+}
+
+.enquiryform-heading h4 {
+    font-size: 18px;
+    font-family: var(--p-font);
+    font-weight: 400;
+    padding-bottom: 0.5rem;
+    color: var(--p-white);
+}
+
+.enquiryname {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.enquiryform label {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    color: var(--p-black);
+    margin-bottom: 8px;
+}
+
+.enquiryfname, 
+.enquirylname, 
+.enquiryemail, 
+.enquiryphone, 
+.enquiry-course, 
+.enquirymessage, 
+.enquirycity, 
+.enquiry-category {
+    width: 100%;
+}
+
+.enquiry-fname, 
+.enquiry-lname, 
+.enquiry-email, 
+.enquiry-phone, 
+.enquiry-course, 
+.enquiry-message, 
+.enquiry-city, 
+.enquiry-category {
+    width: 100%;
+    height: 45px;
+    padding: 12px;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    background-color: inherit;
+    margin-top: 8px;
+    color: var(--p-black);
+}
+
+.enquiry-fname::placeholder,
+.enquiry-lname::placeholder,
+.enquiry-email::placeholder,
+.enquiry-phone::placeholder,
+.enquiry-message::placeholder,
+.enquiry-city::placeholder {
+    color: #929292; /* Replace with your desired color */
+}
+
+.enquiry-fname:focus,
+.enquiry-lname:focus,
+.enquiry-email:focus,
+.enquiry-phone:focus,
+.enquiry-message:focus,
+.enquiry-course:focus,
+.enquiry-city:focus,
+.enquiry-category:focus { 
+    /* Border color when input is focused */
+    outline: none; /* Remove default outline */
+}
+
+.enquiry-message {
+    padding: 12px;
+    height: 80px;
+    resize: none;
+}
+
+.course-enquiry-button {
+    width: 100%;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-family: var(--p-font);
+    font-weight: 400;
+    color: var(--trafy-white);
+    background-color: var(--trafy-black);
+    border: 1px solid var(--trafy-black);
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.course-enquiry-button:hover {
+    background-color: inherit;
+    color: var(--trafy-black);
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    font-family: var(--p-font);
+}
+
+.enquirycourse-container {
+    position: relative;
+    width: 100%;
+}
+
+.enquiry-course,
+.enquiry-category {
+    appearance: none;
+    width: 100%;
+    height: 45px;
+    padding: 12px;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    background-color: var(--trafy-white);
+    max-width: 100%;
+    margin-top: 8px;
+    color: var(--h-black);
+    background: url('data:image/svg+xml;utf8,<svg fill="%23929292" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 24px;
+}
+
+.enquiry-course:focus, 
+.enquiry-category:focus {
+    border-color: var(--h-text-b-clr);
+    outline: none;
+}
+/* Style for the Country and Region dropdowns */
+.country-dropdown,
+.state-dropdown {
+    width: 100%;
+    height: 45px;
+    padding: 12px;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    background-color: var(--trafy-white);
+    margin-top: 8px;
+    color: var(--p-black);
+    appearance: none; /* Removes the default arrow in the select input */
+    background: url('data:image/svg+xml;utf8,<svg fill="%23929292" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center;
+    background-size: 24px;
+    cursor: pointer;
+}
+
+.country-dropdown:focus,
+.state-dropdown:focus {
+    border-color: var(--h-text-b-clr);
+    outline: none; /* Removes the default blue outline */
+}
+
+.country-dropdown::placeholder,
+.state-dropdown::placeholder {
+    color: #929292; /* Lighter color for the placeholder text */
+}
+
+/* Hover effect for better interaction */
+.country-dropdown:hover,
+.state-dropdown:hover {
+    border-color: var(--h-text-b-clr);
+}
+
+/* Error message styling for dropdowns (if any validation) */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    font-family: var(--p-font);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .course-enquiry-form-contents {
+        width: 90%;
+    }
+
+    .enquiryform-heading h2 {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .course-enquiry-form-contents {
+        padding: 24px;
+    }
+
+    .enquiryform {
+        gap: 0.5rem;
+    }
+
+    .course-enquiry-form-contents {
+        width: 95%;
+    }
+
+    .enquiryname {
+        flex-direction: column;
+    }
+
+    .enquiryform-heading h2 {
+        font-size: 24px;
+    }
+
+    .enquiryform-heading h4 {
+        font-size: 16px;
+    }
+}
+
+
+.course-checkout{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.course-details{
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px ;
+    border: 1px solid var(--box-border);
+    border-radius: 8px;
+    gap: 3rem;
+}
+.course-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.course-title h2{
+    font-size: 20px;
+    font-family: var(--h-font);
+    font-weight: 600;
+    color: var(--h-black);
+}
+.course-para p{
+    font-size: 14px;
+    font-family: var(--p-font);
+    font-weight: 400;
+    color: var(--p-black);
+}
+.course-rating p{
+    font-size: 14px;
+    font-family: var(--p-font);
+    font-weight: 400;
+    color: var(--p-black);
+}
+.course-price p{
+    font-size: 20px;
+    font-family: var(--h-font);
+    font-weight: 600;
+    color: var(--h-black);
+}
+.course-payment{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.course-payment p{
+    font-size: 22px;
+    font-family: var(--h-font);
+    font-weight: 600;
+    color: var(--h-black);
+}
+.course-payment button {
+    width: 100%;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-family: var(--p-font);
+    font-weight: 400;
+    color: var(--trafy-white);
+    background-color: var(--trafy-black);
+    border: 1px solid var(--trafy-black);
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.course-payment button:hover {
+    background-color: inherit;
+    color: var(--trafy-black);
+}

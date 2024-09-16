@@ -14,7 +14,7 @@ export default function MasterclassLanding(){
                 <div className='masterclass-landing-contents'>
 
                 {MasterclassData.map((item,index)=>(
-                    <div className='masterclass-landing-box' key={index}>
+                    <Link href={`/masterclass/${item.id}`} className='masterclass-landing-box' key={index}>
                         <div className='masterclass-box-image'>
                             <Image src={image}/>
                         </div>
@@ -43,7 +43,7 @@ export default function MasterclassLanding(){
                         </div> 
 
                     </div>
-                </div>
+                </Link>
                 ))}
 
                 </div>

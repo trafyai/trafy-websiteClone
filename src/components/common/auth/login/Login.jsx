@@ -27,7 +27,7 @@ const Login = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // Redirect if user is already logged in
-                router.push('/'); // Redirect to home or another page
+                router.back(); // Redirect to home or another page
             } else {
                 setLoading(false); // Set loading to false when done
             }
@@ -88,7 +88,7 @@ const Login = () => {
 
 
             // router.push('/');
-            router.back();
+            // router.back();
 
             // router.push('/');
 
@@ -120,7 +120,7 @@ const Login = () => {
             });
 
 
-            router.back();
+            // router.back();
 
         } catch (err) {
             if (err.code === 'auth/cancelled-popup-request') {
