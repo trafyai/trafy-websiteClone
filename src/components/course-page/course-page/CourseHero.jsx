@@ -179,7 +179,7 @@ import Link from "next/link";
 import shareBlack from '@public/assets/Images/course-page/hero-section/share.svg';
 import shareWhite from '@public/assets/Images/course-page/hero-section/share-white.png';
 import MasterClassEnquiryForm from '@components/common/auth/masterclass-form/masterClassEnquiry';
-import Enroll from "@components/common/enroll/Enroll";
+// import Enroll from "@components/common/enroll/Enroll";
 import { useRouter } from "next/navigation";
 import { UserAuth } from "@context/AuthContext";
 
@@ -213,17 +213,26 @@ export default function CourseHero(props) {
         setShowShare(!showShare);
     }
 
+    // function showEnquiry() {
+    //     if (user) {
+    //         // If user is logged in, show the enquiry form
+    //         const query = new URLSearchParams(props).toString();
+    //         router.push(`/enroll?${query}`);
+    //     } else {
+    //         // If user is not logged in, redirect to the login page
+    //         router.push('/login'); // Assuming your login page is at /login
+    //     }
+    // }
+
     function showEnquiry() {
         if (user) {
-            // If user is logged in, show the enquiry form
-            const query = new URLSearchParams(props).toString();
-            router.push(`/enroll?${query}`);
+            // If user is logged in, show the demo form
+            setEnquiry(!enquiry);
         } else {
             // If user is not logged in, redirect to the login page
-            router.push('/login'); // Assuming your login page is at /login
+            router.push('/login');
         }
     }
-
     function showDemo() {
         if (user) {
             // If user is logged in, show the demo form
@@ -321,7 +330,7 @@ export default function CourseHero(props) {
                     {showAlert &&
                         <div className="alert">Link copied to clipboard</div>
                     }
-                    
+                    {enquiry && <MasterClassEnquiryForm title="Get Started" courseFee={`${props.fee} `} />}
                     {demo && <MasterClassEnquiryForm title="Join Free Demo" courseFee={`${props.fee} `} />}
                 </div>
             </div>
