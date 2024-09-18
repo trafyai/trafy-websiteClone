@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
@@ -71,7 +71,7 @@ const Enroll = () => {
     setFormData({ ...formData, state: val });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { fname, lname, email, phone, city } = formData;
@@ -91,83 +91,143 @@ const Enroll = () => {
       return;
     }
 
-    // Code for form submission (e.g., API call) would go here
+    try {
+      // Post form data to Firebase Realtime Database
+      const response = await fetch('https://uiux-courseformdata-default-rtdb.firebaseio.com/enrollments.json', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ ...formData, fee })
+      });
+
+      if (response.ok) {
+        setFormData({
+          fname: "",
+          lname: "",
+          email: "",
+          phone: "",
+          city: "",
+          country: "",
+          state: "",
+          category: "student",
+          message: ""
+        });
+        setErrorMessages({});
+        alert("Your enrollment has been submitted successfully!");
+      } else {
+        throw new Error("Error submitting the form.");
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      setErrorMessages({ ...errorMessages, form: "Error submitting the form. Please try again later." });
+    }
   };
-    return (
+
+  return (
     <div className='enroll'>
       <div className='enroll-container'>
-
-      <div className='enroll-heading'>
+        <div className='enroll-heading'>
           <h3>Course in Cart</h3>
         </div>
 
-       <div className='enroll-content'>
-
-        <div className="course-enquiry-form-contents">
-        
+        <div className='enroll-content'>
+          <div className="course-enquiry-form-contents">
             <form className="enquiryform" onSubmit={handleSubmit} autoComplete="off">
-   
-                <div className="enquiryname">
-                    <div className="enquiryfname">
-                        <input type="text" placeholder="First Name" name="fname" className="enquiry-fname" required onChange={handleChange} value={formData.fname} />
-                        {errorMessages.fname && <p className="error-message">{errorMessages.fname}</p>}
-                    </div>
-                    <div className="enquirylname">
-                        <input type="text" placeholder="Last Name" className="enquiry-lname" name="lname" required onChange={handleChange} value={formData.lname} />
-                        {errorMessages.lname && <p className="error-message">{errorMessages.lname}</p>}
-                    </div>
+              <div className="enquiryname">
+                <div className="enquiryfname">
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    name="fname"
+                    className="enquiry-fname"
+                    required
+                    onChange={handleChange}
+                    value={formData.fname}
+                  />
+                  {errorMessages.fname && <p className="error-message">{errorMessages.fname}</p>}
                 </div>
-                <div className="enquiryemail">
-                    <input type="email" placeholder="Email" required className="enquiry-email" name="email" onChange={handleChange} value={formData.email} />
-                    {errorMessages.email && <p className="error-message">{errorMessages.email}</p>}
+                <div className="enquirylname">
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    className="enquiry-lname"
+                    name="lname"
+                    required
+                    onChange={handleChange}
+                    value={formData.lname}
+                  />
+                  {errorMessages.lname && <p className="error-message">{errorMessages.lname}</p>}
                 </div>
-                <div className="enquiryphone">
-                    <input type="tel" placeholder="Phone Number" required className="enquiry-phone" name="phone" onChange={handleChange} value={formData.phone} />
-                    {errorMessages.phone && <p className="error-message">{errorMessages.phone}</p>}
-                </div>
-                <div className="enquirycountry">
-                    <CountryDropdown
-                        value={formData.country}
-                        onChange={(val) => selectCountry(val)}
-                        className="country-dropdown"
-                        defaultOptionLabel="Select Country" 
-                    />
-                </div>
-                <div className="enquirystate">
-                    {formData.country ? (
-                        <RegionDropdown
-                            country={formData.country}
-                            value={formData.state || ""}
-                            onChange={(val) => selectState(val)}
-                            className="state-dropdown"
-                            defaultOptionLabel="Select State"
-                        />
-                    ) : (
-                        <select disabled className="state-dropdown">
-                            <option>Select State</option>
-                        </select>
-                    )}
-                </div>
-                <div className="enquirycategory">
-                    <select name="category" placeholder="Select Profession" className="enquiry-category" value={formData.category} onChange={handleChange}>
-                        <option value="student">Student</option>
-                        <option value="professional">Professional</option>
-                        <option value="startup_founder">Startup Founder</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
+              </div>
+              <div className="enquiryemail">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  className="enquiry-email"
+                  name="email"
+                  onChange={handleChange}
+                  value={formData.email}
+                />
+                {errorMessages.email && <p className="error-message">{errorMessages.email}</p>}
+              </div>
+              <div className="enquiryphone">
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  required
+                  className="enquiry-phone"
+                  name="phone"
+                  onChange={handleChange}
+                  value={formData.phone}
+                />
+                {errorMessages.phone && <p className="error-message">{errorMessages.phone}</p>}
+              </div>
+              <div className="enquirycountry">
+                <CountryDropdown
+                  value={formData.country}
+                  onChange={(val) => selectCountry(val)}
+                  className="country-dropdown"
+                  defaultOptionLabel="Select Country"
+                />
+              </div>
+              <div className="enquirystate">
+                {formData.country ? (
+                  <RegionDropdown
+                    country={formData.country}
+                    value={formData.state || ""}
+                    onChange={(val) => selectState(val)}
+                    className="state-dropdown"
+                    defaultOptionLabel="Select State"
+                  />
+                ) : (
+                  <select disabled className="state-dropdown">
+                    <option>Select State</option>
+                  </select>
+                )}
+              </div>
+              <div className="enquirycategory">
+                <select
+                  name="category"
+                  placeholder="Select Profession"
+                  className="enquiry-category"
+                  value={formData.category}
+                  onChange={handleChange}
+                >
+                  <option value="student">Student</option>
+                  <option value="professional">Professional</option>
+                  <option value="startup_founder">Startup Founder</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <button type="submit">Enroll now</button>
+              {errorMessages.form && <p className="error-message">{errorMessages.form}</p>}
             </form>
-            <div className='course-payment'>
-            <p>₹{fee}</p>
-            <button>Enroll now</button>
           </div>
-        </div>
 
-        <div className='course-checkout'>
-          <div className='course-details'>
-              {/* <div className='course-image'>
-                <Image src={courseImage}/>
-              </div> */}
+          <div className='course-checkout'>
+            <div className='course-details'>
               <div className='course-content'>
                 <div className='course-title'>
                   <h2>{courseHeading}</h2>
@@ -180,12 +240,10 @@ const Enroll = () => {
                 </div>
               </div>
               <div className='course-price'>
-                <p>₹{fee} </p>
+                <p>₹{fee}</p>
               </div>
+            </div>
           </div>
-
-        </div>
-
         </div>
       </div>
     </div>
