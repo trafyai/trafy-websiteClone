@@ -182,6 +182,7 @@ import MasterClassEnquiryForm from '@components/common/auth/masterclass-form/mas
 import Enroll from "@components/common/enroll/Enroll";
 import { useRouter } from "next/navigation";
 import { UserAuth } from "@context/AuthContext";
+import { useCart } from "@context/CartContext";
 
 export default function CourseHero(props) {
     const [showShare, setShowShare] = useState(false);
@@ -191,6 +192,8 @@ export default function CourseHero(props) {
     const [demo, setDemo] = useState(false);
     const { user, logOut, loading } = UserAuth();
     const router = useRouter();
+
+    const { setCartDetails } = useCart();
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -216,8 +219,10 @@ export default function CourseHero(props) {
     function showEnquiry() {
         if (user) {
             // If user is logged in, show the enquiry form
-            const query = new URLSearchParams(props).toString();
-            router.push(`/enroll?${query}`);
+            setCartDetails(props);
+
+            // Navigate to the enroll page
+            router.push('/enroll');
         } else {
             // If user is not logged in, redirect to the login page
             router.push('/login'); // Assuming your login page is at /login

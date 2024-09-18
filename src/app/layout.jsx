@@ -4,6 +4,7 @@ import Footer from "@components/common/footer/Footer";
 import imageO from "../app/opengraph-image.png";
 import { AuthContextProvider } from "@context/AuthContext";
 import { CourseContextProvider } from "@context/CourseContext";
+import { CartProvider } from "@context/CartContext";
 import Script from "next/script";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
@@ -42,14 +43,14 @@ export default function RootLayout({ children }) {
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> */}
 
         <AuthContextProvider>
-          <CourseContextProvider>
+          <CartProvider>
             <main className="app">
               <Header />
               {children}
               <Footer />
             </main>
             <GoogleAnalytics gaId="G-THWZDJH6WZ" />
-          </CourseContextProvider>
+          </CartProvider>
         </AuthContextProvider>
       </body>
      

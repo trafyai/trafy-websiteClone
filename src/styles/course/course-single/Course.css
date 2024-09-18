@@ -923,6 +923,7 @@
     padding:90px 0px;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: var(--trafy-white);
 }
 .course-payment-container{
