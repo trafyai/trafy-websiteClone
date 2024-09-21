@@ -4,6 +4,8 @@ import { verifyPasswordResetCode, confirmPasswordReset } from 'firebase/auth';
 import { auth } from '@firebase';
 import { useRouter } from 'next/navigation';
 import '@styles/common/auth/ResetPassword.css'
+import { UserAuth } from "@context/AuthContext";
+
 const ResetPassword = () => {
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -11,7 +13,15 @@ const ResetPassword = () => {
     const [message, setMessage] = useState('');
     const router = useRouter();
     const [oobCode, setOobCode] = useState('');
-
+    const { user, loading } = UserAuth();
+  
+    useEffect(() => {
+  
+        if (user) {
+          router.back();
+        }
+    }, [user, router]);
+  
     useEffect(() => {
         const query = new URLSearchParams(window.location.search);
         const code = query.get('oobCode');

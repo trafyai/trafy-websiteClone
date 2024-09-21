@@ -151,10 +151,6 @@
         padding-top: 90px;
         padding-bottom: 40px;
     }
-    .course-landing-dm,.course-landing-ai{
-        padding-top: 100px;
-        padding-bottom: 40px;
-    }
     .course-landing-ai-container{
         width: 90%;
         gap:2rem;
@@ -172,10 +168,6 @@
     }
     .course-landing-dm,.course-landing-ai{
         padding: 20px 0px;
-    }
-    .course-landing-dm, .course-landing-ai {
-        padding-top: 80px;
-        padding-bottom: 40px;
     }
     .course-landing-ai-box {
         width: 99%;

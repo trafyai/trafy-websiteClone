@@ -40,7 +40,7 @@
   display: none;
   padding-right: 12px;
   background: #ffffffd9;
-    backdrop-filter: blur(.6rem);
+  backdrop-filter: blur(.6rem);
 }
 .menu-lg {
   display: flex;
@@ -57,17 +57,7 @@
   display: flex;
   gap: 1.5rem;
   align-items: center;
-
 }
-/* .menu-right{
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  padding:4px 6px;
-  border:1px solid var(--box-border);
-  border-radius:8px;
-} */
-
 .menu-pathway,
 .menu-innovation,
 .menu-resources,
@@ -109,6 +99,23 @@
 .menu-signup:hover {
   color: var(--trafy-blue);
   background-color:var(--trafy-white);
+}
+.user-profile-image-container{
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: var(--p-font);
+}
+.user-profile-image-container img{
+  width:100%;
+  height:100%;
+  border-radius: 100%;
+  object-fit: cover;
 }
 .menu-user-dropdown {
   width: 150px;
