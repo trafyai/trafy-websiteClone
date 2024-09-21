@@ -1,15 +1,16 @@
+<<<<<<< HEAD
 'use client'
 import React, { useState } from 'react';
+=======
+'use client';
+import React, { useState,useEffect } from 'react';
+>>>>>>> 510906b5deed94a586f73c1f25cde9ee09a266a3
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { useCart } from '@context/CartContext';
 import '@styles/common/enroll/Enroll.css';
 
 const Enroll = () => {
   const { cartDetails } = useCart();
-  if (!cartDetails) {
-    return <div>Loading course details...</div>; // Fallback UI when cartDetails is null
-  }
-  const { courseHeading, courseDescription, rating, fee } = cartDetails;
 
   const [formData, setFormData] = useState({
     fname: "",
@@ -27,6 +28,30 @@ const Enroll = () => {
     email: "",
     phone: "",
   });
+
+  const [razorpayScriptLoaded, setRazorpayScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadRazorpayScript = () => {
+      return new Promise((resolve, reject) => {
+        if (window.Razorpay) {
+          resolve(true);
+        } else {
+          const script = document.createElement("script");
+          script.src = "https://checkout.razorpay.com/v1/checkout.js";
+          script.onload = () => {
+            setRazorpayScriptLoaded(true);
+            resolve(true);
+          };
+          script.onerror = () => reject(new Error("Failed to load Razorpay SDK"));
+          document.body.appendChild(script);
+        }
+      });
+    };
+
+    loadRazorpayScript().catch((error) => console.error("Error loading Razorpay script:", error));
+  }, []);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,64 +89,136 @@ const Enroll = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    const { fname, lname, email, phone,  country, state, category } = formData;
-  
+
+    const { fname, lname, email, phone } = formData;
+
     const newErrorMessages = {
       fname: !fname ? "Please enter your first name." : "",
       lname: !lname ? "Please enter your last name." : "",
       email: !email ? "Please enter your email address." : "",
       phone: !phone ? "Please enter your phone number." : "",
     };
-  
+
     setErrorMessages(newErrorMessages);
-  
-    if (Object.values(newErrorMessages).some(message => message !== "")) {
+
+    if (Object.values(newErrorMessages).some((message) => message !== "")) {
       return;
     }
-  
-    const enrollmentData = {
-      firstName: fname,
-      lastName: lname,
-      email: email,
-      phone: phone,
-      country: country,
-      state: state,
-      profession: category,
-    };
-  
+
     try {
-      const firebaseUrl = 'https://uiux-courseformdata-default-rtdb.firebaseio.com/enrollments.json';
-      const response = await fetch(firebaseUrl, {
+      // Step 1: Create Razorpay order
+      const res = await fetch('http://localhost:5000/api/createOrder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(enrollmentData),
+        body: JSON.stringify({
+          amount: cartDetails?.fee,
+          name: cartDetails?.courseHeading,
+          description: cartDetails?.courseDescription,
+        }),
       });
-  
-      if (!response.ok) {
-        throw new Error(`Failed to submit enrollment: ${response.statusText}`);
+
+      const data = await res.json();
+
+      if (data.success && razorpayScriptLoaded) {
+        const options = {
+          key: data.key_id,
+          amount: data.amount,
+          currency: "INR",
+          name: data.product_name,
+          description: data.description,
+          order_id: data.order_id,
+          handler: async function (response) {
+            // Step 2: On successful payment
+            const paymentStatus = "success";
+            await storeFormDataInFirebase(paymentStatus);
+            await sendNotificationEmail(paymentStatus, email); // Send notification email
+            alert("Payment Successful");
+            window.location.reload();
+          },
+          prefill: {
+            contact: formData.phone,
+            name: `${formData.fname} ${formData.lname}`,
+            email: formData.email,
+          },
+          theme: { color: "#2300a3" },
+          image: 'https://firebasestorage.googleapis.com/v0/b/testing-f9c8c.appspot.com/o/trafy%20icon.png?alt=media&token=a14b5cd3-febe-4f10-90d4-9f2073646012',
+        };
+
+        const razorpayInstance = new window.Razorpay(options);
+        razorpayInstance.on('payment.failed', async function (response) {
+          // Step 3: On payment failure
+          const paymentStatus = "failed";
+          await storeFormDataInFirebase(paymentStatus);
+          await sendNotificationEmail(paymentStatus, email); // Send notification email
+          alert("Payment Failed");
+        });
+
+        razorpayInstance.open();
+      } else {
+        throw new Error("Razorpay order creation failed.");
       }
-  
-      // Reset form fields after successful submission
-      setFormData({
-        fname: "",
-        lname: "",
-        email: "",
-        phone: "",
-        country: "",
-        state: "",
-        category: "student",
-        message: "",
-      });
-  
-      alert('Enrollment submitted successfully!');
-      
     } catch (error) {
-      console.error('Error submitting enrollment:', error);
-      alert('Failed to submit the enrollment. Please try again.');
+      console.error("Error processing the payment:", error);
+      setErrorMessages({ ...errorMessages, form: "Error processing the payment. Please try again later." });
     }
   };
+
+// Function to store form data along with payment status in Firebase
+const storeFormDataInFirebase = async (paymentStatus) => {
+    try {
+      const response = await fetch('https://uiux-courseformdata-default-rtdb.firebaseio.com/enrollments.json', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          fee: cartDetails?.fee,
+          paymentStatus: paymentStatus,  // Include payment status
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to store form data in Firebase");
+      }
+    } catch (error) {
+      console.error("Error storing form data:", error);
+    }
+};
+
+// New function to send notification email after payment
+const sendNotificationEmail = async (paymentStatus, email) => {
+    try {
+      const response = await fetch('http://localhost:5000/api/sendPaymentEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          paymentStatus: paymentStatus,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send notification email");
+      }
+    } catch (error) {
+      console.error("Error sending notification email:", error);
+    }
+};
+
   
+<<<<<<< HEAD
+=======
+
+  if (!cartDetails) {
+    return <div>Loading course details...</div>;
+  }
+
+  const { courseHeading, courseDescription, rating, fee } = cartDetails;
+
+  
+
+>>>>>>> 510906b5deed94a586f73c1f25cde9ee09a266a3
   return (
     <div className='enroll'>
       <div className='enroll-container'>
@@ -155,7 +252,7 @@ const Enroll = () => {
                   value={formData.country}
                   onChange={(val) => selectCountry(val)}
                   className="country-dropdown"
-                  defaultOptionLabel="Select Country" 
+                  defaultOptionLabel="Select Country"
                 />
               </div>
               <div className="enquirystate">
@@ -183,7 +280,7 @@ const Enroll = () => {
               </div>
               <div className='course-payment'>
                 <p>₹{fee}</p>
-                <button type='submit' >Enroll now</button>
+                <button type='submit'>Enroll now</button>
               </div>
             </form>
           </div>
@@ -202,11 +299,10 @@ const Enroll = () => {
                 </div>
               </div>
               <div className='course-price'>
-                <p>₹{fee} </p>
+                <p>₹{fee}</p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
