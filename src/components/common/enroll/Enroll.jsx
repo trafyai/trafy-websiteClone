@@ -1,217 +1,11 @@
-<<<<<<< HEAD
 'use client';
-=======
-// 'use client'
-// import React, { useState } from 'react';
-// import { useSearchParams } from 'next/navigation';
-// import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-// import { useCart } from '@context/CartContext';
-// import '@styles/common/enroll/Enroll.css';
-
-// const Enroll = () => {
-//   const { cartDetails } = useCart();
-//   if (!cartDetails) {
-//     return <div>Loading course details...</div>; // Fallback UI when cartDetails is null
-//   }
-//   const { courseHeading, courseDescription, rating, fee } = cartDetails;
-
-
-//   const [formData, setFormData] = useState({
-//     fname: "",
-//     lname: "",
-//     email: "",
-//     phone: "",
-//     city: "",
-//     country: "",
-//     state: "",
-//     category: "student",
-//     message: "",
-//   });
-
-//   const [errorMessages, setErrorMessages] = useState({
-//     fname: "",
-//     lname: "",
-//     email: "",
-//     phone: "",
-//     city: "",
-//     message: "",
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-
-//     let errorMessage = "";
-//     switch (name) {
-//       case "fname":
-//       case "lname":
-//         const namePattern = /^[A-Za-z]+$/;
-//         errorMessage = !namePattern.test(value) ? "Should contain alphabetic characters only." : "";
-//         break;
-//       case "email":
-//         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//         errorMessage = !emailPattern.test(value) ? "Please enter a valid email address." : "";
-//         break;
-//       case "phone":
-//         const phonePattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-//         errorMessage = !phonePattern.test(value) ? "Please enter a valid phone number." : "";
-//         break;
-//       case "city":
-//         errorMessage = !value ? "Please enter your city." : "";
-//         break;
-//       default:
-//         break;
-//     }
-
-//     setErrorMessages({ ...errorMessages, [name]: errorMessage });
-//   };
-
-//   const selectCountry = (val) => {
-//     setFormData({ ...formData, country: val, state: 'Select State' });
-//   };
-
-//   const selectState = (val) => {
-//     setFormData({ ...formData, state: val });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const { fname, lname, email, phone, city } = formData;
-
-//     const newErrorMessages = {
-//       fname: !fname ? "Please enter your first name." : "",
-//       lname: !lname ? "Please enter your last name." : "",
-//       email: !email ? "Please enter your email address." : "",
-//       phone: !phone ? "Please enter your phone number." : "",
-//       city: !city ? "Please enter your city." : "",
-//       message: "" // No validation for the message field
-//     };
-
-//     setErrorMessages(newErrorMessages);
-
-//     if (Object.values(newErrorMessages).some(message => message !== "")) {
-//       return;
-//     }
-
-//     // Code for form submission (e.g., API call) would go here
-//   };
-//     return (
-//     <div className='enroll'>
-//       <div className='enroll-container'>
-
-//       <div className='enroll-heading'>
-//           <h3>Course in Cart</h3>
-//         </div>
-
-//        <div className='enroll-content'>
-
-//         <div className="course-enquiry-form-contents">
-        
-//             <form className="enquiryform" onSubmit={handleSubmit} autoComplete="off">
-   
-//                 <div className="enquiryname">
-//                     <div className="enquiryfname">
-//                         <input type="text" placeholder="First Name" name="fname" className="enquiry-fname" required onChange={handleChange} value={formData.fname} />
-//                         {errorMessages.fname && <p className="error-message">{errorMessages.fname}</p>}
-//                     </div>
-//                     <div className="enquirylname">
-//                         <input type="text" placeholder="Last Name" className="enquiry-lname" name="lname" required onChange={handleChange} value={formData.lname} />
-//                         {errorMessages.lname && <p className="error-message">{errorMessages.lname}</p>}
-//                     </div>
-//                 </div>
-//                 <div className="enquiryemail">
-//                     <input type="email" placeholder="Email" required className="enquiry-email" name="email" onChange={handleChange} value={formData.email} />
-//                     {errorMessages.email && <p className="error-message">{errorMessages.email}</p>}
-//                 </div>
-//                 <div className="enquiryphone">
-//                     <input type="tel" placeholder="Phone Number" required className="enquiry-phone" name="phone" onChange={handleChange} value={formData.phone} />
-//                     {errorMessages.phone && <p className="error-message">{errorMessages.phone}</p>}
-//                 </div>
-//                 <div className="enquirycountry">
-//                     <CountryDropdown
-//                         value={formData.country}
-//                         onChange={(val) => selectCountry(val)}
-//                         className="country-dropdown"
-//                         defaultOptionLabel="Select Country" 
-//                     />
-//                 </div>
-//                 <div className="enquirystate">
-//                     {formData.country ? (
-//                         <RegionDropdown
-//                             country={formData.country}
-//                             value={formData.state || ""}
-//                             onChange={(val) => selectState(val)}
-//                             className="state-dropdown"
-//                             defaultOptionLabel="Select State"
-//                         />
-//                     ) : (
-//                         <select disabled className="state-dropdown">
-//                             <option>Select State</option>
-//                         </select>
-//                     )}
-//                 </div>
-//                 <div className="enquirycategory">
-//                     <select name="category" placeholder="Select Profession" className="enquiry-category" value={formData.category} onChange={handleChange}>
-//                         <option value="student">Student</option>
-//                         <option value="professional">Professional</option>
-//                         <option value="startup_founder">Startup Founder</option>
-//                         <option value="other">Other</option>
-//                     </select>
-//                 </div>
-//             </form>
-//             <div className='course-payment'>
-//             <p>₹{fee}</p>
-//             <button>Enroll now</button>
-//           </div>
-//         </div>
-
-//         <div className='course-checkout'>
-//           <div className='course-details'>
-//               {/* <div className='course-image'>
-//                 <Image src={courseImage}/>
-//               </div> */}
-//               <div className='course-content'>
-//                 <div className='course-title'>
-//                   <h2>{courseHeading}</h2>
-//                 </div>
-//                 <div className='course-para'>
-//                   <p>{courseDescription}</p>
-//                 </div>
-//                 <div className='course-rating'>
-//                   <p>{rating}</p>
-//                 </div>
-//               </div>
-//               <div className='course-price'>
-//                 <p>₹{fee} </p>
-//               </div>
-//           </div>
-
-//         </div>
-
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Enroll;
-
-
-
-'use client'
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { useCart } from '@context/CartContext';
 import '@styles/common/enroll/Enroll.css';
 
 const Enroll = () => {
   const { cartDetails } = useCart();
-  if (!cartDetails) {
-    return <div>Loading course details...</div>; // Fallback UI when cartDetails is null
-  }
-  const { courseHeading, courseDescription, rating, fee } = cartDetails;
 
   const [formData, setFormData] = useState({
     fname: "",
@@ -229,6 +23,30 @@ const Enroll = () => {
     email: "",
     phone: "",
   });
+
+  const [razorpayScriptLoaded, setRazorpayScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadRazorpayScript = () => {
+      return new Promise((resolve, reject) => {
+        if (window.Razorpay) {
+          resolve(true);
+        } else {
+          const script = document.createElement("script");
+          script.src = "https://checkout.razorpay.com/v1/checkout.js";
+          script.onload = () => {
+            setRazorpayScriptLoaded(true);
+            resolve(true);
+          };
+          script.onerror = () => reject(new Error("Failed to load Razorpay SDK"));
+          document.body.appendChild(script);
+        }
+      });
+    };
+
+    loadRazorpayScript().catch((error) => console.error("Error loading Razorpay script:", error));
+  }, []);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -266,148 +84,132 @@ const Enroll = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    const { fname, lname, email, phone,  country, state, category } = formData;
-  
+
+    const { fname, lname, email, phone } = formData;
+
     const newErrorMessages = {
       fname: !fname ? "Please enter your first name." : "",
       lname: !lname ? "Please enter your last name." : "",
       email: !email ? "Please enter your email address." : "",
       phone: !phone ? "Please enter your phone number." : "",
     };
-  
+
     setErrorMessages(newErrorMessages);
-  
-    if (Object.values(newErrorMessages).some(message => message !== "")) {
+
+    if (Object.values(newErrorMessages).some((message) => message !== "")) {
       return;
     }
-<<<<<<< HEAD
 
     try {
-      // Post form data to Firebase Realtime Database
+      // Step 1: Create Razorpay order
+      const res = await fetch('http://localhost:5000/api/createOrder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: cartDetails?.fee,
+          name: cartDetails?.courseHeading,
+          description: cartDetails?.courseDescription,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success && razorpayScriptLoaded) {
+        const options = {
+          key: data.key_id,
+          amount: data.amount,
+          currency: "INR",
+          name: data.product_name,
+          description: data.description,
+          order_id: data.order_id,
+          handler: async function (response) {
+            // Step 2: On successful payment
+            const paymentStatus = "success";
+            await storeFormDataInFirebase(paymentStatus);
+            await sendNotificationEmail(paymentStatus, email); // Send notification email
+            alert("Payment Successful");
+            window.location.reload();
+          },
+          prefill: {
+            contact: formData.phone,
+            name: `${formData.fname} ${formData.lname}`,
+            email: formData.email,
+          },
+          theme: { color: "#2300a3" },
+          image: 'https://firebasestorage.googleapis.com/v0/b/testing-f9c8c.appspot.com/o/trafy%20icon.png?alt=media&token=a14b5cd3-febe-4f10-90d4-9f2073646012',
+        };
+
+        const razorpayInstance = new window.Razorpay(options);
+        razorpayInstance.on('payment.failed', async function (response) {
+          // Step 3: On payment failure
+          const paymentStatus = "failed";
+          await storeFormDataInFirebase(paymentStatus);
+          await sendNotificationEmail(paymentStatus, email); // Send notification email
+          alert("Payment Failed");
+        });
+
+        razorpayInstance.open();
+      } else {
+        throw new Error("Razorpay order creation failed.");
+      }
+    } catch (error) {
+      console.error("Error processing the payment:", error);
+      setErrorMessages({ ...errorMessages, form: "Error processing the payment. Please try again later." });
+    }
+  };
+
+// Function to store form data along with payment status in Firebase
+const storeFormDataInFirebase = async (paymentStatus) => {
+    try {
       const response = await fetch('https://uiux-courseformdata-default-rtdb.firebaseio.com/enrollments.json', {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formData, fee })
+        body: JSON.stringify({
+          ...formData,
+          fee: cartDetails?.fee,
+          paymentStatus: paymentStatus,  // Include payment status
+        }),
       });
 
-      if (response.ok) {
-        setFormData({
-          fname: "",
-          lname: "",
-          email: "",
-          phone: "",
-          city: "",
-          country: "",
-          state: "",
-          category: "student",
-          message: ""
-        });
-        setErrorMessages({});
-        alert("Your enrollment has been submitted successfully!");
-      } else {
-        throw new Error("Error submitting the form.");
+      if (!response.ok) {
+        throw new Error("Failed to store form data in Firebase");
       }
     } catch (error) {
-      console.error("Error submitting the form:", error);
-      setErrorMessages({ ...errorMessages, form: "Error submitting the form. Please try again later." });
+      console.error("Error storing form data:", error);
     }
-  };
-=======
-  
-    const enrollmentData = {
-      firstName: fname,
-      lastName: lname,
-      email: email,
-      phone: phone,
-      country: country,
-      state: state,
-      profession: category,
-    };
-  
+};
+
+// New function to send notification email after payment
+const sendNotificationEmail = async (paymentStatus, email) => {
     try {
-      const firebaseUrl = 'https://uiux-courseformdata-default-rtdb.firebaseio.com/enrollments.json';
-      const response = await fetch(firebaseUrl, {
+      const response = await fetch('http://localhost:5000/api/sendPaymentEmail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(enrollmentData),
+        body: JSON.stringify({
+          email: email,
+          paymentStatus: paymentStatus,
+        }),
       });
-  
+
       if (!response.ok) {
-        throw new Error(`Failed to submit enrollment: ${response.statusText}`);
+        throw new Error("Failed to send notification email");
       }
-  
-      // Reset form fields after successful submission
-      setFormData({
-        fname: "",
-        lname: "",
-        email: "",
-        phone: "",
-        country: "",
-        state: "",
-        category: "student",
-        message: "",
-      });
-  
-      alert('Enrollment submitted successfully!');
-      
     } catch (error) {
-      console.error('Error submitting enrollment:', error);
-      alert('Failed to submit the enrollment. Please try again.');
+      console.error("Error sending notification email:", error);
     }
-  };
-  
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     const { fname, lname, email, phone, city, category, message } = formData;
-
-//     const newErrorMessages = {
-//         fname: !fname ? "Please enter your first name." : "",
-//         lname: !lname ? "Please enter your last name." : "",
-//         email: !email ? "Please enter your email address." : "",
-//         phone: !phone ? "Please enter your phone number." : "",
-//         message: "" // No validation for the message field
-//     };
-
-//     setErrorMessages(newErrorMessages);
-
-//     if (Object.values(newErrorMessages).some(message => message !== "")) {
-//         return;
-//     }
-
-//     try {
-//         // Step 1: Save form data to Firebase
-//         const firebaseUrl =  'https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json';
-
-//         await fetch(firebaseUrl, {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify(formData),
-//         });
-
-//         // Reset form fields after successful submission
-//         setFormData({
-//             fname: "",
-//             lname: "",
-//             email: "",
-//             phone: "",
-//             category: "student",
-//             message: "",
-//         });
-
-//         // setPopupMessage("Form submitted successfully!");
-//         window.alert("Thank you for submitting the form.");
-//         setShowPopup(true);
-//     } catch (error) {
-//         console.error('Error:', error);
-//     }
-// };
+};
 
   
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
+
+  if (!cartDetails) {
+    return <div>Loading course details...</div>;
+  }
+
+  const { courseHeading, courseDescription, rating, fee } = cartDetails;
+
+  
 
   return (
     <div className='enroll'>
@@ -421,68 +223,20 @@ const Enroll = () => {
             <form className="enquiryform" onSubmit={handleSubmit} autoComplete="off">
               <div className="enquiryname">
                 <div className="enquiryfname">
-<<<<<<< HEAD
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    name="fname"
-                    className="enquiry-fname"
-                    required
-                    onChange={handleChange}
-                    value={formData.fname}
-                  />
-                  {errorMessages.fname && <p className="error-message">{errorMessages.fname}</p>}
-                </div>
-                <div className="enquirylname">
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    className="enquiry-lname"
-                    name="lname"
-                    required
-                    onChange={handleChange}
-                    value={formData.lname}
-                  />
-=======
                   <input type="text" placeholder="First Name" name="fname" className="enquiry-fname" required onChange={handleChange} value={formData.fname} />
                   {errorMessages.fname && <p className="error-message">{errorMessages.fname}</p>}
                 </div>
                 <div className="enquirylname">
                   <input type="text" placeholder="Last Name" className="enquiry-lname" name="lname" required onChange={handleChange} value={formData.lname} />
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
                   {errorMessages.lname && <p className="error-message">{errorMessages.lname}</p>}
                 </div>
               </div>
               <div className="enquiryemail">
-<<<<<<< HEAD
-                <input
-                  type="email"
-                  placeholder="Email"
-                  required
-                  className="enquiry-email"
-                  name="email"
-                  onChange={handleChange}
-                  value={formData.email}
-                />
-                {errorMessages.email && <p className="error-message">{errorMessages.email}</p>}
-              </div>
-              <div className="enquiryphone">
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  required
-                  className="enquiry-phone"
-                  name="phone"
-                  onChange={handleChange}
-                  value={formData.phone}
-                />
-=======
                 <input type="email" placeholder="Email" required className="enquiry-email" name="email" onChange={handleChange} value={formData.email} />
                 {errorMessages.email && <p className="error-message">{errorMessages.email}</p>}
               </div>
               <div className="enquiryphone">
                 <input type="tel" placeholder="Phone Number" required className="enquiry-phone" name="phone" onChange={handleChange} value={formData.phone} />
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
                 {errorMessages.phone && <p className="error-message">{errorMessages.phone}</p>}
               </div>
               <div className="enquirycountry">
@@ -490,11 +244,7 @@ const Enroll = () => {
                   value={formData.country}
                   onChange={(val) => selectCountry(val)}
                   className="country-dropdown"
-<<<<<<< HEAD
                   defaultOptionLabel="Select Country"
-=======
-                  defaultOptionLabel="Select Country" 
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
                 />
               </div>
               <div className="enquirystate">
@@ -513,40 +263,20 @@ const Enroll = () => {
                 )}
               </div>
               <div className="enquirycategory">
-<<<<<<< HEAD
-                <select
-                  name="category"
-                  placeholder="Select Profession"
-                  className="enquiry-category"
-                  value={formData.category}
-                  onChange={handleChange}
-                >
-=======
                 <select name="category" placeholder="Select Profession" className="enquiry-category" value={formData.category} onChange={handleChange}>
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
                   <option value="student">Student</option>
                   <option value="professional">Professional</option>
                   <option value="startup_founder">Startup Founder</option>
                   <option value="other">Other</option>
                 </select>
               </div>
-<<<<<<< HEAD
-              <button type="submit">Enroll now</button>
-              {errorMessages.form && <p className="error-message">{errorMessages.form}</p>}
-            </form>
-          </div>
-
-=======
               <div className='course-payment'>
                 <p>₹{fee}</p>
-                <button type='submit' >Enroll now</button>
+                <button type='submit'>Enroll now</button>
               </div>
             </form>
-
-
           </div>
 
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
           <div className='course-checkout'>
             <div className='course-details'>
               <div className='course-content'>
@@ -565,10 +295,6 @@ const Enroll = () => {
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5f5dcdefa035b57af50bcbfc536f9ed60274b82b
         </div>
       </div>
     </div>

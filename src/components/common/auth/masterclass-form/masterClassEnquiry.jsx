@@ -90,7 +90,7 @@ const MasterClassEnquiryForm = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { fname, lname, email, phone, city } = formData;
+        const { fname, lname, email, phone, city, category, message } = formData;
 
         const newErrorMessages = {
             fname: !fname ? "Please enter your first name." : "",
@@ -98,6 +98,7 @@ const MasterClassEnquiryForm = (props) => {
             email: !email ? "Please enter your email address." : "",
             phone: !phone ? "Please enter your phone number." : "",
             city: !city ? "Please enter your city." : "",
+            message: "" // No validation for the message field
         };
 
         setErrorMessages(newErrorMessages);
@@ -107,11 +108,22 @@ const MasterClassEnquiryForm = (props) => {
         }
 
         try {
-            // Step 1: Create Razorpay Order first
+            // Step 1: Save form data to Firebase
+            const firebaseUrl = props.courseType === 'uiuxCourse'
+                ? 'https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json'
+                : 'https://masterclass-formdata-default-rtdb.firebaseio.com/enquiries.json';
+
+            await fetch(firebaseUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            // Step 2: Create Razorpay Order
             const res = await fetch('http://localhost:5000/api/createOrder', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ amount: props.courseFee, name: props.courseName, description: props.courseDescription }),
+                body: JSON.stringify({ amount: props.courseFee, name: props.courseName, description:props.courseDescription }),
             });
             const data = await res.json();
 
@@ -119,17 +131,18 @@ const MasterClassEnquiryForm = (props) => {
                 if (razorpayScriptLoaded) {
                     const options = {
                         key: data.key_id,
+    
                         amount: data.amount,
                         currency: "INR",
                         name: data.product_name,
                         description: data.description,
                         order_id: data.order_id,
-                        handler: async function (response) {
-                            // Payment Succeeded, store form data in Firebase
-                            await storeFormDataInFirebase('success', formData);
+                        handler: function (response) {
                             alert("Payment Succeeded");
                             window.location.reload();
                         },
+
+                       
                         prefill: {
                             contact: formData.phone,
                             name: `${formData.fname} ${formData.lname}`,
@@ -139,12 +152,13 @@ const MasterClassEnquiryForm = (props) => {
                             color: "#2300a3"
                         },
                         image: 'https://firebasestorage.googleapis.com/v0/b/testing-f9c8c.appspot.com/o/trafy%20icon.png?alt=media&token=a14b5cd3-febe-4f10-90d4-9f2073646012',
-                    };
 
+                       
+
+                    };
+                    console.log(key)
                     const razorpay = new window.Razorpay(options);
-                    razorpay.on('payment.failed', async function (response) {
-                        // Payment Failed, store form data in Firebase
-                        await storeFormDataInFirebase('failed', formData);
+                    razorpay.on('payment.failed', function (response) {
                         alert("Payment Failed");
                     });
                     razorpay.open();
@@ -156,24 +170,9 @@ const MasterClassEnquiryForm = (props) => {
             }
         } catch (error) {
             console.error('Error:', error);
+            setPopupMessage(`Error: ${error.message}`);
+            setShowPopup(true);
         }
-    };
-
-    const storeFormDataInFirebase = async (paymentStatus, formData) => {
-        const firebaseUrl = props.courseType === 'uiuxCourse'
-            ? 'https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json'
-            : 'https://masterclass-formdata-default-rtdb.firebaseio.com/enquiries.json';
-
-        const dataWithStatus = {
-            ...formData,
-            paymentStatus: paymentStatus,
-        };
-
-        await fetch(firebaseUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(dataWithStatus),
-        });
     };
 
     const closeForm = () => {
