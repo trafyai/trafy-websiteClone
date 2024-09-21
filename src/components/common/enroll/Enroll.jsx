@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-'use client'
-import React, { useState } from 'react';
-=======
 'use client';
 import React, { useState,useEffect } from 'react';
->>>>>>> 510906b5deed94a586f73c1f25cde9ee09a266a3
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { useCart } from '@context/CartContext';
 import '@styles/common/enroll/Enroll.css';
@@ -207,8 +202,6 @@ const sendNotificationEmail = async (paymentStatus, email) => {
 };
 
   
-<<<<<<< HEAD
-=======
 
   if (!cartDetails) {
     return <div>Loading course details...</div>;
@@ -218,7 +211,6 @@ const sendNotificationEmail = async (paymentStatus, email) => {
 
   
 
->>>>>>> 510906b5deed94a586f73c1f25cde9ee09a266a3
   return (
     <div className='enroll'>
       <div className='enroll-container'>
