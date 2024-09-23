@@ -101,6 +101,9 @@ const Signup = () => {
                 firstName: email.split('@')[0],
             });
 
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
+
             console.log('User data saved successfully');
             router.back();
         } catch (error) {
@@ -118,6 +121,9 @@ const Signup = () => {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
+
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
     
             // Check if the user data already exists in the Firebase Realtime Database
             const userRef = ref(database, 'usersData/' + user.uid);

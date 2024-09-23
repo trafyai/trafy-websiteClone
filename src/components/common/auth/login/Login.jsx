@@ -86,9 +86,9 @@ const Login = () => {
                 firstName: user.email.split('@')[0],
             });
 
-
-            // router.push('/');
-            // router.back();
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
+        
 
             // router.push('/');
 
@@ -118,6 +118,9 @@ const Login = () => {
                 email: user.email,
                 firstName: user.email.split('@')[0],
             });
+
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
 
 
             // router.back();
