@@ -100,13 +100,6 @@ const Signup = () => {
                 firstName: email.split('@')[0],
             });
 
-<<<<<<< HEAD
-=======
-            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
-            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
-
-            console.log('User data saved successfully');
->>>>>>> 206f9e33efd68a7c63fbb64e4caaf69a42c4a387
             router.back();
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
