@@ -80,7 +80,7 @@ const CourseHeroData=[
         duration:"4 weeks",
         formLink:"https://courseenquiryform-default-rtdb.firebaseio.com/DM-CourseEnquiryFormData.json",
         demoLink:"https://uiux-advance-formdata-default-rtdb.firebaseio.com/DM-FreeDemoFormData.json",
-        fee:"10000",
+        fee:"15000",
 
     },
     {
@@ -116,7 +116,7 @@ const CourseHeroData=[
         formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json",
         formCourse:"UI/UX Beginner",
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-BeginnersFreeDemoForm.json",
-        fee:"1",
+        fee:"10000",
         formtype:"uiuxCourse",
         courseName:"UIUX-responsive-ui-designs",
     },
@@ -153,7 +153,7 @@ const CourseHeroData=[
         formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-IntermediateEnquiryFormData.json",
         formCourse:"UI/UX Intermediate",
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-IntermediateFreeDemoForm.json",
-        fee:"25000",
+        fee:"20000",
         formtype:"uiuxCourse",
         courseName:"UIUX-building-functional-ux",
     },

@@ -62,7 +62,6 @@ const Signup = () => {
             const signInMethods = await fetchSignInMethodsForEmail(auth, email);
             return signInMethods.length > 0;
         } catch (error) {
-            console.error("Error checking email existence:", error);
             return false;
         }
     };
@@ -101,7 +100,6 @@ const Signup = () => {
                 firstName: email.split('@')[0],
             });
 
-            console.log('User data saved successfully');
             router.back();
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
@@ -109,7 +107,6 @@ const Signup = () => {
             } else {
                 setGeneralError('An error occurred. Please try again.');
             }
-            console.error('Error during signup:', error);
         }
     };
 
@@ -126,7 +123,6 @@ const Signup = () => {
             if (snapshot.exists()) {
                 // User already exists, so fetch their data
                 const existingData = snapshot.val();
-                console.log('Existing user data:', existingData);
                 
                 // Load existing profile data (e.g., profile picture, phone number)
                 // You can set the data in your component state if needed
@@ -142,7 +138,6 @@ const Signup = () => {
                     profilePic: null,
                     phoneNumber: null,
                 });
-                console.log('New user created and data stored:', user);
             }
     
             // Redirect user after successful sign-in
@@ -153,7 +148,6 @@ const Signup = () => {
             } else {
                 setGeneralError("An error occurred. Please try again.");
             }
-            console.error('Google Sign-In error:', error);
         }
     };
     const togglePasswordVisibility = () => {

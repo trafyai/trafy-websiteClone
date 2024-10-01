@@ -324,18 +324,18 @@
     font-weight: 600;
     color: var(--h-black);
 }
-.course-payment{
+.enroll-course-payment{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.course-payment p{
+.enroll-course-payment p{
     font-size: 22px;
     font-family: var(--h-font);
     font-weight: 600;
     color: var(--h-black);
 }
-.course-payment button {
+.enroll-course-payment button {
     width: 100%;
     padding: 12px 32px;
     font-size: 16px;
@@ -348,7 +348,7 @@
     margin-top: 8px;
 }
 
-.course-payment button:hover {
+.enroll-course-payment button:hover {
     background-color: inherit;
     color: var(--trafy-black);
 }

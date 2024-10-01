@@ -270,7 +270,7 @@ const sendNotificationEmail = async (paymentStatus, email) => {
                   <option value="other">Other</option>
                 </select>
               </div>
-              <div className='course-payment'>
+              <div className='enroll-course-payment'>
                 <p>₹{fee}</p>
                 <button type='submit'>Enroll now</button>
               </div>

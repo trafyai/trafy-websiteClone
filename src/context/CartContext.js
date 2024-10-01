@@ -1,3 +1,35 @@
+// 'use client'
+// import { createContext, useContext, useState, useEffect } from 'react';
+
+// const CartContext = createContext();
+
+// export function CartProvider({ children }) {
+//   const [cartDetails, setCartDetails] = useState(null);
+
+//   useEffect(() => {
+//     if (cartDetails) {
+//       localStorage.setItem('cartDetails', JSON.stringify(cartDetails));
+//     }
+//   }, [cartDetails]);
+
+//   useEffect(() => {
+//     const storedCartDetails = localStorage.getItem('cartDetails');
+//     if (storedCartDetails) {
+//       setCartDetails(JSON.parse(storedCartDetails));
+//     }
+//   }, []);
+
+//   return (
+//     <CartContext.Provider value={{ cartDetails, setCartDetails }}>
+//       {children}
+//     </CartContext.Provider>
+//   );
+// }
+
+// export function useCart() {
+//   return useContext(CartContext);
+// }
+
 'use client'
 import { createContext, useContext, useState, useEffect } from 'react';
 
@@ -6,15 +38,17 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartDetails, setCartDetails] = useState(null);
 
-  // Save cartDetails to localStorage whenever it's updated
+  // Effect to update localStorage whenever cartDetails changes
   useEffect(() => {
     if (cartDetails) {
+      // Clear localStorage and store the updated cart details
+      localStorage.removeItem('cartDetails');
       localStorage.setItem('cartDetails', JSON.stringify(cartDetails));
     }
   }, [cartDetails]);
 
-  // Load cartDetails from localStorage on initial load
   useEffect(() => {
+    // On component mount, load cart details from localStorage
     const storedCartDetails = localStorage.getItem('cartDetails');
     if (storedCartDetails) {
       setCartDetails(JSON.parse(storedCartDetails));
