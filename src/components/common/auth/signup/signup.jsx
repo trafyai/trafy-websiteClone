@@ -100,6 +100,13 @@ const Signup = () => {
                 firstName: email.split('@')[0],
             });
 
+<<<<<<< HEAD
+=======
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
+
+            console.log('User data saved successfully');
+>>>>>>> 206f9e33efd68a7c63fbb64e4caaf69a42c4a387
             router.back();
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
@@ -115,6 +122,9 @@ const Signup = () => {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
+
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
+            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
     
             // Check if the user data already exists in the Firebase Realtime Database
             const userRef = ref(database, 'usersData/' + user.uid);
