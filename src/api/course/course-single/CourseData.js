@@ -116,7 +116,7 @@ const CourseHeroData=[
         formLink:"https://uiux-beginners-formdata-default-rtdb.firebaseio.com/UIUX-BeginnersEnquiryFormData.json",
         formCourse:"UI/UX Beginner",
         demoLink:"https://freedemo-form-default-rtdb.firebaseio.com/UIUX-BeginnersFreeDemoForm.json",
-        fee:"10000",
+        fee:"1",
         formtype:"uiuxCourse",
         courseName:"UIUX-responsive-ui-designs",
     },
