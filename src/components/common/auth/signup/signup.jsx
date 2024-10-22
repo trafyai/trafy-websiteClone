@@ -11,6 +11,7 @@ import { auth, database } from '@firebase'; // Adjust this path based on your ac
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import validator from 'email-validator';
+import { getIdToken } from 'firebase/auth'
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -93,6 +94,10 @@ const Signup = () => {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
+            
+            const idtoken = await user.getIdToken();
+            console.log("User ID Token:", idtoken);
+
             const userRef = ref(database, 'usersData/' + user.uid);
             await set(userRef, {
                 uid: user.uid,
@@ -101,6 +106,30 @@ const Signup = () => {
             });
 
             router.back();
+
+            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ idToken: idtoken }),
+            });
+    
+            const data = await response.json();
+    
+            if (data.success) {
+                // Store the session cookie in the browser
+                document.cookie = `authToken=${data.sessionCookie}; path=/; domain=.yourdomain.com`;
+    
+                // You can now redirect or perform other actions
+                router.push('/');
+            } else {
+                setGeneralError('Failed to create a session. Please try again.');
+            }
+            
+            
+
+            
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
                 setGeneralError('An account with this email already exists. Please log in.');
@@ -116,35 +145,44 @@ const Signup = () => {
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
-            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.trafyai.com`;
-            document.cookie = `authToken=${userCredential.user.uid}; path=/; domain=.blog.trafyai.com`;
-    
-            // Check if the user data already exists in the Firebase Realtime Database
-            const userRef = ref(database, 'usersData/' + user.uid);
-            const snapshot = await get(userRef);
             
-            if (snapshot.exists()) {
-                // User already exists, so fetch their data
-                const existingData = snapshot.val();
-                
-                // Load existing profile data (e.g., profile picture, phone number)
-                // You can set the data in your component state if needed
-                // setUserProfile(existingData); // Example: You might set this in a state
+            const idtoken = await user.getIdToken();
+            console.log("User ID Token:", idtoken);
     
-            } else {
-                // If the user doesn't exist, create a new entry
-                await set(userRef, {
-                    uid: user.uid,
-                    email: user.email,
-                    firstName: user.email.split('@')[0],
-                    // Add any default values like profile pic or phone number if needed
-                    profilePic: null,
-                    phoneNumber: null,
-                });
-            }
-    
-            // Redirect user after successful sign-in
+            // Check if the user data already exists in the Firebase Realtime Databas
+           
+            
+            const userRef = ref(database, 'usersData/' + user.uid);
+            await set(userRef, {
+                uid: user.uid,
+                email: user.email,
+                firstName: user.email.split('@')[0],
+            });
+
+            console.log('Google Sign-In successful and user data stored:', user);
             router.back();
+
+            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ idToken: idtoken }),
+            });
+    
+            const data = await response.json();
+    
+            if (data.success) {
+                // Store the session cookie in the browser
+                document.cookie = `authToken=${data.sessionCookie}; path=/; domain=.yourdomain.com`;
+    
+                // You can now redirect or perform other actions
+                router.push('/');
+            } else {
+                setGeneralError('Failed to create a session. Please try again.');
+            }
+
+            
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                 setGeneralError("Email or password is incorrect. Please try again.");

@@ -67,8 +67,10 @@ export const AuthContextProvider = ({ children }) => {
     const logOut = async () => {
         await signOut(auth);
         setUser(null);
+      
     };
-
+   
+    
     const signUpWithEmail = async (email, password) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
