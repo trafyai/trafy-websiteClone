@@ -36,40 +36,6 @@ const Login = () => {
 
         return () => unsubscribe(); // Cleanup subscription on unmount
     }, [router]);
-
-
-    // useEffect(() => {
-    //          const verifyToken = async () => {
-    //              if (token) {
-    //                  try {
-    //                      const response = await fetch('http://localhost:5000/api/verifyToken', {
-    //                          method: 'POST',
-    //                      headers: {
-    //                              'Content-Type': 'application/json',
-    //                          },
-    //                          body: JSON.stringify({ token }),
-    //                      });
-    
-    //                      if (response.ok) {
-    //                          const data = await response.json();
-    //                          console.log('User authenticated:', data);
-    //                          // Set user state or store user details in Firebase
-    //                         await setUser(data.user); // Assuming data.user contains user info
-    //                        router.push('/dashboard'); // Redirect to dashboard or home page
-    //                     } else {
-    //                          console.error('Token verification failed');
-    //                          setGeneralError("Invalid token. Please log in again.");
-    //                      }
-    //                  } catch (error) {
-    //                      console.error('Error verifying token:', error);
-    //                 }
-    //             } else {
-    //            setLoading(false); // No token, stop loading
-    //              }
-    //         };
-    
-    //          verifyToken();
-    //      }, [token, router]);
     
 
     const validateEmail = (email) => {
@@ -118,14 +84,8 @@ const Login = () => {
             console.log("User ID Token:", idtoken);
 
             // Store user data in Firebase Realtime Database
-            const userRef = ref(database, 'usersData/' + user.uid);
-            await set(userRef, {
-                uid: user.uid,
-                email: user.email,
-                firstName: user.email.split('@')[0],
-            });
 
-            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+            const response = await fetch('https://trafy-newbackend-255821839155.us-central1.run.app/api/createSessionCookie', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -170,15 +130,7 @@ const Login = () => {
             const idtoken = await user.getIdToken();
             console.log("User ID Token:", idtoken);
 
-            // Store user data in Firebase Realtime Database
-            const userRef = ref(database, 'usersData/' + user.uid);
-            await set(userRef, {
-                uid: user.uid,
-                email: user.email,
-                firstName: user.email.split('@')[0],
-            });
-
-            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+            const response = await fetch('https://trafy-newbackend-255821839155.us-central1.run.app/api/createSessionCookie', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

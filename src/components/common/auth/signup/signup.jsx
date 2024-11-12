@@ -107,7 +107,7 @@ const Signup = () => {
 
             router.back();
 
-            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+            const response = await fetch('https://trafy-newbackend-255821839155.us-central1.run.app/api/createSessionCookie', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ const Signup = () => {
 
             
             const idtoken = await user.getIdToken();
-            console.log("User ID Token:", idtoken);
+            // console.log("User ID Token:", idtoken);
     
             // Check if the user data already exists in the Firebase Realtime Databas
            
@@ -162,7 +162,7 @@ const Signup = () => {
             console.log('Google Sign-In successful and user data stored:', user);
             router.back();
 
-            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+            const response = await fetch('https://trafy-newbackend-255821839155.us-central1.run.app/api/createSessionCookie', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

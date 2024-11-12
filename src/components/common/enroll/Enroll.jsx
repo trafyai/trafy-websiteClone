@@ -102,7 +102,7 @@ const Enroll = () => {
 
     try {
       // Step 1: Create Razorpay order
-      const res = await fetch('https://trafywebsite-backend-865611889264.us-central1.run.app/api/createOrder', {
+      const res = await fetch('https://trafy-newbackend-255821839155.us-central1.run.app/api/createOrder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -184,7 +184,7 @@ const storeFormDataInFirebase = async (paymentStatus) => {
 // New function to send notification email after payment
 const sendNotificationEmail = async (paymentStatus, email) => {
     try {
-      const response = await fetch('https://trafywebsite-backend-865611889264.us-central1.run.app/api/sendPaymentEmail', {
+      const response = await fetch('https://trafy-newbackend-255821839155.us-central1.run.app/api/sendPaymentEmail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
