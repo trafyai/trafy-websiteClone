@@ -83,7 +83,7 @@ const Login = () => {
             const idtoken = await user.getIdToken();
             console.log("User ID Token:", idtoken);
 
-            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+            const response = await fetch('https://trafy-newbackend-865611889264.us-central1.run.app/api/createSessionCookie', {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
@@ -130,7 +130,7 @@ const Login = () => {
             const idtoken = await user.getIdToken();
             console.log("User ID Token:", idtoken);
 
-            const response = await fetch('http://localhost:5000/api/createSessionCookie', {
+            const response = await fetch('https://trafy-newbackend-865611889264.us-central1.run.app/api/createSessionCookie', {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
