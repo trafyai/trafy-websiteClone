@@ -169,7 +169,7 @@ const handleLogOut = async () => {
               Masterclass
             </Link> */}
             <Link
-              href="https://blog.trafy.ai/"
+              href="https://trafy-blogclone-865611889264.us-central1.run.app"
               className="menu-resources"
               onClick={() => handleNavigation("https://blog.trafy.ai/")}
             >
